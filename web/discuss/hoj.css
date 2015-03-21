@@ -1,0 +1,124 @@
+@import url(../bootstrap/css/bootstrap.css);
+
+a:link{color:blue;text-decoration:none;}
+a:visited{color:blue;text-decoration:none;}
+a:hover{color:cyan;}
+h2{
+	color:blue;
+}
+#profile {
+    font-weight: bold;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    text-align: right;
+    top: 0;
+    visibility: visible;
+    width: 100%;
+    z-index: 3;
+}
+#wrapper {
+    width: 95%;
+    position: relative;
+    left: 2.5%;
+}
+#head {
+    height: 53px;
+    position: static;
+    text-align: center;
+    visibility: visible;
+    width: 100%;
+    z-index: 1;
+}
+.toprow {
+    background-color: #1A5CC8;
+    color: #FFFFFF;
+    font-weight: bold;
+    white-space: nowrap;
+    background: url("image/menu_bg.png");
+}
+#broadcast {
+    color: red;
+    height: 50px;
+    position: static;
+    text-align: center;
+    visibility: visible;
+    width: 100%;
+    z-index: 4;
+}
+#menu {
+    background: url("image/menu_bg.png") repeat scroll 0 0 transparent;
+    font-weight: bold;
+    height: 35px;
+    position: static;
+    text-align: center;
+    visibility: visible;
+    width: 100%;
+    z-index: 2;
+}
+.toprow td{font-size:100%;}
+.toprow a:link{color:white;text-decoration:none;}
+.toprow a:visited{color:white;text-decoration:none;}
+.toprow a:hover{color:cyan;}
+
+.oddrow{background-color:#F3F9FF;}
+.oddrow td{font-size:110%;}
+.evenrow{background-color:#F0FFF0;}
+.evenrow td{font-size:110%;}
+
+.top3 {color:orange;}
+.top2 {color:green;}
+.top1 {color:#0DF;}
+.hot {color:red;}
+.lock {color:grey;}
+
+.mono span{width:3em;display:inline-block; text-align:center}
+
+blockquote td {font-size:75%}
+
+body{background-color:#FFFFFF;}
+.hd{
+	background-color:#FFFFFF;
+	color:#FFFFFF;
+	font-weight:bold;
+}
+
+.time{
+	text-align: right;
+}
+.ip{
+	text-align: right;
+	padding-right: 5px;
+}
+tr.userinfo{
+	background-color:#FFFFF0;
+	font-size: 16px;
+}
+span.yes{
+color:green;
+font-weight: bolder; 
+}
+span.no{
+color:red;
+font-weight: bolder;
+}
+
+span.exadmin{
+color:gray;
+}
+
+body {
+    background-color: #FFFFFF;
+    background-image: url("image/background.jpg");
+}
+
+.oddrow {
+    background-color: #E5ECF9;
+    white-space: nowrap;
+	font-size:110%;
+}
+.evenrow {
+    background-color: #D5D5FF;
+    white-space: nowrap;
+	font-size:110%;
+}
