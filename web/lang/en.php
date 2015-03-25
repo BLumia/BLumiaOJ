@@ -19,6 +19,8 @@
 	$MSG_EDITOR="Editor";
 	$MSG_RECENT="Recent";
 	$MSG_BLOG="Blogs";
+	$MSG_GET_TOOLS="Get Develop Tools";
+	$MSG_ABOUT="About this OJ";
 	//status.php
 	$MSG_Pending="Pending";
 	$MSG_Pending_Rejudging="Pending Rejudging";

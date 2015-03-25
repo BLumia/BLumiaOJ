@@ -102,8 +102,10 @@
 				$end_time=strtotime($row->end_time);
 				$view_description=$row->description;
 				$view_title= $row->title;
-				$view_start_time=$row->start_time;
-				$view_end_time=$row->end_time;
+				//$view_start_time=$row->start_time;
+				$view_start_time=date("Y/m/d h:i:a",$start_time);
+				//$view_end_time=$row->end_time;
+				$view_end_time=date("Y/m/d h:i:a",$end_time);
 				
 				
 				

@@ -32,6 +32,21 @@
         </p>
 	<?php echo $view_news?>
 <div class="row">
+	<div class="col-xs-12 col-md-9">
+		<center>
+			<div id="submission" style="width:600px;height:300px" ></div>
+		</center>
+	</div>
+	<div class="col-xs-12 col-md-3">
+		<ul class="list-group">
+			<li class="list-group-item"><?php echo $MSG_FAQ; ?></li>
+			<li class="list-group-item"><?php echo $MSG_BBS; ?></li>
+			<li class="list-group-item"><?php echo $MSG_GET_TOOLS;?></li>
+			<li class="list-group-item"><?php echo $MSG_ABOUT;?></li>
+		</ul>
+	</div>
+</div>
+<div class="row">
   <div class="col-xs-6 col-md-3">
     <a href="http://uva.onlinejudge.org/" class="thumbnail" target="_blank">
       <img src="./homepage/uvalogo.png" alt="UVa Online Judge">
@@ -81,33 +96,34 @@
  <script language="javascript" type="text/javascript" src="include/jquery.flot.js"></script>
 <script type="text/javascript">
 $(function () {
-var d1 = [];
-var d2 = [];
-<?php
-foreach($chart_data_all as $k=>$d){
-?>
-d1.push([<?php echo $k?>, <?php echo $d?>]);
-<?php }?>
-<?php
-foreach($chart_data_ac as $k=>$d){
-?>
-d2.push([<?php echo $k?>, <?php echo $d?>]);
-<?php }?>
-//var d2 = [[0, 3], [4, 8], [8, 5], [9, 13]];
-// a null signifies separate line segments
-var d3 = [[0, 12], [7, 12], null, [7, 2.5], [12, 2.5]];
-$.plot($("#submission"), [
-{label:"<?php echo $MSG_SUBMIT?>",data:d1,lines: { show: true }},
-{label:"<?php echo $MSG_AC?>",data:d2,bars:{show:true}} ],{
-grid: {
-backgroundColor: { colors: ["#fff", "#eee"] }
-},
-xaxis: {
-mode: "time",
-max:(new Date()).getTime(),
-min:(new Date()).getTime()-100*24*3600*1000
-}
-});
+	var d1 = [];
+	var d2 = [];
+	<?php foreach($chart_data_all as $k=>$d){ ?>
+	d1.push([<?php echo $k?>, <?php echo $d?>]);
+	<?php }?>
+	<?php foreach($chart_data_ac as $k=>$d){ ?>
+	d2.push([<?php echo $k?>, <?php echo $d?>]);
+	<?php }?>
+	//var d2 = [[0, 3], [4, 8], [8, 5], [9, 13]];
+	// a null signifies separate line segments
+	var d3 = [[0, 12], [7, 12], null, [7, 2.5], [12, 2.5]];
+	$.plot($("#submission"), [
+		{label:"<?php echo $MSG_SUBMIT?>",data:d1,lines: { show: true }},
+		{label:"<?php echo $MSG_AC?>",data:d2,lines:{show:true}} 
+	],{
+		grid: {
+			backgroundColor: { colors: ["#fff", "#eee"] }
+		},
+		xaxis: {
+			mode: "time",
+			max:(new Date()).getTime(),
+			min:(new Date()).getTime()-50*24*3600*1000//100 to 50
+		},
+		yaxis: {
+			max:4500,
+			min:0//100 to 50
+		}
+	});
 });
 //alert((new Date()).getTime());
 </script>
