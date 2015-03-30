@@ -1,9 +1,9 @@
 <?php $url=basename($_SERVER['REQUEST_URI']);?>
       <!-- Static navbar -->
       <?php 
-			$IS_IN_CONTENT = 'class="navbar-default"';
+			$IS_IN_CONTENT = 'class="navbar-default navbar-static-top"';
 			if(!isset($_GET['cid'])) {
-				$IS_IN_CONTENT = 'class="navbar-inverse"';
+				$IS_IN_CONTENT = 'class="navbar-inverse navbar-static-top"';
 			} 
 	  ?>
       <nav <?php echo $IS_IN_CONTENT?> role="navigation">

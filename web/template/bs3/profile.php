@@ -29,7 +29,7 @@ header("Pragma: no-cache");
 	} else {
 		$dropDownLabel="Login / SignUp";
 	}
-	$profile.="<li class='dropdown' style='width:161px'><a href='#' class='dropdown-toggle' data-toggle='dropdown'><b class='caret'></b>".$dropDownLabel.$PMBox."</a><ul class='dropdown-menu'>";
+	$profile.="<li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'><b class='caret'></b>".$dropDownLabel.$PMBox."</a><ul class='dropdown-menu'>";
 		if (isset($_SESSION['user_id'])) {
 			$sid=$_SESSION['user_id'];
 			$profile.= "<li><a href=./modifypage.php>$MSG_USERINFO</a></li><li><a href='./userinfo.php?user=$sid'>$sid</a></li>";
