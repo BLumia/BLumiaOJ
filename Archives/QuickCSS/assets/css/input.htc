@@ -1,0 +1,30 @@
+<PUBLIC:COMPONENT>
+<PUBLIC:ATTACH EVENT="onmouseover" ONEVENT="Hilite()" />
+<PUBLIC:ATTACH EVENT="onmouseout" ONEVENT="Restore()" />
+<PUBLIC:ATTACH EVENT="onmousedown" ONEVENT="Hilite()" />
+<SCRIPT LANGUAGE="JScript">
+<!--
+ function Hilite()
+ {
+ // save original values
+ element.style.border = "1px #f60 solid";
+ element.style.background = "#f5f5f5";
+ }
+
+ function Restore()
+ {
+ // restore original values
+ element.style.border = "1px #ccc solid"; 
+ element.style.background = "#fff";
+ }
+ 
+ function CSSfocus()
+ {
+ // restore original values
+ element.style.border = "1px #ccc solid"; 
+ element.style.background = "#fff";
+ }
+-->
+</SCRIPT>
+</PUBLIC:COMPONENT>
+

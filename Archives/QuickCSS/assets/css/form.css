@@ -1,0 +1,29 @@
+/*!
+ * 快切——开源中文css框架 v1.0
+ *
+ * Copyright 2014 kuai.qietu.com, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+ form{}
+
+input[type=text],
+textarea{
+	 background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #999999;
+    box-shadow: 1px 1px 3px #ccc inset;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    outline: medium none;
+    padding: 4px 9px;
+	margin:1px;
+}
+
+fieldset{
+	padding:20px; border:#ccc solid 1px;
+}
+label{
+	display:block; font-size:14px; margin:10px 0 0 0;
+}

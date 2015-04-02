@@ -1,0 +1,7 @@
+/* */
+<public:attach event="onfocus" onevent="makeblur()"/>
+<script language="javascript">
+function makeblur(){
+this.blur();
+}
+</script> 

@@ -1,0 +1,80 @@
+/*!
+ * 快切——开源中文css框架 v1.0
+ *
+ * Copyright 2014 kuai.qietu.com, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+ 
+ /*台式电脑*/
+@media (min-width: 768px) and (max-width: 959px) {
+	.naver .inner{
+		width:auto; padding:0 20px;
+	}
+	header, footer, .wrapper{
+		width:auto; margin:20px;
+	}
+	.col1,
+	.col2,
+	.col3,
+	.col4,
+	.col5,
+	.col6,
+	.col7,
+	.col8,
+	.col9,
+	.col10,
+	.col11,
+	.col12 {
+		width:100%;
+	}
+}
+
+/*平板电脑*/
+@media (min-width: 320px) and (max-width: 768px) {
+	.naver .inner{
+		width:auto; padding:0 20px;
+	}
+	header, footer, .wrapper{
+		width:auto; margin:20px;
+	}
+	.col1,
+	.col2,
+	.col3,
+	.col4,
+	.col5,
+	.col6,
+	.col7,
+	.col8,
+	.col9,
+	.col10,
+	.col11,
+	.col12 {
+		width:100%;
+	}
+}
+
+/*手机*/
+@media (min-width: 0px) and (max-width: 320px) { 
+	.naver .inner{
+		width:auto; padding:0 20px;
+	}
+	header, footer, .wrapper{
+		width:auto; margin:20px;
+	}
+	.col1,
+	.col2,
+	.col3,
+	.col4,
+	.col5,
+	.col6,
+	.col7,
+	.col8,
+	.col9,
+	.col10,
+	.col11,
+	.col12 {
+		width:100%;
+	}
+}
