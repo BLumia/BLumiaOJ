@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="gb2312" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>javascript插件 - 渴切</title>
+<meta name="keywords" content="渴切,中文css框架,css框架,开源css框架,css框架下载"/>
+<meta name="description" content="渴切是一个开源中文 (X)HTML/CSS 框架 ,它的目的是减少你的css开发时间。它提供一个可靠的css基础去创建你的项目,能够用于网站的快速设计,通过重设和重建浏览器标准，可以让每个网站防 止枯燥的跨浏览器兼容性测试。"/>
+<meta name="author" content="keqie,keqie@keqie.com">
+<link rel="stylesheet" href="../css/cutter.css">
+<script src="../js/jquery-1.3.2.min.js"></script> 
+<script src="../js/cutter.js"></script> 
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head>
+
+<body>
+
+
+
+<div class="topbar">
+	<div class="wrapper">
+    	<div class="logo">
+        	<a href="./"><font class="danley">keqie</font> 渴切</a>
+        </div>
+    	<div class="module">
+        	<a href="index.html">概述</a>
+        	<a href="grid.html">框架</a>
+        	<a href="base.html">基础css</a>
+        	<a href="widget.html">组件</a>
+        	<a href="javascript.html" class="selected">javascript插件</a>
+        </div>
+        <div class="sub">
+        	<a href="http://download.keqie.com">文档</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="heading">
+  <div class="wrapper">
+  	<h1>javascript插件</h1>
+    <h2>基于jquery，javascript的特效插件</h2>
+  </div>
+</div>
+
+
+<div class="wrapper">
+	<h1 class="phead">设为首页<small>一个兼容所有浏览器的设为首页js代码</small></h1>
+    
+	<div class="row">
+    	<div class="four">
+    	   一个常用的js功能，但是兼容的比较少，这里整理出兼容所有浏览器的设为首页js代码。
+         </div>
+	  <div class="eight">
+            <h1 class="phead">演示</h1>
+        	<p><a href="javascript:SetHome();" class="button blue">设为首页</a></p>
+            <pre>&lt;a href=&quot;javascript:SetHome();&quot; class=&quot;button blue&quot;&gt;设为首页&lt;/a&gt;</pre>
+            <div class="phead">代码片段</div>
+        <pre>function SetHome(obj,vrl){<br>	try{ obj.style.behavior='url(#default#homepage)';obj.setHomePage(vrl); }<br>	catch(e){<br>		if(window.netscape) {<br>			try { netscape.security.PrivilegeManager.enablePrivilege(&quot;UniversalXPConnect&quot;);  }  <br>			catch (e) { <br>				alert(&quot;此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将[signed.applets.codebase_principal_support]设置为'true'&quot;);<br>			}<br>		var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);<br>		prefs.setCharPref('browser.startup.homepage',vrl);<br>		}<br>	}<br>}</pre>
+   	  </div>	
+    	
+  	</div>
+</div>
+
+
+<div class="wrapper">
+	<h1 class="phead">加入收藏<small>一个兼容所有浏览器的加入收藏js代码</small></h1>
+    
+	<div class="row">
+    	<div class="four">
+    	   一个常用的js功能，但是兼容的比较少，这里整理出兼容所有浏览器的加入收藏js代码。
+         </div>
+	  <div class="eight">
+            <h1 class="phead">演示</h1>
+        	<p><a href="javascript:AddFavorite('http://download.keqie.com','渴切-开源中文css框架');" class="button blue">加入收藏</a></p>
+            <pre>&lt;a href=&quot;javascript:AddFavorite('http://download.keqie.com','渴切-开源中文css框架');&quot;&gt;
+加入收藏&lt;/a&gt;</pre>
+            <div class="phead">代码片段</div>
+        <pre>function AddFavorite(sURL, sTitle)<br>{<br>    try { window.external.addFavorite(sURL, sTitle); }<br>    catch (e)<br>    {<br>        try { window.sidebar.addPanel(sTitle, sURL, &quot;&quot;); }<br>        catch (e) {<br>            alert(&quot;加入收藏失败，请使用Ctrl+D进行添加&quot;);<br>        }<br>    }<br>}</pre>
+   	  </div>	
+    	
+  	</div>
+</div>
+
+
+<script type="text/javascript">
+	$(function(){
+		$('#timer').click(function(){
+			setTimeout(function(){
+				alert(1);
+			},3000);
+		})
+	})
+</script>
+<div class="wrapper">
+	<h1 class="phead">延时效果<small>展示一个js延时效果的实现方法</small></h1>
+    
+	<div class="row">
+    	<div class="four">
+    	   一个常用的js功能，但是兼容的比较少，这里整理出兼容所有浏览器的s代码。         延时效果一般通过setTimeout函数可以简单实现。</div>
+	  <div class="eight">
+            <h1 class="phead">演示</h1>
+        	<p><a class="button blue" id="timer">点击我，延时3秒钟弹出窗口</a></p>
+           
+            <div class="phead">代码片段</div>
+        <pre>&lt;script type=&quot;text/javascript&quot;&gt;<br>	setTimeout(function(){<br>		alert(1);<br>	},3000);<br>&lt;/script&gt;</pre>
+   	  </div>	
+    	
+  	</div>
+</div>
+
+
+
+<script type="text/javascript">
+	$(function(){
+		$('#masker').click(function(){
+			$('body').prepend('<div id="mask"></div>').find('#mask').css({opacity:0.2, cursor:'pointer', background:'black', position:'absolute', zIndex:999, width:'100%', height:$(document).height()});
+			
+			/*点击遮罩关闭*/
+			$('#mask').live('click',function(){
+				$(this).remove();
+			})
+		})
+	})
+</script>
+<div class="wrapper">
+	<h1 class="phead">弹出一个满屏的遮罩层<small>兼容ie6，ie7，ie8，firefox，chrome</small></h1>
+    
+	<div class="row">
+    	<div class="four">
+    	   兼容，一段代码搞掂。</div>
+	  <div class="eight">
+    
+      	<div class="phead">演示<small>推荐，一句话jquery链式写法</small></div>
+        <p><a class="button blue" id="masker">点击我</a></p>
+        
+      	<div class="phead">代码片段</div>
+        <pre>$('body').prepend('&lt;div id=&quot;mask&quot;&gt;&lt;/div&gt;').find('#mask').css({opacity:0.2, 
+cursor:'pointer', background:'black', position:'absolute', zIndex:999, width:'100%', 
+height:$(document).height()});
+
+/*点击遮罩关闭,live方法用于，为通过js新增的元素添加事件*/<br>$('#mask').live('click',function(){<br>	$(this).remove();<br>})</pre>
+   	  </div>	
+    	
+  	</div>
+</div>
+
+
+<div class="wrapper">
+	<h1 class="phead">敬请期待<small>敬请期待</small></h1>
+    
+	<div class="row">
+    	<div class="four">
+    	   敬请期待</div>
+	  <div class="eight">
+            <h1 class="phead">演示</h1>
+        	<p>敬请期待</p>
+           
+            <div class="phead">代码片段</div>
+        <pre>敬请期待</pre>
+   	  </div>	
+    	
+  	</div>
+</div>
+
+
+
+<div style="background:#DBEFF9; width:50px; height:50px; text-align:center; line-height:50px; font-size:50px; color:#fff;" class="fixed">^</div>
+
+
+<div class="wrapper footer">
+	<p>powered by <a href="http://www.keqie.com">渴切- 开源中文css框架</a><br/>
+	基于创作共享的<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/" rel="nofollow">署名-非商业使用-相同方 式分享 2.5</a> 协议发布<br/>
+	8年专注web前端技术领域的研究和服务工作 </p>
+</div>
+
+
+</body>
+</html>
+
