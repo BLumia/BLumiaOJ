@@ -181,18 +181,18 @@
 	// past
 
   if ($now>$end_time) {
-  	$view_contest[$i][2]= "<span class=green>$MSG_Ended@$row->end_time</span>";
+  	$view_contest[$i][2]= "<span class=\"label label-success\">$MSG_Ended@$row->end_time</span>";
 	
 	// pending
 
   }else if ($now<$start_time){
-  	$view_contest[$i][2]= "<span class=blue>$MSG_Start@$row->start_time</span>&nbsp;";
-    $view_contest[$i][2].= "<span class=green>$MSG_TotalTime".formatTimeLength($length)."</span>";
+  	$view_contest[$i][2]= "<span class=\"label label-primary\">$MSG_Start@$row->start_time</span>&nbsp;";
+    $view_contest[$i][2].= "<span class=\"label label-success\">$MSG_TotalTime".formatTimeLength($length)."</span>";
 	// running
 
   }else{
-  	$view_contest[$i][2]= "<span class=red> $MSG_Running</font>&nbsp;";
-    $view_contest[$i][2].= "<span class=green> $MSG_LeftTime ".formatTimeLength($left)." </span>";
+  	$view_contest[$i][2]= "<span class=\"label label-danger\">$MSG_Running</span>&nbsp;";
+    $view_contest[$i][2].= "<span class=\"label label-success\"> $MSG_LeftTime ".formatTimeLength($left)." </span>";
   }
                                 
                                 
@@ -201,9 +201,9 @@
 				
 				$private=intval($row->private);
 				if ($private==0)
-                                        $view_contest[$i][4]= "<span class=blue>$MSG_Public</span>";
+                                        $view_contest[$i][4]= "<span class=\"label label-primary\">$MSG_Public</span>";
                                 else
-                                        $view_contest[$i][5]= "<span class=red>$MSG_Private</span>";
+                                        $view_contest[$i][5]= "<span class=\"label label-danger\">$MSG_Private</span>";
 				$view_contest[$i][6]=$row->user_id;
 
 

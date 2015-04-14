@@ -11,12 +11,19 @@
     <title><?php echo $OJ_NAME?></title>  
     <?php include("template/$OJ_TEMPLATE/css.php");?>	    
 
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	<script>
+ieGo();
+function ieGo(){ 
+		var ie = !-[1,];  
+		if(ie == true) {
+			var ua = navigator.userAgent.toLowerCase();
+			var version = parseInt(ua.match(/msie ([\d.]+)/)[1]);
+			if(version <= 7) {
+				location.href='./old/'; 
+			}
+		}
+}
+	</script>
   </head>
 
   <body>
@@ -30,7 +37,7 @@
 <div id=submission style="width:600px;height:300px" ></div>
 </center>-->
         </p>
-	<?php echo $view_news?>
+	
 <div class="row">
 	<div class="col-xs-12 col-md-9">
 		<center>
@@ -39,13 +46,15 @@
 	</div>
 	<div class="col-xs-12 col-md-3">
 		<ul class="list-group">
-			<li class="list-group-item"><?php echo $MSG_FAQ; ?></li>
-			<li class="list-group-item"><?php echo $MSG_BBS; ?></li>
-			<li class="list-group-item"><?php echo $MSG_GET_TOOLS;?></li>
+			<a href="./old/faqs.cn.php"><li class="list-group-item"><?php echo $MSG_FAQ; ?></li></a>
+			<a href="./discuss/discuss.php"><li class="list-group-item"><?php echo $MSG_BBS; ?></li></a>
+			<a href="./gettools.php"><li class="list-group-item"><?php echo $MSG_GET_TOOLS;?></li></a>
+			<a href="./feedback.html"><li class="list-group-item primary">欢迎吐槽</li></a>
 			<li class="list-group-item"><?php echo $MSG_ABOUT;?></li>
 		</ul>
 	</div>
 </div>
+<?php echo $view_news?>
 <div class="row">
   <div class="col-xs-6 col-md-3">
     <a href="http://uva.onlinejudge.org/" class="thumbnail" target="_blank">

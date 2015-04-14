@@ -8,6 +8,7 @@
 		echo "</script>";
 		exit(0);
     }
+    
 	require_once("./include/login-".$OJ_LOGIN_MOD.".php");
     $user_id=$_POST['user_id'];
 	$password=$_POST['password'];
@@ -15,6 +16,16 @@
         $user_id= stripslashes ( $user_id);
         $password= stripslashes ( $password);
    }
+   /*
+   if($user_id!="admin" &&$user_id!="skay" && substr($user_id,0,2)!="BK")
+   {
+	   echo "<script language='javascript'>\n";
+	   echo "alert('比赛期间非比赛帐号不允许登录!');\n";
+		echo "history.go(-1);\n";
+		echo "</script>";
+		exit(0);
+   }*/
+   
     $sql="SELECT `rightstr` FROM `privilege` WHERE `user_id`='".mysql_real_escape_string($user_id)."'";
     $result=mysql_query($sql);
 	$login=check_login($user_id,$password);

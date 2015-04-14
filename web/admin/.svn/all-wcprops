@@ -1,0 +1,263 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/2147/trunk/web/admin
+END
+news_df_change.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1109/trunk/web/admin/news_df_change.php
+END
+problem_import.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1109/trunk/web/admin/problem_import.php
+END
+problem_add_page_zju.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/1606/trunk/web/admin/problem_add_page_zju.php
+END
+moodle_judge.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1109/trunk/web/admin/moodle_judge.php
+END
+privilege_add.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/1759/trunk/web/admin/privilege_add.php
+END
+problem_export.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1109/trunk/web/admin/problem_export.php
+END
+setmsg.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/1899/trunk/web/admin/setmsg.php
+END
+menu.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/2146/trunk/web/admin/menu.php
+END
+watch.php
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/1899/trunk/web/admin/watch.php
+END
+privilege_delete.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/1109/trunk/web/admin/privilege_delete.php
+END
+changepass.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/1764/trunk/web/admin/changepass.php
+END
+admin-header.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1465/trunk/web/admin/admin-header.php
+END
+problem_judge.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/2141/trunk/web/admin/problem_judge.php
+END
+problem_add_page_waterloo.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/1606/trunk/web/admin/problem_add_page_waterloo.php
+END
+problem_add_page_pku.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/1606/trunk/web/admin/problem_add_page_pku.php
+END
+problem_del.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1509/trunk/web/admin/problem_del.php
+END
+contest_add.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/2147/trunk/web/admin/contest_add.php
+END
+update_db.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/1937/trunk/web/admin/update_db.php
+END
+problem_copy.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1606/trunk/web/admin/problem_copy.php
+END
+problem_list.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/2137/trunk/web/admin/problem_list.php
+END
+contest_df_change.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1296/trunk/web/admin/contest_df_change.php
+END
+team_generate.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/2028/trunk/web/admin/team_generate.php
+END
+problem_add_page.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/1913/trunk/web/admin/problem_add_page.php
+END
+problem_add_page_hdu.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/1143/trunk/web/admin/problem_add_page_hdu.php
+END
+problem_edit.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1466/trunk/web/admin/problem_edit.php
+END
+news_list.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/1109/trunk/web/admin/news_list.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/12/trunk/web/admin/index.php
+END
+problem_add.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1587/trunk/web/admin/problem_add.php
+END
+source_give.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1109/trunk/web/admin/source_give.php
+END
+problem_import_xml.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1770/trunk/web/admin/problem_import_xml.php
+END
+contest_list.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/2136/trunk/web/admin/contest_list.php
+END
+problem_df_change.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1109/trunk/web/admin/problem_df_change.php
+END
+msg.txt
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/2086/trunk/web/admin/msg.txt
+END
+news_add_page.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/1109/trunk/web/admin/news_add_page.php
+END
+news_edit.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2020/trunk/web/admin/news_edit.php
+END
+problem_export_xml.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1903/trunk/web/admin/problem_export_xml.php
+END
+privilege_list.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1899/trunk/web/admin/privilege_list.php
+END
+problem_changeid.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/1109/trunk/web/admin/problem_changeid.php
+END
+contest_edit.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/2059/trunk/web/admin/contest_edit.php
+END
+news_add.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/1322/trunk/web/admin/news_add.php
+END
+contest_pr_change.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1296/trunk/web/admin/contest_pr_change.php
+END
+rejudge.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/1109/trunk/web/admin/rejudge.php
+END
+update_pw.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/1762/trunk/web/admin/update_pw.php
+END

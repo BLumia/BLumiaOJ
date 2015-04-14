@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1466/trunk/web/admin/quixplorer/.config
+END
+mimes.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/1298/trunk/web/admin/quixplorer/.config/mimes.php
+END
+.htusers.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1297/trunk/web/admin/quixplorer/.config/.htusers.php
+END
+conf.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/1466/trunk/web/admin/quixplorer/.config/conf.php
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/1297/trunk/web/admin/quixplorer/.config/.htaccess
+END

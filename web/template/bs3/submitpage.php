@@ -224,8 +224,8 @@ window.setTimeout("resume();",1000);
 function reloadtemplate(lang){
    document.cookie="lastlang="+lang.value;
    //alert(document.cookie);
-   if(confirm("Do you want to reload template?\n You may lost all code that you've typed here!"))
-	document.location.reload();
+   //if(confirm("Do you want to reload template?\n You may lost all code that you've typed here!"))
+	//document.location.reload();
 }
 </script>
   </body>

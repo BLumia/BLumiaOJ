@@ -1,4 +1,14 @@
 <?php 
+$isSchoolContest=false;
+if($isSchoolContest)
+{   header("Content-type:text/html;charset=UTF-8");
+	echo "<script language='javascript'>\n";
+	   echo "alert('比赛期间禁止修改密码!');\n";
+		echo "history.go(-1);\n";
+		echo "</script>";
+		exit(0);
+}
+
 	$cache_time=10;
 	$OJ_CACHE_SHARE=false;
 	require_once('./include/cache_start.php');
