@@ -8,7 +8,7 @@
 这是一个基于旧版HustOJ的前端界面模板，针对学校需求增加和改变了部分功能，并调整了界面。
 如果您对新OJ的开发有兴趣，请移步master分支。
 
-本HustOJ的修改版基于[zhblue的hustoj（广泛使用但较旧）](https://github.com/zhblue/hustoj) 而非[freefcw的hustoj（官方新版但用户并不多）] https://github.com/freefcw/hustoj/。使用则全部替换JudgeOnline目录下（或您的网站文件夹所在位置）的所有文件即可。数据库结构未变更，您可能需要先修改include文件夹内的配置文件才能使用。关于配置文件的相关内容可以参见[这里](http://blog.csdn.net/zhblue/article/details/7366194)。如果您希望全新配置一个oj以供使用，建议选择上面提到的freefcw的hustoj，或者待BLOJ开发完成后选择我们的OJ（2333）。
+本HustOJ的修改版基于[zhblue的hustoj（广泛使用但较旧）](https://github.com/zhblue/hustoj) 而非[freefcw的hustoj（官方新版但用户并不多）]( https://github.com/freefcw/hustoj/)。使用则全部替换JudgeOnline目录下（或您的网站文件夹所在位置）的所有文件即可。数据库结构未变更，您可能需要先修改include文件夹内的配置文件才能使用。关于配置文件的相关内容可以参见[这里](http://blog.csdn.net/zhblue/article/details/7366194)。如果您希望全新配置一个oj以供使用，建议选择上面提到的freefcw的hustoj，或者待BLOJ开发完成后选择我们的OJ（2333）。
 
 功能
 ===
