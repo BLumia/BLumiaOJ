@@ -70,7 +70,7 @@ if($soutput){
 echo "<h2>$MSG_Sample_Output</h2>
 <pre class=content><span class=sampledata>".($soutput)."</span></pre>";
 }
-if ($pr_flag)
+if ($pr_flag || $alwaysShowHint)
 echo "<h2>$MSG_HINT</h2>
 <div class=panel panel-default>".nl2br($row->hint)."</p></div>";
 if ($pr_flag)

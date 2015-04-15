@@ -25,15 +25,19 @@
     <?php include("template/$OJ_TEMPLATE/nav.php");?>	    
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-<h3 align='center'>
+<center>
+<nav>
+  <ul class="pagination">
 <?php
-for ($i=1;$i<=$view_total_page;$i++){
-if ($i>1) echo '&nbsp;';
-if ($i==$page) echo "<span class=red>$i</span>";
-else echo "<a href='problemset.php?page=".$i."'>".$i."</a>";
+for ($i=1;$i<=$view_total_page;$i++) {
+	if ($i==$page) echo "<li class=\"active\"><a href=problemset.php?page=".$i."'>".$i."</a></li>";
+	else echo "<li><a href=problemset.php?page=".$i."'>".$i."</a></li>";
 }
 ?>
-</h3><center>
+  </ul>
+</nav>
+</center>
+<center>
 <table>
 <tr align='center' class='evenrow'><td width='5'></td>
 <td width='50%' colspan='1'>
@@ -78,15 +82,18 @@ $cnt=1-$cnt;
 ?>
 </tbody>
 </table>
-<h3 align='center'>
+<center>
+<nav>
+  <ul class="pagination">
 <?php
-for ($i=1;$i<=$view_total_page;$i++){
-if ($i>1) echo '&nbsp;';
-if ($i==$page) echo "<span class=red>$i</span>";
-else echo "<a href='problemset.php?page=".$i."'>".$i."</a>";
+for ($i=1;$i<=$view_total_page;$i++) {
+	if ($i==$page) echo "<li class=\"active\"><a href=problemset.php?page=".$i."'>".$i."</a></li>";
+	else echo "<li><a href=problemset.php?page=".$i."'>".$i."</a></li>";
 }
 ?>
-</h3>
+  </ul>
+</nav>
+</center>
 </center>
       </div>
 

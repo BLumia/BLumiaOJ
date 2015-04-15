@@ -15,7 +15,7 @@ require_once("./include/db_info.inc.php");
 
 $pr_flag=false;
 $co_flag=false;
-$pr_flag=true;// always show hint on contest
+$alwaysShowHint=true;// always show hint on contest
 if (isset($_GET['id'])){
         // practice
         $id=intval($_GET['id']);
