@@ -1,8 +1,16 @@
-	<div class="footer">
-		<span id="clock">Server Time: Loading...</span><br/>
-		All Right Reseived © 2015 <br/>
-		<a href="./about.php">BLumiaOJ Team</a>
-	</div>
+<hr/>
+<footer class="footer">
+	<div class="container">
+		<p style="float: left;" align="left">
+			<span id="clock">Server Time: Loading...</span><br/>
+			FAQ | 
+		</p>
+		<p style="float: right; margin-right: 15px;" align="right">
+			WTF<br/>
+			Copyright 2015 © <a href="./about.php">BLumiaOJ Develop Team</a>
+		</p>
+	</div> 
+</footer>
 	<script>
 		function getTime() {
 			with (new Date) {

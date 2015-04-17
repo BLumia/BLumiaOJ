@@ -1,29 +1,24 @@
+<nav class="navbar navbar-inverse">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">BLumiaOJ</a>
+		</div>
 
-	<div class="naver">
-        <div class="wrapper">
-			<div class="brand">
-                  <a href="./">BLumiaOJ</a>
-			</div>
-			<div class="collapse">菜单</div>
-            <div class="module">
-                <ul>
-                	<li><a href="#">问题</a></li>
-                    <li><a href="#">状态</a></li>
-					<li><a href="#">排名</a></li>
-					<li><a href="#">竞赛</a></li>
-                </ul>
-            </div>
-            <div class="sub">
-                <ul>
-                    <li>
-                    	<a href="#">61是我的</a>
-                        <ul class="droper" style="top: 48px;">
-                            <li><a href="#">查看个人信息</a></li>
-                            <li><a href="#">修改个人资料</a></li>
-                            <li><a href="#">注销本次登陆</a></li>
-                        </ul>
-                    </li>
-                </ul>					
-			</div>
-        </div>
-    </div><!--naver end-->
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+			<ul class="nav navbar-nav">
+				<li><a href="#">Problem Set</a></li>
+				<li><a href="#">Status</a></li>
+				<li><a href="#">Rank List</a></li>
+				<li><a href="#">Contest</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>

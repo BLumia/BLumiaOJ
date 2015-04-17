@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="./sitefiles/css/bootstrap.min.css">
 
@@ -13,3 +14,9 @@
 <![endif]-->
 
 <link rel="stylesheet" href="./sitefiles/css/skin1.css" type="text/css" media="screen" id="skin">
+
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="./sitefiles/js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="./sitefiles/js/bootstrap.min.js"></script>

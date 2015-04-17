@@ -12,21 +12,21 @@
 		<![endif]-->
 			<div class="row">
 				<div class="col-md-9">
-					wewewewew
+					统计信息或巨幕
 				</div>
 				<div class="col-md-3">
-					<ul class="sidebar">
-						<li><a href="#">讨论版</a></li>
-						<li><a href="#">常见问答</a></li>
-						<li><a href="#">代码便签盒</a></li>
-						<li><a href="#">工具和向导</a></li>
-						<li><a href="#">建议反馈箱</a></li>
-						<li><a href="#">关于BLumiaOJ</a></li>
+					<ul class="list-group">
+						<li class="list-group-item"><a href="#">讨论版</a></li>
+						<li class="list-group-item"><a href="#">常见问答</a></li>
+						<li class="list-group-item"><a href="#">代码便签盒</a></li>
+						<li class="list-group-item"><a href="#">工具和向导</a></li>
+						<li class="list-group-item"><a href="#">建议反馈箱</a></li>
+						<li class="list-group-item"><a href="#">关于BLumiaOJ</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-9">
 					<div class="doc">
 						<div class="doc-head">
 							<h3>新闻标题新闻标题</h3>
@@ -37,6 +37,12 @@
 						<div class="doc-foot">
 							新闻发表日期，新闻作者
 						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="well">
+						<h3>Top 10 Problems</h3>
+						
 					</div>
 				</div>
 			</div>
