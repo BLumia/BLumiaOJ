@@ -1,7 +1,7 @@
 
 	<body>
 		<?php require("./pages/components/navbar.php");?>
-		<div class="wrapper">
+		<div class="container">
 		<!--[if lt IE 8]>
 		<div class="row">
 			<div class="spring">
@@ -11,10 +11,10 @@
 		</div>		
 		<![endif]-->
 			<div class="row">
-				<div class="col9">
+				<div class="col-md-9">
 					wewewewew
 				</div>
-				<div class="col3">
+				<div class="col-md-3">
 					<ul class="sidebar">
 						<li><a href="#">讨论版</a></li>
 						<li><a href="#">常见问答</a></li>
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col12">
+				<div class="col-md-12">
 					<div class="doc">
 						<div class="doc-head">
 							<h3>新闻标题新闻标题</h3>
