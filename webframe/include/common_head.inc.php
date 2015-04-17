@@ -13,7 +13,7 @@
   <script src="./sitefiles/js/respond.min.js"></script>
 <![endif]-->
 
-<link rel="stylesheet" href="./sitefiles/css/skin1.css" type="text/css" media="screen" id="skin">
+<link rel="stylesheet" href="./sitefiles/css/bearkidframe.css" type="text/css" media="screen" id="skin">
 
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->

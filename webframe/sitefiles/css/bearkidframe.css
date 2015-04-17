@@ -1,0 +1,73 @@
+.footer{
+	position: absolute;
+	bottom: 0;
+	background-color: #1b1b1b;
+	min-width: 100%;
+	width: auto;
+	color: #989;
+	padding-top:15px;
+}
+
+/* 表格中的悬停tag(300px右) */
+div.tr-tag {
+	text-align: center;
+	display: none;
+	position: absolute;
+	background-color: #ccc;
+	line-height: 12px;
+	min-height: 19px;
+	min-width: 130px;
+	max-width: 130px;
+	z-index: 1000;
+	padding: 7px 8px 3px 8px;
+	font-size: 12px;
+	margin-left: 300px;
+	margin-top: -24px;
+}
+
+div.tr-tag:after{
+	content: "";
+	position: absolute;
+	left:-6px;
+	border-width: 6px 6px 6px 0;
+	border-style: solid solid solid none;
+	border-color: transparent #ccc transparent transparent;
+}
+
+tr:hover div.tr-tag{
+	display: block;
+}
+
+div.tr-tag span{
+	display: block;
+	float:left;
+	margin-right: 3px;
+	margin-bottom: 3px;
+	background-color: #eee;
+	padding: 2px 3px;
+	color:#08c;
+}
+
+/* 重载.progress */
+.progress {
+	background-color: #f7f7f7;
+	background-image: -moz-linear-gradient(top, #cccccc, #dddddd);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#cccccc), to(#dddddd));
+	background-image: -webkit-linear-gradient(top, #cccccc, #dddddd);
+	background-image: -o-linear-gradient(top, #cccccc, #dddddd);
+	background-image: linear-gradient(to bottom, #cccccc, #dddddd);
+	height: 8px;
+	margin: auto;
+	width:150px;
+	margin-top: 5px;
+	margin-bottom: 3px;
+}
+
+/* 重载.progress .bar*/
+.progress .progress-bar {
+	background-image: -moz-linear-gradient(top, #149bdf, #0480be);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#149bdf), to(#0480be));
+	background-image: -webkit-linear-gradient(top, #149bdf, #0480be);
+	background-image: -o-linear-gradient(top, #149bdf, #0480be);
+	background-image: linear-gradient(to bottom, #149bdf, #0480be);
+}

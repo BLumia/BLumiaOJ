@@ -1,4 +1,3 @@
-<hr/>
 <footer class="footer">
 	<div class="container">
 		<p style="float: left;" align="left">

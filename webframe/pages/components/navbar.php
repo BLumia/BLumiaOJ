@@ -8,14 +8,14 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">BLumiaOJ</a>
+			<a class="navbar-brand" href="index.php">BLumiaOJ</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="#">Problem Set</a></li>
-				<li><a href="#">Status</a></li>
+				<li><a href="problemset.php">Problem Set</a></li>
+				<li><a href="status.php">Status</a></li>
 				<li><a href="#">Rank List</a></li>
 				<li><a href="#">Contest</a></li>
 			</ul>
