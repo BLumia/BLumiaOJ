@@ -52,7 +52,11 @@ $rank=1;
 for ($i=0;$i<$user_cnt;$i++) {
 	if ($i&1) echo "<tr class=oddrow align=center>\n";
 	else echo "<tr class=evenrow align=center>\n";
-	echo "<td>";
+	if ($rank<=($user_cnt*0.1)) $classalc = "gold";
+	else if ($rank<=($user_cnt*0.3)) $classalc = "silver";
+	else if ($rank<=($user_cnt*0.6)) $classalc = "bronze";
+	else $classalc = "other";
+	echo "<td class=\"".$classalc."\">";
 	$uuid=$U[$i]->user_id;
 	$nick=$U[$i]->nick;
 	if($nick[0]!="*") echo $rank++;
