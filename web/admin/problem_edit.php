@@ -4,7 +4,7 @@
 <title>Edit Problem</title>
 </head>
 <body>
-<center>
+<div class="container">
 <?php require_once("../include/db_info.inc.php");?>
 <?php require_once("admin-header.php");
 
@@ -176,6 +176,7 @@ echo "Edit OK!";
 echo "<a href='../problem.php?id=$id'>See The Problem!</a>";
 }
 ?>
+</div>
 </body>
 </html>
 

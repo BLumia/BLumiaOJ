@@ -14,4 +14,6 @@
 <![endif]-->
 
 <link rel="stylesheet" href="./include/skin1.css" type="text/css" media="screen" id="skin">
+<script src="include/nprogress.js"></script>
+<link rel="stylesheet" href="./include/nprogress.css" type="text/css">
 

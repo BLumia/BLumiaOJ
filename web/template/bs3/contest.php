@@ -119,8 +119,8 @@
 		var end_time=new Date(new Date("<?php echo $view_end_time?>").getTime()+offset).getTime();   //结束时间
 		var cur_time=new Date(new Date().getTime()+offset);    //当前时间
 		
-		console.log(typeof end_time);
-		console.log(typeof start_time);
+		//console.log(typeof end_time);
+		//console.log(typeof start_time);
 		
 		var delta_time= end_time - start_time;  //时间差的毫秒数
 		var passed_time= cur_time - start_time;  //过去的时间的毫秒数
@@ -135,7 +135,7 @@
 			var progress_bar = document.getElementById('bl-progress-bar'); 
 			progress_bar.className = 'progress-bar'; 
 			$("div[id=bl-progress-bar]").css("width","100%");
-			alert("Contest Ended Nya ~");
+			//alert("Contest Ended Nya ~");
 		}
 	}
 	
