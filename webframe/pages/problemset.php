@@ -41,19 +41,30 @@
 							</tr>
 						</thead>
 						<tbody>
+						<?php for($i=0;$i<$problemCount;$i++) { //topic list ------------ ?>
 							<tr>
+								<?php 
+									if ($problemList[$i]['submit'] == 0) {
+										$pctText = "Unavalible";
+										$pctNum = 0;
+									} else {
+										$pctNum = ($problemList[$i]['accepted']/$problemList[$i]['submit'])*100;
+										$pctText = sprintf("%.2f%%",$pctNum);
+									}
+								?>
 								<td></td>
-								<td>1001</td>
+								<td><?php echo $problemList[$i]['problem_id'];?></td>
 								<td>
-									<a href="#">Satellite Photographs </a>
+									<a href="problem.php?pid=<?php echo $problemList[$i]['problem_id'];?>"><?php echo $problemList[$i]['title'];?></a>
 									<div class="tr-tag">
 										<span>搜索</span>
 									</div>
 								</td>
-								<td><div class="progress"><div class="progress-bar" style="width:44%;"></div></div></td>
-								<td>Test OJ</td>
-								<td>(559 / 1014) 55.13%</td>
+								<td><div class="progress"><div class="progress-bar" style="width:<?php echo $pctNum;?>%;"></div></div></td>
+								<td><?php echo $problemList[$i]['source'];?></td>
+								<td>(<?php echo $problemList[$i]['accepted']." / ".$problemList[$i]['submit'];?>) <?php echo $pctText;?></td>
 							</tr>
+						<?php } //topic list end --------------------------------------- ?>
 						</tbody>
 					</table>
 				</div>

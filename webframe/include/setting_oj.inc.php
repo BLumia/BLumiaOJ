@@ -4,6 +4,9 @@
 	
 // DB Info
 	$DB_NAME = "judge"; //sae应用填写 "app_应用名称"，非sae应用填写对应数据库名称
+	
+// Page Setting
+	$PAGE_ITEMS = 10;// Show how many comments/posts in one pages?
 
 // Run Enviroment
 	$ON_SAE = false;
