@@ -13,10 +13,8 @@
   <script src="./sitefiles/js/respond.min.js"></script>
 <![endif]-->
 
-<link rel="stylesheet" href="./sitefiles/css/bearkidframe.css" type="text/css" media="screen" id="skin">
+<link rel="stylesheet" href="./sitefiles/css/bearkidframe.css" type="text/css" id="skin">
 
-
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<!-- js文件 -->
 <script src="./sitefiles/js/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="./sitefiles/js/bootstrap.min.js"></script>

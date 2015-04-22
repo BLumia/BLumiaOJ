@@ -16,7 +16,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="problemset.php">Problem Set</a></li>
 				<li><a href="status.php">Status</a></li>
-				<li><a href="#">Rank List</a></li>
+				<li><a href="ranklist.php">Rank List</a></li>
 				<li><a href="#">Contest</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
