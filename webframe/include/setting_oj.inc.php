@@ -2,14 +2,25 @@
 // OJ Info
 	$OJ_NAME = "BLumiaOJ"; //Name of this OJ, e.g. BLumiaOJ , BLOJ
 	
-// DB Info
-	$DB_NAME = "judge"; //sae应用填写 "app_应用名称"，非sae应用填写对应数据库名称
-	
 // Page Setting
 	$PAGE_ITEMS = 10;// Show how many comments/posts in one pages?
 
-// Run Enviroment
-	$ON_SAE = false;
+// Run Enviroment and DB setting
+/* ********************
+All Supported Enviroments($ENV_CASE): 
+	"STD_MYSQL"  	You should setting the following stuff to connect to sql
+	"OPEN_SHIFT" 	Supposed by Red Hat
+	"SAE"			Supposed by Sina App Engine
+You should modify the PDO statement in setting_db.inc.php if you are not using mysql.
+******************** */
+	$ENV_CASE = "STD_MYSQL";//Environment flag, Normally should be "STD_MYSQL"
+	// If you are using STD_MYSQL, fill the follow informations
+	$SQL_DB_NAME = "judge";	//Your DB Name
+	$SQL_DB_HOST = "localhost";//Your DB Host
+	$SQL_DB_PORT = "3307";//Your DB Host
+	$SQL_DB_USER = "root";//Your DB Login Username
+	$SQL_DB_PASS = "usbw";//Your DB Management Password
+	
 	
 // 普通用户无需在意本分割线下面的代码
 	require("./include/setting_db.inc.php");

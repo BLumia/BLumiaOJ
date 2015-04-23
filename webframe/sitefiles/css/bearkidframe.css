@@ -1,4 +1,13 @@
-.footer{
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 66px;
+}
+
+.footer {
 	position: absolute;
 	bottom: 0;
 	background-color: #1b1b1b;
@@ -6,6 +15,57 @@
 	width: auto;
 	color: #989;
 	padding-top:15px;
+	height: 66px;
+}
+
+/*带链接的标题肯定不会需要下划线吧..*/
+h2 a:hover , h3 a:hover {
+	text-decoration:none; 
+	cursor:pointer;
+	color:black;
+} 
+
+h2 a , h3 a {
+	color:#1b1b1b;
+} 
+
+/*剪切板按钮*/
+
+.zero-clipboard{
+	position:relative;
+	display:none
+}
+
+.btn-clipboard{
+	position:absolute;
+	top:0;
+	right:0;
+	z-index:10;
+	display:block;
+	padding:5px 8px;
+	font-size:12px;
+	color:#767676;
+	cursor:pointer;
+	background-color:#fff;
+	border:1px solid #e1e1e8;
+	border-radius:0 4px 0 4px;
+}
+
+.btn-clipboard:hover{
+	color:#fff;
+	background-color:#563d7c;
+	border-color:#563d7c
+}
+
+@media (min-width:768px){
+	.zero-clipboard{
+		display:block
+	}
+
+	.zero-clipboard .btn-clipboard{
+		top:-16px;
+		border-top-right-radius:0
+	}
 }
 
 /* 表格中的悬停tag(300px右) */

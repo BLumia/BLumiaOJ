@@ -3,14 +3,14 @@
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-6 col-xs-12">
 					<div class="btn-group" role="group" aria-label="...">
 						<button type="button" class="btn btn-default">1</button>
 						<button type="button" class="btn btn-default">2</button>
 						<button type="button" class="btn btn-default">3</button>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-6">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="输入题目编号">
 						<span class="input-group-btn">
@@ -18,7 +18,7 @@
 						</span>
 					</div><!-- /input-group -->
 				</div><!-- /.col-lg-3 -->
-				<div class="col-md-3">
+				<div class="col-md-3 col-xs-6">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="输入标题关键字">
 						<span class="input-group-btn">
@@ -46,9 +46,11 @@
 								<?php 
 									if ($problemList[$i]['submit'] == 0) {
 										$pctText = "Unavalible";
+										$procBarNum = 0;
 										$pctNum = 0;
 									} else {
 										$pctNum = ($problemList[$i]['accepted']/$problemList[$i]['submit'])*100;
+										$procBarNum = (1-($problemList[$i]['accepted']/$problemList[$i]['submit']))*100;
 										$pctText = sprintf("%.2f%%",$pctNum);
 									}
 								?>
@@ -60,7 +62,7 @@
 										<span>搜索</span>
 									</div>
 								</td>
-								<td><div class="progress"><div class="progress-bar" style="width:<?php echo $pctNum;?>%;"></div></div></td>
+								<td><div class="progress"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
 								<td><?php echo $problemList[$i]['source'];?></td>
 								<td>(<?php echo $problemList[$i]['accepted']." / ".$problemList[$i]['submit'];?>) <?php echo $pctText;?></td>
 							</tr>
