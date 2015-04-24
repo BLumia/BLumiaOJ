@@ -63,7 +63,7 @@ h2 a , h3 a {
 	}
 
 	.zero-clipboard .btn-clipboard{
-		top:-16px;
+		top:0px;
 		border-top-right-radius:0
 	}
 }
