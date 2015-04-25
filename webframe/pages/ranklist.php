@@ -47,29 +47,23 @@
 					<table class="table table-striped table-hover" id="tableID">
 						<thead>
 							<tr>
-								<th width="10%">Run ID</th>
-								<th width="14%">User ID</th>
-								<th width="10%">Problem ID</th>
-								<th width="20%">Result</th>
-								<th width="8%">Memory</th>
-								<th width="8%">Time</th>
-								<th width="8%">Compiler</th>
-								<th width="8%">Length</th>
-								<th width="14%">Submit Time</th>
+								<th width="10%">Rank</th>
+								<th width="20%">User ID</th>
+								<th width="30%">User Name</th>
+								<th width="20%">Submits</th>
+								<th width="20%">Exp.</th>
 							</tr>
 						</thead>
 						<tbody>
+						<?php for($i=0;$i<$userCount;$i++) { //topic list ------------ ?>
 							<tr>
-								<td>260726</td>
-								<td>BLumia</td>
-								<td><a href="#">1001</a></td>
-								<td><span class="label label-success">Accept</span></td>
-								<td>768</td>
-								<td>0</td>
-								<td>gcc</td>
-								<td>61</td>
-								<td>2015/4/18 00:37:57</td>
+								<td><?php echo ($i+1);?></td>
+								<td><?php echo $userList[$i]['user_id'];?></td>
+								<td><a href="#"><?php echo $userList[$i]['nick'];?></a></td>
+								<td><a href="#"><?php echo $userList[$i]['solved'];?></a> / <a href="#"><?php echo $userList[$i]['submit'];?></a> 66.66%</td>
+								<td>Lv.6 1/6000</td>
 							</tr>
+						<?php } //User list end --------------------------------------- ?>
 						</tbody>
 					</table>
 				</div>
