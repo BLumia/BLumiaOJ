@@ -17,29 +17,23 @@
 			
 			<h3><a data-toggle="collapse" data-target="#problemDesc">题目描述</a></h3>
 			<div class="collapse in" id="problemDesc" aria-expanded="true">
-				<div class="well">
-					<?php echo $problemItem[0]['description'];?>
-				</div>
+				<pre><?php echo $problemItem[0]['description'];?></pre>
 			</div>
 			
 			<h3><a data-toggle="collapse" data-target="#problemInput">输入</a></h3>
 			<div class="collapse in" id="problemInput" aria-expanded="true">
-				<div class="well">
-					<?php echo $problemItem[0]['input'];?>
-				</div>
+				<pre><?php echo $problemItem[0]['input'];?></pre>
 			</div>
 			
 			<h3><a data-toggle="collapse" data-target="#problemOut">输出</a></h3>
 			<div class="collapse in" id="problemOut" aria-expanded="true">
-				<div class="well">
-					<?php echo $problemItem[0]['output'];?>
-				</div>
+				<pre><?php echo $problemItem[0]['output'];?></pre>
 			</div>
 			
 			<h3><a data-toggle="collapse" data-target="#dataIn">样例输入</a></h3>
 			<div class="collapse in" id="dataIn" aria-expanded="true">
 				<div class="zero-clipboard">
-					<span class="btn-clipboard">复制</span>
+					<span class="btn-clipboard" onclick="copyToClipboard(document.getElementById('dataInContent').innerHTML);">复制</span>
 				</div>
 				<pre id="dataInContent"><?php echo $problemItem[0]['sample_input'];?></pre>
 			</div>
@@ -54,9 +48,7 @@
 
 			<h3><a data-toggle="collapse" data-target="#problemHint">提示</a></h3>
 			<div class="collapse" id="problemHint" aria-expanded="true">
-				<div class="well">
-					<?php echo $problemItem[0]['hint'];?>
-				</div>
+				<pre><?php echo $problemItem[0]['hint'];?></pre>
 			</div>
 			
 			<h3><a data-toggle="collapse" data-target="#problemTag">标签</a></h3>
@@ -68,19 +60,17 @@
 			
 			<h3><a data-toggle="collapse" data-target="#problemSrc">来源</a></h3>
 			<div class="collapse" id="problemSrc" aria-expanded="true">
-				<div class="well">
-					<?php echo $problemItem[0]['source'];?>
-				</div>
+				<pre><?php echo $problemItem[0]['source'];?></pre>
 			</div>
 			
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
 	<script type="text/javascript">
 function copyToClipboard(s){
-    alert(s);
+    //alert(s);
     if(window.clipboardData){
        window.clipboardData.setData("Text",s);
-       alert("已经复制到剪切板！"+s);
+       alert("已经复制到剪切板！");
     }else if(navigator.userAgent.indexOf("Opera") != -1) {  
        window.location = s;  
     }else if(window.netscape) {
@@ -106,13 +96,13 @@ function copyToClipboard(s){
         if (!clip)  
             return false;  
         clip.setData(trans,null,clipid.kGlobalClipboard);  
-        alert("已经复制到剪切板！"+"\n"+s)  
+        alert("已经复制到剪切板！");  
     }
 }
 
 $(window).load(function(){
-     $("pre").addClass("prettyprint");
-     prettyPrint();
+    //$("pre").addClass("prettyprint");
+    prettyPrint();
 })
 	</script>
 	</body>

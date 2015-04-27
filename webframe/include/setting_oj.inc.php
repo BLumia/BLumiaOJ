@@ -7,14 +7,14 @@
 
 // Run Enviroment and DB setting
 /* ********************
-All Supported Enviroments($ENV_CASE): 
+All Supported Enviroments($ENV_CASE, aka. Data Source): 
 	"STD_MYSQL"  	You should setting the following stuff to connect to sql
 	"OPEN_SHIFT" 	Supposed by Red Hat
 	"SAE"			Supposed by Sina App Engine
 You should modify the PDO statement in setting_db.inc.php if you are not using mysql.
 ******************** */
 	$ENV_CASE = "STD_MYSQL";//Environment flag, Normally should be "STD_MYSQL"
-	// If you are using STD_MYSQL, fill the follow informations
+	// If you are using STD_MYSQL, fill the following informations
 	$SQL_DB_NAME = "judge";	//Your DB Name
 	$SQL_DB_HOST = "localhost";//Your DB Host
 	$SQL_DB_PORT = "3307";//Your DB Host
