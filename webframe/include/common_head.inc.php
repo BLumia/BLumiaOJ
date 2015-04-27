@@ -2,6 +2,7 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="./sitefiles/css/bootstrap.min.css">
 <link rel="stylesheet" href="./sitefiles/css/prettify.css" type="text/css">
+<link rel="stylesheet" href="./sitefiles/css/font-awesome.min.css" type="text/css">
 
 <!--[if lte IE 6]>
 <link rel="stylesheet" type="text/css" href="./sitefiles/css/bootstrap-ie6.css">
@@ -12,6 +13,10 @@
 <!--[if lt IE 9]>
   <script src="./sitefiles/js/html5shiv.js"></script>
   <script src="./sitefiles/js/respond.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 7]>
+  <link rel="stylesheet" href="./sitefiles/css/font-awesome-ie7.css" type="text/css">
 <![endif]-->
 
 <link rel="stylesheet" href="./sitefiles/css/bearkidframe.css" type="text/css">

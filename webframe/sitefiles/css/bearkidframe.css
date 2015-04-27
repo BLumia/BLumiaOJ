@@ -118,9 +118,13 @@ div.tr-tag span{
 	background-image: linear-gradient(to bottom, #cccccc, #dddddd);
 	height: 8px;
 	margin: auto;
-	width:150px;
+	/*width:150px;*/
 	margin-top: 5px;
 	margin-bottom: 3px;
+}
+
+.width150px {
+	width:150px;
 }
 
 /* 重载.progress .bar*/

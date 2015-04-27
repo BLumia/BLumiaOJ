@@ -62,7 +62,7 @@
 										<span>搜索</span>
 									</div>
 								</td>
-								<td><div class="progress"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
+								<td><div class="progress width150px"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
 								<td><?php echo $problemList[$i]['source'];?></td>
 								<td>(<?php echo $problemList[$i]['accepted']." / ".$problemList[$i]['submit'];?>) <?php echo $pctText;?></td>
 							</tr>

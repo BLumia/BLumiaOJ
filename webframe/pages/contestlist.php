@@ -37,7 +37,7 @@
 						<?php for($i=0;$i<$contestCount;$i++) { //topic list ------------ ?>
 							<tr>
 								<td><?php echo $contestList[$i]['contest_id'];?></td>
-								<td><a href="#"><?php echo $contestList[$i]['title'];?></a></td>
+								<td><a href="contest.php?cid=<?php echo $contestList[$i]['contest_id'];?>"><?php echo $contestList[$i]['title'];?></a></td>
 								<td>x</td>
 								<td>Lv.6 1/6000</td>
 								<td><?php echo $contestList[$i]['user_id'];?></td>
