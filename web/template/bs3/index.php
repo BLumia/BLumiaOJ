@@ -85,7 +85,7 @@ function ieGo(){
 		<li><a href="setlang.php?lang=cn">简体中文</a></li>
 	<?php }?>	
 		<li class="disabled"><a href="#">Global Contest:</a></li>
-		<li><a href="#">View</a></li>
+		<li><a href="recent-contest.php">View</a></li>
 	</ul>
 	<ul class="nav nav-pills navbar-inverse">
 		<?php echo '<font color="white">&nbsp;&nbsp;&nbsp;&nbsp;'.$MSG_BLOG.'&nbsp;&nbsp;</font>'; ?>
