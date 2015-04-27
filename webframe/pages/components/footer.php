@@ -2,7 +2,7 @@
 	<div class="container">
 		<p style="float: left;" align="left">
 			<span id="clock">Server Time: Loading...</span><br/>
-			FAQ | 
+			FAQ | <a class="bl-footer-link" onclick="tour.init();tour.restart();">Tour</a> 
 		</p>
 		<p style="float: right; margin-right: 15px;" align="right">
 			WTF<br/>

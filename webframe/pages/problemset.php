@@ -4,7 +4,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-xs-12">
-					<div class="btn-group" role="group" aria-label="...">
+					<div class="btn-group" role="group" id="oj-ps-pager">
 						<button type="button" class="btn btn-default">1</button>
 						<button type="button" class="btn btn-default">2</button>
 						<button type="button" class="btn btn-default">3</button>
@@ -40,7 +40,7 @@
 								<th width="14%">AC/Submit</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="oj-ps-problemlist">
 						<?php for($i=0;$i<$problemCount;$i++) { //topic list ------------ ?>
 							<tr>
 								<?php 
@@ -73,4 +73,23 @@
 			</div>
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
+	<script type="text/javascript">
+	var tour = new Tour({
+		backdrop: true,
+		debug: true,
+		steps: [
+		{
+			element: "#oj-ps-pager",
+			title: "This is Pager",
+			content: "You can switch page by click here",
+			placement: "bottom"
+		},
+		{
+			element: "#oj-ps-problemlist",
+			title: "This is the Problem list",
+			content: "Click a problem title to challenge the problem.",
+			placement: "top"
+		}]
+	});
+	</script>
 	</body>

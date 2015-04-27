@@ -18,6 +18,12 @@ body {
 	height: 66px;
 }
 
+.footer a {
+	text-decoration:none; 
+	cursor:pointer;
+	color:#989;
+}
+
 /*带链接的标题肯定不会需要下划线吧..*/
 h2 a:hover , h3 a:hover {
 	text-decoration:none; 

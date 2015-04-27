@@ -10,7 +10,7 @@
 				正确:<span class="label label-success"><?php echo $problemItem[0]['accepted'];?></span>
 			</p>
 			<p class="text-center">
-				<a class="btn btn-default" href="#" role="button">Submit</a>
+				<a id="oj-p-submit" class="btn btn-default" href="#" role="button">Submit</a>
 				<a class="btn btn-default" href="#" role="button">Status</a>
 				<a class="btn btn-default" href="#" role="button">Edit</a>
 			</p>
@@ -30,10 +30,10 @@
 				<pre><?php echo $problemItem[0]['output'];?></pre>
 			</div>
 			
-			<h3><a data-toggle="collapse" data-target="#dataIn">样例输入</a></h3>
+			<h3 id="bl-p-datain"><a data-toggle="collapse" data-target="#dataIn">样例输入</a></h3>
 			<div class="collapse in" id="dataIn" aria-expanded="true">
 				<div class="zero-clipboard">
-					<span class="btn-clipboard" onclick="copyToClipboard(document.getElementById('dataInContent').innerHTML);">复制</span>
+					<span id="bl-p-copy" class="btn-clipboard" onclick="copyToClipboard(document.getElementById('dataInContent').innerHTML);">复制</span>
 				</div>
 				<pre id="dataInContent"><?php echo $problemItem[0]['sample_input'];?></pre>
 			</div>
@@ -104,5 +104,39 @@ $(window).load(function(){
     //$("pre").addClass("prettyprint");
     prettyPrint();
 })
+	</script>
+	
+	<script type="text/javascript">
+	//http://bootstraptour.com/api/
+	var tour = new Tour({
+		backdrop: true,
+		debug: true,
+		steps: [
+		{
+			element: "#problemDesc",
+			title: "This is the Problem Description",
+			content: "This block tell you what is the problem.",
+			placement: "top"
+		},
+		{
+			element: "#bl-p-datain",
+			title: "This is the Sample in-data",
+			content: "Click these title of the blocks will collapse the context of a block",
+			placement: "top"
+		},
+		{
+			element: "#bl-p-copy",
+			//backdrop: false,
+			title: "This is the copy button",
+			content: "You can copy the input/output speedly by click here.",
+			placement: "left"
+		},
+		{
+			element: "#oj-p-submit",
+			title: "This is Submit button",
+			content: "When you finished the problem, click here to submit code",
+			placement: "bottom"
+		}]
+	});
 	</script>
 	</body>
