@@ -1,0 +1,84 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  padding: 50px 0 0 0;
+}
+
+.navmenu {
+  padding-top: 50px;
+}
+
+/*为了让上下间距变窄容纳更多东西*/
+.nav li a {
+	padding: 7px 20px;
+}
+/*同上，分组之间的间隔取消*/
+.navmenu-nav {
+    margin-bottom: 0px;
+}
+
+.navbar {
+  display: block;
+  text-align: center;
+}
+.navbar-brand {
+  display: inline-block;
+  float: none;
+}
+.navbar-toggle {
+  position: absolute;
+  float: left;
+  margin-left: 15px;
+}
+
+.container {
+  max-width: 100%;
+}
+
+/*
+	增加用于标签的文字和分割线
+	.text和.divider用于分组(一对ul)内
+	.navmenu-text和.navmenu-divider用于分组间
+*/
+.navmenu .text, .navmenu-text {
+	padding-left: 10px;
+	color: #666 !important;
+}
+
+.navmenu .divider, .navmenu-divider {
+    height: 1px;
+    margin: 1px 10px;
+    overflow: hidden;
+    background-color: #E5E5E5;
+    border-bottom: 1px solid #555;
+}
+/*
+	这个类的效果几乎等同于分组间同时使用
+	.navmenu-text和.navmenu-divider
+*/
+.navmenu-group-header {
+	color: #666 !important;
+    margin: 1px 10px;
+    overflow: hidden;
+    border-bottom: 1px solid #555;
+}
+
+@media (min-width: 1px) {
+  .navbar-toggle {
+    display: block !important;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    padding: 0 0 0 300px;
+  }
+  .navmenu {
+    padding-top: 0;
+  }
+  .navbar {
+    display: none !important; /* IE8 fix */
+  }
+}

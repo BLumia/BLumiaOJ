@@ -23,5 +23,9 @@ You should modify the PDO statement in setting_db.inc.php if you are not using m
 	
 	
 // 普通用户无需在意本分割线下面的代码
-	require("./include/setting_db.inc.php");
+	if (isset($ON_ADMIN_PAGE) && $ON_ADMIN_PAGE==="Yap") {
+		require("../include/setting_db.inc.php");
+	} else {
+		require("./include/setting_db.inc.php");
+	}
 ?>
