@@ -3,7 +3,7 @@
 		<a class="navmenu-brand" href="#">BLumia OJ Admin</a>
 		<div class="navmenu-group-header">Problem Editor</div>
 		<ul class="nav navmenu-nav">
-			<li><a href="#">添加问题</a></li>
+			<li><a href="#" onclick="ajaxLoadPage('test.php');">添加问题</a></li>
 			<li><a href="#">管理问题</a></li>
 			<li><a href="#">问题重判</a></li>
 		</ul>
@@ -33,5 +33,7 @@
 			<span class="icon-bar"></span>
 		</button>
 		<a class="navbar-brand" href="#">BLumia OJ Admin</a>
+	</div>
+	<div class="container" id="mainContent">
 	</div>
 </body>
