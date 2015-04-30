@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="../sitefiles/css/bootstrap.min.css">
 <link rel="stylesheet" href="../sitefiles/css/bootstrap-tour.min.css">
 <link rel="stylesheet" href="../sitefiles/css/jasny-bootstrap.min.css">
+<link rel="stylesheet" href="../sitefiles/css/summernote.css" type="text/css">
 <link rel="stylesheet" href="../sitefiles/css/prettify.css" type="text/css">
 <link rel="stylesheet" href="../sitefiles/css/nprogress.css" type="text/css">
 <link rel="stylesheet" href="../sitefiles/css/font-awesome.min.css" type="text/css">
@@ -29,6 +30,7 @@
 <script src="../sitefiles/js/bootstrap.min.js"></script>
 <script src="../sitefiles/js/bootstrap-tour.min.js"></script>
 <script src="../sitefiles/js/jasny-bootstrap.min.js"></script>
+<script src="../sitefiles/js/summernote.min.js"></script>
 <script src="../sitefiles/js/prettify.js"></script>
 <script src="../sitefiles/js/nprogress.js"></script>
 <script src="../sitefiles/js/admin-js.js"></script>
