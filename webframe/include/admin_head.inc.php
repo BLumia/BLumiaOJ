@@ -1,4 +1,8 @@
 <meta charset="utf-8">
+<!-- Icons -->
+<link rel="shortcut icon" href="../sitefiles/favicon.ico">	
+<meta name="msapplication-TileColor" content="#FEF2E6">
+<meta name="msapplication-TileImage" content="../sitefiles/favicon.png">	
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="../sitefiles/css/bootstrap.min.css">
 <link rel="stylesheet" href="../sitefiles/css/bootstrap-tour.min.css">
