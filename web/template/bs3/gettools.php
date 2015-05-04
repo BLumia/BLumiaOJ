@@ -11,25 +11,6 @@
     <title><?php echo $OJ_NAME?></title>  
     <?php include("template/$OJ_TEMPLATE/css.php");?>	    
 
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-	<script>
-ieGo();
-function ieGo(){ 
-		var ie = !-[1,];  
-		if(ie == true) {
-			var ua = navigator.userAgent.toLowerCase();
-			var version = parseInt(ua.match(/msie ([\d.]+)/)[1]);
-			if(version <= 7) {
-				location.href='./old/'; 
-			}
-		}
-}
-	</script>
   </head>
 
   <body>
@@ -51,12 +32,15 @@ Code::Blocks是一个开源的全功能的跨平台C/C++集成开发环境。由
 <p>下载地址：<br/>
 <a href="http://www.codeblocks.org/downloads">【官网地址】</a>
 <a href="http://tieba.baidu.com/p/3242052995">【其他地址】</a>
+<a href="http://10.12.1.68:8081/upload/tools/codeblocks-13.12mingw-setup.exe">
+【校内下载】
+</a>
 </p>
 <p>
 使用方法：
 （创建一个新的控制台程序项目）<br/>
 对于算法竞赛用户，应创建控制台程序。<br/>
-在File->New->Project弹出的对话框中选择Console application（在Category选择Console可以塞选类型为控制台）<br/>
+在File->New->Project弹出的对话框中选择Console application（在Category选择Console可以筛选类型为控制台）<br/>
 弹出向导选择下一步，选择语言并下一步，填写保存路径和项目名称等信息，最后完成。<br/>
 在左侧的Management中选择项目名称并选择代码文件，双击后右侧即代码文件。
 </p>

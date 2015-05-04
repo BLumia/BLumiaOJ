@@ -162,7 +162,7 @@ function getTotal(rows) {
     return total;
 }
 function metal() {
-    var tb = window.document.getElementById('rank');
+    var tb = window.document.getElementById('standings');
     var rows = tb.rows;
     try {
         var total = getTotal(rows);
@@ -178,16 +178,16 @@ function metal() {
                 if (r == 1) {
                     cell.innerHTML = "Winner";
                     //cell.style.cssText="background-color:gold;color:red";
-                    cell.className = "badge btn-warning";
+                    //cell.className = "badge btn-warning";
                 }
                 if (r > 1 && r <= total * .05 + 1)
-                    cell.className = "badge btn-warning";
+                    //cell.className = "badge btn-warning";
                 if (r > total * .05 + 1 && r <= total * .20 + 1)
-                    cell.className = "badge";
+                    //cell.className = "badge";
                 if (r > total * .20 + 1 && r <= total * .45 + 1)
-                    cell.className = "badge btn-danger";
+                    //cell.className = "badge btn-danger";
                 if (r > total * .45 + 1 && ac > 0)
-                    cell.className = "badge badge-info";
+                    //cell.className = "badge badge-info";
             }
         }
     }

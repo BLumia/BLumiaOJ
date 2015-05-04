@@ -31,7 +31,7 @@ function ieGo(){
     <div class="container">
     <?php include("template/$OJ_TEMPLATE/nav.php");?>	    
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
+      <div class="">
         <p><!--
 <center>
 <div id=submission style="width:600px;height:300px" ></div>
@@ -46,14 +46,23 @@ function ieGo(){
 	</div>
 	<div class="col-xs-12 col-md-3">
 		<ul class="list-group">
-			<a href="./old/faqs.cn.php"><li class="list-group-item"><?php echo $MSG_FAQ; ?></li></a>
+			<a href="./about.php?FAQ=1"><li class="list-group-item"><?php echo $MSG_FAQ; ?></li></a>
 			<a href="./discuss/discuss.php"><li class="list-group-item"><?php echo $MSG_BBS; ?></li></a>
 			<a href="./gettools.php"><li class="list-group-item"><?php echo $MSG_GET_TOOLS;?></li></a>
 			<a href="./feedback.html"><li class="list-group-item primary">欢迎吐槽</li></a>
-			<li class="list-group-item"><?php echo $MSG_ABOUT;?></li>
+			<a href="./about.php"><li class="list-group-item"><?php echo $MSG_ABOUT;?></li></a>
 		</ul>
 	</div>
 </div>
+<ul class="nav nav-pills">
+	<?php if(file_exists("setlang.php")){?>
+		<li class="disabled"><a href="#"><?php echo $MSG_LANG ?></a></li>
+		<li><a href="setlang.php?lang=en">English</a></li>
+		<li><a href="setlang.php?lang=cn">简体中文</a></li>
+	<?php }?>	
+		<li class="disabled"><a href="#">Global Contest:</a></li>
+		<li><a href="recent-contest.php">View</a></li>
+</ul>
 <?php echo $view_news?>
 <div class="row">
   <div class="col-xs-6 col-md-3">
@@ -78,15 +87,6 @@ function ieGo(){
   </div>
 
 </div>
-	<ul class="nav nav-pills navbar-inverse">
-	<?php if(file_exists("setlang.php")){?>
-		<li class="disabled"><a href="#"><?php echo $MSG_LANG ?></a></li>
-		<li><a href="setlang.php?lang=en">English</a></li>
-		<li><a href="setlang.php?lang=cn">简体中文</a></li>
-	<?php }?>	
-		<li class="disabled"><a href="#">Global Contest:</a></li>
-		<li><a href="recent-contest.php">View</a></li>
-	</ul>
 	<ul class="nav nav-pills navbar-inverse">
 		<?php echo '<font color="white">&nbsp;&nbsp;&nbsp;&nbsp;'.$MSG_BLOG.'&nbsp;&nbsp;</font>'; ?>
 		<a href="http://www.cnblogs.com/chenchengxun" target="_blank"><button class="btn btn-primary" type="button">陈成勋</button></a>
