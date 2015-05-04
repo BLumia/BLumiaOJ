@@ -4,7 +4,7 @@
 		<div class="navmenu-group-header">Problem Editor</div>
 		<ul class="nav navmenu-nav">
 			<li><a href="#">问题列表</a></li>
-			<li><a href="#">管理问题</a></li>
+			<li><a href="./problem_manager.php">管理问题</a></li>
 			<li><a href="#">问题重判</a></li>
 		</ul>
 		<div class="navmenu-group-header">Contest Editor</div>

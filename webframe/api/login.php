@@ -31,7 +31,7 @@
 	*/
 	
 	$sql=$pdo->prepare("SELECT `rightstr` FROM `privilege` WHERE `user_id`='?'");
-	$sql->execute(array(mysql_real_escape_string($user_id)));
+	$sql->execute(array($user_id));
 	$result=$sql->fetchAll();
 	
 	$login=check_login($user_id,$password,$pdo);

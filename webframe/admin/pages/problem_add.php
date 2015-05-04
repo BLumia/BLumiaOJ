@@ -7,48 +7,48 @@
 		<p class="lead">
 			Maybe you need some help?
 		</p>
-		<form method="POST" class="form-horizontal">
+		<form method="POST" class="form-horizontal" action="../api/problem_add.php">
 		    <label>Problem Title:</label>
-			<input type="text" class="form-control" id="problem_title" placeholder="Enter Problem Title">
+			<input type="text" class="form-control" name="problem_title" placeholder="Enter Problem Title">
 			<div class="row">
 				<div class="col-sm-6">
 					<label>Time Limit:</label>
-					<input type="text" class="form-control" id="time_limit" placeholder="Time Limit (s)">
+					<input type="text" class="form-control" name="time_limit" placeholder="Time Limit (s)">
 				</div>
 				<div class="col-sm-6">
 					<label>Memory Limit:</label>
-					<input type="text" class="form-control" id="memory_limit" placeholder="Memory Limit (MB)">
+					<input type="text" class="form-control" name="memory_limit" placeholder="Memory Limit (MB)">
 				</div>
 			</div>
 			<label>Description:</label>
-			<div class="summernote">Problem Description Placed at here, we recommended that please do <b>not</b> use PRE label since it was did by OJ's problem display system.</div>
+			<textarea class="summernote" name="problem_desc">Problem Description Placed at here, we recommended that please do <b>not</b> use PRE label since it was did by OJ's problem display system.</textarea>
 			<label>Input:</label>
-			<div class="summernote">Input Description Placed at here, we recommended that please do <b>not</b> use PRE label since it was did by OJ's problem display system.</div>
+			<textarea class="summernote" name="problem_input">Input Description Placed at here, we recommended that please do <b>not</b> use PRE label since it was did by OJ's problem display system.</textarea>
 			<label>Output:</label>
-			<div class="summernote">Output Description Placed at here, we recommended that please do <b>not</b> use PRE label since it was did by OJ's problem display system.</div>
+			<textarea class="summernote" name="problem_output">Output Description Placed at here, we recommended that please do <b>not</b> use PRE label since it was did by OJ's problem display system.</textarea>
 			<div class="row">
 				<div class="col-sm-6">
 					<label>Sample Input:</label>
-					<textarea class="form-control" rows="5" placeholder="Input Data Here"></textarea>
+					<textarea class="form-control" rows="5" name="samp_in_data" placeholder="Input Data Here"></textarea>
 				</div>
 				<div class="col-sm-6">
 					<label>Sample Output:</label>
-					<textarea class="form-control" rows="5" placeholder="Output Data Here"></textarea>
+					<textarea class="form-control" rows="5" name="samp_out_data" placeholder="Output Data Here"></textarea>
 				</div>
 			</div>
 			<p>The Sample Input / Output will display in a problem description, <em>but Test Input / Output will not.</em></p>
 			<div class="row">
 				<div class="col-sm-6">
 					<label>Test Input:</label>
-					<textarea class="form-control" rows="5" placeholder="Test Input Data Here"></textarea>
+					<textarea class="form-control" rows="5" name="test_in_data" placeholder="Test Input Data Here"></textarea>
 				</div>
 				<div class="col-sm-6">
 					<label>Test Output:</label>
-					<textarea class="form-control" rows="5" placeholder="Test Output Data Here"></textarea>
+					<textarea class="form-control" rows="5" name="test_out_data" placeholder="Test Output Data Here"></textarea>
 				</div>
 			</div>
 			<label>Hint:</label>
-			<textarea class="form-control" rows="3" placeholder="Leave blank if don't need. You can use html labels in a hint"></textarea>
+			<textarea class="form-control" rows="3" name="problem_hint" placeholder="Leave blank if don't need. You can use html labels in a hint"></textarea>
 			<label>Special Judge:</label>
 			<label class="radio-inline">
 				<input type="radio" name="problem_spj" id="inlineRadio1" value="0" checked> No
@@ -57,7 +57,7 @@
 				<input type="radio" name="problem_spj" id="inlineRadio2" value="1"> Yes
 			</label><br/>
 			<label>Source:</label>
-			<textarea class="form-control" rows="1" placeholder="Source"></textarea><br/>
+			<textarea class="form-control" rows="1" name="problem_source" placeholder="Source"></textarea><br/>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 		<p class="lead">
