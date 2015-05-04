@@ -1,7 +1,7 @@
 <?php
 // OJ Info (sample examples all without "[" and "]")
 	$OJ_NAME = "BLumiaOJ"; //Name of this OJ, e.g. [BLumiaOJ] , [BLOJ]
-	$OJ_PROBLEM_DATA = "../../Archives/problems"; //Path to problem data floder. e.g. [/home/judge/data]
+	$OJ_PROBLEM_DATA = "../../Archives/problems"; //Path to problem data floder. e.g. [/home/judge/data], this path will NOT work IF you are running on SAE or OpenShift
 	
 // Page Setting
 	$PAGE_ITEMS = 10;// Show how many comments/posts in one pages?
@@ -23,7 +23,8 @@ You should modify the PDO statement in setting_db.inc.php if you are not using m
 	$SQL_DB_PASS = "usbw";//Your DB Management Password
 	
 	
-// 普通用户无需在意本分割线下面的代码
+// 普通用户无需在意本分割线下面的代码--------
+	$OJ_PROBLEM_DATA = ($ENV_CASE == "OPEN_SHIFT") ? $_ENV['$OPENSHIFT_REPO_DIR'] : $OJ_PROBLEM_DATA;
 	if (isset($ON_ADMIN_PAGE) && $ON_ADMIN_PAGE==="Yap") {
 		require("../include/setting_db.inc.php");
 	} else {
