@@ -5,46 +5,46 @@
 			<h1>Problem Management <small>Add Problem</small></h1>
 		</div>
 		<p class="lead">
-			Maybe you need some help?
+			<?php echo $page_helper;?>
 		</p>
 		<form method="POST" class="form-horizontal" action="../api/problem_add.php">
 		    <label>Problem Title:</label>
-			<input type="text" class="form-control" name="problem_title" placeholder="Enter Problem Title">
+			<input type="text" class="form-control" name="problem_title" placeholder="Enter Problem Title" value="<?php echo $PROB_TITLE;?>">
 			<div class="row">
 				<div class="col-sm-6">
 					<label>Time Limit:</label>
-					<input type="text" class="form-control" name="time_limit" placeholder="Time Limit (s)">
+					<input type="text" class="form-control" name="time_limit" placeholder="Time Limit (s)" value="<?php echo $PROB_TIME;?>">
 				</div>
 				<div class="col-sm-6">
 					<label>Memory Limit:</label>
-					<input type="text" class="form-control" name="memory_limit" placeholder="Memory Limit (MB)">
+					<input type="text" class="form-control" name="memory_limit" placeholder="Memory Limit (MB)" value="<?php echo $PROB_MEMORY;?>">
 				</div>
 			</div>
 			<label>Description:</label>
-			<textarea class="summernote" name="problem_desc">Problem Description Placed at here, we recommended that please do <b>not</b> use PRE label since it was did by OJ's problem display system.</textarea>
+			<textarea class="summernote" name="problem_desc"><?php echo $PROB_DESC;?></textarea>
 			<label>Input:</label>
-			<textarea class="summernote" name="problem_input">Input Description Placed at here, we recommended that please do <b>not</b> use PRE label since it was did by OJ's problem display system.</textarea>
+			<textarea class="summernote" name="problem_input"><?php echo $PROB_INPUT;?></textarea>
 			<label>Output:</label>
-			<textarea class="summernote" name="problem_output">Output Description Placed at here, we recommended that please do <b>not</b> use PRE label since it was did by OJ's problem display system.</textarea>
+			<textarea class="summernote" name="problem_output"><?php echo $PROB_OUTPUT;?></textarea>
 			<div class="row">
 				<div class="col-sm-6">
 					<label>Sample Input:</label>
-					<textarea class="form-control" rows="5" name="samp_in_data" placeholder="Input Data Here"></textarea>
+					<textarea class="form-control" rows="5" name="samp_in_data" placeholder="Input Data Here"><?php echo $PROB_SAMP_IN;?></textarea>
 				</div>
 				<div class="col-sm-6">
 					<label>Sample Output:</label>
-					<textarea class="form-control" rows="5" name="samp_out_data" placeholder="Output Data Here"></textarea>
+					<textarea class="form-control" rows="5" name="samp_out_data" placeholder="Output Data Here"><?php echo $PROB_SAMP_OUT;?></textarea>
 				</div>
 			</div>
 			<p>The Sample Input / Output will display in a problem description, <em>but Test Input / Output will not.</em></p>
 			<div class="row">
 				<div class="col-sm-6">
 					<label>Test Input:</label>
-					<textarea class="form-control" rows="5" name="test_in_data" placeholder="Test Input Data Here"></textarea>
+					<textarea class="form-control" rows="5" name="test_in_data" placeholder="Test Input Data Here"><?php echo $PROB_TEST_IN;?></textarea>
 				</div>
 				<div class="col-sm-6">
 					<label>Test Output:</label>
-					<textarea class="form-control" rows="5" name="test_out_data" placeholder="Test Output Data Here"></textarea>
+					<textarea class="form-control" rows="5" name="test_out_data" placeholder="Test Output Data Here"><?php echo $PROB_TEST_OUT;?></textarea>
 				</div>
 			</div>
 			<label>Hint:</label>

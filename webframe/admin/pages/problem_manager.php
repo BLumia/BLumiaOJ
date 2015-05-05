@@ -10,16 +10,24 @@
 		</p>
 		<div class="list-group">
 			<a href="./problem_add.php" class="list-group-item">
-				<h4 class="list-group-item-heading">Add Problem</h4>
+				<h4 class="list-group-item-heading"><i class="fa fa-plus-circle"></i> Add Problem</h4>
 				<p class="list-group-item-text">添加一个问题</p>
 			</a>
 			<a href="#" class="list-group-item">
-				<h4 class="list-group-item-heading">Problem List</h4>
+				<h4 class="list-group-item-heading"><i class="fa fa-th-list"></i> Problem List</h4>
 				<p class="list-group-item-text">查看问题列表</p>
 			</a>
 			<a href="#" class="list-group-item">
-				<h4 class="list-group-item-heading">Import Problem</h4>
-				<p class="list-group-item-text">导入一个问题</p>
+				<h4 class="list-group-item-heading"><i class="fa fa-file-o"></i> Import Problem From File</h4>
+				<p class="list-group-item-text">从文件导入..</p>
+			</a>
+			<a href="./problem_copy.php" class="list-group-item">
+				<h4 class="list-group-item-heading"><i class="fa fa-link"></i> Import Problem From URL</h4>
+				<p class="list-group-item-text">从网址导入..</p>
+			</a>
+			<a href="./problem_rejudge.php" class="list-group-item">
+				<h4 class="list-group-item-heading"><i class="fa fa-link"></i> Problen Rejudger</h4>
+				<p class="list-group-item-text">重判题目/重判一次提交</p>
 			</a>
 		</div>
 	</div>

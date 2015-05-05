@@ -9,7 +9,7 @@
 			<label class="sr-only">Password</label>
 			<input name="password" class="form-control" placeholder="Password" type="password"><br/>
 			
-			<input type="hidden" name="pageauth" value="<?php echo ($_SESSION["SessionAuth"]);?>" readonly>
+			<?php require_once('./include/pageauth_post.php'); ?>
 		
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 			</form>
