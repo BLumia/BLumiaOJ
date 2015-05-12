@@ -5,9 +5,11 @@
 			<div class="row">
 				<div class="col-md-6 col-xs-12">
 					<div class="btn-group" role="group" id="oj-ps-pager">
-						<button type="button" class="btn btn-default">1</button>
-						<button type="button" class="btn btn-default">2</button>
-						<button type="button" class="btn btn-default">3</button>
+						<?php
+							for($totnum = 1,$pagenum = 1;$totnum<=$totalCount;$totnum+=$PAGE_ITEMS,$pagenum++) {
+								echo "<button id='page".$pagenum."' onclick='changepage(".($pagenum-1).");' type='button' class='btn btn-default'>".$pagenum."</button>";
+							}
+						?>
 					</div>
 				</div>
 				<div class="col-md-3 col-xs-6">
@@ -41,32 +43,7 @@
 							</tr>
 						</thead>
 						<tbody id="oj-ps-problemlist">
-						<?php for($i=0;$i<$problemCount;$i++) { //topic list ------------ ?>
-							<tr>
-								<?php 
-									if ($problemList[$i]['submit'] == 0) {
-										$pctText = "Unavalible";
-										$procBarNum = 0;
-										$pctNum = 0;
-									} else {
-										$pctNum = ($problemList[$i]['accepted']/$problemList[$i]['submit'])*100;
-										$procBarNum = (1-($problemList[$i]['accepted']/$problemList[$i]['submit']))*100;
-										$pctText = sprintf("%.2f%%",$pctNum);
-									}
-								?>
-								<td></td>
-								<td><?php echo $problemList[$i]['problem_id'];?></td>
-								<td>
-									<a href="problem.php?pid=<?php echo $problemList[$i]['problem_id'];?>"><?php echo $problemList[$i]['title'];?></a>
-									<div class="tr-tag">
-										<span>搜索</span>
-									</div>
-								</td>
-								<td><div class="progress width150px"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
-								<td><?php echo $problemList[$i]['source'];?></td>
-								<td>(<?php echo $problemList[$i]['accepted']." / ".$problemList[$i]['submit'];?>) <?php echo $pctText;?></td>
-							</tr>
-						<?php } //topic list end --------------------------------------- ?>
+						
 						</tbody>
 					</table>
 				</div>
@@ -91,5 +68,28 @@
 			placement: "top"
 		}]
 	});
+	</script>
+	<script type="text/javascript">
+	function changepage(num){
+		$("button.btn-primary").addClass("btn-default");
+		$("button.btn-primary").removeClass("btn-primary");
+		$("button#page"+(num+1)).removeClass("btn-default");
+		$("button#page"+(num+1)).addClass("btn-primary");
+		NProgress.start();
+		$.ajax({
+			url:"./api/ajax_problemset.php?p="+num,
+			async:false,
+			contentType:"application/x-www-form-urlencoded; charset=utf-8",
+			success:function(data/*返回的数据*/, textStatus, jqXHR){
+				document.getElementById("oj-ps-problemlist").innerHTML=data;
+				$("tr").fadeIn();
+			},
+			complete:function(jqXHR, textStatus){
+				NProgress.done();
+			}
+		});
+	}
+	
+	changepage(<?php echo $p;?>);
 	</script>
 	</body>
