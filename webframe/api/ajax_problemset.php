@@ -6,7 +6,6 @@
 	session_start();
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
-	require_once("../include/file_functions.php");
 	
 	//Prepare
 	$p=isset($_GET['p']) ? $_GET['p'] : 0;
@@ -18,12 +17,12 @@
 	$problemList=$sql->fetchAll();
 	$problemCount=count($problemList);
 	
-	for($i=0;$i<$problemCount;$i++) { //topic list ------------ 
+	for($i=0;$i<$problemCount;$i++) { //problem list ------------ 
 ?>
 	<tr>
 		<?php 
 			if ($problemList[$i]['submit'] == 0) {
-				$pctText = "Unavalible";
+				$pctText = "N/A";
 				$procBarNum = 0;
 				$pctNum = 0;
 			} else {

@@ -44,7 +44,7 @@
 								<th width="14%">Submit Time</th>
 							</tr>
 						</thead>
-						<tbody id="oj-statue-list">
+						<tbody id="vj-statue-list">
 							<!-- use ajax to load result -->
 						</tbody>
 					</table>
@@ -56,11 +56,11 @@
 	function changepage(num){
 		NProgress.start();
 		$.ajax({
-			url:"./api/ajax_status.php?p="+num,
+			url:"./api/ajax_status_vj.php?p="+num,
 			async:false,
 			contentType:"application/x-www-form-urlencoded; charset=utf-8",
 			success:function(data/*返回的数据*/, textStatus, jqXHR){
-				document.getElementById("oj-statue-list").innerHTML=data;
+				document.getElementById("vj-statue-list").innerHTML=data;
 				$("tr").fadeIn();
 			},
 			complete:function(jqXHR, textStatus){

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -18,6 +18,15 @@
 				<li><a href="status.php">Status</a></li>
 				<li><a href="ranklist.php">Rank List</a></li>
 				<li><a href="contestlist.php">Contest</a></li>
+				
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Virtual Judge <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="problemset_vj.php">Problem Set</a></li>
+						<li><a href="status_vj.php">Status</a></li>
+					</ul>
+				</li>
+				
 			</ul>
 			<?php if (isset($_SESSION['user_id'])) {?>
 			<ul class="nav navbar-nav navbar-right">

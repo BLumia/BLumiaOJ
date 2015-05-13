@@ -14,7 +14,7 @@
 	if($p<0){$p=0;}
 	$front=intval($p*$PAGE_ITEMS);
 	//Page Includes
-	require("./pages/status.php");
+	require("./pages/status_vj.php");
 ?>
 	
 </html>
