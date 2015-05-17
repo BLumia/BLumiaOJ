@@ -19,6 +19,7 @@
 				<li><a href="ranklist.php">Rank List</a></li>
 				<li><a href="contestlist.php">Contest</a></li>
 				
+				<?php if ($VJ_ENABLED) {?>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Virtual Judge <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
@@ -26,6 +27,7 @@
 						<li><a href="status_vj.php">Status</a></li>
 					</ul>
 				</li>
+				<?php } ?>
 				
 			</ul>
 			<?php if (isset($_SESSION['user_id'])) {?>

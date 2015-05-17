@@ -4,7 +4,10 @@
 	$OJ_PROBLEM_DATA = "../../Archives/problems"; //Path to problem data floder. e.g. [/home/judge/data], this path will NOT work IF you are running on SAE or OpenShift
 	
 // Page Setting
-	$PAGE_ITEMS = 20;// Show how many comments/posts in one pages?
+	$PAGE_ITEMS = 25;// Show how many comments/posts in one pages?
+	
+// Virtual Judge Setting
+	$VJ_ENABLED = true;
 
 // Run Enviroment and DB setting
 /* ********************

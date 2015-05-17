@@ -26,6 +26,11 @@ http://www.bnuoj.com/v3/ajax/problem_data.php?iDisplayStart=0&iDisplayLength=25&
 	$result = json_decode($json, true);
 	$rows = $result['aaData'];
 	
+	if ($rows==NULL) {
+		echo "Virtual Judge系统暂时出现问题，请稍后再来吧~";
+		exit(0);
+	}
+	
 	foreach($rows as $row) { 
 ?>
 	<tr>
@@ -41,7 +46,7 @@ http://www.bnuoj.com/v3/ajax/problem_data.php?iDisplayStart=0&iDisplayLength=25&
 			}
 		?>
 		<td></td>
-		<td><?php echo $row[11]."-(".$row[1].")"; ?></td>
+		<td><?php echo $row[1]; ?></td>
 		<td>
 			<a href="problem_vj.php?pid=<?php echo $row[1]; ?>"><?php echo $row[2]; ?></a>
 			<div class="tr-tag">
@@ -49,7 +54,7 @@ http://www.bnuoj.com/v3/ajax/problem_data.php?iDisplayStart=0&iDisplayLength=25&
 			</div>
 		</td>
 		<td><div class="progress width150px"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
-		<td><?php echo $row[10]; ?></td>
+		<td><?php echo $row[10]."-".$row[11]; ?></td>
 		<td>(<?php echo $row[4]." / ".$row[5];?>) <?php echo $pctText;?></td>
 	</tr>
 <?php } ?>
