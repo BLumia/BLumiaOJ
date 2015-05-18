@@ -1,0 +1,12 @@
+#broadcast {
+    color: red;
+    height: 50px;
+    position: static;
+    text-align: center;
+    visibility: visible;
+    width: 100%;
+    z-index: 4;
+}
+
+.oddrow{background-color:#F3F3F3;}
+.evenrow{background-color:#F0F0F0;}

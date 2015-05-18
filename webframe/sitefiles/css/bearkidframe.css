@@ -24,6 +24,12 @@ body {
 	color:#989;
 }
 
+/* 导航条左右边距变短，默认15 */
+.nav li a {
+    padding-left: 10px;
+	padding-right: 10px;
+}
+
 /*带链接的标题肯定不会需要下划线吧..*/
 h2 a:hover , h3 a:hover {
 	text-decoration:none; 

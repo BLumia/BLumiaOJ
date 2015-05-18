@@ -25,6 +25,9 @@ You should modify the PDO statement in setting_db.inc.php if you are not using m
 	$SQL_DB_USER = "root";//Your DB Login Username
 	$SQL_DB_PASS = "usbw";//Your DB Management Password
 	
+// Developer Setting
+	$DEV_DISPLAY_ERRORS = false;//是否显示报错
+	
 	
 // 普通用户无需在意本分割线下面的代码--------
 	$OJ_PROBLEM_DATA = ($ENV_CASE == "OPEN_SHIFT") ? $_ENV['$OPENSHIFT_REPO_DIR'] : $OJ_PROBLEM_DATA;
@@ -33,4 +36,6 @@ You should modify the PDO statement in setting_db.inc.php if you are not using m
 	} else {
 		require("./include/setting_db.inc.php");
 	}
+	if ($DEV_DISPLAY_ERRORS)
+		ini_set("display_errors","Off");
 ?>

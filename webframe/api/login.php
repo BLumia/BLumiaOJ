@@ -39,6 +39,8 @@
 	if ($login) {
 		$_SESSION['user_id']=$login;
 		//权限部分未添加
+		$_SESSION['administrator']=true;
+		//权限部分未添加
 		echo "success";
 		echo "<script language='javascript'>\n";
 		echo "history.go(-2);\n";

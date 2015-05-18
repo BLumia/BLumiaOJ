@@ -11,10 +11,10 @@
 		</div>		
 		<![endif]-->
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-9 col-sm-9">
 					统计信息或巨幕
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-3 col-sm-3">
 					<ul class="list-group">
 						<li class="list-group-item"><a href="#">讨论版</a></li>
 						<li class="list-group-item"><a href="#">常见问答</a></li>
