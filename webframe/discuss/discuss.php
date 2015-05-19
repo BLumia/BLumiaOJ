@@ -111,3 +111,4 @@ mysql_free_result($result);
 <span style = "font-size:75%; margin:0 10">[<b class="lock">Lock</b>] 锁帖</span>
 </div>
 </center>
+<?php require_once("discuss-footer.php"); ?>

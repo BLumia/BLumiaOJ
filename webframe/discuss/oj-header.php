@@ -72,7 +72,7 @@
 	</div><!--end menu-->
 </div><!--end subhead-->
 <div id=broadcast>
-<?php echo "<marquee id=broadcast scrollamount=1 direction=up scrolldelay=250>";
+<?php echo "<marquee id=broadcast scrollamount=1 direction=up scrolldelay=200>";
 	echo "<font color=red>";
 	echo file_get_contents($OJ_SAE?"saestor://web/msg.txt":"./msg.txt");
 	echo "</font>";
