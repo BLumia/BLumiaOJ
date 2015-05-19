@@ -66,9 +66,9 @@ $isadmin = isset($_SESSION['administrator']);
 	<td width="3%"></td>
 	<td width="4%">Prob</td>
 	<td width="12%">Author</td>
-	<td width="46%">Title</td>
+	<td width="44%">Title</td>
 	<td width="2%"><?php if ($isadmin) echo "<input type=checkbox>"; ?></td>
-	<td width="8%">Post Date</td>
+	<td width="10%">Post Date</td>
 	<td width="16%">Last Reply</td>
 	<td width="3%">Re</td>
 </thead>

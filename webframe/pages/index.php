@@ -16,7 +16,7 @@
 				</div>
 				<div class="col-md-3 col-sm-3">
 					<ul class="list-group">
-						<li class="list-group-item"><a href="#">讨论版</a></li>
+						<li class="list-group-item"><a href="./discuss/discuss.php">讨论版</a></li>
 						<li class="list-group-item"><a href="#">常见问答</a></li>
 						<li class="list-group-item"><a href="#">代码便签盒</a></li>
 						<li class="list-group-item"><a href="#">工具和向导</a></li>
