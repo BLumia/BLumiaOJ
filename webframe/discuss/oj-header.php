@@ -6,9 +6,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel=stylesheet href='./hojextend.css' type='text/css'>
 	<?php echo "<title>".$OJ_NAME." WebBoard</title>";?>
-	<link rel=stylesheet href='./cutter.css' type='text/css'>
+	<link rel=stylesheet href='./css/cutter.css' type='text/css'>
+	<link rel="stylesheet" href="./css/prettify.css" type="text/css">
+	<script src="./js/prettify.js"></script>
 <?php function checkcontest($MSG_CONTEST){
-	$ON_ADMIN_PAGE="Yap";
 		require_once("./db_info.inc.php");
 		$sql="SELECT count(*) FROM `contest` WHERE `end_time`>NOW() AND `defunct`='N'";
 		$result=mysql_query($sql);
@@ -50,8 +51,8 @@
 </div><!--end head-->
 <div id=subhead> 
 <div id=menu class=navbar>
-	<a href="../"><?php echo $MSG_HOME?></a>
-	<a href="./discuss.php"><?php echo $MSG_BBS?></a>&nbsp;|&nbsp;
+	<a href="./discuss.php"><?php echo $MSG_BBS?></a>
+	<a href="../"><?php echo $MSG_HOME?></a>&nbsp;|&nbsp;
 <?php 
 	if (isset($_SESSION['user_id'])){
 		$sid=$_SESSION['user_id'];
@@ -59,7 +60,7 @@
 		$mail=checkmail();
 		if ($mail)
 			print "<a href=../mail.php>$MSG_MAIL$mail</a>";
-		print "<a href=../logout.php>$MSG_LOGOUT</a>";
+		print "<a href=../api/logout.php>$MSG_LOGOUT</a>";
 	}else{
 		print "<a href=../loginpage.php>$MSG_LOGIN</a>";
 		print "<a href=../registerpage.php>$MSG_REGISTER</a>";

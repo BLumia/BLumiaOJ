@@ -1,6 +1,7 @@
 <?php
         session_start();
         require_once("./db_info.inc.php");
+		require_once("./discuss_func.inc.php");
         if (!isset($_SESSION['user_id'])){
                 require_once("oj-header.php");
                 echo "<a href=loginpage.php>Please Login First</a>";
@@ -13,6 +14,8 @@
                 exit(0);
         }
         
+		$content = RemoveXSS(UBB2Html(htmlspecialchars($_POST['content'])));
+		
         if (strlen($_POST['title'])>60){
                 require_once("oj-header.php");
                 echo "Your title is too long!";
@@ -52,7 +55,7 @@
         if ($_REQUEST['action']=='reply' || !is_null($tid)){
 			if(is_null($tid)) $tid=$_POST['tid'];
 			if (!is_null($tid) && array_key_exists('content', $_POST) && $_POST['content']!=''){
-				$sql="INSERT INTO `reply` (`author_id`, `time`, `content`, `topic_id`,`ip`) SELECT '".mysql_real_escape_string($_SESSION['user_id'])."', NOW(), '".mysql_real_escape_string($_POST['content'])."', '".mysql_real_escape_string($tid)."','".$_SERVER['REMOTE_ADDR']."' FROM `topic` WHERE `tid` = '".mysql_real_escape_string($tid)."' AND `status` = 0 ";
+				$sql="INSERT INTO `reply` (`author_id`, `time`, `content`, `topic_id`,`ip`) SELECT '".mysql_real_escape_string($_SESSION['user_id'])."', NOW(), '".mysql_real_escape_string($content)."', '".mysql_real_escape_string($tid)."','".$_SERVER['REMOTE_ADDR']."' FROM `topic` WHERE `tid` = '".mysql_real_escape_string($tid)."' AND `status` = 0 ";
 
 				mysql_query($sql) or die (mysql_error());
 				if(mysql_affected_rows()>0) {

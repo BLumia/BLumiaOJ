@@ -5,7 +5,7 @@ static 	$DB_NAME="judge";
 static 	$DB_USER="root";
 static 	$DB_PASS="usbw";
 	// connect db 
-static 	$OJ_NAME="郑州师范学院在线Oj";
+static 	$OJ_NAME="此处填写讨论版名称";
 static 	$OJ_HOME="./";
 static 	$OJ_ADMIN="root@localhost";
 static 	$OJ_DATA="/home/judge/data";

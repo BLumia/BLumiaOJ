@@ -64,13 +64,13 @@ $isadmin = isset($_SESSION['administrator']);
 <table class="table">
 <thead>
 	<td width="3%"></td>
+	<td width="3%">Re</td>
 	<td width="4%">Prob</td>
-	<td width="12%">Author</td>
 	<td width="44%">Title</td>
+	<td width="12%">Author</td>
 	<td width="2%"><?php if ($isadmin) echo "<input type=checkbox>"; ?></td>
 	<td width="10%">Post Date</td>
 	<td width="16%">Last Reply</td>
-	<td width="3%">Re</td>
 </thead>
 <?php if ($rows_cnt==0) echo("<tr class=\"evenrow\"><td colspan=4></td><td style=\"text-align:center\">No thread here.</td></tr>");
 
@@ -80,7 +80,6 @@ for ($i=0;$i<$rows_cnt;$i++){
 	if ($cnt) echo "<tr align=center class='oddrow'>";
 	else echo "<tr align=center class='evenrow'>";
 	$cnt=1-$cnt;
-	
 	echo "<td>";
 		if ($row->top_level!=0){
 			if ($row->top_level!=1||$row->pid==($pid==''?0:$pid))
@@ -89,15 +88,15 @@ for ($i=0;$i<$rows_cnt;$i++){
 		else if ($row->status==1) echo"<b class=\"Lock\">Lock</b>";
 		else if ($row->count>20) echo"<b class=\"Hot\">Hot</b>";
 	echo "</td>";
+	echo "<td>".($row->count-1)."</td>";
 	echo "<td>";
 	if ($row->pid!=0) echo"<a href=\"discuss.php?pid={$row->pid}&cid={$row->cid}\">{$row->pid}</a>";
 	echo "</td>";
-	echo "<td><a href=\"../userinfo.php?user={$row->author_id}\">{$row->author_id}</a></td>";
 	echo "<td><a href=\"thread.php?tid={$row->tid}&cid={$row->cid}\">".nl2br(htmlspecialchars($row->title))."</a></td>";
+	echo "<td><a href=\"../userinfo.php?user={$row->author_id}\">{$row->author_id}</a></td>";
 	if ($isadmin) echo "<td><input type=checkbox></td>"; else echo("<td></td>");
 	echo "<td>{$row->posttime}</td>";
 	echo "<td>{$row->lastupdate}</td>";
-	echo "<td>".($row->count-1)."</td>";
 	echo "</tr>";
 }
 mysql_free_result($result);

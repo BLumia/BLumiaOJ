@@ -5,9 +5,9 @@
 	$result=mysql_query($sql) or die("Error! ".mysql_error());
 	$rows_cnt = mysql_num_rows($result) or die("Error! ".mysql_error());
 	$row= mysql_fetch_object($result);
+	$thread_status = $row->status;
 	$isadmin = isset($_SESSION['administrator']);
 ?>
-
 <div> 
 <a class="button green" href="#">New Thread</a>
 <?php if ($isadmin) { ?>
@@ -17,7 +17,6 @@
 	else 
 		echo "<a class='button green' href=\"{$adminurl}sticky&level=0\">Standard</a>";
 ?> | <?php 
-	$thread_status = $row->status;
 	if ($row->status != 1) 
 		echo ("<a class='button orange' href=\"{$adminurl}lock\">Lock</a>"); 
 	else 
@@ -35,8 +34,23 @@
 </div>
 <table class="table">
 <thead>
-	<td width="4%"></td>
-	<td width="96%">Prob</td>
+	<td width="4%">
+		<a href="discuss.php
+		<?php 
+			if ($row->pid!=0 && $row->cid!=null) 
+				echo "?pid=".$row->pid."&cid=".$row->cid;
+			else if ($row->pid!=0) 
+				echo"?pid=".$row->pid; 
+			else if ($row->cid!=null) 
+				echo"?cid=".$row->cid;
+			echo "\">";
+			if ($row->pid!=0) 
+				echo "Prob.".$row->pid;
+			else echo "MainBoard";
+		?>
+		</a>
+	</td>
+	<td width="96%"><big><?php echo nl2br(htmlspecialchars($row->title));?></big></td>
 </thead>
 <?php
 	$sql="SELECT `rid`, `author_id`, `time`, `content`, `status` FROM `reply` WHERE `topic_id` = '".mysql_real_escape_string($_REQUEST['tid'])."' AND `status` <=1 ORDER BY `rid` LIMIT 30";
@@ -48,7 +62,10 @@
 		mysql_data_seek($result,$i);
 		$row=mysql_fetch_object($result);
 		$url = "threadadmin.php?target=reply&rid={$row->rid}&tid={$_REQUEST['tid']}&action=";
-		$isuser = strtolower($row->author_id)==strtolower($_SESSION['user_id']);
+		if (isset($_SESSION['user_id']))
+			$isuser = strtolower($row->author_id)==strtolower($_SESSION['user_id']);
+		else
+			$isuser = false;
 ?>
 <tr align=center class='<?php echo ($cnt=!$cnt)?'even':'odd';?>row'>
 	<td>
@@ -67,17 +84,17 @@
 			<?php } ?>
 			<span>[ <a href="#">Quote</a> ]</span>
 			<span>[ <a href="#">Edit</a> ]</span>
-			<a class="button red small" 
-			<?php if ($isuser || $isadmin) echo " href=".$url."delete";?>
-			>Delete</a>
+			
+			<?php if ($isuser || $isadmin) echo "<a class='button red small' href=".$url."delete".">Delete</a>";?>
+			
 			<span style="width:5em;text-align:right;display:inline-block;font-weight:bold;margin:0 10px">
 			<?php echo $i+1;?>#</span>
 		</div>
 		<div class=content style="text-align:left; clear:both; margin:10px 30px">
-			<?php	if ($row->status == 0) echo nl2br(htmlspecialchars($row->content));
+			<?php	if ($row->status == 0) echo nl2br($row->content);//htmlspecialchars removed
 					else {
 						if (!$isuser || $isadmin)echo "<div style=\"border-left:10px solid gray\"><font color=red><i>Notice : <br>This reply is blocked by administrator.</i></font></div>";
-						if ($isuser || $isadmin) echo nl2br(htmlspecialchars($row->content));
+						if ($isuser || $isadmin) echo nl2br($row->content);//htmlspecialchars removed
 					}
 			?>
 		</div>
@@ -105,3 +122,6 @@
 </div>
 <?php } ?>
 </div>
+<script type="text/javascript">
+	window.onload=prettyPrint();
+</script>
