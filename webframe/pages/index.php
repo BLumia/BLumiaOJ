@@ -4,7 +4,7 @@
 		<div class="container">
 		<!--[if lt IE 8]>
 		<div class="row">
-			<div class="spring">
+			<div class="alert alert-warning">
 				&nbsp;您的浏览器版本实在是太低了，是时候考虑<a href="http://browsehappy.com/">换一个</a>了。 
 				<del>&times;</del>
 			</div>	

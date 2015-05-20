@@ -2,11 +2,11 @@
 // DB Connection
 	switch ($ENV_CASE) {
 	case "SAE":
-		define('DB_HOST',getenv('SAE_MYSQL_HOST_M'));
-		define('DB_PORT',getenv('SAE_MYSQL_PORT')); 
-		define('DB_USER',getenv('SAE_MYSQL_USER'));
-		define('DB_PASS',getenv('SAE_MYSQL_PASS'));
-		define('DB_NAME',getenv('SAE_MYSQL_DB'));
+		define('DB_HOST',SAE_MYSQL_HOST_M);
+		define('DB_PORT',SAE_MYSQL_PORT); 
+		define('DB_USER',SAE_MYSQL_USER);
+		define('DB_PASS',SAE_MYSQL_PASS);
+		define('DB_NAME',SAE_MYSQL_DB);
 		break;
 	case "OPEN_SHIFT":
 		define('DB_HOST',getenv('OPENSHIFT_MYSQL_DB_HOST'));

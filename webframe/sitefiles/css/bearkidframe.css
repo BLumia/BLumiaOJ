@@ -24,6 +24,15 @@ body {
 	color:#989;
 }
 
+.medal-heading {
+    font-size: 50px;
+    margin: 0px;
+}
+
+.medal-text {
+  margin: 0;
+}
+
 /* 导航条左右边距变短，默认15 */
 .nav li a {
     padding-left: 10px;
