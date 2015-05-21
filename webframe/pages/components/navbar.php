@@ -48,7 +48,7 @@
 			</ul>
 			<?php } else { ?>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><i class="fa fa-user-plus"></i> Sign Up</a></li>
+				<li><a href="./registerpage.php"><i class="fa fa-user-plus"></i> Sign Up</a></li>
 				<li><a href="./loginpage.php"><i class="fa fa-sign-in"></i> Log In</a></li>
 			</ul>
 			<?php } ?>

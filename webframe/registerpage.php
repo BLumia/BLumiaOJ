@@ -3,7 +3,8 @@
 <html>
 	<head>
 		<?php require_once('./include/common_head.inc.php'); ?>
-		<title>Login</title>
+		<script src="./sitefiles/js/jqBootstrapValidation.js"></script>
+		<title>Register</title>
 	</head>	
 	
 <?php
@@ -15,7 +16,7 @@
 		exit(0);
 	}
 	//Page Includes
-	require("./pages/loginpage.php");
+	require("./pages/registerpage.php");
 ?>
 	
 </html>

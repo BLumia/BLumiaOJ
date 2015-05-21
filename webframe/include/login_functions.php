@@ -1,6 +1,15 @@
 <?php
 
 	/*为了兼容hustoj，照搬此处的加密解密算法*/
+	function pwGen($password,$md5ed=False) 
+	{
+		if (!$md5ed) $password=md5($password);
+		$salt = sha1(rand());
+		$salt = substr($salt, 0, 4);
+		$hash = base64_encode( sha1($password . $salt, true) . $salt ); 
+		return $hash; 
+	}
+	
 	function isOldPW($password)
 	{
 		for ($i=strlen($password)-1;$i>=0;$i--)
