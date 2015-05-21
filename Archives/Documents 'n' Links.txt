@@ -1,0 +1,12 @@
+SIM （Software and text similarity tester）
+ftp://ftp.cs.vu.nl/pub/dick/similarity_tester/ FTP资源
+http://dickgrune.com/Programs/similarity_tester/ 官网
+https://github.com/vmassuchetto/sim 似乎非官方的GitHub Mirror
+http://blog.csdn.net/caizi1991/article/details/45441599 博客文档
+http://blog.csdn.net/caizi1991/article/details/45422449 同上
+
+HustOJ
+http://blog.csdn.net/zhblue/article/details/7258715# 相关原作者的论文
+http://www.hustoj.com/ 这啥
+https://github.com/zhblue/hustoj 代码GitHub
+code.google.com/p/hustoj GoogleCode
