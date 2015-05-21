@@ -10,14 +10,14 @@
 
 预览
 ===
-如果您需要预览，您可以在[这里](http://testbed.blumia.net/webframe/index.php)看到新评测系统的预览状况。
+如果您需要预览，您可以在[这里（OpenShift位置）](https://testbed-blumia.rhcloud.com/webframe/index.php)或者[这里（SinaAppEngine位置）](http://2.labblumia.sinaapp.com/)看到新评测系统的预览状况。
 在完善的版本完成前，我们不计划提供此OJ的部署方案（没完成呢部署毛线..），我们会在完成后提供多语言（中英文）的相关文档和帮助。
 
 扩展OJ和参与开发
 ===
 如您有兴趣阅读本OJ的代码并对其做一些扩展或修改，我们建议您对下述知识稍作了解
 
-* PHP编程（不要求掌握MVC框架）
+* PHP编程（暂不要求掌握MVC框架但建议掌握）
 * HTML和CSS基础
 * JavaScript基础
 * MySQL的使用

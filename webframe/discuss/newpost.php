@@ -4,7 +4,7 @@
 	echo "<title>HUST Online Judge WebBoard >> New Thread</title>";
 	if (!isset($_SESSION['user_id'])){
 		echo "<a href=../loginpage.php>Please Login First</a>";
-		require_once("../oj-footer.php");
+		require_once("./discuss-footer.php");
 		exit(0);
 	}
 ?>
