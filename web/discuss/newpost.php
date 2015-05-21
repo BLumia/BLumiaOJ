@@ -24,4 +24,3 @@
 </form>
 </div>
 </center>
-<?php require_once("../oj-footer.php")?>

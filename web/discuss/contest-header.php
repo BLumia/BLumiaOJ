@@ -1,14 +1,14 @@
 <?php  
-    require("../include/db_info.inc.php");
+    require("./db_info.inc.php");
 	
 	if(isset($OJ_LANG)){
-		require_once("../lang/$OJ_LANG.php");
+		require_once("./lang/$OJ_LANG.php");
 	}
 ?>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel=stylesheet href='../include/hoj.css' type='text/css'>
+	<link rel=stylesheet href='./hoj.css' type='text/css'>
 </head>
 <?php if(isset($_GET['cid']))
 	$cid=intval($_GET['cid']);

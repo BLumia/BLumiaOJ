@@ -1,6 +1,6 @@
 <?php
         session_start();
-        require_once("../include/db_info.inc.php");
+        require_once("./db_info.inc.php");
         require_once("discuss_func.inc.php");
         if ($_REQUEST['target']=='reply'){
                 $rid = $_REQUEST['rid']; $tid = $_REQUEST['tid'];
@@ -45,7 +45,6 @@
                 else {
                         require_once("./oj-header.php");
                         echo "The thread does not exist.";
-                        require_once("../oj-footer.php");
                         exit(0);
                 }
         }
