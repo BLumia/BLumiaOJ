@@ -3,12 +3,15 @@
 <html>
 	<head>
 		<?php require_once('./include/common_head.inc.php'); ?>
+		<script src="./sitefiles/js/highcharts.js"></script>
 		<title>BLumiaOJ</title>
 	</head>	
 	
 <?php
 	//Vars
 	require_once('./include/setting_oj.inc.php');
+	$jresult=Array("MSG_PD","MSG_PR","MSG_CI","MSG_RJ","MSG_AC","MSG_PE","MSG_WA","MSG_TLE","MSG_MLE","MSG_OLE","MSG_RE","MSG_CE","MSG_CO","MSG_TR");
+	
 	//Prepares
 	if (isset($_SESSION['user_id']) && !isset($_GET['user'])) {
 		//User Logged in and wanna see him/herself's info.
@@ -21,8 +24,6 @@
 		$sql->closeCursor();
 		
 		$user_name = $res['nick'];
-		$user_ac = $res['solved'];
-		$user_submit = $res['submit'];
 		$user_school = $res['school'];
 		$user_email = $res['email'];
 		
@@ -30,6 +31,33 @@
 		//TODO： 访问指定用户的用户页面，$_GET['user'];传入user_id
 		exit(0);
 	}
+	
+	// count solved
+	$sql=$pdo->prepare("SELECT count(DISTINCT problem_id) as `ac` FROM `solution` WHERE `user_id`=? AND `result`=4");
+	$sql->execute(array($user_id));
+	$res=$sql->fetch();
+	$user_solved = $res['ac'];
+	$sql->closeCursor();
+	
+	// count submission
+	$sql=$pdo->prepare("SELECT count(solution_id) as `Submit` FROM `solution` WHERE `user_id`=?");
+	$sql->execute(array($user_id));
+	$res=$sql->fetch();
+	$user_submit = $res['Submit'];
+	$sql->closeCursor();
+	
+	// count other
+	$sql=$pdo->prepare("SELECT result,count(1) FROM solution WHERE `user_id`=? AND result>=4 group by result order by result");
+	$sql->execute(array($user_id));
+	$res=$sql->fetchAll();
+	$sql->closeCursor();
+	//print_r($res);
+	$i = 0;
+	foreach($res as $row) {
+		//print_r($row);
+		$user_other[$i++]=$row;
+	}
+	
 	//Page Includes
 	require("./pages/userinfo.php");
 ?>

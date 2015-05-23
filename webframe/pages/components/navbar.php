@@ -36,11 +36,13 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> <?php echo $_SESSION['user_id'];?> <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-					<li><a href="#"><i class="fa fa-edit"></i> Modify User</a></li>
+					<li><a href="./modifyinfo.php"><i class="fa fa-edit"></i> Modify User</a></li>
 					<li><a href="./userinfo.php"><i class="fa fa-at"></i> User Zone</a></li>
 					<li><a href="#"><i class="fa fa-history"></i> Recent Submit</a></li>
+					<?php if (isset($_SESSION['administrator'])) {?>
 					<li class="divider"></li>
 					<li><a href="./admin/index.php"><i class="fa fa-cogs"></i> Admin Panel</a></li>
+					<?php } ?>
 					<li class="divider"></li>
 					<li><a href="./api/logout.php"><i class="fa fa-sign-out"></i> Log Out</a></li>
 					</ul>

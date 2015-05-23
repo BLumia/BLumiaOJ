@@ -11,7 +11,7 @@
 					class="form-control" 
 					minlength="3" 
 					maxlength="20" 
-					placeholder="User ID" 
+					placeholder="(*) User ID" 
 					data-validation-minlength-message="UserID Should be longer than 3 char." 
 					type="text" 
 					required
@@ -28,7 +28,7 @@
 				<input
 					name="password" 
 					class="form-control" 
-					placeholder="Password" 
+					placeholder="(*) Password" 
 					type="password"
 					minlength="6"
 					data-validation-minlength-message="Password Should be longer than 6 char."
@@ -43,7 +43,7 @@
 					class="form-control" 
 					data-validation-match-match="password" 
 					data-validation-match-message = "Password NOT Matched"
-					placeholder="Password Again" 
+					placeholder="(*) Password Again" 
 					type="password"
 				>
 				<p class="help-block"></p>
@@ -55,7 +55,7 @@
 			</div>
 			<label class="sr-only">E-Mail</label>
 			<div class="control-group">
-				<input name="email" class="form-control" placeholder="E-Mail" type="email" required>
+				<input name="email" class="form-control" placeholder="(*) E-Mail" type="email" required>
 				<p class="help-block"></p>
 			</div>
 			<div class="control-group">

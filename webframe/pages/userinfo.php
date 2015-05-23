@@ -13,15 +13,15 @@
 					
 					<div class="row">
 						<div class="col-lg-3 col-sm-3">
-							<div class="panel panel-info">
+							<div class="panel panel-success">
 							<div class="panel-heading">
 								<div class="row">
 								<div class="col-xs-6">
 									<i class="fa fa-check fa-5x"></i>
 								</div>
 								<div class="col-xs-6 text-right">
-									<p class="medal-heading"><?php echo $user_ac; ?></p>
-									<p class="medal-text">Accepted!</p>
+									<p class="medal-heading"><?php echo $user_solved; ?></p>
+									<p class="medal-text">Solved!</p>
 								</div>
 								</div>
 							</div>
@@ -29,7 +29,7 @@
 								<div class="panel-footer medal-bottom">
 								<div class="row">
 									<div class="col-xs-9">
-									Recent Accepted
+									All Solved
 									</div>
 									<div class="col-xs-3 text-right">
 									<i class="fa fa-arrow-circle-right"></i>
@@ -40,7 +40,7 @@
 							</div>
 						</div>
 						<div class="col-lg-3 col-sm-3">
-							<div class="panel panel-success">
+							<div class="panel panel-info">
 							<div class="panel-heading">
 								<div class="row">
 								<div class="col-xs-6">
@@ -94,6 +94,26 @@
 							</div>
 						</div>
 					</div><!-- /.row -->
+					
+					<div class="row">
+						<div class="col-sm-6">
+							<ul class="list-group">
+								<li class="list-group-item">Solved: <a href="#"><?php echo $user_solved;?> Solved</a></li>
+								<li class="list-group-item">Challenged: <a href="#"><?php echo $user_submit;?> Submits</a></li>
+								<?php 
+								foreach($user_other as $row){
+									echo "<li class='list-group-item'>";
+									//echo $jresult[$row[0]]." - ".$row[1]; 与下一行功能一致
+									echo $jresult[$row['result']].": ".$row['count(1)'];
+									echo "</li>";
+								}
+								?>
+							</ul>
+						</div>
+						<div class="col-sm-6">
+							<div id="cont" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+						</div>
+					</div><!-- /.row -->
 			
 				</div>
 			</div><!-- /.row, 3 medal -->
@@ -101,4 +121,49 @@
 			<!-- 显示其他信息 -->
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
+		<script type="text/javascript">
+			$(function () {
+				var chart;
+				
+				$(document).ready(function () {
+					
+					// Build the chart
+					$('#cont').highcharts({
+						chart: {
+							plotBackgroundColor: null,
+							plotBorderWidth: null,
+							plotShadow: false
+						},
+						title: {
+							text: 'User Submits Map'
+						},
+						tooltip: {
+							pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+						},
+						plotOptions: {
+							pie: {
+								allowPointSelect: true,
+								cursor: 'pointer',
+								dataLabels: {
+									enabled: true
+								},
+								showInLegend: true
+							}
+						},
+						series: [{
+							type: 'pie',
+							name: 'percentage',
+							data: [
+								<?php 
+									foreach($user_other as $row){
+										//echo $jresult[$row[0]]." - ".$row[1]; 与下一行功能一致
+										echo "['".$jresult[$row['result']]."', ".$row['count(1)']."],";
+									}
+								?>
+							]
+						}]
+					});
+				});
+			});
+		</script>
 	</body>
