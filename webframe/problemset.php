@@ -2,7 +2,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<?php require_once('./include/common_head.inc.php'); ?>
+		<?php 
+			require_once('./include/common_head.inc.php'); 
+			require_once('./include/common_functions.inc.php'); 
+		?>
 		<title>Problem Set</title>
 	</head>	
 	

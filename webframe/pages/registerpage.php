@@ -2,7 +2,7 @@
 
     <div class="container" style="max-width:400px; padding-top:61px;">
 		<div class="panel" style="padding:20px 20px;">
-			<form action="./api/register.php" method="post">
+			<form action="./api/user_register.php" method="post">
 			<h2>Please Sign Up</h2>
 			<label class="sr-only">User ID</label>
 			<div class="control-group">

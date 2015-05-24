@@ -22,6 +22,7 @@
 	
 	/* 额。。。。留着吧
 	if($user_id!="admin" &&$user_id!="skay" && substr($user_id,0,2)!="BK") {
+		header("Content-type:text/html;charset=UTF-8");
 		echo "<script language='javascript'>\n";
 		echo "alert('比赛期间非比赛帐号不允许登录!');\n";
 		echo "history.go(-1);\n";
@@ -38,6 +39,15 @@
 	
 	if ($login) {
 		$_SESSION['user_id']=$login;
+		
+		$sql=$pdo->prepare("select * from users where user_id=?");
+		$sql->execute(array($login));
+		$res=$sql->fetch();
+		//var_dump($res);
+		$sql->closeCursor();
+		
+		$_SESSION['user_name'] = $res['nick'];
+		
 		//权限部分未添加
 		$_SESSION['administrator']=true;
 		//权限部分未添加

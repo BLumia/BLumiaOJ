@@ -6,6 +6,7 @@
 	session_start();
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
+	require_once("../include/common_functions.inc.php");
 	
 	//Prepare
 	$p=isset($_GET['p']) ? $_GET['p'] : 0;
@@ -40,7 +41,7 @@
 			</div>
 		</td>
 		<td><div class="progress width150px"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
-		<td><?php echo $problemList[$i]['source'];?></td>
+		<td><?php echo utf8_substr($problemList[$i]['source'],0,14);?></td>
 		<td>(<?php echo $problemList[$i]['accepted']." / ".$problemList[$i]['submit'];?>) <?php echo $pctText;?></td>
 	</tr>
 <?php } ?>
