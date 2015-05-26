@@ -19,7 +19,7 @@
 		</ul>
 		<div class="navmenu-group-header">User Manager</div>
 		<ul class="nav navmenu-nav">
-			<li><a href="#">重置密码</a></li>
+			<li><a href="./reset_password.php">重置密码</a></li>
 			<li><a href="#">账号生成器</a></li>
 		</ul>
 		<div class="navmenu-group-header">Super User</div>

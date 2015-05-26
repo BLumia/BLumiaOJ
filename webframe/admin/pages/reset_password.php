@@ -21,6 +21,7 @@
 					<label>输入重置的密码: </label><br/>
 					<input type="password" class="form-control" name="new_password" placeholder="Password Here">
 				</div><br/><br/>
+				<?php require_once('../include/pageauth_post.php'); ?>
 				<button type="submit" class="btn btn-default">重置</button>
 			</form><br/>
 		</div>
