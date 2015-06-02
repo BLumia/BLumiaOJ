@@ -13,9 +13,12 @@
 	$jresult=Array("MSG_PD","MSG_PR","MSG_CI","MSG_RJ","MSG_AC","MSG_PE","MSG_WA","MSG_TLE","MSG_MLE","MSG_OLE","MSG_RE","MSG_CE","MSG_CO","MSG_TR");
 	
 	//Prepares
-	if (isset($_SESSION['user_id']) && !isset($_GET['user'])) {
+	if (isset($_SESSION['user_id']) || isset($_GET['user'])) {
 		//User Logged in and wanna see him/herself's info.
-		$user_id = $_SESSION['user_id'];
+		if (!isset($_GET['user']))
+			$user_id = $_SESSION['user_id'];
+		else
+			$user_id = $_GET['user'];
 		
 		$sql=$pdo->prepare("select * from users where user_id=?");
 		$sql->execute(array($user_id));
@@ -28,7 +31,7 @@
 		$user_email = $res['email'];
 		
 	} else {
-		//TODO： 访问指定用户的用户页面，$_GET['user'];传入user_id
+		//退出
 		exit(0);
 	}
 	
