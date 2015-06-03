@@ -13,9 +13,8 @@
 		</ul>
 		<div class="navmenu-group-header">Page Modifier</div>
 		<ul class="nav navmenu-nav">
-			<li><a href="#">创建公告</a></li>
-			<li><a href="#">创建文章</a></li>
-			<li><a href="#">文章列表</a></li>
+			<li><a href="./news_manager.php">管理新闻</a></li>
+			<li><a href="#">管理文章</a></li>
 		</ul>
 		<div class="navmenu-group-header">User Manager</div>
 		<ul class="nav navmenu-nav">

@@ -27,16 +27,8 @@
 			</div>
 			<div class="row">
 				<div class="col-md-9">
-					<div class="doc">
-						<div class="doc-head">
-							<h3>新闻标题新闻标题</h3>
-						</div>
-						<div class="doc-body">
-							新闻正文新闻正文新闻正文新闻正文新闻正文
-						</div>
-						<div class="doc-foot">
-							新闻发表日期，新闻作者
-						</div>
+					<div id="news" class="doc">
+						Loading News....
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -48,4 +40,25 @@
 			</div>
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
+		
+	<script type="text/javascript">
+	function loadnews(num){
+		NProgress.start();
+		$.ajax({
+			url:"./api/ajax_newslist.php?show="+num,
+			async:false,
+			contentType:"application/x-www-form-urlencoded; charset=utf-8",
+			success:function(data/*返回的数据*/, textStatus, jqXHR){
+				document.getElementById("news").innerHTML=data;
+				$(".alter").fadeIn();
+			},
+			complete:function(jqXHR, textStatus){
+				NProgress.done();
+			}
+		});
+	}
+	
+	loadnews(1);
+	</script>
+		
 	</body>
