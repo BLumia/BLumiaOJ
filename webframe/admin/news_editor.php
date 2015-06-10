@@ -13,10 +13,14 @@
 	if (isset($_GET['nid'])) {
 		//check nid if exist
 		$NEWS_NID = intval($_GET['nid']);
+		$sql=$pdo->prepare("SELECT * FROM `news` WHERE `news_id`=?");
+		$sql->execute(array($NEWS_NID));
+		$newsInfo = $sql->fetch();
+		//var_dump($newsInfo);
 		
 		$page_helper = "Maybe you need some help?";
-		$NEWS_TITLE = "";
-		$NEWS_CONTENT = "";
+		$NEWS_TITLE = $newsInfo['title'];
+		$NEWS_CONTENT = $newsInfo['content'];
 	} else {
 		//new
 		$NEWS_NID = "add";
