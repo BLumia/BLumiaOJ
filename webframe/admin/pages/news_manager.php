@@ -8,7 +8,7 @@
 			您可以从这里开始进行新闻的和管理。
 		</p>
 		<ul class="nav nav-pills nav-justified">
-			<li><a href="#">Add News</a></li>
+			<li><a href="./news_editor.php">Add News</a></li>
 			<li><a href="#">Edit Broadcast</a></li>
 		</ul>
 		<br/>

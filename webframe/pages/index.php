@@ -58,7 +58,7 @@
 		});
 	}
 	
-	loadnews(1);
+	loadnews(5);
 	</script>
 		
 	</body>
