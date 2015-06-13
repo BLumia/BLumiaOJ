@@ -26,11 +26,20 @@
 				<tbody>
 				<?php
 				foreach($newsList as $row) {
+					
+					$news_defunct = $row['defunct'] == "N" ? 3 : 1;
+					$text_defunct = $row['defunct'] == "N" ? "<span class='label label-success'>Avalible</span>" : "<span class='label label-default'>Hidden</span>";
+					$url_defunct = "<a href='../api/news_state.php?nid={$row['news_id']}&do={$news_defunct}'>{$text_defunct}</a>"; 
+					
+					$news_importance = $row['importance'] == "0" ? 2 : 1;
+					$text_importance = $row['importance'] == "0" ? "<span class='label label-info'>Normal</span>" : "<span class='label label-primary'>Important</span>";
+					$url_importance = "<a href='../api/news_state.php?nid={$row['news_id']}&do={$news_importance}'>{$text_importance}</a>"; 
+					
 					echo "<tr>";
 					echo "<td>".$row['news_id']."</td>";
 					echo "<td>".$row['title']."</td>";
 					echo "<td>".$row['time']."</td>";
-					echo "<td>".$row['defunct'].$row['importance']."</td>";
+					echo "<td>{$url_defunct} {$url_importance}</td>";
 					echo "<td><a href='./news_editor.php?nid=".$row['news_id']."'>Edit</a></td>";
 					echo "</tr>";
 					//var_dump($row);

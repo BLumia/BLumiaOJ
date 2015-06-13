@@ -17,7 +17,6 @@
 		$sql->execute(array($NEWS_NID));
 		$newsInfo = $sql->fetch();
 		//var_dump($newsInfo);
-		
 		$page_helper = "Maybe you need some help?";
 		$NEWS_TITLE = $newsInfo['title'];
 		$NEWS_CONTENT = $newsInfo['content'];
