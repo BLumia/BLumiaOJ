@@ -13,7 +13,7 @@
 				<h4 class="list-group-item-heading"><i class="fa fa-plus-circle"></i> Add Problem</h4>
 				<p class="list-group-item-text">添加一个问题</p>
 			</a>
-			<a href="#" class="list-group-item">
+			<a href="./problem_list.php" class="list-group-item">
 				<h4 class="list-group-item-heading"><i class="fa fa-th-list"></i> Problem List</h4>
 				<p class="list-group-item-text">查看问题列表</p>
 			</a>
@@ -26,7 +26,7 @@
 				<p class="list-group-item-text">从网址导入..</p>
 			</a>
 			<a href="./problem_rejudge.php" class="list-group-item">
-				<h4 class="list-group-item-heading"><i class="fa fa-link"></i> Problen Rejudger</h4>
+				<h4 class="list-group-item-heading"><i class="fa fa-gavel"></i> Problen Rejudger</h4>
 				<p class="list-group-item-text">重判题目/重判一次提交</p>
 			</a>
 		</div>

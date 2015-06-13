@@ -26,7 +26,7 @@
 	$problemCount=count($problemList);
 	*/
 	
-	$sql=$pdo->prepare("select * from problem");
+	$sql=$pdo->prepare("select * from problem where `defunct`!='Y'");
 	$sql->execute();
 	$totalProblem=$sql->fetchAll();
 	$totalCount=count($totalProblem);

@@ -25,6 +25,11 @@
 		<ul class="nav navmenu-nav">
 			<li><a href="#">权限管理</a></li>
 		</ul>
+		<div class="navmenu-divider"></div>
+		<ul class="nav navmenu-nav">
+			<li><a href="../index.php">退出管理页面</a></li>
+		</ul>
+		
 	</nav>
 	<div class="navbar navbar-inverse navbar-fixed-top hidden-md hidden-lg">
 		<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">

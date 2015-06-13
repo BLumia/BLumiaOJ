@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<?php require_once('../include/admin_head.inc.php'); ?>
-		<title>Add Problem</title>
+		<title>News Management</title>
 	</head>	
 	
 <?php
