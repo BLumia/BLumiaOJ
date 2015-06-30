@@ -2,6 +2,7 @@
 // OJ Info (sample examples all without "[" and "]")
 	$OJ_NAME = "BLumiaOJ"; //Name of this OJ, e.g. [BLumiaOJ] , [BLOJ]
 	$OJ_PROBLEM_DATA = "../../Archives/problems"; //Path to problem data floder. e.g. [/home/judge/data], this path will NOT work IF you are running on SAE or OpenShift
+	$OJ_LANGMASK = 4080; //1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 4080 for security reason to mask all other language
 	
 // Page Setting
 	$PAGE_ITEMS = 25;// Show how many comments/posts in one pages?

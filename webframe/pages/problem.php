@@ -10,7 +10,7 @@
 				正确:<span class="label label-success"><?php echo $problemItem[0]['accepted'];?></span>
 			</p>
 			<p class="text-center">
-				<a id="oj-p-submit" class="btn btn-default" href="#" role="button">Submit</a>
+				<a id="oj-p-submit" class="btn btn-default" href="./problemsubmit.php?pid=<?php echo $problemItem[0]['problem_id'];?>" role="button">Submit</a>
 				<a class="btn btn-default" href="#" role="button">Status</a>
 				<a class="btn btn-default" href="#" role="button">Edit</a>
 			</p>

@@ -1,0 +1,64 @@
+
+	<body>
+		<?php require("./pages/components/navbar.php");?>
+		<div class="container">
+			<h1 class="text-center"><?php echo "Problem : ".$prob_id;?></h1><br/>
+			<div class="row">
+				<form action="./api/problem_submit.php" method="post">
+					<div class="col-md-12 col-sm-12">
+						<div class="row">
+							<div class="col-md-4 col-sm-12">
+								<div class="input-group">
+									<div class="input-group-addon">Language</div>
+									<select class="form-control" id="language" name="language">
+									<?php
+										for($i=0;$i<$lang_count;$i++){
+											if($lang&(1<<$i))
+											echo "<option value=$i ".($lastlang==$i?"selected":"").">".$LANGUAGE_NAME[$i]."</option>";
+										}
+									?>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-4 hidden-sm text-center">
+
+							</div>
+							<div class="col-md-4 text-right">
+								<button type="submit" class="btn btn-primary btn-block">Submit</button>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-12 col-sm-12">
+						<br/>
+						<textarea style="display: none;" id="source" name="source"></textarea>
+					</div>
+				</form>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-md-6">
+					Test In:
+					<textarea class="form-control" rows="5">
+					</textarea>
+				</div>
+				<div class="col-md-6">
+					Test Out:
+					<textarea class="form-control" rows="5">
+					</textarea>
+				</div>
+			</div>
+		</div><!--main wrapper end-->
+		<?php require("./pages/components/footer.php");?>
+		
+	<script type="text/javascript">
+	var editor = CodeMirror.fromTextArea(document.getElementById("source"), {
+		lineNumbers: true,
+        matchBrackets: true,
+        mode: "text/x-csrc"
+	});
+
+
+	</script>
+		
+	</body>

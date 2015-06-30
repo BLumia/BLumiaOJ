@@ -156,3 +156,21 @@ div.tr-tag span{
 	background-image: -o-linear-gradient(top, #149bdf, #0480be);
 	background-image: linear-gradient(to bottom, #149bdf, #0480be);
 }
+
+.card{
+	position: relative;
+	padding:15px 20px 45px;
+	margin-bottom:15px;
+	background:#fff;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.25);
+	box-shadow:0 2px 4px rgba(0,0,0,0.25)
+}
+
+.card:hover{
+	-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.45);
+	box-shadow:0 2px 4px rgba(0,0,0,0.45);
+	-moz-transition: box-shadow 0.5s;
+	transition: box-shadow 0.5s;
+}
