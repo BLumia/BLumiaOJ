@@ -3,7 +3,7 @@
 		
 		<div class="navmenu-group-header">Problem Editor</div>
 		<ul class="nav navmenu-nav">
-			<li><a href="#">问题列表</a></li>
+			<li><a href="./problem_list.php">问题列表</a></li>
 			<li><a href="./problem_manager.php">管理问题</a></li>
 		</ul>
 		<div class="navmenu-group-header">Contest Editor</div>
@@ -14,7 +14,7 @@
 		<div class="navmenu-group-header">Page Modifier</div>
 		<ul class="nav navmenu-nav">
 			<li><a href="./news_manager.php">管理新闻</a></li>
-			<li><a href="#">管理文章</a></li>
+			<li><a href="#">管理广播</a></li>
 		</ul>
 		<div class="navmenu-group-header">User Manager</div>
 		<ul class="nav navmenu-nav">
