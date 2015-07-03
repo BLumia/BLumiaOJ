@@ -39,4 +39,5 @@ You should modify the PDO statement in setting_db.inc.php if you are not using m
 	}
 	if ($DEV_DISPLAY_ERRORS)
 		ini_set("display_errors","Off");
+	date_default_timezone_set("PRC");
 ?>
