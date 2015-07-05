@@ -7,6 +7,11 @@
 // Page Setting
 	$PAGE_ITEMS = 25;// Show how many comments/posts in one pages?
 	
+// Contest Setting
+	$OJ_LOCKRANK = false; // Default Lock Ranklist Mod
+	$OJ_LOCKRANK_PERCENT = 0.2; // 0~1. eg. 0.2: a 5 hours contest will lock one hour.
+	
+	
 // Virtual Judge Setting
 	$VJ_ENABLED = true;
 

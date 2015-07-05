@@ -20,7 +20,7 @@
 	
 	$sql=$pdo->prepare("select * from contest where contest_id = ?");
 	$sql->execute(array($cid));
-	$contestItem=$sql->fetchAll();
+	$contestItem=$sql->fetch();
 	
 	//Page Includes
 	require("./pages/contest.php");

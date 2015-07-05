@@ -19,7 +19,7 @@
 	
 	$sql=$pdo->prepare("select * from contest where contest_id = ?");
 	$sql->execute(array($cid));
-	$contestItem=$sql->fetchAll();
+	$contestItem=$sql->fetch();
 	
 	$sql=$pdo->prepare("select * from problem where problem_id = 1001");
 	$sql->execute();
