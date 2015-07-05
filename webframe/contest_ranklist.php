@@ -9,6 +9,7 @@
 	
 <?php
 	//Vars & Functions
+	require_once('./include/common_const.inc.php');
 	require_once('./include/setting_oj.inc.php');
 	
 	class Player{
@@ -58,6 +59,8 @@
 		exit(0);
 	}
 	
+	$highlightID = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : "";
+	
 	$sql=$pdo->prepare("select `start_time`,`title`,`end_time` from contest where contest_id = ?");
 	$sql->execute(array($cid));
 	$contestItem = $sql->fetch(PDO::FETCH_ASSOC);
@@ -81,9 +84,8 @@
 	
 	$sql=$pdo->prepare("SELECT count(1) as probCnt FROM `contest_problem` WHERE `contest_id`=?");
 	$sql->execute(array($cid));
-	$problemItem=$sql->fetch();
+	$problemItem=$sql->fetch(PDO::FETCH_ASSOC);//必须写PDO::FETCH_ASSOC，否则默认值影响count
 	$problemCount=count($problemItem);
-	$probCnt = $problemCount;
 	
 	$sql=$pdo->prepare("SELECT users.user_id,users.nick,solution.result,solution.num,solution.in_date 
 	FROM (
@@ -92,9 +94,37 @@
 	ORDER BY users.user_id,in_date");
 	$sql->execute(array($cid));
 	$playerList = $sql->fetchAll(PDO::FETCH_ASSOC);
-	var_dump($playerList);
+	//var_dump($playerList);
+	$playerCount = count($playerList);
 	
+	$user_cnt=0;
+	$user_name='';
+	$playerArr=array();
+	for ($i=0;$i<$playerCount;$i++){
+		$onePlayer = $playerList[$i];
+		$n_user=$onePlayer['user_id'];
+		if (strcmp($user_name,$n_user)){
+			$user_cnt++;
+			$playerArr[$user_cnt]=new Player();
+			$playerArr[$user_cnt]->user_id=$onePlayer['user_id'];
+			$playerArr[$user_cnt]->nick=$onePlayer['nick'];
+			$user_name=$n_user;
+        }
+		if(time()<$end_time&&$lock<strtotime($onePlayer['in_date']))
+			$playerArr[$user_cnt]->Add($onePlayer['num'],strtotime($onePlayer['in_date'])-$start_time,0);
+		else
+			$playerArr[$user_cnt]->Add($onePlayer['num'],strtotime($onePlayer['in_date'])-$start_time,intval($onePlayer['result']));
+	}
+	usort($playerArr,"s_cmp");
 	
+	$first_blood=array();
+	for($i=0;$i<$problemCount;$i++){
+		$sql=$pdo->prepare("select user_id from solution where contest_id=? and result=4 and num=? order by in_date limit 1");
+		$sql->execute(array($cid,$i));
+		$fbResult = $sql->fetch(PDO::FETCH_ASSOC);
+		$fbResultCount=count($fbResult);
+		$first_blood[$i] = ($fbResultCount) ? $fbResult['user_id'] : "";
+	}
 	
 	//Page Includes
 	require("./pages/contest_ranklist.php");

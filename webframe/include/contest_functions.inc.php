@@ -29,15 +29,15 @@
 					$hour = $length % 24;
 					if ($hour == 0) {
 						if ($result != '') {
-							$result = '0小时' . $result;
+							$result = '0时' . $result;
 						}
 					} else {
-						$result = $hour . '小时' . $result;
+						$result = $hour . '时' . $result;
 					}
 					$length = floor($length / 24);
 					$result = $length . '天' . $result;
 				} else {
-					$result = $length . '小时' . $result;
+					$result = $length . '时' . $result;
 				}
 			} else {
 				$result = $length . '分' . $result;

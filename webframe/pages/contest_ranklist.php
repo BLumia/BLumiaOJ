@@ -17,36 +17,71 @@
 					<table class="table table-striped table-hover" id="tableID">
 						<thead>
 							<tr>
-								<th width="5%">AC</th>
-								<th width="5%">ID</th>
-								<th width="40%">Title</th>
-								<th width="20%">Difficulty</th>
-								<th width="16%">Source</th>
-								<th width="14%">AC/Submit</th>
+								<th width="4%">Rank</th>
+								<th width="7%">ID</th>
+								<th width="10%">Nick</th>
+								<th width="4%">Solved</th>
+								<th width="10%">Penalty</th>
+								<?php
+								for ($i=0;$i<$problemCount;$i++) {
+									echo "<th style='text-align: center;'><a href='#'>$ALPHABET_N_NUM[$i]</a></th>";
+								}
+								?>
 							</tr>
 						</thead>
 						<tbody>
-						<?php for($i=0;$i<$problemCount;$i++) { //topic list ------------ ?>
-							<tr>
-								<?php 
-									if ($problemList[$i]['submit'] == 0) {
-										$pctText = "Unavalible";
-										$procBarNum = 0;
-										$pctNum = 0;
-									} else {
-										$pctNum = ($problemList[$i]['accepted']/$problemList[$i]['submit'])*100;
-										$procBarNum = (1-($problemList[$i]['accepted']/$problemList[$i]['submit']))*100;
-										$pctText = sprintf("%.2f%%",$pctNum);
-									}
-								?>
-								<td></td>
-								<td><?php echo $problemList[$i]['problem_id'];?></td>
+						<?php 
+							$rank=1; 
+							for($i=0;$i<$user_cnt;$i++) { //player/team list 
+								$cur_nick=$playerArr[$i]->nick;
+								$cur_name=$playerArr[$i]->user_id;
+								$cur_solved=$playerArr[$i]->solved;
+						?>
+							<tr <?php if($cur_name==$highlightID) echo "class='info'";?>>
 								<td>
-									<a href="problem.php?pid=<?php echo $problemList[$i]['problem_id'];?>"><?php echo $problemList[$i]['title'];?></a>
+								<?php
+									//Rank
+									if($cur_nick[0]!="*") echo $rank++;
+									else echo "*";
+								?>
+								<td>
+								<?php
+									//Nick & Name
+									echo "<a name=\"$cur_nick\" href='userinfo.php?user=$cur_nick'>$cur_name</a>";
+									echo "</td><td>";
+									echo "<a name=\"$cur_nick\" href='userinfo.php?user=$cur_nick'>$cur_nick</a>";
+								?>
 								</td>
-								<td><div class="progress"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
-								<td><?php echo $problemList[$i]['source'];?></td>
-								<td>(<?php echo $problemList[$i]['accepted']." / ".$problemList[$i]['submit'];?>) <?php echo $pctText;?></td>
+								<td>
+								<?php 
+									//Solved
+									echo "<a href='status.php?user_id=$cur_name&cid=$cid'>$cur_solved</a>";
+								?>
+								</td>
+								<td>
+									<?php echo formatTimeLength($playerArr[$i]->time);?>
+								</td>
+								<?php
+								for ($j=0;$j<$problemCount;$j++) {
+									$cell_class="";//表格单格样式
+									if (isset($playerArr[$i]->p_ac_sec[$j])&&$playerArr[$i]->p_ac_sec[$j]>0){
+										$cell_class="ac";
+										if($cur_name==$first_blood[$j]){
+											$cell_class="firstac";
+										}
+									} else {
+										if(isset($playerArr[$i]->p_wa_num[$j])&&$playerArr[$i]->p_wa_num[$j]>0) {
+											$cell_class="fail";
+										}
+									}
+									echo "<td class='$cell_class' align='center'>";
+									if(isset($playerArr[$i])){
+										if (isset($playerArr[$i]->p_ac_sec[$j])&&$playerArr[$i]->p_ac_sec[$j]>0) echo formatTimeLength($playerArr[$i]->p_ac_sec[$j]);
+										if (isset($playerArr[$i]->p_wa_num[$j])&&$playerArr[$i]->p_wa_num[$j]>0) echo "(-".$playerArr[$i]->p_wa_num[$j].")";
+									}
+									echo "</td>";
+								}
+								?>
 							</tr>
 						<?php } //topic list end --------------------------------------- ?>
 						</tbody>
@@ -55,4 +90,5 @@
 			</div>
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
+		
 	</body>

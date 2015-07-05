@@ -174,3 +174,12 @@ div.tr-tag span{
 	-moz-transition: box-shadow 0.5s;
 	transition: box-shadow 0.5s;
 }
+
+.table > tbody > tr.winner > td, .table > tbody > tr.winner > th {
+	/*算了...*/
+}
+
+.ac { background: #e1ffb5; }
+.firstac { background: #080; color: white !important; font-weight: bold; }
+.fail { background: #ffdada; }
+.pending { background: #c8d6fa; }
