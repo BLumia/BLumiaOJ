@@ -18,6 +18,7 @@
 		exit(0);
 	}
 	
+	//需要根据时间排序，新比赛在前，未进行的比赛在前，尚未这样做
 	$sql=$pdo->prepare("select * from contest where contest_id = ?");
 	$sql->execute(array($cid));
 	$contestItem=$sql->fetch();

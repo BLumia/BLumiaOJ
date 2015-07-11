@@ -16,4 +16,11 @@
 	$L_RECENTSUB= "最近提交";
 	$L_CTRLPANEL= "后台管理";
 	$L_LOGOUT	= "退出登录";
+	/************* Contest Status **************/
+	$L_LeftTime = "剩余时间";
+	$L_Running  = "进行中";
+	$L_Public   = "公开";
+	$L_Private  = "私有";
+	$L_Ended	= "已结束";
+	$L_Start	= "开始鱼";
 ?>

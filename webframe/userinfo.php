@@ -10,13 +10,13 @@
 <?php
 	//Vars
 	require_once('./include/setting_oj.inc.php');
-	$jresult=Array("MSG_PD","MSG_PR","MSG_CI","MSG_RJ","MSG_AC","MSG_PE","MSG_WA","MSG_TLE","MSG_MLE","MSG_OLE","MSG_RE","MSG_CE","MSG_CO","MSG_TR");
+	require_once('./include/common_const.inc.php');
 	
 	//Prepares
 	if (isset($_SESSION['user_id']) || isset($_GET['user'])) {
 		//User Logged in and wanna see him/herself's info.
 		if (!isset($_GET['user']))
-			$user_id = $_SESSION['user_id'];
+			$user_id = $_SESSION['user_id']; 
 		else
 			$user_id = $_GET['user'];
 		

@@ -5,6 +5,7 @@
 			<h1 class="text-center"><?php echo "Problem : ".$prob_id;?></h1><br/>
 			<div class="row">
 				<form action="./api/problem_submit.php" method="post">
+					<input type="hidden" value="<?php echo $prob_id;?>" name="pid" class="form-control" readonly />
 					<div class="col-md-12 col-sm-12">
 						<div class="row">
 							<div class="col-md-4 col-sm-12">

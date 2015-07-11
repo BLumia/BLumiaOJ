@@ -103,8 +103,8 @@
 								<?php 
 								foreach($user_other as $row){
 									echo "<li class='list-group-item'>";
-									//echo $jresult[$row[0]]." - ".$row[1]; 与下一行功能一致
-									echo $jresult[$row['result']].": ".$row['count(1)'];
+									//echo $JUDGE_RESULT[$row[0]]." - ".$row[1]; 与下一行功能一致
+									echo $JUDGE_RESULT[$row['result']].": ".$row['count(1)'];
 									echo "</li>";
 								}
 								?>
@@ -156,8 +156,8 @@
 							data: [
 								<?php 
 									foreach($user_other as $row){
-										//echo $jresult[$row[0]]." - ".$row[1]; 与下一行功能一致
-										echo "['".$jresult[$row['result']]."', ".$row['count(1)']."],";
+										//echo $JUDGE_RESULT[$row[0]]." - ".$row[1]; 与下一行功能一致
+										echo "['".$JUDGE_RESULT[$row['result']]."', ".$row['count(1)']."],";
 									}
 								?>
 							]

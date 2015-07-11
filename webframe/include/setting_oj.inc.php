@@ -3,6 +3,7 @@
 	$OJ_NAME = "BLumiaOJ"; //Name of this OJ, e.g. [BLumiaOJ] , [BLOJ]
 	$OJ_PROBLEM_DATA = "../../Archives/problems"; //Path to problem data floder. e.g. [/home/judge/data], this path will NOT work IF you are running on SAE or OpenShift
 	$OJ_LANGMASK = 4080; //1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 4080 for security reason to mask all other language
+	$OJ_LANGUAGE = "schinese";
 	
 // Page Setting
 	$PAGE_ITEMS = 25;// Show how many comments/posts in one pages?
@@ -39,8 +40,10 @@ You should modify the PDO statement in setting_db.inc.php if you are not using m
 	$OJ_PROBLEM_DATA = ($ENV_CASE == "OPEN_SHIFT") ? $_ENV['$OPENSHIFT_REPO_DIR'] : $OJ_PROBLEM_DATA;
 	if (isset($ON_ADMIN_PAGE) && $ON_ADMIN_PAGE==="Yap") {
 		require("../include/setting_db.inc.php");
+		require("../language/{$OJ_LANGUAGE}.inc.php");
 	} else {
 		require("./include/setting_db.inc.php");
+		require("./language/{$OJ_LANGUAGE}.inc.php");
 	}
 	if ($DEV_DISPLAY_ERRORS)
 		ini_set("display_errors","Off");
