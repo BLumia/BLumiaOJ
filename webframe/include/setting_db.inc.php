@@ -24,7 +24,14 @@
 		break;
 	}
 
-	$dsn = 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port='.DB_PORT;
-	$pdo = new PDO($dsn, DB_USER, DB_PASS);
-	$pdo->query("set names utf8;");
+	try { 
+		$dsn = 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';port='.DB_PORT;
+		$pdo = new PDO($dsn, DB_USER, DB_PASS);
+		$pdo->query("set names utf8;");
+	} 
+	catch(PDOException $e) { 
+		echo "数据库连接异常。请检查数据库是否正确配置。<br/>数据库都配不正确就肯定找不到女票/男票了哦~";
+		//echo $e->getMessage(); 
+		exit(0);
+	}
 ?>
