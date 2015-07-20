@@ -2,7 +2,7 @@
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1>Problem Management <small>Add Problem</small></h1>
+			<h1>Problem Management <small>Edit Problem</small></h1>
 		</div>
 		<p class="lead">
 			<?php echo $page_helper;?>

@@ -91,7 +91,7 @@
 		exit(0);
 	}
 	//Page Includes
-	require("./pages/problem_add.php");
+	require("./pages/problem_mod.php");
 ?>
 	
 </html>

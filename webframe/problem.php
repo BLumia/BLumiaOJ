@@ -21,7 +21,7 @@
 	//TODO: Grobal Problem ID
 	$sql=$pdo->prepare("select * from problem where problem_id = ?");
 	$sql->execute(array($pid));
-	$problemItem=$sql->fetchAll();
+	$problemItem=$sql->fetchAll(PDO::FETCH_ASSOC);
 	
 	//Page Includes
 	require("./pages/problem.php");

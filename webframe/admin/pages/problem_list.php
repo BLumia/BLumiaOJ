@@ -36,7 +36,7 @@
 					echo "<td>".$row['title']."</td>";
 					echo "<td>".$row['in_date']."</td>";
 					echo "<td>{$url_defunct}</td>";
-					echo "<td><a href='./news_editor.php?nid=".$row['problem_id']."'>Edit</a></td>";
+					echo "<td><a href='./problem_editor.php?nid=".$row['problem_id']."'>Edit</a></td>";
 					echo "</tr>";
 					//var_dump($row);
 				}

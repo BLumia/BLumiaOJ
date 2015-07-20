@@ -10,7 +10,7 @@
 	//Vars
 	require_once('../include/setting_oj.inc.php');
 	//Prepares
-	$page_helper = "Maybe you need some help?";
+	$page_helper = "Add a problem is very simple.";
 	$PROB_TITLE = "";
 	$PROB_TIME = "";
 	$PROB_MEMORY = "";
@@ -22,7 +22,7 @@
 	$PROB_TEST_IN = "";
 	$PROB_TEST_OUT = "";
 	//Page Includes
-	require("./pages/problem_add.php");
+	require("./pages/problem_mod.php");
 ?>
 	
 </html>
