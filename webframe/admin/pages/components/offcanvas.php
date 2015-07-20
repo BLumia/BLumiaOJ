@@ -9,7 +9,7 @@
 		<div class="navmenu-group-header">Contest Editor</div>
 		<ul class="nav navmenu-nav">
 			<li><a href="#">添加竞赛</a></li>
-			<li><a href="#">管理竞赛</a></li>
+			<li><a href="./contest_manager.php">管理竞赛</a></li>
 		</ul>
 		<div class="navmenu-group-header">Page Modifier</div>
 		<ul class="nav navmenu-nav">
