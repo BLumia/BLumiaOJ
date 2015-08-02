@@ -1,4 +1,5 @@
-	<nav class="navmenu navmenu-inverse navmenu-fixed-left offcanvas-sm" role="navigation">
+	<?php if (!is_pjax()) { ?>
+	<nav nav-pjax class="navmenu navmenu-inverse navmenu-fixed-left offcanvas-sm" role="navigation">
 		<a class="navmenu-brand" href="#">BLumia OJ Admin</a>
 		
 		<div class="navmenu-group-header">Problem Editor</div>
@@ -39,3 +40,4 @@
 		</button>
 		<a class="navbar-brand" href="#">BLumia OJ Admin</a>
 	</div>
+	<?php } ?>

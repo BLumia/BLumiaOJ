@@ -31,6 +31,7 @@
 
 <!-- js文件 -->
 <script src="../sitefiles/js/jquery.min.js"></script>
+<script src="../sitefiles/js/jquery.pjax.min.js"></script>
 <script src="../sitefiles/js/bootstrap.min.js"></script>
 <script src="../sitefiles/js/bootstrap-tour.min.js"></script>
 <script src="../sitefiles/js/jasny-bootstrap.min.js"></script>
@@ -38,3 +39,18 @@
 <script src="../sitefiles/js/prettify.js"></script>
 <script src="../sitefiles/js/nprogress.js"></script>
 <script src="../sitefiles/js/admin-js.js"></script>
+
+<?php
+	function is_pjax() { //place here to make sure this can be used in everypage
+		return array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']=== 'true';   
+	}
+?>
+<script>
+	$(document).pjax('[nav-pjax] a', '#mainContent');
+	$(document).on('pjax:send', function() {
+		NProgress.start()
+	})
+	$(document).on('pjax:complete', function() {
+		NProgress.done()
+	})
+</script>

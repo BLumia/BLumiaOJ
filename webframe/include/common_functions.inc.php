@@ -1,4 +1,5 @@
 <?php
+
 	function utf8_substr($str,$start=0) {
 	/*
 		utf-8编码下截取中文字符串,参数可以参照substr函数
