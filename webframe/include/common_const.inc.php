@@ -1,7 +1,7 @@
 <?php 
 	/* 
 		import LANGUAGE file first then use this file 
-		we will import LANGUAGE file whem setting_oj.inc.php is imported.
+		we will import LANGUAGE file when setting_oj.inc.php is imported.
 	*/
 	$LANGUAGE_NAME = Array("C","C++","Pascal","Java","Ruby","Bash","Python","PHP","Perl","C#","Obj-C","FreeBasic","Schema","Clang","Clang++","Lua","Other Language");
 	$LANGUAGE_EXT = Array( "c", "cc", "pas", "java", "rb", "sh", "py", "php","pl", "cs","m","bas","scm","c","cc","lua" );

@@ -9,28 +9,28 @@
 		</p>
 		<form method="POST" class="form-horizontal" action="../api/contest_add.php">
 		    <label>Contest Title:</label>
-			<input type="text" class="form-control" name="problem_title" placeholder="Enter Problem Title" value="<?php echo $CONT_TITLE;?>"><br/>
+			<input type="text" class="form-control" name="contest_title" placeholder="Enter Contest Title" value="<?php echo $CONT_TITLE;?>"><br/>
 			<label>Start Time:</label>
 			<div class="row">
 				<div class="col-sm-2">
 					<label>Year:</label>
-					<input type="text" class="form-control" name="time_limit" placeholder="Time Limit (s)" value="<?php echo "$PROB_TIME";?>">
+					<input type="text" class="form-control" name="start_year" placeholder="Year" value="<?php echo $CONT_S_TIME_Y;?>">
 				</div>
 				<div class="col-sm-2">
 					<label>Month:</label>
-					<input type="text" class="form-control" name="memory_limit" placeholder="Memory Limit (MB)" value="<?php echo "$PROB_MEMORY";?>">
+					<input type="text" class="form-control" name="start_month" placeholder="Month" value="<?php echo $CONT_S_TIME_MO;?>">
 				</div>
 				<div class="col-sm-3">
 					<label>Day:</label>
-					<input type="text" class="form-control" name="memory_limit" placeholder="Memory Limit (MB)" value="<?php echo "$PROB_MEMORY";?>">
+					<input type="text" class="form-control" name="start_day" placeholder="Day" value="<?php echo $CONT_S_TIME_D;?>">
 				</div>
 				<div class="col-sm-3">
 					<label>Hour:</label>
-					<input type="text" class="form-control" name="memory_limit" placeholder="Memory Limit (MB)" value="<?php echo "$PROB_MEMORY";?>">
+					<input type="text" class="form-control" name="start_hour" placeholder="Hour" value="<?php echo $CONT_S_TIME_H;?>">
 				</div>
 				<div class="col-sm-2">
 					<label>Minute:</label>
-					<input type="text" class="form-control" name="memory_limit" placeholder="Memory Limit (MB)" value="<?php echo "$PROB_MEMORY";?>">
+					<input type="text" class="form-control" name="start_minute" placeholder="Minute" value="<?php echo $CONT_S_TIME_MI;?>">
 				</div>
 			</div>
 			<br/>
@@ -38,23 +38,23 @@
 			<div class="row">
 				<div class="col-sm-2">
 					<label>Year:</label>
-					<input type="text" class="form-control" name="time_limit" placeholder="Time Limit (s)" value="<?php echo "$PROB_TIME";?>">
+					<input type="text" class="form-control" name="end_year" placeholder="Year" value="<?php echo $CONT_E_TIME_Y;?>">
 				</div>
 				<div class="col-sm-2">
 					<label>Month:</label>
-					<input type="text" class="form-control" name="memory_limit" placeholder="Memory Limit (MB)" value="<?php echo "$PROB_MEMORY";?>">
+					<input type="text" class="form-control" name="end_month" placeholder="Month" value="<?php echo $CONT_E_TIME_MO;?>">
 				</div>
 				<div class="col-sm-3">
 					<label>Day:</label>
-					<input type="text" class="form-control" name="memory_limit" placeholder="Memory Limit (MB)" value="<?php echo "$PROB_MEMORY";?>">
+					<input type="text" class="form-control" name="end_day" placeholder="Day" value="<?php echo $CONT_E_TIME_D;?>">
 				</div>
 				<div class="col-sm-3">
 					<label>Hour:</label>
-					<input type="text" class="form-control" name="memory_limit" placeholder="Memory Limit (MB)" value="<?php echo "$PROB_MEMORY";?>">
+					<input type="text" class="form-control" name="end_hour" placeholder="Hour" value="<?php echo $CONT_E_TIME_H;?>">
 				</div>
 				<div class="col-sm-2">
 					<label>Minute:</label>
-					<input type="text" class="form-control" name="memory_limit" placeholder="Memory Limit (MB)" value="<?php echo "$PROB_MEMORY";?>">
+					<input type="text" class="form-control" name="end_minute" placeholder="Minute" value="<?php echo $CONT_E_TIME_MI;?>">
 				</div>
 			</div>
 			<br/>
@@ -62,15 +62,16 @@
 			<div class="row">
 				<div class="col-sm-8">
 				<label>Languages:</label>
-				<select id="id_select" class="selectpicker" multiple data-live-search="true" data-width="100%">
-					<option>cow</option>
-					<option>cat</option>
-					<option class="get-class" disabled>ox</option>
-					<optgroup label="test" data-subtext="another test" data-icon="icon-ok">
-						<option>ASD</option>
-						<option selected>Bla</option>
-						<option>Ble</option>
-					</optgroup>
+				<select id="id_select" class="selectpicker" multiple data-width="100%">
+					<?php
+					$lang=(~((int)$langmask))&((1<<($lang_count))-1);
+					for($i=0;$i<$lang_count;$i++){
+						if($lang&(1<<$i))
+							echo "<option value=$i selected>".$LANGUAGE_NAME[$i]."</option>";
+						else
+							echo "<option value=$i >".$LANGUAGE_NAME[$i]."</option>";
+					}
+					?>
 				</select>
 				</div>
 				<div class="col-sm-4">
@@ -86,14 +87,14 @@
 			<div class="row">
 				<div class="col-sm-8">
 					<label>Description:</label>
-					<textarea class="summernote" name="problem_desc"><?php echo "$PROB_DESC";?></textarea>
+					<textarea class="summernote" name="problem_desc"><?php echo $CONT_DESC;?></textarea>
 				</div>
 				<div class="col-sm-4">
 					<label>User List (if Private):</label>
-					<textarea class="form-control" rows="6" name="samp_in_data" placeholder="Input Data Here"><?php echo $PROB_SAMP_IN;?></textarea>
+					<textarea class="form-control" rows="6" name="samp_in_data" placeholder="Paste the User List here if contest type is Private"><?php echo $CONT_USERLIST;?></textarea>
 					<br/>
 					<label>Password (if Password needed):</label>
-					<input type="text" class="form-control" name="time_limit" placeholder="Time Limit (s)" value="<?php echo "$PROB_TIME";?>">
+					<input type="text" class="form-control" name="time_limit" placeholder="if Passowrd needed" value="<?php echo $CONT_PASSWORD;?>">
 				</div>
 			</div>
 			<br/>
@@ -107,6 +108,8 @@
 		</p>
 	</div>
 <script>
+//select data-live-search="true" to enable live search.
+
 $(document).ready(function() {
 	$('.summernote').summernote({
 		height: 120,  
