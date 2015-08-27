@@ -5,7 +5,7 @@
 			<h1>News Management <small>Control Panel</small></h1>
 		</div>
 		<p class="lead">
-			您可以从这里开始进行新闻的和管理。
+			您可以从这里开始进行新闻的管理。
 		</p>
 		<ul class="nav nav-pills nav-justified">
 			<li><a href="./news_editor.php">Add News</a></li>

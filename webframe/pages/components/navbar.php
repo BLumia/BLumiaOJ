@@ -49,11 +49,12 @@
 				<?php } ?>
 				
 			</ul>
-			<?php if (isset($_SESSION['user_id'])) { ?>
+			<?php if (isset($_SESSION['user_id'])) { 
+				$navUsrName = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : $_SESSION['user_id'];?>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="./mail.php"><i class="fa fa-inbox"></i> In-box <?php echo checkmail($pdo);?></a></li>
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> <?php echo $_SESSION['user_name'];?> <span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> <?php echo $navUsrName;?> <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 					<li><a href="./modifyinfo.php"><i class="fa fa-edit"></i> Modify User</a></li>
 					<li><a href="./userinfo.php"><i class="fa fa-at"></i> User Zone</a></li>
