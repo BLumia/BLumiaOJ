@@ -10,7 +10,7 @@
 		<div class="navmenu-group-header">Contest Editor</div>
 		<ul class="nav navmenu-nav">
 			<li><a href="./contest_add.php">添加竞赛</a></li>
-			<li><a href="./contest_manager.php">管理竞赛</a></li>
+			<li><a href="./contest_list.php">管理竞赛</a></li>
 		</ul>
 		<div class="navmenu-group-header">Page Modifier</div>
 		<ul class="nav navmenu-nav">
@@ -20,7 +20,7 @@
 		<div class="navmenu-group-header">User Manager</div>
 		<ul class="nav navmenu-nav">
 			<li><a href="./reset_password.php">重置密码</a></li>
-			<li><a href="#">账号生成器</a></li>
+			<li><a href="./account_gen.php">账号生成器</a></li>
 		</ul>
 		<div class="navmenu-group-header">Super User</div>
 		<ul class="nav navmenu-nav">

@@ -20,7 +20,7 @@
 		</nav>
 		<ul class="nav nav-pills nav-justified">
 			<li><a href="./news_editor.php">Add Contest</a></li>
-			<li><a href="#">More Options</a></li>
+			<li><a href="./contest_manager.php">More Options</a></li>
 		</ul>
 		<br/>
 		<div>
