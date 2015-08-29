@@ -24,7 +24,7 @@
 		</ul>
 		<br/>
 		<div>
-			<table class="table table-striped">
+			<table class="table table-striped" method="POST" action="./contest_edit.php">
 				<thead>
 					<tr> 
 						<th>ID</th>
@@ -41,11 +41,11 @@
 					
 					$contest_defunct = $row['defunct'] == "N" ? 3 : 1;
 					$text_defunct = $row['defunct'] == "N" ? "<span class='label label-success'>Avalible</span>" : "<span class='label label-default'>Hidden</span>";
-					$url_defunct = "<a href='../api/contest_state.php?nid={$row['contest_id']}&do={$contest_defunct}'>{$text_defunct}</a>"; 
+					$url_defunct = "<a href='../api/contest_state.php?cid={$row['contest_id']}&do={$contest_defunct}'>{$text_defunct}</a>"; 
 					
 					$contest_private = $row['private'] == "0" ? 2 : 1;
 					$text_private = $row['private'] == "0" ? "<span class='label label-info'>Public</span>" : "<span class='label label-primary'>Private</span>";
-					$url_private = "<a href='../api/contest_state.php?nid={$row['contest_id']}&do={$contest_private}'>{$text_private}</a>"; 
+					$url_private = "<a href='../api/contest_state.php?cid={$row['contest_id']}&do={$contest_private}'>{$text_private}</a>"; 
 					
 					echo "<tr>";
 					echo "<td>".$row['contest_id']."</td>";
@@ -53,7 +53,7 @@
 					echo "<td>".$row['start_time']."</td>";
 					echo "<td>".$row['end_time']."</td>";
 					echo "<td>{$url_defunct} {$url_private}</td>";
-					echo "<td><a href='./contest_editor.php?nid=".$row['contest_id']."'>Edit</a></td>";
+					echo "<td><a href='./contest_editor.php?cid=".$row['contest_id']."'>Edit</a></td>";
 					echo "</tr>";
 					//var_dump($row);
 				}

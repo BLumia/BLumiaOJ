@@ -62,7 +62,7 @@
 			<div class="row">
 				<div class="col-sm-8">
 				<label>Languages:</label>
-				<select id="id_select" class="selectpicker" multiple data-width="100%">
+				<select name="language" id="id_select" class="selectpicker" multiple data-width="100%">
 					<?php
 					$lang=(~((int)$langmask))&((1<<($lang_count))-1);
 					for($i=0;$i<$lang_count;$i++){
@@ -75,10 +75,10 @@
 				</select>
 				</div>
 				<div class="col-sm-4">
-				<label>Quanxian:</label>
-				<select class="selectpicker" data-width="100%">
-					<option>Private</option>
-					<option>Public</option>
+				<label>Permission:</label>
+				<select name="permission" class="selectpicker" data-width="100%">
+					<option <?php if ($CONT_PERMISSION==1) echo "selected='selected'";?>>Private</option>
+					<option <?php if ($CONT_PERMISSION==0) echo "selected='selected'";?>>Public</option>
 					<option>Password</option>
 				</select>
 				</div>

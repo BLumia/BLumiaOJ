@@ -5,7 +5,7 @@
 		<?php require_once('../include/admin_head.inc.php'); ?>
 		<link rel="stylesheet" type="text/css" href="../sitefiles/css/bootstrap-select.min.css">
 		<script type="text/javascript" src="../sitefiles/js/bootstrap-select.min.js"></script>
-		<title>Add Problem</title>
+		<title>Add Contest</title>
 	</head>	
 	
 <?php
