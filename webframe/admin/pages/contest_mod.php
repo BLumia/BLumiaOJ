@@ -87,19 +87,19 @@
 			<div class="row">
 				<div class="col-sm-8">
 					<label>Description:</label>
-					<textarea class="summernote" name="problem_desc"><?php echo $CONT_DESC;?></textarea>
+					<textarea class="summernote" name="contest_desc"><?php echo $CONT_DESC;?></textarea>
 				</div>
 				<div class="col-sm-4">
 					<label>User List (if Private):</label>
-					<textarea class="form-control" rows="6" name="samp_in_data" placeholder="Paste the User List here if contest type is Private"><?php echo $CONT_USERLIST;?></textarea>
+					<textarea class="form-control" rows="6" name="userlist" placeholder="Paste the User List here if contest type is Private"><?php echo $CONT_USERLIST;?></textarea>
 					<br/>
 					<label>Password (if Password needed):</label>
-					<input type="text" class="form-control" name="time_limit" placeholder="if Passowrd needed" value="<?php echo $CONT_PASSWORD;?>">
+					<input type="text" class="form-control" name="cont_password" placeholder="if Passowrd needed" value="<?php echo $CONT_PASSWORD;?>">
 				</div>
 			</div>
 			<br/>
 			<label>Problem List:</label>
-			<input type="text" class="form-control" name="problem_title" placeholder="Enter Problem ID Here, seperate with a comma punctuation. e.g. 1000,1001" value="<?php echo $CONT_PROBLEMS;?>"><br/>
+			<input type="text" class="form-control" name="problem_list" placeholder="Enter Problem ID Here, seperate with a comma punctuation. e.g. 1000,1001" value="<?php echo $CONT_PROBLEMS;?>"><br/>
 			<br/>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
