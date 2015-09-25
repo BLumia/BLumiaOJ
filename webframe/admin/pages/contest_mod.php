@@ -62,7 +62,7 @@
 			<div class="row">
 				<div class="col-sm-8">
 				<label>Languages:</label>
-				<select name="language" id="id_select" class="selectpicker" multiple data-width="100%">
+				<select name="language[]" id="id_select" class="selectpicker" multiple data-width="100%">
 					<?php
 					$lang=(~((int)$langmask))&((1<<($lang_count))-1);
 					for($i=0;$i<$lang_count;$i++){
