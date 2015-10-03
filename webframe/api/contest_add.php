@@ -18,7 +18,7 @@
 	$language		=$_POST['language'];
 	$permission		=$_POST['permission'];
 	$contest_desc	=$_POST['contest_desc'];
-	$userlist		=$_POST['userlist'];
+	$user_list		=$_POST['userlist'];
 	$cont_password	=$_POST['cont_password'];
 	$problem_list	=trim($_POST['problem_list']);
 	
@@ -65,7 +65,27 @@
 		if ($affectedRowCnt > 0) echo "Update ".$affectedRowCnt." rows to database.";
 	}
 	
-	//then for privilege. line shadow power
-	// Unfinished
+	$sql_str="DELETE FROM `privilege` WHERE `rightstr`='c$cid'";
+	$affectedRowCnt = $pdo->exec($sql_str);
+	if ($affectedRowCnt > 0) echo "Delete ".$affectedRowCnt." rows from database.";
+	$sql_str="INSERT into `privilege` (`user_id`,`rightstr`)  
+				values('".$_SESSION['user_id']."','m$cid')";
+	$affectedRowCnt = $pdo->exec($sql_str);
+	if ($affectedRowCnt > 0) echo "Insert ".$affectedRowCnt." rows to database.";
 	
+	//$_SESSION["m$cid"]=true; // what did this line do...
+	
+	$user_array = explode("\n", trim($user_list));
+	if (count($user_array)>0 && strlen($user_array[0])>0){
+		$sql_str="INSERT INTO `privilege`(`user_id`,`rightstr`) 
+			VALUES ('".trim($user_array[0])."','c$cid')";
+		for ($i=1;$i<count($user_array);$i++)
+			$sql_str=$sql_str.",('".trim($user_array[$i])."','c$cid')";
+		//echo $sql_str;
+		$affectedRowCnt = $pdo->exec($sql_str);
+		if ($affectedRowCnt > 0) echo "Insert ".$affectedRowCnt." rows to database.";
+	}
+	/*
+	echo "<script>window.location.href=\"contest_list.php\";</script>";
+	*/
 ?>
