@@ -47,7 +47,7 @@
 	
 	$sql_str="DELETE FROM `contest_problem` WHERE `contest_id`=$cid";
 	$affectedRowCnt = $pdo->exec($sql_str);
-	if ($affectedRowCnt > 0) echo "Delete ".$affectedRowCnt." rows from database.";
+	if ($affectedRowCnt > 0) echo "Delete ".$affectedRowCnt." rows from Problem of Contests database.<br/>";
 	
 	$problem_array = explode(",",$problem_list);
 	if (count($problem_array)>0 && strlen($problem_array[0])>0){
@@ -59,19 +59,19 @@
 		}
 		//echo $sql_str;
 		$affectedRowCnt = $pdo->exec($sql_str);
-		if ($affectedRowCnt > 0) echo "Insert ".$affectedRowCnt." rows to database.";
+		if ($affectedRowCnt > 0) echo "Insert ".$affectedRowCnt." rows to Problem of Contests database.<br/>";
 		$sql_str="update `problem` set defunct='N' where `problem_id` in ($problem_list)";
 		$affectedRowCnt = $pdo->exec($sql_str);
-		if ($affectedRowCnt > 0) echo "Update ".$affectedRowCnt." rows to database.";
+		if ($affectedRowCnt > 0) echo "Update ".$affectedRowCnt." rows to Problems database.<br/>";
 	}
 	
 	$sql_str="DELETE FROM `privilege` WHERE `rightstr`='c$cid'";
 	$affectedRowCnt = $pdo->exec($sql_str);
-	if ($affectedRowCnt > 0) echo "Delete ".$affectedRowCnt." rows from database.";
+	if ($affectedRowCnt > 0) echo "Delete ".$affectedRowCnt." rows from database.<br/>";
 	$sql_str="INSERT into `privilege` (`user_id`,`rightstr`)  
 				values('".$_SESSION['user_id']."','m$cid')";
 	$affectedRowCnt = $pdo->exec($sql_str);
-	if ($affectedRowCnt > 0) echo "Insert ".$affectedRowCnt." rows to database.";
+	if ($affectedRowCnt > 0) echo "Insert ".$affectedRowCnt." rows to Privilege database for manager of the contest.<br/>";
 	
 	//$_SESSION["m$cid"]=true; // what did this line do...
 	
@@ -83,8 +83,10 @@
 			$sql_str=$sql_str.",('".trim($user_array[$i])."','c$cid')";
 		//echo $sql_str;
 		$affectedRowCnt = $pdo->exec($sql_str);
-		if ($affectedRowCnt > 0) echo "Insert ".$affectedRowCnt." rows to database.";
+		if ($affectedRowCnt > 0) echo "Insert ".$affectedRowCnt." rows to Privilege database for required member of a contest.<br/>";
 	}
+	
+	echo "Add Complete."
 	/*
 	echo "<script>window.location.href=\"contest_list.php\";</script>";
 	*/
