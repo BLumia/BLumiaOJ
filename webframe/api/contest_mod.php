@@ -21,14 +21,18 @@
 	$user_list		=$_POST['userlist'];
 	$cont_password	=$_POST['cont_password'];
 	$problem_list	=trim($_POST['problem_list']);
+	$cid			=intval($_POST['contest_id']);
 	
 	$start_time		=$start_year."-".$start_month."-".$start_day." ".$start_hour.":".$start_minute.":00";
 	$end_time		=$end_year."-".$end_month."-".$end_day." ".$end_hour.":".$end_minute.":00";
 	
-	/*if (get_magic_quotes_gpc ()) {
+	/*
+	if (get_magic_quotes_gpc ()) {
 		$user_id= stripslashes ( $user_id);
 		$password= stripslashes ( $password);
-	}*/
+	}
+	if(!(isset($_SESSION["m$cid"])||isset($_SESSION['administrator']))) exit();
+	*/
 	
 	$langmask=0;
     foreach($language as $t){
@@ -37,13 +41,19 @@
 	$langmask=(~$langmask);
 	
 	// TODO: check if contest is exist.
-	$sql=$pdo->prepare("INSERT INTO `contest`
+	if ($cid == 0) {
+		$sql=$pdo->prepare("INSERT INTO `contest`
 		(`title`,`start_time`,`end_time`,`private`,`langmask`,`description`)
 		VALUES
 		(?,?,?,?,?,?)");
-	$sql->execute(array($contest_title,$start_time,$end_time,$permission,$langmask,$contest_desc));
-	$cid = $pdo->lastinsertid(); // TODO: check if insert failed
-	echo "Add Contest ".$cid."<br/>";
+		$sql->execute(array($contest_title,$start_time,$end_time,$permission,$langmask,$contest_desc));
+		$cid = $pdo->lastinsertid(); // TODO: check if insert failed
+		echo "Add Contest ".$cid."<br/>";
+	} else {
+		$sql=$pdo->prepare("UPDATE `contest` set `title`=?,description=?,`start_time`=?,`end_time`=?,`private`=?,`langmask`=? WHERE `contest_id`=?");
+		$sql->execute(array($contest_title,$contest_desc,$start_time,$end_time,$permission,$langmask,$cid));
+		echo "Now Modifing Contest ".$cid."<br/>";
+	}
 	
 	$sql_str="DELETE FROM `contest_problem` WHERE `contest_id`=$cid";
 	$affectedRowCnt = $pdo->exec($sql_str);
@@ -86,7 +96,7 @@
 		if ($affectedRowCnt > 0) echo "Insert ".$affectedRowCnt." rows to Privilege database for required member of a contest.<br/>";
 	}
 	
-	echo "Add Complete."
+	echo "Task Complete."
 	/*
 	echo "<script>window.location.href=\"contest_list.php\";</script>";
 	*/

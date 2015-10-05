@@ -13,6 +13,7 @@
 	require_once('../include/setting_oj.inc.php');
 	require_once('../include/common_const.inc.php');
 	require_once('../include/common_functions.inc.php');
+	
 	//Prepares
 	if(isset($_REQUEST['cid'])) {
 		$cid = intval($_REQUEST['cid']);

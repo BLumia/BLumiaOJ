@@ -14,6 +14,7 @@
 	require_once('../include/common_const.inc.php');
 	require_once('../include/common_functions.inc.php');
 	//Prepares
+	$cid = "0"; // 0 as add new contest.
 	$lang_count=count($LANGUAGE_EXT);
 	$langmask=$OJ_LANGMASK;
 	

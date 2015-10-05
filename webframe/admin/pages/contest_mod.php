@@ -7,7 +7,7 @@
 		<p class="lead">
 			<?php echo $page_helper;?>
 		</p>
-		<form method="POST" class="form-horizontal" action="../api/contest_add.php">
+		<form method="POST" class="form-horizontal" action="../api/contest_mod.php">
 		    <label>Contest Title:</label>
 			<input type="text" class="form-control" name="contest_title" placeholder="Enter Contest Title" value="<?php echo $CONT_TITLE;?>"><br/>
 			<label>Start Time:</label>
@@ -100,6 +100,8 @@
 			<br/>
 			<label>Problem List:</label>
 			<input type="text" class="form-control" name="problem_list" placeholder="Enter Problem ID Here, seperate with a comma punctuation. e.g. 1000,1001" value="<?php echo $CONT_PROBLEMS;?>"><br/>
+			<input type="hidden" name="pageauth" value="<?php echo ($_SESSION["SessionAuth"]);?>" readonly>
+			<input type="hidden" name="contest_id" value="<?php echo $cid;?>" readonly>
 			<br/>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
