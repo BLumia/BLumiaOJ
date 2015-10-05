@@ -75,7 +75,7 @@
 		if ($affectedRowCnt > 0) echo "Update ".$affectedRowCnt." rows to Problems database.<br/>";
 	}
 	
-	$sql_str="DELETE FROM `privilege` WHERE `rightstr`='c$cid'";
+	$sql_str="DELETE FROM `privilege` WHERE `rightstr`='m$cid'";
 	$affectedRowCnt = $pdo->exec($sql_str);
 	if ($affectedRowCnt > 0) echo "Delete ".$affectedRowCnt." rows from database.<br/>";
 	$sql_str="INSERT into `privilege` (`user_id`,`rightstr`)  

@@ -38,7 +38,7 @@
 
 	$sql=$pdo->prepare("SELECT `user_id`,`password` FROM `users` WHERE `user_id`=?");
 	$sql->execute(array($user_id));
-	$result=$sql->fetch();
+	$result=$sql->fetch(PDO::FETCH_ASSOC);
 	if ($result && pwCheck($password,$result['password'])) $pwdCheck_ok = true;
 	else $pwdCheck_ok = false;
 	$sql->closeCursor();

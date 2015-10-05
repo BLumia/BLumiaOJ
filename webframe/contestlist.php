@@ -20,13 +20,14 @@
 						left join (select * from privilege where rightstr like 'm%') p on concat('m',contest_id)=rightstr
 						where contest.`defunct`='N' limit $front,$PAGE_ITEMS");
 	$sql->execute();
-	$contestList=$sql->fetchAll();
+	$contestList=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$contestCount=count($contestList);
 	
-	$sql=$pdo->prepare("select * from contest where `defunct`='N'");
+	$sql=$pdo->prepare("select * from contest where `defunct`='N' ORDER BY `contest_id` DESC");
 	$sql->execute();
-	$totalContest=$sql->fetchAll();
+	$totalContest=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$totalCount=count($totalContest);
+	//var_dump($totalContest);
 	
 	$i=0;
 	foreach ($contestList as $row){

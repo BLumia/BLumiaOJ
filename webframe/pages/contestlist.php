@@ -34,13 +34,13 @@
 							</tr>
 						</thead>
 						<tbody>
-						<?php for($i=0;$i<$contestCount;$i++) { // list ------------ ?>
+						<?php foreach ($contestList as $row) { // list ------------ ?>
 							<tr>
-								<td><?php echo $contestList[$i]['contest_id'];?></td>
-								<td><a href="contest.php?cid=<?php echo $contestList[$i]['contest_id'];?>"><?php echo $contestList[$i]['title'];?></a></td>
-								<td><?php echo $contestList[$i]["content_status"];?></td>
-								<td><?php echo $contestList[$i]['private'];?></td>
-								<td><?php echo $contestList[$i]['user_id'];?></td>
+								<td><?php echo $row['contest_id'];?></td>
+								<td><a href="contest.php?cid=<?php echo $row['contest_id'];?>"><?php echo $row['title'];?></a></td>
+								<td><?php echo $row['content_status'];?></td>
+								<td><?php echo $row['private'];?></td>
+								<td><?php echo $row['user_id'];?></td>
 							</tr>
 						<?php } //User list end --------------------------------------- ?>
 						</tbody>
