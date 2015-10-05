@@ -15,7 +15,7 @@
 	
 	$sql=$pdo->prepare("select `problem_id`,`title`,`in_date`,`defunct` FROM `problem` where problem_id>=? and problem_id<=? order by `problem_id` asc");
 	$sql->execute(array($pstart,$pend));
-	$probList=$sql->fetchAll();
+	$probList=$sql->fetchAll(PDO::FETCH_ASSOC);
 	//$newsCount=count($newsList);
 	//Page Includes
 	require("./pages/problem_list.php");
