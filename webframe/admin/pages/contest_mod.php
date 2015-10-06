@@ -100,7 +100,7 @@
 			<br/>
 			<label>Problem List:</label>
 			<input type="text" class="form-control" name="problem_list" placeholder="Enter Problem ID Here, seperate with a comma punctuation. e.g. 1000,1001" value="<?php echo $CONT_PROBLEMS;?>"><br/>
-			<input type="hidden" name="pageauth" value="<?php echo ($_SESSION["SessionAuth"]);?>" readonly>
+			<?php require("../include/pageauth_post.php"); ?>
 			<input type="hidden" name="contest_id" value="<?php echo $cid;?>" readonly>
 			<br/>
 			<button type="submit" class="btn btn-primary">Submit</button>

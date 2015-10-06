@@ -10,6 +10,7 @@
 	//Vars
 	require_once('../include/setting_oj.inc.php');
 	//Prepares
+	$PROB_ID = 0;
 	$page_helper = "Add a problem is very simple.";
 	$PROB_TITLE = "";
 	$PROB_TIME = "";

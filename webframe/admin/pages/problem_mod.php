@@ -7,7 +7,7 @@
 		<p class="lead">
 			<?php echo $page_helper;?>
 		</p>
-		<form method="POST" class="form-horizontal" action="../api/problem_add.php">
+		<form method="POST" class="form-horizontal" action="../api/problem_mod.php">
 		    <label>Problem Title:</label>
 			<input type="text" class="form-control" name="problem_title" placeholder="Enter Problem Title" value="<?php echo $PROB_TITLE;?>">
 			<div class="row">
@@ -58,6 +58,9 @@
 			</label><br/>
 			<label>Source:</label>
 			<textarea class="form-control" rows="1" name="problem_source" placeholder="Source"></textarea><br/>
+			<?php require("../include/pageauth_post.php"); ?>
+			<input type="hidden" name="problem_id" value="<?php echo $PROB_ID;?>" readonly>
+			<br/>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 		<p class="lead">
