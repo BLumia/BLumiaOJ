@@ -9,7 +9,7 @@
 		</p>
 		<ul class="nav nav-pills nav-justified">
 			<li><a href="./news_editor.php">Add News</a></li>
-			<li><a href="#">Edit Broadcast</a></li>
+			<li><a href="./broadcast_editor.php">Edit Broadcast</a></li>
 		</ul>
 		<br/>
 		<div>

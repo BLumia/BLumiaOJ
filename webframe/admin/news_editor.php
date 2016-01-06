@@ -7,6 +7,11 @@
 	</head>	
 	
 <?php
+	//Admin Auth
+	if (!(isset($_SESSION['administrator']))) {
+		echo "<a href='../loginpage.php'>Please Login First!</a>";
+		exit(1);
+	}
 	//Vars
 	require_once('../include/setting_oj.inc.php');
 	//Prepares

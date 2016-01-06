@@ -77,3 +77,18 @@
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 </nav>
+<?php 
+	if (file_exists("./admin/announcement.txt")) {
+		$OJ_ANNOUNCEMENT = file_get_contents("./admin/announcement.txt");
+		if ($OJ_ANNOUNCEMENT != "" && strlen($OJ_ANNOUNCEMENT)!=0 && $OJ_ANNOUNCEMENT!="<br>") {
+?>
+			<div class="container alert alert-info alert-dismissible" role="alert">
+				<i class="fa fa-bell-o"></i>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<span class="sr-only">Announcement:</span>
+				<?php echo $OJ_ANNOUNCEMENT; ?>
+			</div>
+<?php 
+		} 
+	} 
+?>

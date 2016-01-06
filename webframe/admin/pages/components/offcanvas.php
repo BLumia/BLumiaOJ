@@ -15,7 +15,7 @@
 		<div class="navmenu-group-header">Page Modifier</div>
 		<ul class="nav navmenu-nav">
 			<li><a href="./news_manager.php">管理新闻</a></li>
-			<li><a href="#">管理广播</a></li>
+			<li><a href="./broadcast_editor.php">管理广播</a></li>
 		</ul>
 		<div class="navmenu-group-header">User Manager</div>
 		<ul class="nav navmenu-nav">
@@ -24,7 +24,7 @@
 		</ul>
 		<div class="navmenu-group-header">Super User</div>
 		<ul class="nav navmenu-nav">
-			<li><a href="#">权限管理</a></li>
+			<li><a href="./privilege_manager.php">权限管理</a></li>
 		</ul>
 		<div class="navmenu-divider"></div>
 		<ul class="nav navmenu-nav">
