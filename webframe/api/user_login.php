@@ -31,10 +31,6 @@
 	}
 	*/
 	
-	$sql=$pdo->prepare("SELECT `rightstr` FROM `privilege` WHERE `user_id`='?'");
-	$sql->execute(array($user_id));
-	$result=$sql->fetchAll();
-	
 	$login=check_login($user_id,$password,$pdo);
 	
 	if ($login) {
@@ -42,15 +38,23 @@
 		
 		$sql=$pdo->prepare("select * from users where user_id=?");
 		$sql->execute(array($login));
-		$res=$sql->fetch();
+		$res=$sql->fetch(PDO::FETCH_ASSOC);
 		//var_dump($res);
-		$sql->closeCursor();
 		
 		$_SESSION['user_name'] = $res['nick'];
 		
-		//权限部分未添加
-		$_SESSION['administrator']=true;
-		//权限部分未添加
+		//权限部分
+		$sql=$pdo->prepare("SELECT `rightstr` FROM `privilege` WHERE `user_id`=?");
+		$sql->execute(array($user_id));
+		$op_result=$sql->fetchAll(PDO::FETCH_ASSOC);
+		$sql->closeCursor();
+		//var_dump($op_result);
+		foreach ($op_result as $row) {
+			//echo "{$row['rightstr']}";
+			$_SESSION[$row['rightstr']]=true;
+		}
+		$_SESSION['is_operator'] = isOperator();
+		
 		echo "success";
 		echo "<script language='javascript'>\n";
 		echo "history.go(-2);\n";

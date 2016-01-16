@@ -14,6 +14,9 @@
 	require_once('../include/common_const.inc.php');
 	require_once('../include/login_functions.php');
 	//Prepares
+	$sql=$pdo->prepare("select * FROM privilege where rightstr in ('administrator','source_browser','contest_creator','http_judge','problem_editor')");
+	$sql->execute();
+	$opList=$sql->fetchAll(PDO::FETCH_ASSOC);
 	
 	//Page Includes
 	require("./pages/privilege_man.php");

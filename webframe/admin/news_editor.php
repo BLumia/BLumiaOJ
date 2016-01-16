@@ -8,7 +8,7 @@
 	
 <?php
 	//Admin Auth
-	if (!(isset($_SESSION['administrator']))) {
+	if (!(isset($_SESSION['administrator'])||isset( $_SESSION['op_PageModifier'] ))) {
 		echo "<a href='../loginpage.php'>Please Login First!</a>";
 		exit(1);
 	}
@@ -20,7 +20,7 @@
 		$NEWS_NID = intval($_GET['nid']);
 		$sql=$pdo->prepare("SELECT * FROM `news` WHERE `news_id`=?");
 		$sql->execute(array($NEWS_NID));
-		$newsInfo = $sql->fetch();
+		$newsInfo = $sql->fetch(PDO::FETCH_ASSOC);
 		//var_dump($newsInfo);
 		$page_helper = "Maybe you need some help?";
 		$NEWS_TITLE = $newsInfo['title'];

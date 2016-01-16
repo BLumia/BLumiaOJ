@@ -1,5 +1,14 @@
 <?php
 
+	function isOperator() {
+		if (isset($_SESSION['administrator']) || isset($_SESSION['op_ProblemEditor']) || isset($_SESSION['op_ContestEditor']) || isset($_SESSION['op_PageModifier']) || isset($_SESSION['op_UserManager'])) {
+			return true;
+		} else {
+			if (isset($_SESSION['http_judge'])) return true;//暂留
+			return false;
+		}
+	}
+
 	/*为了兼容hustoj，照搬此处的加密解密算法*/
 	function pwGen($password,$md5ed=False) 
 	{

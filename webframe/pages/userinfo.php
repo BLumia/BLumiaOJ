@@ -101,17 +101,23 @@
 								<li class="list-group-item">Solved: <a href="#"><?php echo $user_solved;?> Solved</a></li>
 								<li class="list-group-item">Challenged: <a href="#"><?php echo $user_submit;?> Submits</a></li>
 								<?php 
-								foreach($user_other as $row){
-									echo "<li class='list-group-item'>";
-									//echo $JUDGE_RESULT[$row[0]]." - ".$row[1]; 与下一行功能一致
-									echo $JUDGE_RESULT[$row['result']].": ".$row['count(1)'];
-									echo "</li>";
+								if (isset($user_other)) {
+									foreach($user_other as $row){
+										echo "<li class='list-group-item'>";
+										//echo $JUDGE_RESULT[$row[0]]." - ".$row[1]; 与下一行功能一致
+										echo $JUDGE_RESULT[$row['result']].": ".$row['count(1)'];
+										echo "</li>";
+									}
 								}
 								?>
 							</ul>
 						</div>
 						<div class="col-sm-6">
+						<?php if (isset($user_other)) { ?>
 							<div id="cont" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+						<?php } else {
+							echo "No data can be displayed, Try to solve one problem now :)";
+						} ?>
 						</div>
 					</div><!-- /.row -->
 			
@@ -155,9 +161,13 @@
 							name: 'percentage',
 							data: [
 								<?php 
-									foreach($user_other as $row){
-										//echo $JUDGE_RESULT[$row[0]]." - ".$row[1]; 与下一行功能一致
-										echo "['".$JUDGE_RESULT[$row['result']]."', ".$row['count(1)']."],";
+									if (isset($user_other)) {
+										foreach($user_other as $row){
+											//echo $JUDGE_RESULT[$row[0]]." - ".$row[1]; 与下一行功能一致
+											echo "['".$JUDGE_RESULT[$row['result']]."', ".$row['count(1)']."],";
+										}
+									} else {
+										echo "[ 'Challenged' , 0 ]";
 									}
 								?>
 							]

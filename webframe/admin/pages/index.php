@@ -2,7 +2,7 @@
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1>Welcome <small>Super User</small></h1>
+			<h1>Welcome <small>Manager</small></h1>
 		</div>
 		<p class="lead">
 			To start management, please <b>click a link in the side-menu</b> on the left side of this page.

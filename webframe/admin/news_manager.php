@@ -8,7 +8,7 @@
 	
 <?php
 	//Admin Auth
-	if (!(isset($_SESSION['administrator']))) {
+	if (!(isset($_SESSION['administrator'])||isset( $_SESSION['op_PageModifier'] ))) {
 		echo "<a href='../loginpage.php'>Please Login First!</a>";
 		exit(1);
 	}
@@ -17,7 +17,7 @@
 	//Prepares
 	$sql=$pdo->prepare("select `news_id`,`user_id`,`title`,`time`,`importance`,`defunct` FROM `news` order by `news_id` desc");
 	$sql->execute();
-	$newsList=$sql->fetchAll();
+	$newsList=$sql->fetchAll(PDO::FETCH_ASSOC);
 	//$newsCount=count($newsList);
 	//Page Includes
 	require("./pages/news_manager.php");

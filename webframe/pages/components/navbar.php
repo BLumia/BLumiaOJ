@@ -59,7 +59,7 @@
 					<li><a href="./modifyinfo.php"><i class="fa fa-edit"></i> Modify User</a></li>
 					<li><a href="./userinfo.php"><i class="fa fa-at"></i> User Zone</a></li>
 					<li><a href="#"><i class="fa fa-history"></i> Recent Submit</a></li>
-					<?php if (isset($_SESSION['administrator'])) {?>
+					<?php if (isset($_SESSION['is_operator']) && $_SESSION['is_operator']) {?>
 					<li class="divider"></li>
 					<li><a href="./admin/index.php"><i class="fa fa-cogs"></i> Admin Panel</a></li>
 					<?php } ?>
