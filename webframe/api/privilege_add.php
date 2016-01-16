@@ -10,8 +10,8 @@
 		exit(1);
 	}
     
-	$op_user_id	=$_GET['uid'];
-	$privilege	=$_GET['privilege'];
+	$op_user_id	=$_POST['user_id'];
+	$privilege	=$_POST['opTag'];
 	
 	/*if (get_magic_quotes_gpc ()) {
 		$user_id= stripslashes ( $user_id);
@@ -19,9 +19,10 @@
 	}*/
 	
 	// Delete a privilege
-	if ($_SESSION['SessionAuth']!=$_GET['getKey']) exit(403);
-	$sql_str="DELETE FROM `privilege` WHERE user_id='$op_user_id' and rightstr='$privilege'";
-	$affectedRowCnt = $pdo->exec($sql_str);
-	if ($affectedRowCnt > 0) echo "Delete ".$affectedRowCnt." rows from Privilege database.<br/>";
+	// TODO: check a user if exist
+	$sql=$pdo->prepare("insert into `privilege` values(?,?,'N')");
+	$sql->execute(array($op_user_id,$privilege));
+	echo "Privilege Added Successful";
+	exit(0);
 	
 ?>

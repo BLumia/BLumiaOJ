@@ -1,5 +1,8 @@
 <body>
-	<?php require('./pages/components/offcanvas.php');?>
+	<?php 
+	require('./pages/components/offcanvas.php');
+	require('../include/pageauth_get.php');
+	?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
 			<h1>Privilege Management <small>Control Panel</small></h1>
@@ -20,8 +23,12 @@
 			</ul>
 		</nav>
 		<ul class="nav nav-pills nav-justified">
-			<li><a href="./news_editor.php">Add Contest</a></li>
-			<li><a href="./contest_manager.php">More Options</a></li>
+			<li><a href="./privilege_add.php">Add a Operator</a></li>
+			<?php 
+			$moreUrl = isset($_GET['more'])?"./privilege_manager.php":"./privilege_manager.php?more=1";
+			$moreText= isset($_GET['more'])?"Dump Full List":"Show Original List";
+			echo "<li><a href='{$moreUrl}'>{$moreText}</a></li>";
+			?>
 		</ul>
 		<br/>
 		<div>
@@ -51,7 +58,7 @@
 					echo "<td>".$row['user_id']."</td>";
 					echo "<td>".$row['rightstr']."</td>";
 					echo "<td>{$text_defunct}</td>";
-					echo "<td><a href='../api/privilege_mod.php?cid=".$row['user_id']."'>Delete</a></td>";
+					echo "<td><a href='../api/privilege_mod.php?uid={$row['user_id']}&privilege={$row['rightstr']}&getKey={$_SESSION['SessionAuth']}'>Delete</a></td>";
 					echo "</tr>";
 					//var_dump($row);
 				}
