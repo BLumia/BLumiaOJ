@@ -7,6 +7,18 @@
 		<p class="lead">
 			您可以从这里对问题进行编辑和管理。
 		</p>
+		<nav style="text-align:center;">
+			<ul class="pagination">
+			<?php
+				for($i=1;$i<=$pageCnt;$i++) {
+					if ($i==$curPageNum) $pageNavBtnClass = "class='active'";
+					else $pageNavBtnClass = "";
+					echo "<li {$pageNavBtnClass}><a href='?p={$i}'>{$i}</a></li>";
+				}
+				
+			?>
+			</ul>
+		</nav>
 		<ul class="nav nav-pills nav-justified">
 			<li><a href="./problem_add.php">Add Problem</a></li>
 			<li><a href="./problem_manager.php">More Options</a></li>

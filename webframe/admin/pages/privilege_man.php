@@ -26,7 +26,7 @@
 			<li><a href="./privilege_add.php">Add a Operator</a></li>
 			<?php 
 			$moreUrl = isset($_GET['more'])?"./privilege_manager.php":"./privilege_manager.php?more=1";
-			$moreText= isset($_GET['more'])?"Dump Full List":"Show Original List";
+			$moreText= isset($_GET['more'])?"Show Original List":"Dump Full List";
 			echo "<li><a href='{$moreUrl}'>{$moreText}</a></li>";
 			?>
 		</ul>

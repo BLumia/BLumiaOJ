@@ -3,13 +3,14 @@
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
 	require_once("../include/login_functions.php");
+	require_once("../include/user_check_functions.php");
 	
 	if(!isset($_SESSION['SessionAuth']) || !isset($_POST['pageauth'])) {
-		echo "认证失败";
+		echo "Auth failed";
 		exit(0);
 	}
 	if($_SESSION['SessionAuth'] != $_POST['pageauth']) {
-		echo $_POST['pageauth']."Auth failed";
+		echo "Auth failed";
 		exit(0);
 	}
     

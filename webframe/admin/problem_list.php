@@ -10,13 +10,27 @@
 	//Vars
 	require_once('../include/setting_oj.inc.php');
 	//Prepares
-	$pstart = 1000;
-	$pend = 1100;
+	$curPageNum = isset($_GET['p'])?intval($_GET['p']):1;
+	
+	$sql=$pdo->prepare("SELECT max(`problem_id`) as upid FROM `problem`");
+	$sql->execute();
+	$maxProbID=$sql->fetch(PDO::FETCH_ASSOC);
+	$maxProbID=$maxProbID['upid'];
+	/*
+	$sql=$pdo->prepare("SELECT min(`problem_id`) as upid FROM `problem`");
+	$sql->execute();
+	$minProbID=$sql->fetch(PDO::FETCH_ASSOC);
+	var_dump($minProbID);//array(1) { ["upid"]=> string(4) "1000" } 
+	*/
+	$minProbID=1000;
+	
+	$pstart = $minProbID + ($curPageNum-1)*$PAGE_ITEMS;
+	$pend = $pstart + $PAGE_ITEMS;
+	$pageCnt = ($maxProbID - $minProbID) / $PAGE_ITEMS;
 	
 	$sql=$pdo->prepare("select `problem_id`,`title`,`in_date`,`defunct` FROM `problem` where problem_id>=? and problem_id<=? order by `problem_id` asc");
 	$sql->execute(array($pstart,$pend));
 	$probList=$sql->fetchAll(PDO::FETCH_ASSOC);
-	//$newsCount=count($newsList);
 	//Page Includes
 	require("./pages/problem_list.php");
 ?>

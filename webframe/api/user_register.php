@@ -3,6 +3,7 @@
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
 	require_once("../include/login_functions.php");
+	require_once("../include/user_check_functions.php");
 	
 	if(!isset($_SESSION['SessionAuth']) || !isset($_POST['pageauth'])) {
 		echo "认证失败";
@@ -28,15 +29,11 @@
 	
 	$password=pwGen($user_pwd);
 	
-	$sql=$pdo->prepare("SELECT `user_id` FROM `users` WHERE `users`.`user_id` =?");
-	$sql->execute(array($user_id));
-	$result=$sql->fetchAll();
-	$user_cnt = count($result); 
-	if ($user_cnt >= 1){
+	if (isUseridExist($user_id,$pdo)) {
 		echo "User Exist!";
-		var_dump($result);
 		exit(0);
 	}
+
 	$sql=$pdo->prepare("INSERT INTO `users` 
 	(`user_id`,`email`,`ip`,`accesstime`,`password`,`reg_time`,`nick`,`school`)
 	VALUES(?,?,?,NOW(),?,NOW(),?,?)");
