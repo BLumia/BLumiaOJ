@@ -21,6 +21,11 @@
 	
 	$isAddProblem = ($pid == 0) ? true : false;
 	
+	if (!(isset($_SESSION['administrator'])) && !isset( $_SESSION['op_ProblemEditor'] )){
+		echo "<a href='../loginpage.php'>Please Login First!</a>";
+		exit(1);
+	}
+	
 	/*if (get_magic_quotes_gpc ()) {
 		$user_id= stripslashes ( $user_id);
 		$password= stripslashes ( $password);

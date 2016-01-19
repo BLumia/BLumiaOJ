@@ -3,7 +3,12 @@
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
 	require_once("../include/file_functions.php");
-    
+
+	if (!(isset($_SESSION['administrator'])) && !isset( $_SESSION['op_PageModifier'] )){
+		echo "<a href='../loginpage.php'>Please Login First!</a>";
+		exit(1);
+	}
+	
 	if (!isset($_POST['nid'])) {
 		echo "Not Got an News Id";
 		exit(0);
