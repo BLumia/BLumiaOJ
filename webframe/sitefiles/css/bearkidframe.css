@@ -183,3 +183,42 @@ div.tr-tag span{
 .firstac { background: #080; color: white !important; font-weight: bold; }
 .fail { background: #ffdada; }
 .pending { background: #c8d6fa; }
+.bc-social {
+	padding:15px 0;
+	text-align:center;
+	background-color:#f5f5f5;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #ddd
+}
+.bc-social-buttons {
+	margin-left:0;
+	margin-bottom:0;
+	padding-left:0;
+	list-style:none
+}
+.bc-social-buttons li {
+	display:inline-block;
+	line-height:1;
+	color:#555
+}
+.bc-social-buttons li .fa {
+	font-size:18px;
+	margin-right:3px
+}
+.bc-social-buttons li .fa-weibo {
+	font-size:20px
+}
+.bc-social-buttons li a {
+	color:#555
+}
+.bc-social-buttons li.social-qq:hover {
+	color:#428bca
+}
+.bc-social-buttons li.social-weibo a:hover {
+	color:#d9534f
+}
+.bc-social-buttons>li+li:before {
+	padding:0 10px;
+	color:#ccc;
+	content:"|"
+}

@@ -28,7 +28,7 @@
 	
 	$sql=$pdo->prepare("select * from problem where `defunct`!='Y'");
 	$sql->execute();
-	$totalProblem=$sql->fetchAll();
+	$totalProblem=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$totalCount=count($totalProblem);
 	
 	//Page Includes
