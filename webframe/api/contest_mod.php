@@ -3,6 +3,8 @@
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
 	require_once("../include/file_functions.php");
+	
+	//TODO: Session auth
     
 	$contest_title	=$_POST['contest_title'];
 	$start_year		=intval($_POST['start_year']);

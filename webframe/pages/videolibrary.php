@@ -26,7 +26,7 @@
 		<div class="container">
 			<div class="row">
 			
-		<?php for($i=1;$i<=10;$i++) { ?>
+		<?php foreach($totalVideos as $row) { ?>
         <div class="col-sm-6 col-md-4 col-lg-3 ">
           <div style="height: 300px;" class="thumbnail">
 			<div class="panel panel-success">
@@ -36,7 +36,7 @@
 							<i class="fa fa-video-camera fa-5x"></i>
 						</div>
 						<div class="col-xs-7 text-right">
-							<p class="medal-heading">1111</p>
+							<p class="medal-heading"><?php echo $row['pid'];?></p>
 							<p class="medal-text">Title</p>
 						</div>
 					</div>
@@ -44,10 +44,10 @@
 			</div>
             <div class="caption">
               <h3>
-                <a href="http://codeguide.bootcss.com" target="_blank">田忌赛艇题解<br><small>Problem #1234 by @blumia</small></a>
+                <a href="<?php echo $row['url'];?>" target="_blank"><?php echo $row['title'];?></a><br><small><?php echo "Problem #{$row['pid']} by @{$row['author_id']}";?></small>
               </h3>
               <p>
-              江可泽民，亦可赛艇
+              <?php echo $row['title'];?>
               </p>
             </div>
           </div>
