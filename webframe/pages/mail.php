@@ -51,7 +51,7 @@
 						</div>
 						<?php } ?>
 						
-						<div class="col-lg-12">
+						<div style="" aria-expanded="true" class="col-lg-12 collapse" id="create-mail">
 				
 							<form role="form" method=post action=mail.php>
 				
@@ -77,7 +77,7 @@
 						</div>
 						
 						<div class="col-lg-12">
-							<h2>My In-box</h2>
+							<h2>My In-box<small> <a class="" data-toggle="collapse" href="#create-mail" aria-expanded="true">Write New Mail</a></small></h2>
 							<div class="table-responsive">
 							<table class="table table-bordered table-hover tablesorter">
 								<thead>

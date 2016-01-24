@@ -51,7 +51,8 @@
 </div><!--end head-->
 <div id=subhead> 
 <div id=menu class=navbar>
-	<a href="./discuss.php"><?php echo $MSG_BBS?></a>
+	<a href="./discuss.php"><?php echo $MSG_BBS;?></a>
+	<a href="./videolibrary.php"><?php echo "视频";?></a>
 	<a href="../"><?php echo $MSG_HOME?></a>&nbsp;|&nbsp;
 <?php 
 	if (isset($_SESSION['user_id'])){

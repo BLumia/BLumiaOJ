@@ -2,22 +2,61 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<?php require_once('./include/common_head.inc.php'); ?>
+		<?php require_once("oj-header.php"); require_once("setting_db.inc.php"); ?>
 		<title>BLumiaOJ</title>
 		<style>
-.panel {
-	margin-bottom: 0px;
+.four {
+	margin-bottom: 20px;
+}
+.bc-social {
+	padding:15px 0;
+	text-align:center;
+	background-color:#f5f5f5;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #ddd
+}
+.bc-social-buttons {
+	margin-left:0;
+	margin-bottom:0;
+	padding-left:0;
+	list-style:none
+}
+.bc-social-buttons li {
+	display:inline-block;
+	line-height:1;
+	color:#555
+}
+.bc-social-buttons li .fa {
+	font-size:18px;
+	margin-right:3px
+}
+.bc-social-buttons li .fa-weibo {
+	font-size:20px
+}
+.bc-social-buttons li a {
+	color:#555
+}
+.bc-social-buttons li.social-qq:hover {
+	color:#428bca
+}
+.bc-social-buttons li.social-weibo a:hover {
+	color:#d9534f
+}
+.bc-social-buttons>li+li:before {
+	padding:0 10px;
+	color:#ccc;
+	content:"|"
 }
 		</style>
 	</head>	
 	
 <?php
 	//Vars
-	require_once('./include/setting_oj.inc.php');
 	$VideoManager = (isset($_SESSION['administrator'])||isset( $_SESSION['op_PageModifier'] )) ? true:false;
 	//Prepares
 	if(isset($_POST['videoName'])) {
-		require_once('./include/checkauth_post.php');
+		if (!isset($_SESSION['SessionAuth'])||!isset($_POST['pageauth'])||$_SESSION['SessionAuth']!=$_POST['pageauth'])
+			exit(403);
 		
 		$POST_Author_ID = $_POST['videoAuthor'];
 		$POST_Video_Name = $_POST['videoName'];

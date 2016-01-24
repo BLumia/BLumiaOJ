@@ -36,23 +36,24 @@
 	}
 	
 	// count solved
-	$sql=$pdo->prepare("SELECT count(DISTINCT problem_id) as `ac` FROM `solution` WHERE `user_id`=? AND `result`=4");
+	$sql=$pdo->prepare("SELECT DISTINCT `problem_id` FROM `solution` WHERE `user_id`=? AND `result`=4 ORDER BY `problem_id` ASC");
 	$sql->execute(array($user_id));
-	$res=$sql->fetch();
-	$user_solved = $res['ac'];
+	$user_solved_list=$sql->fetchAll(PDO::FETCH_ASSOC);
+	$user_solved = $res['ac'] = count($user_solved_list);
 	$sql->closeCursor();
+	//var_dump($user_solved_list);
 	
 	// count submission
 	$sql=$pdo->prepare("SELECT count(solution_id) as `Submit` FROM `solution` WHERE `user_id`=?");
 	$sql->execute(array($user_id));
-	$res=$sql->fetch();
+	$res=$sql->fetch(PDO::FETCH_ASSOC);
 	$user_submit = $res['Submit'];
 	$sql->closeCursor();
 	
 	// count other
 	$sql=$pdo->prepare("SELECT result,count(1) FROM solution WHERE `user_id`=? AND result>=4 group by result order by result");
 	$sql->execute(array($user_id));
-	$res=$sql->fetchAll();
+	$res=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$sql->closeCursor();
 	//print_r($res);
 	$i = 0;

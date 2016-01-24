@@ -25,7 +25,7 @@
 								</div>
 								</div>
 							</div>
-							<a href="#">
+							<a href="#ls-accepted">
 								<div class="panel-footer medal-bottom">
 								<div class="row">
 									<div class="col-xs-9">
@@ -121,6 +121,13 @@
 						</div>
 					</div><!-- /.row -->
 			
+				</div>
+				<div class="col-lg-12">
+					<a class="" data-toggle="collapse" href="#ls-accepted" aria-expanded="true" aria-controls="ls-accepted"><h3>Accepted:</h3></a>
+					<div style="" aria-expanded="true" class="well collapse in" id="ls-accepted">
+						<i class="fa fa-check fa-3x"></i>
+						<?php foreach($user_solved_list as $row) { echo "<a href='problem.php?pid={$row['problem_id']}'>{$row['problem_id']}</a> ";} ?>
+					</div>
 				</div>
 			</div><!-- /.row, 3 medal -->
 			<!-- 显示一个统计图 -->
