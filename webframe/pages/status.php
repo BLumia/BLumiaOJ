@@ -36,7 +36,7 @@
 								<th width="10%">Run ID</th>
 								<th width="14%">User ID</th>
 								<th width="10%">Problem ID</th>
-								<th width="20%">Result</th>
+								<th width="20%" style="text-align: center;">Result</th>
 								<th width="8%">Memory</th>
 								<th width="8%">Time</th>
 								<th width="8%">Compiler</th>
@@ -46,6 +46,23 @@
 						</thead>
 						<tbody id="oj-statue-list">
 							<!-- use ajax to load result -->
+							
+						<?php foreach($statusResult as $row) { ?>
+							<tr class="<?php echo $JUDGE_ROW_CSS_CLASS[$row['result']]; ?>">
+								<td><?php echo $row['solution_id']; ?></td>
+								<td><?php echo $row['user_id']; ?></td>
+								<td><?php echo $row['problem_id']; ?></td>
+								<td class="result">
+								<?php 
+								echo "<span class='label label-{$JUDGE_ROW_CSS_CLASS[$row['result']]}'>{$JUDGE_RESULT[$row['result']]}</span>"; 
+								?></td>
+								<td><?php echo $row['memory']; ?></td>
+								<td><?php echo $row['time']; ?></td>
+								<td><?php echo $LANGUAGE_NAME[$row['language']]; ?></td>
+								<td><?php echo $row['code_length']; ?></td>
+								<td><?php echo $row['in_date']; ?></td>
+							</tr>
+						<?php } ?>
 						</tbody>
 					</table>
 				</div>
