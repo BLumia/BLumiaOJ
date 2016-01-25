@@ -90,7 +90,7 @@ tr > td.result:hover {
 	$sql->execute();
 	$statusResult=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$totalCount=count($statusResult);
-	print_r($statusResult);
+	//print_r($statusResult);
 
 	//Page Includes
 	require("./pages/status.php");
