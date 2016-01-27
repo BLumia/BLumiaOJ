@@ -17,7 +17,7 @@
 	
 	$sql=$pdo->prepare("select * from users order by solved desc limit $front,$PAGE_ITEMS");
 	$sql->execute();
-	$userList=$sql->fetchAll();
+	$userList=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$userCount=count($userList);
 	
 	//Page Includes

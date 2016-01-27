@@ -13,9 +13,28 @@
 	if($p<0){$p=0;}
 	$front=intval($p*$PAGE_ITEMS);
 	
+	//Challenged Problems
+	if(isset($_SESSION['user_id'])) {
+		$sql=$pdo->prepare("SELECT `problem_id` FROM `solution` WHERE `user_id`='{$_SESSION['user_id']}' group by `problem_id`"); //All
+		$sql->execute();
+		$challengedList=$sql->fetchAll(PDO::FETCH_ASSOC);
+		$sql=$pdo->prepare("SELECT `problem_id` FROM `solution` WHERE `user_id`='{$_SESSION['user_id']}' AND `result`=4 group by `problem_id`"); //Accepted
+		$sql->execute();
+		$acceptedList=$sql->fetchAll(PDO::FETCH_ASSOC);
+		//var_dump($acceptedList);
+		
+		foreach($challengedList as $row) {
+			$probStatusList[$row['problem_id']] = "challenged";
+		}
+		foreach($acceptedList as $row) {
+			$probStatusList[$row['problem_id']] = "accepted";
+		}
+	}
+	
+	
 	$sql=$pdo->prepare("select * from problem limit $front,$PAGE_ITEMS");
 	$sql->execute();
-	$problemList=$sql->fetchAll();
+	$problemList=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$problemCount=count($problemList);
 	
 	for($i=0;$i<$problemCount;$i++) { //problem list ------------ 
@@ -32,7 +51,18 @@
 				$pctText = sprintf("%.2f%%",$pctNum);
 			}
 		?>
-		<td></td>
+		<td>
+		<?php 
+			if (isset($probStatusList[$problemList[$i]['problem_id']])) {
+				$thisProbState = $probStatusList[$problemList[$i]['problem_id']];
+				if ($thisProbState="accepted") {
+					echo "<i style='color: green;' class='fa fa-check'></i>";
+				} else {
+					echo "<i style='color: yellow;' class='fa fa-dot-circle-o'></i>";
+				}
+			}
+		?>
+		</td>
 		<td><?php echo $problemList[$i]['problem_id'];?></td>
 		<td>
 			<a href="problem.php?pid=<?php echo $problemList[$i]['problem_id'];?>"><?php echo $problemList[$i]['title'];?></a>

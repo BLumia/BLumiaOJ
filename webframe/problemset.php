@@ -20,10 +20,7 @@
 	
 	/*
 	Ajax Load Problemlist Now
-	$sql=$pdo->prepare("select * from problem limit $front,$PAGE_ITEMS");
-	$sql->execute();
-	$problemList=$sql->fetchAll();
-	$problemCount=count($problemList);
+
 	*/
 	
 	$sql=$pdo->prepare("select * from problem where `defunct`!='Y'");

@@ -20,6 +20,7 @@ tr > td.result:hover {
 	//Vars
 	require_once("./include/setting_oj.inc.php");
 	require_once('./include/common_const.inc.php');
+	require_once('./include/user_check_functions.php');
 	
 	//Prepares
 	
@@ -57,7 +58,7 @@ tr > td.result:hover {
 	$user_id="";
 	if (isset($_GET['uid'])){
 		$user_id=trim($_GET['uid']);
-		if (is_valid_user_name($user_id) && $user_id!=""){
+		if (isUseridExist($user_id,$pdo) && $user_id!=""){
 			$sql_str=$sql_str."AND `user_id`='".$user_id."' ";
         } else {
 			$user_id="";

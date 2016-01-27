@@ -10,29 +10,48 @@
 	$contest_id    =isset($_POST['cid']) ? intval($_POST['cid']) : false;
 	$problem_id    =intval($_POST['pid']);
 	$user_id       =$_SESSION['user_id'];
-	$submit_lang   =$_POST['language'];
+	$submit_lang   =intval($_POST['language']);
 	$submit_src    =$_POST['source'];
 	$submit_time   =strftime("%Y-%m-%d %H:%M",time());
+	
+	// Process variable
+	if ($submit_lang>count($LANGUAGE_NAME) || $submit_lang<0) $submit_lang=0;
+	$submit_src=preg_replace ( "(\r\n)", "\n", $submit_src );
 	
 	var_dump($problem_id);
 	var_dump($submit_lang);
 	var_dump($submit_src);
 	
-	exit(0);
+	//exit(0);
 	
 	/*if (get_magic_quotes_gpc ()) {
 		$user_id= stripslashes ( $user_id);
 		$password= stripslashes ( $password);
 	}*/
+	//TODO: check if contest need password
+	
+	// Check if in Contest and if Contest is start or not
+	if ($contest_id) {
+		$sql=$pdo->prepare(SELECT `private` FROM `contest` WHERE `contest_id`=? AND `start_time`<=? AND `end_time`>?);
+		$sql->execute(array($contest_id,$submit_time,$submit_time));
+		$contestChecker = $sql->fetchAll(PDO::FETCH_ASSOC);
+		$sql->closeCursor();
+		if(count($contestChecker)!=1) {
+			echo "403";
+		} else {
+			//TODO: check private, private=1 means need invite
+			//skip this now..
+		}
+	}
 	
 	// Check if Problem Exist
 	if ($contest_id) {
 		$sql="SELECT `problem_id` from `contest_problem` 
-				where `num`='$problem_id' and contest_id=$contest_id";
+				where `num`='{$problem_id}' and contest_id={$contest_id}";
 	} else {
-		$sql="SELECT `problem_id` from `problem` where `problem_id`='$problem_id' and problem_id not in (select distinct problem_id from contest_problem where `contest_id` IN (
+		$sql="SELECT `problem_id` from `problem` where `problem_id`='{$problem_id}' and problem_id not in (select distinct problem_id from contest_problem where `contest_id` IN (
 			SELECT `contest_id` FROM `contest` WHERE 
-			(`end_time`>'$now' or private=1)and `defunct`='N'
+			(`end_time`>'{$submit_time}' or private=1)and `defunct`='N'
 			))";
 		if(!isset($_SESSION['administrator']))
 			$sql.=" and defunct='N'";
@@ -47,24 +66,12 @@
 		echo "403";
 		exit(0);
 	}
+	var_dump($existChecker);
 	
 	echo "done";
 	exit(0);
 	//--------------代码分割线
 	
-	$basedir = "$OJ_PROBLEM_DATA/$pid";
 	
-	if($ENV_CASE!="SAE"){
-		mkdir($basedir);
-		echo $basedir;
-		if(strlen($samp_out_data)&&!strlen($samp_in_data)) $samp_in_data="0";
-		if(strlen($samp_in_data)) mkdata($pid,"sample.in",$samp_in_data,$OJ_PROBLEM_DATA);
-		if(strlen($samp_out_data))mkdata($pid,"sample.out",$samp_out_data,$OJ_PROBLEM_DATA);
-		if(strlen($test_out_data)&&!strlen($test_in_data)) $test_in_data="0";
-		if(strlen($test_in_data))mkdata($pid,"test.in",$test_in_data,$OJ_PROBLEM_DATA);
-		if(strlen($test_out_data))mkdata($pid,"test.out",$test_out_data,$OJ_PROBLEM_DATA);
-		
-		echo "[$problem_title]data in $basedir";
-	}
 	
 ?>

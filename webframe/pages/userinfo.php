@@ -52,7 +52,7 @@
 								</div>
 								</div>
 							</div>
-							<a href="ranking.php">
+							<a href="status.php?uid=<?php echo $user_id; ?>">
 								<div class="panel-footer medal-bottom">
 								<div class="row">
 									<div class="col-xs-9">
@@ -79,11 +79,11 @@
 								</div>
 								</div>
 							</div>
-							<a href="#">
+							<a href="ranklist.php">
 								<div class="panel-footer medal-bottom">
 								<div class="row">
 									<div class="col-xs-6">
-									(See Introduction)
+									(See Ranking)
 									</div>
 									<div class="col-xs-6 text-right">
 									<i class="fa fa-arrow-circle-right"></i>
@@ -105,8 +105,8 @@
 									foreach($user_other as $row){
 										echo "<li class='list-group-item'>";
 										//echo $JUDGE_RESULT[$row[0]]." - ".$row[1]; 与下一行功能一致
-										echo $JUDGE_RESULT[$row['result']].": ".$row['count(1)'];
-										echo "</li>";
+										echo $JUDGE_RESULT[$row['result']].": <a href='status.php?uid={$user_id}&judgeresult={$row['result']}'>".$row['count(1)'];
+										echo "</a></li>";
 									}
 								}
 								?>

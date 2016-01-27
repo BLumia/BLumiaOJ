@@ -13,12 +13,12 @@
 	require_once('./include/common_const.inc.php');
 	
 	//Prepares
-	if (isset($_SESSION['user_id']) || isset($_GET['user'])) {
+	if (isset($_SESSION['user_id']) || isset($_GET['uid'])) {
 		//User Logged in and wanna see him/herself's info.
-		if (!isset($_GET['user']))
+		if (!isset($_GET['uid']))
 			$user_id = $_SESSION['user_id']; 
 		else
-			$user_id = $_GET['user'];
+			$user_id = $_GET['uid'];
 		
 		$sql=$pdo->prepare("select * from users where user_id=?");
 		$sql->execute(array($user_id));
