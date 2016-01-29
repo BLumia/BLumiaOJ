@@ -17,15 +17,7 @@
 	
 	$onOJ=isset($_GET['oj']) ? $_GET['oj'] : "HDU";
 	
-	$sql=$pdo->prepare("select * from problem limit $front,$PAGE_ITEMS");
-	$sql->execute();
-	$problemList=$sql->fetchAll();
-	$problemCount=count($problemList);
-	
-	$sql=$pdo->prepare("select * from problem");
-	$sql->execute();
-	$totalProblem=$sql->fetchAll();
-	$totalCount=count($totalProblem);
+	$totalCount = 5;
 	
 	//Page Includes
 	require("./pages/problemset_vj.php");

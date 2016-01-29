@@ -19,11 +19,11 @@
 	
 	$sql=$pdo->prepare("select * from contest where contest_id = ?");
 	$sql->execute(array($cid));
-	$contestItem=$sql->fetch();
+	$contestItem=$sql->fetch(PDO::FETCH_ASSOC);
 	
 	$sql=$pdo->prepare("select * from problem where problem_id = 1001");
 	$sql->execute();
-	$problemList=$sql->fetchAll();
+	$problemList=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$problemCount=count($problemList);
 	
 	//Page Includes
