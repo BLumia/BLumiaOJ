@@ -18,10 +18,11 @@
 	
 	$sql=$pdo->prepare("select * from contest
 						left join (select * from privilege where rightstr like 'm%') p on concat('m',contest_id)=rightstr
-						where contest.`defunct`='N' limit $front,$PAGE_ITEMS");
+						where contest.`defunct`='N' order by contest_id desc limit $front,$PAGE_ITEMS ");
 	$sql->execute();
 	$contestList=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$contestCount=count($contestList);
+	//var_dump($contestList);
 	
 	$sql=$pdo->prepare("select * from contest where `defunct`='N' ORDER BY `contest_id` DESC");
 	$sql->execute();
