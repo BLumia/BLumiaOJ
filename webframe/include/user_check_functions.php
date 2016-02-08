@@ -20,7 +20,7 @@
 	function isUseridExist($userid,$pdo) {
 		$sql=$pdo->prepare("SELECT `user_id` FROM `users` WHERE `users`.`user_id` =?");
 		$sql->execute(array($userid));
-		$result=$sql->fetchAll();
+		$result=$sql->fetchAll(PDO::FETCH_ASSOC);
 		$user_cnt = count($result); 
 		if ($user_cnt >= 1){
 			return true;

@@ -13,7 +13,7 @@
 	
 	$sql=$pdo->prepare("SELECT * FROM VJ_Solution order by runid desc limit $front,$PAGE_ITEMS");
 	$sql->execute();
-	$statusList=$sql->fetchAll();
+	$statusList=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$statusCount=count($statusList);
 	
 	for($i=0;$i<$statusCount;$i++) { //
