@@ -22,5 +22,5 @@
 	$L_Public   = "公开";
 	$L_Private  = "私有";
 	$L_Ended	= "已结束";
-	$L_Start	= "开始鱼";
+	$L_Start	= "开始于";
 ?>
