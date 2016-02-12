@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<?php require_once('./include/common_head.inc.php'); ?>
-		<title>BLumiaOJ</title>
+		<title>Video Library</title>
 		<style>
 .panel {
 	margin-bottom: 0px;

@@ -4,7 +4,7 @@
 	<head>
 		<?php require_once('./include/common_head.inc.php'); ?>
 		<script src="./sitefiles/js/highcharts.js"></script>
-		<title>BLumiaOJ</title>
+		<title>User Informations</title>
 	</head>	
 	
 <?php
