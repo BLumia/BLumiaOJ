@@ -3,13 +3,21 @@
 <html>
 	<head>
 		<?php require_once('../include/admin_head.inc.php'); ?>
-		<title>Add Problem</title>
+		<title>Broadcast Editor</title>
 	</head>	
 	
 <?php
 	//Vars
 	require_once('../include/setting_oj.inc.php');
+	require_once("../include/user_check_functions.php");
 	$announcementFilePath = "./announcement.txt";
+	
+	//Privilege Check
+	if (!havePrivilege("PAGE_EDITOR")) {
+		echo "403";
+		exit(403);
+	}
+	
 	//Prepares
 	$page_helper = "你可以在这里编辑首部广播";
 	if (isset($_POST['broadcast_content'])) {

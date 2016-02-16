@@ -13,6 +13,14 @@
 	require_once('../include/setting_oj.inc.php');
 	require_once('../include/common_const.inc.php');
 	require_once('../include/common_functions.inc.php');
+	require_once("../include/user_check_functions.php");
+	
+	//Privilege Check
+	if (!havePrivilege("CONTEST_EDITOR")) {
+		echo "403";
+		exit(403);
+	}
+	
 	//Prepares
 	$cid = "0"; // 0 as add new contest.
 	$lang_count=count($LANGUAGE_EXT);

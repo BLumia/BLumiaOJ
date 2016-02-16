@@ -1,5 +1,30 @@
 <?php
 
+/*
+	HustOJ:"administrator","problem_editor",  "source_browser","contest_creator", "http_judge","password_setter"
+	BLOJ:  "administrator","op_ProblemEditor","?",             "op_ContestEditor","http_judge","op_UserManager"
+	New:   "op_PageModifier"
+*/
+
+	function havePrivilege($opTypeStr) {
+		
+		switch($opTypeStr) {
+			case "SUPERUSER": // main administrator
+				return isset($_SESSION['administrator']); break;
+			case "PROBLEM_EDITOR":
+				return (isset($_SESSION['administrator'])||isset($_SESSION['op_ProblemEditor'])); break;
+			case "CONTEST_EDITOR":
+				return (isset($_SESSION['administrator'])||isset($_SESSION['op_ContestEditor'])); break;
+			case "USER_MANAGER":
+				return (isset($_SESSION['administrator'])||isset($_SESSION['op_UserManager'])); break;
+			case "PAGE_EDITOR":
+				return (isset($_SESSION['administrator'])||isset($_SESSION['op_PageModifier'])); break;
+		}
+		
+		return false;
+
+	}
+
 	function isOperator() {
 		if (isset($_SESSION['administrator']) || isset($_SESSION['op_ProblemEditor']) || isset($_SESSION['op_ContestEditor']) || isset($_SESSION['op_PageModifier']) || isset($_SESSION['op_UserManager'])) {
 			return true;
@@ -14,6 +39,21 @@
 			return true;
 		} else {
 			return false;
+		}
+	}
+	
+	function opTagConverter($hustojTag) {
+		switch($hustojTag) {
+			case "administrator":
+				return "administrator"; break;// i know this break is not neccessary = =
+			case "problem_editor":
+				return "op_ProblemEditor"; break;
+			case "contest_creator":
+				return "op_ContestEditor"; break;
+			case "password_setter":
+				return "op_UserManager"; break;
+			default:
+				return $hustojTag;
 		}
 	}
 	

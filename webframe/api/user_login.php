@@ -49,10 +49,10 @@
 		$sql->execute(array($user_id));
 		$op_result=$sql->fetchAll(PDO::FETCH_ASSOC);
 		$sql->closeCursor();
-		//var_dump($op_result);
+		
 		foreach ($op_result as $row) {
-			//echo "{$row['rightstr']}";
-			$_SESSION[$row['rightstr']]=true;
+			$rightStr = ($OJ_HUSTOJ_COMPATIBLE) ? opTagConverter($row['rightstr']) : $row['rightstr'];
+			$_SESSION[$rightStr]=true;
 		}
 		$_SESSION['is_operator'] = isOperator();
 		

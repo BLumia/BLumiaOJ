@@ -9,6 +9,14 @@
 <?php
 	//Vars
 	require_once('../include/setting_oj.inc.php');
+	require_once("../include/user_check_functions.php");
+	
+	//Privilege Check
+	if (!havePrivilege("PROBLEM_EDITOR")) {
+		echo "403";
+		exit(403);
+	}
+	
 	//Prepares
 	$PROB_ID = 0;
 	$page_helper = "Add a problem is very simple.";
