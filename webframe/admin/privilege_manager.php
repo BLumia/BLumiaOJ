@@ -13,6 +13,14 @@
 	require_once('../include/setting_oj.inc.php');
 	require_once('../include/common_const.inc.php');
 	require_once('../include/login_functions.php');
+	require_once("../include/user_check_functions.php");
+	
+	//Privilege Check
+	if (!havePrivilege("USER_MANAGER")) {
+		echo "403";
+		exit(403);
+	}
+	
 	//Prepares
 	if (!isset($_GET['more'])) {
 		$sql=$pdo->prepare("select * FROM privilege where rightstr in ('administrator','http_judge','op_ProblemEditor','op_ContestEditor','op_UserManager','op_PageModifier')");
