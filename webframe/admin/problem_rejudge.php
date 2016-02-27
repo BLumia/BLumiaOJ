@@ -3,12 +3,20 @@
 <html>
 	<head>
 		<?php require_once('../include/admin_head.inc.php'); ?>
-		<title>Add Problem</title>
+		<title>Problem Rejudge</title>
 	</head>	
 	
 <?php
 	//Vars
 	require_once('../include/setting_oj.inc.php');
+	require_once("../include/user_check_functions.php");
+	
+	//Privilege Check
+	if (!havePrivilege("PROBLEM_EDITOR")) { // TODO: is that okay?
+		echo "403";
+		exit(403);
+	}
+	
 	//Prepares
 	//Page Includes
 	require("./pages/problem_rejudge.php");

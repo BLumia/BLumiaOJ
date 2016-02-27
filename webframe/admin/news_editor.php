@@ -7,13 +7,17 @@
 	</head>	
 	
 <?php
-	//Admin Auth
-	if (!(isset($_SESSION['administrator'])||isset( $_SESSION['op_PageModifier'] ))) {
-		echo "<a href='../loginpage.php'>Please Login First!</a>";
-		exit(1);
-	}
 	//Vars
 	require_once('../include/setting_oj.inc.php');
+	require_once("../include/user_check_functions.php");
+	
+	//Privilege Check
+	if (!havePrivilege("PAGE_EDITOR")) {
+		echo "403";
+		exit(403);
+	}
+	
+	
 	//Prepares
 	if (isset($_GET['nid'])) {
 		//check nid if exist
