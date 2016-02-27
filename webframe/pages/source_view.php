@@ -21,7 +21,7 @@
 					<div class="panel">
 						<p class="text-info"><b>User Name: </b><code><?php echo $code_author;?></code></p>
 						<p class="text-info"><b>Time: </b><code><?php echo $code_date;?></code></p> 
-						<p class="text-info"><b>Language: </b><code>Pascal</code></p>
+						<p class="text-info"><b>Language: </b><code><?php echo $LANGUAGE_NAME[$code_lang];?></code></p>
 						
 						<p class="text-info"><b>Judge Result: </b><code><?php echo $code_result;?></code></p>
 						<p class="text-info"><b>Time Cost: </b><code><?php echo $code_time." MS";?></code></p> 

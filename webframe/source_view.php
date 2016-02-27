@@ -9,8 +9,8 @@
 <?php
 	//Vars
 	require_once('./include/setting_oj.inc.php');
+	require_once('./include/common_const.inc.php');
 	//Prepares
-	$jresult=Array("MSG_PD","MSG_PR","MSG_CI","MSG_RJ","MSG_AC","MSG_PE","MSG_WA","MSG_TLE","MSG_MLE","MSG_OLE","MSG_RE","MSG_CE","MSG_CO","MSG_TR");
 	
 	if (!isset($_GET['id'])) {
 		echo "Null Source ID.";
@@ -21,11 +21,12 @@
 	$code_id = intval($_GET['id']);
 	$sql = $pdo->prepare("SELECT * FROM `solution` WHERE `solution_id`=?");
 	$sql->execute(array($code_id));
-	$codeInfo=$sql->fetch();
+	$codeInfo=$sql->fetch(PDO::FETCH_ASSOC);
 	
 	$sql = $pdo->prepare("SELECT * FROM `source_code` WHERE `solution_id`=?");
 	$sql->execute(array($code_id));
-	$codeContent=$sql->fetch();
+	$codeContent=$sql->fetch(PDO::FETCH_ASSOC);
+	//var_dump($codeInfo);
 	
 	$can_view = false;
 	if (isset($_SESSION['source_browser'])) $can_view=true;
@@ -38,14 +39,15 @@
 	
 	//var_dump($codeInfo);
 	$code_author = $codeInfo['user_id'];
-	$code_src = $codeContent['source'];
+	$code_src = str_replace(array('<', '>'), array('&lt;', '&gt;'), $codeContent['source']);//$codeContent['source'];
 	$code_date = $codeInfo['in_date'];
-	$code_result = $jresult[$codeInfo['result']];
+	$code_result = $JUDGE_RESULT[$codeInfo['result']];
 	$code_time = $codeInfo['time'];
 	$code_memory = $codeInfo['memory'];
+	$code_lang = $codeInfo['language'];
 	
 	//if (shared from submit)
-	$code_title = "Problem ".$codeInfo['solution_id'];
+	$code_title = "Problem ".$codeInfo['problem_id'];
 	//else
 	//$code_title = "Code Paster Title"
 	

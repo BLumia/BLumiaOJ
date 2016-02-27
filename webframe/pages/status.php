@@ -47,7 +47,10 @@
 						<tbody id="oj-statue-list">
 							<!-- use ajax to load result -->
 							
-						<?php foreach($statusResult as $row) { ?>
+						<?php 
+						foreach($statusResult as $row) { 
+							$codeUrl = "<a href='./source_view.php?id={$row['solution_id']}'>{$LANGUAGE_NAME[$row['language']]}</a>"; // TODO: can i see this code?
+						?>
 							<tr class="<?php echo $JUDGE_ROW_CSS_CLASS[$row['result']]; ?>">
 								<td><?php echo $row['solution_id']; ?></td>
 								<td><?php echo $row['user_id']; ?></td>
@@ -58,7 +61,7 @@
 								?></td>
 								<td><?php echo $row['memory']; ?></td>
 								<td><?php echo $row['time']; ?></td>
-								<td><?php echo $LANGUAGE_NAME[$row['language']]; ?></td>
+								<td><?php echo $codeUrl; ?></td>
 								<td><?php echo $row['code_length']; ?></td>
 								<td><?php echo $row['in_date']; ?></td>
 							</tr>
