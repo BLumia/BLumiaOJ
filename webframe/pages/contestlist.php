@@ -3,17 +3,17 @@
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-4 col-xs-4">
 					<div class="btn-group" role="group" aria-label="...">
 						<button type="button" class="btn btn-default">《</button>
 						<button type="button" class="btn btn-default">1</button>
 						<button type="button" class="btn btn-default">》</button>
 					</div>
 				</div>
-				<div class="col-md-4 text-right">
+				<div class="col-md-4 col-xs-4 text-right">
 					<button type="button" class="btn btn-default">Create Contest</button>
 				</div><!-- /.col-lg-3 -->
-				<div class="col-md-4 text-right">
+				<div class="col-md-4 col-xs-4 text-right">
 					<div class="btn-group" role="group" aria-label="...">
 					<button type="button" class="btn btn-default">All</button>
 					<button type="button" class="btn btn-default">Public</button>

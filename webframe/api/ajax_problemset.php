@@ -11,8 +11,8 @@
 	//Prepare
 	$p=isset($_GET['p']) ? $_GET['p'] : 0;
 	if($p<0){$p=0;}
-	$front=intval($p*$PAGE_ITEMS);
-	$tail =$front + $PAGE_ITEMS + 1000;
+	$front=intval($p*$PAGE_ITEMS) + 1000;
+	$tail =$front + $PAGE_ITEMS;
 	$curTime=strftime("%Y-%m-%d %H:%M",time());
 	$isProblemManager = isset($_SESSION['administrator']);
 	
@@ -44,7 +44,7 @@
 	if (!$isProblemManager) {
 		$sql=$pdo->prepare("SELECT * FROM problem WHERE `defunct`='N' AND {$common_filter} AND `problem_id` NOT IN({$any_running_contest})");
 	} else {
-		$sql=$pdo->prepare("select * from problem limit $front,$PAGE_ITEMS");
+		$sql=$pdo->prepare("select * from problem WHERE {$common_filter}");// limit $front,$PAGE_ITEMS
 	}
 	$sql->execute();
 	$problemList=$sql->fetchAll(PDO::FETCH_ASSOC);
