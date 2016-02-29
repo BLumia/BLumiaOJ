@@ -2,6 +2,7 @@
 	session_start();
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
+	require_once("../include/common_const.inc.php");
 	require_once("../include/file_functions.php");
 	
 	//比赛和非比赛状态下对应$problem_id数值含义不同，比赛时为比赛对应的题目编号，普通则为题目id
@@ -32,7 +33,7 @@
 	
 	// Check if in Contest and if Contest is start or not
 	if ($contest_id) {
-		$sql=$pdo->prepare(SELECT `private` FROM `contest` WHERE `contest_id`=? AND `start_time`<=? AND `end_time`>?);
+		$sql=$pdo->prepare("SELECT `private` FROM `contest` WHERE `contest_id`=? AND `start_time`<=? AND `end_time`>?");
 		$sql->execute(array($contest_id,$submit_time,$submit_time));
 		$contestChecker = $sql->fetchAll(PDO::FETCH_ASSOC);
 		$sql->closeCursor();

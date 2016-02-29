@@ -15,7 +15,7 @@
 	$sql=$pdo->prepare("SELECT max(`problem_id`) as upid FROM `problem`");
 	$sql->execute();
 	$maxProbID=$sql->fetch(PDO::FETCH_ASSOC);
-	$maxProbID=$maxProbID['upid'];
+	$maxProbID=intval($maxProbID['upid']);
 	/*
 	$sql=$pdo->prepare("SELECT min(`problem_id`) as upid FROM `problem`");
 	$sql->execute();
@@ -26,7 +26,7 @@
 	
 	$pstart = $minProbID + ($curPageNum-1)*$PAGE_ITEMS;
 	$pend = $pstart + $PAGE_ITEMS;
-	$pageCnt = ($maxProbID - $minProbID) / $PAGE_ITEMS;
+	$pageCnt = ($maxProbID - $minProbID) / $PAGE_ITEMS + 1;
 	
 	$sql=$pdo->prepare("select `problem_id`,`title`,`in_date`,`defunct` FROM `problem` where problem_id>=? and problem_id<=? order by `problem_id` asc");
 	$sql->execute(array($pstart,$pend));
