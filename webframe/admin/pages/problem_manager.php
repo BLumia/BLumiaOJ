@@ -17,7 +17,7 @@
 				<h4 class="list-group-item-heading"><i class="fa fa-th-list"></i> Problem List</h4>
 				<p class="list-group-item-text">查看问题列表</p>
 			</a>
-			<a href="#" class="list-group-item">
+			<a href="./problem_import_file.php" class="list-group-item">
 				<h4 class="list-group-item-heading"><i class="fa fa-file-o"></i> Import Problem From File</h4>
 				<p class="list-group-item-text">从文件导入..</p>
 			</a>
