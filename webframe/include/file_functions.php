@@ -10,4 +10,10 @@
 			echo "Error while opening".$basedir . "/$filename ,try [chgrp -R www-data 	$OJ_DATA] and [chmod -R 771 $OJ_DATA ] ";	
 		}
 	}
+	/*将base64编码的字符串解码并存储为文件*/
+	function base64decode2File($savepath, $base64_encoded_file) {
+		$fp=fopen($savepath ,"wb");
+		fwrite($fp,base64_decode($base64_encoded_file));
+		fclose($fp);
+	}
 ?>
