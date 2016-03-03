@@ -11,6 +11,11 @@
 	require_once('../include/setting_oj.inc.php');
 	require_once('../include/file_functions.php');
 	
+	//functions
+	function getAttribute($Node, $TagName,$attribute) {
+		return $Node->children()->$TagName->attributes()-> $attribute;
+	}
+	
 	//Prepares
 	$maxFileSize=min(ini_get("upload_max_filesize"),ini_get("post_max_size"));
 	
@@ -28,7 +33,26 @@
 			$problemNodes = $xmlFile->xpath ("/fps/item");
 			
 			foreach($problemNodes as $problem) {
-				//echo $problem->title,"\n";
+				
+				echo $problem->title,"\n";
+				
+				$problem_title = $problem->title;
+				$time_limit = $problem->time_limit;
+				$unit = getAttribute($problem,'time_limit','unit');
+				if($unit=='ms') $time_limit/=1000;
+				$memory_limit = $problem->memory_limit;
+				$unit=getAttribute($problem,'memory_limit','unit');
+				if($unit=='kb') $memory_limit/=1024;
+				$problem_desc = $problem->description;
+				$problem_input = $problem->input;
+				$problem_output = $problem->output;
+				$samp_in_data = $problem->sample_input;
+				$samp_out_data = $problem->sample_output;
+				$problem_hint = $problem->hint;
+				$problem_spj = trim($problem->spj)?1:0;
+				$problem_source = $problem->source;
+				
+				
 			}
 		}
 	}

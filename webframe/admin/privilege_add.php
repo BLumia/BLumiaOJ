@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<?php require_once('../include/admin_head.inc.php'); ?>
-		<title>Add Problem</title>
+		<title>Add Privilege</title>
 	</head>	
 	
 <?php

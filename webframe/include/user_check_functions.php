@@ -38,6 +38,7 @@
 		if ($str=='administrator' || $str=='op_ProblemEditor' || $str=='op_ContestEditor' || $str=='op_PageModifier' || $str=='op_UserManager') {
 			return true;
 		} else {
+			if ($str=="http_judge") return true;//暂留
 			return false;
 		}
 	}

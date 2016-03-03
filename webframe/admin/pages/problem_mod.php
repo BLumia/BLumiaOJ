@@ -63,9 +63,6 @@
 			<br/>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
-		<p class="lead">
-			TODO: Modify a problem. Now we can only add problem.
-		</p>
 	</div>
 <script>
 $(document).ready(function() {
