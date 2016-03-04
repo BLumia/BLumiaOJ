@@ -14,6 +14,7 @@
 	$submit_lang   =intval($_POST['language']);
 	$submit_src    =$_POST['source'];
 	$submit_time   =strftime("%Y-%m-%d %H:%M",time());
+	$submit_ip=$_SERVER['REMOTE_ADDR'];
 	
 	// Process variable
 	if ($submit_lang>count($LANGUAGE_NAME) || $submit_lang<0) $submit_lang=0;
@@ -23,7 +24,16 @@
 	var_dump($submit_lang);
 	var_dump($submit_src);
 	
-	//exit(0);
+	//check code length
+	$code_len=strlen($submit_src);
+	if($code_len < 2) {
+		echo "your code is tooooo short.";
+		exit(403);
+	}
+	if($code_len > 65536) {
+		echo "your code is tooooo long.";
+		exit(403);
+	}
 	
 	/*if (get_magic_quotes_gpc ()) {
 		$user_id= stripslashes ( $user_id);
@@ -67,9 +77,24 @@
 		echo "403";
 		exit(0);
 	}
-	var_dump($existChecker);
+	//var_dump($existChecker);
 	
-	echo "done";
+	//ignore append code feature.
+	//cookie
+	setcookie('lastlang',$submit_lang,time()+360000);
+	
+	//check last submit time
+	$ckeckTime=strftime("%Y-%m-%d %X",time()-$OJ_SUBMIT_DELTATIME);
+	$sql=$pdo->prepare("SELECT `in_date` from `solution` where `user_id`=? and in_date>? order by `in_date` desc limit 1");
+	$sql->execute(array($user_id,$ckeckTime));
+	$existChecker = $sql->fetchAll(PDO::FETCH_ASSOC);
+	$existCounter = count($existChecker);
+	if ($existCounter == 1) {
+		echo "You submit too frequence. try again after {$OJ_SUBMIT_DELTATIME} seconds.";
+		exit(0);
+	}
+	
+	echo $existCounter;
 	exit(0);
 	//--------------代码分割线
 	

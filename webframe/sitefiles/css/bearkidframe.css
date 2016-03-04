@@ -144,8 +144,8 @@ div.tr-tag span{
 	margin-bottom: 3px;
 }
 
-.width150px {
-	width:150px;
+.maxwidth150px {
+	max-width:150px;
 }
 
 /* 重载.progress .bar*/

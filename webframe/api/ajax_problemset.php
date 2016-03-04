@@ -99,7 +99,7 @@
 				<span>搜索</span>
 			</div>
 		</td>
-		<td><div class="progress width150px"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
+		<td><div class="progress maxwidth150px"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
 		<td><?php echo utf8_substr($row['source'],0,14);?></td>
 		<td>(<?php echo $row['accepted']." / ".$row['submit'];?>) <?php echo $pctText;?></td>
 	</tr>

@@ -6,6 +6,9 @@
 	$OJ_LANGMASK = 4080; //1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 4080 for security reason to mask all other language
 	$OJ_LANGUAGE = "schinese";
 	
+// Submit Setting
+	$OJ_SUBMIT_DELTATIME = 10; //allowed submit frequence. (seconds)
+	
 // Page Setting
 	$PAGE_ITEMS = 25;// Show how many comments/posts in one pages?
 	

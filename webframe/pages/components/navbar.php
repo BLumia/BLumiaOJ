@@ -33,17 +33,17 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="problemset.php">Problem Set</a></li>
-				<li><a href="status.php">Status</a></li>
-				<li><a href="ranklist.php">Rank List</a></li>
-				<li><a href="contestlist.php">Contest</a></li>
+				<li><a href="problemset.php"><?php echo L_PROB_SET;?></a></li>
+				<li><a href="status.php"><?php echo L_STATUS;?></a></li>
+				<li><a href="ranklist.php"><?php echo L_RANKLIST;?></a></li>
+				<li><a href="contestlist.php"><?php echo L_CONTEST;?></a></li>
 				
 				<?php if ($VJ_ENABLED) {?>
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Virtual Judge <span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo L_VJ;?> <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="problemset_vj.php">Problem Set</a></li>
-						<li><a href="status_vj.php">Status</a></li>
+						<li><a href="problemset_vj.php"><?php echo L_PROB_SET;?></a></li>
+						<li><a href="status_vj.php"><?php echo L_STATUS;?></a></li>
 					</ul>
 				</li>
 				<?php } ?>
@@ -52,26 +52,26 @@
 			<?php if (isset($_SESSION['user_id'])) { 
 				$navUsrName = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : $_SESSION['user_id'];?>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./mail.php"><i class="fa fa-inbox"></i> In-box <?php echo checkmail($pdo);?></a></li>
+				<li><a href="./mail.php"><i class="fa fa-inbox"></i> <?php echo L_INBOX." ".checkmail($pdo);?></a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> <?php echo $navUsrName;?> <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-					<li><a href="./modifyinfo.php"><i class="fa fa-edit"></i> Modify User</a></li>
-					<li><a href="./userinfo.php"><i class="fa fa-at"></i> User Zone</a></li>
-					<li><a href="#"><i class="fa fa-history"></i> Recent Submit</a></li>
+					<li><a href="./modifyinfo.php"><i class="fa fa-edit"></i> <?php echo L_MOD_INFO;?></a></li>
+					<li><a href="./userinfo.php"><i class="fa fa-at"></i> <?php echo L_USR_PAGE;?></a></li>
+					<li><a href="#"><i class="fa fa-history"></i> <?php echo L_RECENTSUB;?></a></li>
 					<?php if (isset($_SESSION['is_operator']) && $_SESSION['is_operator']) {?>
 					<li class="divider"></li>
-					<li><a href="./admin/index.php"><i class="fa fa-cogs"></i> Admin Panel</a></li>
+					<li><a href="./admin/index.php"><i class="fa fa-cogs"></i> <?php echo L_CTRLPANEL;?></a></li>
 					<?php } ?>
 					<li class="divider"></li>
-					<li><a href="./api/logout.php"><i class="fa fa-sign-out"></i> Log Out</a></li>
+					<li><a href="./api/logout.php"><i class="fa fa-sign-out"></i> <?php echo L_LOGOUT;?></a></li>
 					</ul>
 				</li>
 			</ul>
 			<?php } else { ?>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./registerpage.php"><i class="fa fa-user-plus"></i> Sign Up</a></li>
-				<li><a href="./loginpage.php"><i class="fa fa-sign-in"></i> Log In</a></li>
+				<li><a href="./registerpage.php"><i class="fa fa-user-plus"></i> <?php echo L_SIGNUP;?></a></li>
+				<li><a href="./loginpage.php"><i class="fa fa-sign-in"></i> <?php echo L_LOGIN;?></a></li>
 			</ul>
 			<?php } ?>
 		</div><!-- /.navbar-collapse -->
