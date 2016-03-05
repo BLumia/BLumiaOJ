@@ -14,7 +14,7 @@
 	$submit_lang   =intval($_POST['language']);
 	$submit_src    =$_POST['source'];
 	$submit_time   =strftime("%Y-%m-%d %H:%M",time());
-	$submit_ip=$_SERVER['REMOTE_ADDR'];
+	$submit_ip	   =$_SERVER['REMOTE_ADDR'];
 	
 	// Process variable
 	if ($submit_lang>count($LANGUAGE_NAME) || $submit_lang<0) $submit_lang=0;
@@ -77,7 +77,6 @@
 		echo "403";
 		exit(0);
 	}
-	//var_dump($existChecker);
 	
 	//ignore append code feature.
 	//cookie
@@ -94,7 +93,34 @@
 		exit(0);
 	}
 	
-	echo $existCounter;
+	// if in contest, what is the real problem id?
+	if ($contest_id) {
+		$problem_in_contest_id = $problem_id;
+		$sql=$pdo->prepare("SELECT `problem_id` FROM `contest_problem` WHERE `contest_id`=? AND `num`=?");
+		$sql->execute(array($contest_id,$problem_in_contest_id));
+		$existChecker = $sql->fetch(PDO::FETCH_ASSOC);
+		if (count($existChecker)!=1) {
+			echo "403";
+			exit(0);
+		} else {
+			$problem_id = $existChecker["problem_id"];
+		}
+	}
+
+	if ($contest_id) {
+		$sql=$pdo->prepare("INSERT INTO solution
+						(problem_id,user_id,in_date,language,ip,code_length,contest_id,num)
+						VALUES(?,?,NOW(),?,?,?,?,?)");
+		$sql->execute(array($problem_id,$user_id,$submit_lang,$submit_ip,$code_len,$contest_id,$problem_in_contest_id));
+	} else {
+		$sql=$pdo->prepare("INSERT INTO solution
+						(problem_id,user_id,in_date,language,ip,code_length)
+						VALUES(?,?,NOW(),?,?,?)");
+		$sql->execute(array($problem_id,$user_id,$submit_lang,$submit_ip,$code_len));
+	}
+	$submit_id = $pdo->lastinsertid();
+	
+	echo $submit_id;
 	exit(0);
 	//--------------代码分割线
 	
