@@ -52,7 +52,12 @@
 				$problem_spj = trim($problem->spj)?1:0;
 				$problem_source = $problem->source;
 				
-				
+				$sql=$pdo->prepare("INSERT into `problem`
+						(`title`,`time_limit`,`memory_limit`,`description`,`input`,`output`,`sample_input`,`sample_output`,`hint`,`source`,`spj`,`in_date`,`defunct`)
+						VALUES(?,?,?,?,?,?,?,?,?,?,?,NOW(),'Y')");
+				$sql->execute(array($problem_title,$time_limit,$memory_limit,$problem_desc,$problem_input,$problem_output,$samp_in_data,$samp_out_data,$problem_hint,$problem_source,$problem_spj));
+				$pid = $pdo->lastinsertid();
+				echo "Now Added Problem {$problem_title} , Problem ID:{$pid}<br/>";
 			}
 		}
 	}

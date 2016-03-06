@@ -37,7 +37,7 @@
 						VALUES(?,?,?,?,?,?,?,?,?,?,?,NOW(),'Y')");
 		$sql->execute(array($problem_title,$time_limit,$memory_limit,$problem_desc,$problem_input,$problem_output,$samp_in_data,$samp_out_data,$problem_hint,$problem_source,$problem_spj));
 		$pid = $pdo->lastinsertid();
-		echo "Now Added Problem ".$pid."<br/>";
+		echo "Now Added Problem {$pid}<br/>";
 	} else {
 		$sql=$pdo->prepare("UPDATE `problem` 
 						set `title`=?,`time_limit`=?,`memory_limit`=?,
