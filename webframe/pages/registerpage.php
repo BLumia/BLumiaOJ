@@ -4,7 +4,7 @@
 		<div class="panel" style="padding:20px 20px;">
 			<form action="./api/user_register.php" method="post">
 			<h2>Please Sign Up</h2>
-			<label class="sr-only">User ID</label>
+			<label class="control-label">User ID</label>
 			<div class="control-group">
 				<input 
 					name="username" 
@@ -18,12 +18,12 @@
 				/>
 				<p class="help-block"></p>
 			</div>
-			<label class="sr-only">Nick Name</label>
+			<label class="control-label">Nick Name</label>
 			<div class="control-group">
 				<input name="nickname" class="form-control" placeholder="Nick Name" type="text">
 				<p class="help-block"></p>
 			</div>
-			<label class="sr-only">Password</label>
+			<label class="control-label">Password</label>
 			<div class="control-group">
 				<input
 					name="password" 
@@ -36,7 +36,7 @@
 				>
 				<p class="help-block"></p>
 			</div>
-			<label class="sr-only">Repeat Password</label>
+			<label class="control-label">Repeat Password</label>
 			<div class="control-group">
 				<input 
 					name="password_again" 
@@ -48,12 +48,12 @@
 				>
 				<p class="help-block"></p>
 			</div>
-			<label class="sr-only">School</label>
+			<label class="control-label">School</label>
 			<div class="control-group">
 				<input name="school" class="form-control" placeholder="School" type="text">
 				<p class="help-block"></p>
 			</div>
-			<label class="sr-only">E-Mail</label>
+			<label class="control-label">E-Mail</label>
 			<div class="control-group">
 				<input name="email" class="form-control" placeholder="(*) E-Mail" type="email" required>
 				<p class="help-block"></p>

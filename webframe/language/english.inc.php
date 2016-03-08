@@ -27,11 +27,11 @@
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "Pending..";
 	const L_JUDGE_AC = "Accepted";
-	const L_JUDGE_PE = "PError";
+	const L_JUDGE_PE = "Presentation Error";
 	const L_JUDGE_WA = "Wrong Answer";
-	const L_JUDGE_TLE = "Time Limit Excited";
-	const L_JUDGE_MLE = "Memory Limit Excited";
+	const L_JUDGE_TLE = "Time Limit Exceeded";
+	const L_JUDGE_MLE = "Memory Limit Exceeded";
 	const L_JUDGE_RE = "Runtime Error";
-	const L_JUDGE_CE = "Compile Error";
+	const L_JUDGE_CE = "Compilation Error";
 	
 ?>

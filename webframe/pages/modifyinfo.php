@@ -62,7 +62,7 @@
 							<div class="control-group">
 								<label class="control-label">School</label>
 								<div class="controls">
-									<input type="text" class="form-control" name="user_school" value="<?php echo htmlspecialchars($user_school)?>" required />
+									<input type="text" class="form-control" name="user_school" value="<?php echo htmlspecialchars($user_school)?>" />
 									<p class="help-block"></p>
 								</div>
 							</div>

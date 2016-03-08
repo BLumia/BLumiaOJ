@@ -19,6 +19,8 @@
 				return (isset($_SESSION['administrator'])||isset($_SESSION['op_UserManager'])); break;
 			case "PAGE_EDITOR":
 				return (isset($_SESSION['administrator'])||isset($_SESSION['op_PageModifier'])); break;
+			case "SOURCE_VIEWER":
+				return (isset($_SESSION['administrator'])||isset($_SESSION['op_SourceViewer'])); break;
 		}
 		
 		return false;
@@ -53,6 +55,8 @@
 				return "op_ContestEditor"; break;
 			case "password_setter":
 				return "op_UserManager"; break;
+			case "source_browser":
+				return "op_SourceViewer"; break;
 			default:
 				return $hustojTag;
 		}

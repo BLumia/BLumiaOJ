@@ -4,9 +4,9 @@
 		<div class="panel" style="padding:20px 20px;">
 			<form action="./api/user_login.php" method="post">
 			<h2>Please sign in</h2>
-			<label class="sr-only">User ID</label>
+			<label class="control-label">User ID</label>
 			<input name="username" class="form-control" placeholder="User ID" autofocus="" type="text"><br/>
-			<label class="sr-only">Password</label>
+			<label class="control-label">Password</label>
 			<input name="password" class="form-control" placeholder="Password" type="password"><br/>
 			
 			<?php require_once('./include/pageauth_post.php'); ?>

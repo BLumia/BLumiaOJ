@@ -10,6 +10,7 @@
 	//Vars
 	require_once('./include/setting_oj.inc.php');
 	require_once('./include/common_const.inc.php');
+	require_once('./include/user_check_functions.php');
 	//Prepares
 	
 	if (!isset($_GET['id'])) {
@@ -29,7 +30,7 @@
 	//var_dump($codeInfo);
 	
 	$can_view = false;
-	if (isset($_SESSION['source_browser'])) $can_view=true;
+	if (havePrivilege("SOURCE_VIEWER")) $can_view=true;
 	if (isset($_SESSION['user_id'])&&$codeInfo['user_id']==$_SESSION['user_id']) $can_view=true;
 	//if (shared) $can_view = true;
 	if (!$can_view) {

@@ -80,7 +80,7 @@
 			async:false,
 			contentType:"application/x-www-form-urlencoded; charset=utf-8",
 			success:function(data/*返回的数据*/, textStatus, jqXHR){
-				document.getElementById("oj-statue-list").innerHTML=data;
+				$("#oj-statue-list").html(data);
 				$("tr").fadeIn();
 			},
 			complete:function(jqXHR, textStatus){

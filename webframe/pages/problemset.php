@@ -81,7 +81,7 @@
 			async:false,
 			contentType:"application/x-www-form-urlencoded; charset=utf-8",
 			success:function(data/*返回的数据*/, textStatus, jqXHR){
-				document.getElementById("oj-ps-problemlist").innerHTML=data;
+				$("#oj-ps-problemlist").html(data);
 				$("tr").fadeIn();
 			},
 			complete:function(jqXHR, textStatus){
