@@ -107,6 +107,7 @@
 		}
 	}
 
+	// submit code to db
 	if ($contest_id) {
 		$sql=$pdo->prepare("INSERT INTO solution
 						(problem_id,user_id,in_date,language,ip,code_length,contest_id,num)
@@ -120,7 +121,15 @@
 	}
 	$submit_id = $pdo->lastinsertid();
 	
-	echo $submit_id;
+	// redirect to 
+	if ($contest_id) {
+		//excited
+	} else {
+		$toUrl = $statusURI=strstr($_SERVER['REQUEST_URI'],"api",true)."status.php";
+	}
+	
+	header("Location: $statusURI");
+	echo $submit_id."(solution id) submit successful";
 	exit(0);
 	//--------------代码分割线
 	

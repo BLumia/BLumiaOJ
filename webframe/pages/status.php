@@ -11,17 +11,29 @@
 					</div>
 				</div>
 				<div class="col-md-9">
-					<form class="form-inline text-right">
+					<form method="get" class="form-inline text-right">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="题目编号">
-							<input type="text" class="form-control" placeholder="用户名">
-							<select class="form-control">
-								<option>==语言==</option>
-								<option>C</option>
+							<input name="pid" value="<?php echo $problem_id;?>" type="text" class="form-control" placeholder="题目编号">
+							<input name="uid" type="text" class="form-control" placeholder="用户名">
+							<select name="language" class="form-control">
+								<option value="-1">==语言==</option>
+								<?php
+								$lang=(~((int)$langmask))&((1<<($lang_count))-1);
+								for($i=0;$i<$lang_count;$i++){
+									if($lang&(1<<$i))
+										echo "<option value='{$i}'>{$LANGUAGE_NAME[$i]}</option>";
+								}
+								?>
 							</select>
-							<select class="form-control">
-								<option>==结果==</option>
-								<option>Accept</option>
+							<select name="judgeresult" class="form-control">
+								<option value="-1">==结果==</option>
+								<?php 
+								$i=0;
+								foreach($JUDGE_RESULT as $row) {
+									echo "<option value='{$i}'>{$row}</option>";
+									$i++;
+								}
+								?>
 							</select>
 						</div>
 						<button type="submit" class="btn btn-default">找</button>

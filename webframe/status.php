@@ -23,6 +23,8 @@ tr > td.result:hover {
 	require_once('./include/user_check_functions.php');
 	
 	//Prepares
+	$lang_count=count($LANGUAGE_EXT);
+	$langmask=$OJ_LANGMASK;
 	
 	//Page
 	$p=isset($_GET['p']) ? $_GET['p'] : 0;
@@ -38,7 +40,7 @@ tr > td.result:hover {
 	$order_str=" ORDER BY `solution_id` DESC ";
 	
 	//Check "top" arg
-	if (isset($_GET['top'])) {
+	if (isset($_GET['top'])&&$_GET['top']!="") {
 		$top=intval($_GET['top']);
 		if ($top!=-1) $sql_str=$sql_str."AND `solution_id`<='{$top}' ";
 	}
@@ -56,7 +58,7 @@ tr > td.result:hover {
 	
 	//Check UserID("uid") arg
 	$user_id="";
-	if (isset($_GET['uid'])){
+	if (isset($_GET['uid'])&&$_GET['uid']!=""){
 		$user_id=trim($_GET['uid']);
 		if (isUseridExist($user_id,$pdo) && $user_id!=""){
 			$sql_str=$sql_str."AND `user_id`='".$user_id."' ";
