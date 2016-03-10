@@ -2,6 +2,10 @@
 
 一个全新的在线评测系统
 
+请注意
+===
+这是一个尚未完成的版本，请勿以正式使用目的部署当前未完成的版本。
+
 概述
 ===
 这是一套全新的面向算法程序设计竞赛和教学使用的在线评测系统，将提供丰富的功能以供使用。
@@ -10,7 +14,7 @@
 
 预览
 ===
-如果您需要预览，您可以在[这里（OpenShift位置）](https://testbed-blumia.rhcloud.com/webframe/index.php)或者[这里（SinaAppEngine位置）](http://2.labblumia.sinaapp.com/)看到新评测系统的预览状况。
+如果您需要预览，您可以在[这里（腾讯云位置）](http://oj.blumia.cn/BLumiaOJ/webframe/)或者[这里（OpenShift位置）](https://testbed-blumia.rhcloud.com/webframe/index.php)看到新评测系统的预览状况。
 在完善的版本完成前，我们不计划提供此OJ的部署方案（没完成呢部署毛线..），我们会在完成后提供多语言（中英文）的相关文档和帮助。
 
 扩展OJ和参与开发
@@ -28,9 +32,8 @@
 * 联系BLumia并成为contributer。
 * fork本项目的master分支，做出修改并发起pull request。
 * 创建issue。
-* 在当前的[ZZNU OJ反馈版](http://acm.zznu.edu.cn/feedback.html)提出意见或建议。
 
-我们会认真对待所有请求，建议和意见。
+我会认真对待所有请求，建议和意见。
 
 功能
 ===
