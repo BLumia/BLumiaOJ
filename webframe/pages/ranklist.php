@@ -55,12 +55,15 @@
 							</tr>
 						</thead>
 						<tbody>
-						<?php for($i=0;$i<$userCount;$i++) { //topic list ------------ ?>
+						<?php for($i=0;$i<$userCount;$i++) { //topic list ------------ 
+							if ($userList[$i]['submit'] == 0) $pctText = "N/A";
+							else $pctText = sprintf("%.2f%%",$userList[$i]['solved'] / $userList[$i]['submit']);
+						?>
 							<tr>
 								<td><?php echo ($i+1);?></td>
 								<td><?php echo $userList[$i]['user_id'];?></td>
 								<td><a href="./userinfo.php?uid=<?php echo $userList[$i]['user_id'];?>"><?php echo $userList[$i]['nick'];?></a></td>
-								<td><a href="#"><?php echo $userList[$i]['solved'];?></a> / <a href="#"><?php echo $userList[$i]['submit'];?></a> 66.66%</td>
+								<td><a href="#"><?php echo $userList[$i]['solved'];?></a> / <a href="#"><?php echo $userList[$i]['submit'];?></a> <?php echo $pctText;?></td>
 								<td>Lv.6 1/6000</td>
 							</tr>
 						<?php } //User list end --------------------------------------- ?>
