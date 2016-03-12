@@ -15,7 +15,16 @@
 	if($p<0){$p=0;}
 	$front=intval($p*$PAGE_ITEMS);
 	
-	$sql=$pdo->prepare("select * from users order by solved desc limit $front,$PAGE_ITEMS");
+	$keyword = isset($_GET["keyword"])? ($_GET["keyword"]."%") : false;
+	if ($keyword) {
+		$keyword = $pdo->quote($keyword);
+		$keywordSQL = "WHERE user_id LIKE {$keyword}";
+	} else {
+		$keywordSQL = "";
+	}
+
+	
+	$sql=$pdo->prepare("select * from users {$keywordSQL} order by solved desc limit $front,$PAGE_ITEMS");
 	$sql->execute();
 	$userList=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$userCount=count($userList);
