@@ -6,9 +6,11 @@
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<div class="btn-group" role="group" aria-label="...">
-						<button type="button" class="btn btn-default">1</button>
-						<button type="button" class="btn btn-default">2</button>
-						<button type="button" class="btn btn-default">3</button>
+					<?php 
+					for($i=0;$i<$problemCount;$i++) { 
+						echo "<a href='contest_problem.php?cid={$cid}&pid={$i}'><button type='button' class='btn btn-default'>{$ALPHABET_N_NUM[$i]}</button></a>";
+					} 
+					?>
 					</div>
 				</div>
 			</div><!-- /.row -->
@@ -26,9 +28,11 @@
 							</tr>
 						</thead>
 						<tbody>
-						<?php for($i=0;$i<$problemCount;$i++) { //topic list ------------ ?>
+						<?php for($i=0;$i<$problemCount;$i++) { //problem list ------------ ?>
 							<tr>
 								<?php 
+									$problemList[$i]['submit'] = $problemList[$i]['submit'] == NULL ? 0 : $problemList[$i]['submit'];
+									$problemList[$i]['accepted'] = $problemList[$i]['accepted'] == NULL ? 0 : $problemList[$i]['accepted'];
 									if ($problemList[$i]['submit'] == 0) {
 										$pctText = "Unavalible";
 										$procBarNum = 0;
@@ -40,15 +44,15 @@
 									}
 								?>
 								<td></td>
-								<td><?php echo $problemList[$i]['problem_id'];?></td>
+								<td><?php echo $ALPHABET_N_NUM[$i];?></td>
 								<td>
-									<a href="problem.php?pid=<?php echo $problemList[$i]['problem_id'];?>"><?php echo $problemList[$i]['title'];?></a>
+									<a href="contest_problem.php?cid=<?php echo $cid;?>&pid=<?php echo $i;?>"><?php echo $problemList[$i]['title'];?></a>
 								</td>
 								<td><div class="progress"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
 								<td><?php echo $problemList[$i]['source'];?></td>
 								<td>(<?php echo $problemList[$i]['accepted']." / ".$problemList[$i]['submit'];?>) <?php echo $pctText;?></td>
 							</tr>
-						<?php } //topic list end --------------------------------------- ?>
+						<?php } //problem list end --------------------------------------- ?>
 						</tbody>
 					</table>
 				</div>

@@ -2,18 +2,7 @@
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
-			<h1 class="text-center"><?php echo $problemItem['problem_id']." : ".$problemItem['title'];?></h1>
-			<p class="text-center">
-				时间限制:<span class="label label-primary"><?php echo $problemItem['time_limit']." Sec";?></span>
-				内存限制:<span class="label label-primary"><?php echo $problemItem['memory_limit']." MiB";?></span><br/>
-				提交:<span class="label label-info"><?php echo $problemItem['submit'];?></span>
-				正确:<span class="label label-success"><?php echo $problemItem['accepted'];?></span>
-			</p>
-			<p class="text-center">
-				<a id="oj-p-submit" class="btn btn-primary" href="./problemsubmit.php?pid=<?php echo $problemItem['problem_id'];?>" role="button">Submit</a>
-				<a class="btn btn-primary" href="#" role="button">Status</a>
-				<a class="btn btn-primary" href="#" role="button">Edit</a>
-			</p>
+			<?php require("./pages/components/contest_problem_heading.php");?>
 			
 			<h3><a data-toggle="collapse" data-target="#problemDesc">题目描述</a></h3>
 			<div class="collapse in" id="problemDesc" aria-expanded="true">

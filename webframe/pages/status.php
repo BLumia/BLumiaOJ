@@ -65,7 +65,7 @@
 						?>
 							<tr class="<?php echo $JUDGE_ROW_CSS_CLASS[$row['result']]; ?>">
 								<td><?php echo $row['solution_id']; ?></td>
-								<td><?php echo $row['user_id']; ?></td>
+								<td><?php echo "<a href='./userinfo.php?uid={$row['user_id']}'>{$row['user_id']}</a>"; ?></td>
 								<td><?php echo $row['problem_id']; ?></td>
 								<td class="result">
 								<?php 
