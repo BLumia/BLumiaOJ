@@ -7,7 +7,7 @@
 		<a type="button" href="contest_ranklist.php?cid=<?php echo $cid;?>" class="btn btn-default">Ranklist</a>
 	</div>
 	<div class="progress">
-		<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+		<div id="bl-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
 			<span class="sr-only">60% Complete</span>
 		</div>
 	</div>
@@ -23,3 +23,32 @@
 		<a class="btn btn-primary" href="#" role="button">Edit</a>
 	</p>
 </div>
+<script>
+	function run() {	
+		var offset = new Date("<?php echo date("Y/m/d H:i:s")?>").getTime()-new Date().getTime();
+		var start_time=new Date(new Date("<?php echo $contestItem['start_time'];?>").getTime()+offset).getTime();  //开始时间
+		var end_time=new Date(new Date("<?php echo $contestItem['end_time'];?>").getTime()+offset).getTime();   //结束时间
+		var cur_time=new Date(new Date().getTime()+offset);    //当前时间
+
+		//console.log(typeof end_time);
+		//console.log(typeof start_time);
+		
+		var delta_time= end_time - start_time;  //时间差的毫秒数
+		var passed_time= cur_time - start_time;  //过去的时间的毫秒数
+		var percentage = passed_time / delta_time * 100;
+		
+		//console.log(percentage);
+		//alert(percentage);
+		$("div[id=bl-progress-bar]").css("width",percentage+"%");
+		if (percentage<100) {
+			var timer=setTimeout("run()",1000);
+		} else {
+			var progress_bar = document.getElementById('bl-progress-bar'); 
+			progress_bar.className = 'progress-bar'; 
+			$("div[id=bl-progress-bar]").css("width","100%");
+			//alert("Contest Ended Nya ~");
+		}
+	}
+	
+	run();
+</script>
