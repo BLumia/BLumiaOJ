@@ -41,21 +41,21 @@
 		$left=$end_time-$now;
 		// past
 		if ($now>$end_time) {
-			$contestList[$i]['content_status'] = "<span class=\"label label-success\">$L_Ended"."</span>&nbsp;<span class='label label-success'>".$row["end_time"]."</span>";
+			$contestList[$i]['content_status'] = "<span class='label label-success'>".L_Ended."</span>&nbsp;<span class='label label-success'>".$row["end_time"]."</span>";
 		// pending
 		} else if ($now<$start_time){
-			$contestList[$i]['content_status'] = "<span class=\"label label-primary\">$L_Start"."</span>&nbsp;<span class='label label-info'>".$row["start_time"]."</span>&nbsp;";
-			$contestList[$i]['content_status'].= "<span class=\"label label-success\">$L_TotalTime".formatTimeLength($length)."</span>";
+			$contestList[$i]['content_status'] = "<span class='label label-primary'>".L_Start."</span>&nbsp;<span class='label label-info'>".$row["start_time"]."</span>&nbsp;";
+			$contestList[$i]['content_status'].= "<span class='label label-success'>$L_TotalTime".formatTimeLength($length)."</span>";
 		// running
 		}else{
-			$contestList[$i]['content_status'] = "<span class='label label-danger'>$L_Running</span>&nbsp;";
-			$contestList[$i]['content_status'].= "<span class='label label-success'> $L_LeftTime ".formatTimeLength($left)." </span>";
+			$contestList[$i]['content_status'] = "<span class='label label-danger'>".L_Running."</span>&nbsp;";
+			$contestList[$i]['content_status'].= "<span class='label label-success'>".L_LeftTime.":".formatTimeLength($left)." </span>";
 		}
 		$private=intval($row["private"]);
 		if ($private==0)
-			$contestList[$i]['private'] = "<span class=\"label label-primary\">$L_Public</span>";
+			$contestList[$i]['private'] = "<span class='label label-primary'>".L_Public."</span>";
 		else
-			$contestList[$i]['private'] = "<span class=\"label label-danger\">$L_Private</span>";
+			$contestList[$i]['private'] = "<span class='label label-danger'>".L_Private."</span>";
 		$i++;
 	}
 	

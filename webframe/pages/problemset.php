@@ -13,12 +13,14 @@
 					</div>
 				</div>
 				<div class="col-md-3 col-xs-6">
+					<form method="get" action="./problem.php">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="输入题目编号">
+						<input type="text" class="form-control" name="pid" placeholder="输入题目编号">
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="button">走起</button>
 						</span>
 					</div><!-- /input-group -->
+					</form>
 				</div><!-- /.col-lg-3 -->
 				<div class="col-md-3 col-xs-6">
 					<div class="input-group">

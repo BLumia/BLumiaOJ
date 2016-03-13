@@ -84,23 +84,4 @@
 			</div>
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
-	<script type="text/javascript">
-	function changepage(num){
-		NProgress.start();
-		$.ajax({
-			url:"./api/ajax_status.php?p="+num,
-			async:false,
-			contentType:"application/x-www-form-urlencoded; charset=utf-8",
-			success:function(data/*返回的数据*/, textStatus, jqXHR){
-				$("#oj-statue-list").html(data);
-				$("tr").fadeIn();
-			},
-			complete:function(jqXHR, textStatus){
-				NProgress.done();
-			}
-		});
-	}
-	
-	changepage(<?php echo $p;?>);
-	</script>
 	</body>

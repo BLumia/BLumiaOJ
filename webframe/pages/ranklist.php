@@ -11,20 +11,24 @@
 					</div>
 				</div>
 				<div class="col-md-3 col-xs-3">
+					<form method="get" action="./userinfo.php">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="输入用户名">
+						<input type="text" class="form-control" name="uid" placeholder="转到个人主页">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">走起</button>
+							<button class="btn btn-default" type="submit">走起</button>
 						</span>
 					</div><!-- /input-group -->
+					</form>
 				</div><!-- /.col-lg-3 -->
 				<div class="col-md-3 col-sm-3 col-xs-hd">
+					<form method="get">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="输入学号前几位">
+						<input type="text" class="form-control" name="keyword" placeholder="输入用户名(关键词)">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">查询</button>
+							<button class="btn btn-default" type="submit">查询</button>
 						</span>
 					</div><!-- /input-group -->
+					</form>
 				</div><!-- /.col-lg-3 -->
 				<div class="col-md-3 col-xs-3">
 					<form class="form-inline text-right">

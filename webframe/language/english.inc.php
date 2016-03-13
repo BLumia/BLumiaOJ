@@ -1,6 +1,6 @@
 <?php
 	/************* Navigation Bar **************/
-	const L_OJ		= "OnlineJudge";
+	const L_OJ		= "Online Judge";
 	const L_PROB_SET= "Problem Set";
 	const L_STATUS	= "Status";
 	const L_RANKLIST= "Rank List";
@@ -15,15 +15,15 @@
 	const L_CTRLPANEL= "Control Panel";
 	const L_LOGOUT	= "Logout";
 	/*********** Problem Description ***********/
-	$L_TITLE 	= "Title";
-	$L_DESC  	= "Description";
+	const L_TITLE 	= "Title";
+	const L_DESC  	= "Description";
 	/************* Contest Status **************/
-	$L_LeftTime = "Left Time";
-	$L_Running  = "Running";
-	$L_Public   = "Public";
-	$L_Private  = "Private";
-	$L_Ended	= "Ended";
-	$L_Start	= "Start at:";
+	const L_LeftTime = "Left Time";
+	const L_Running  = "Running";
+	const L_Public   = "Public";
+	const L_Private  = "Private";
+	const L_Ended	= "Ended";
+	const L_Start	= "Start at:";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "Pending..";
 	const L_JUDGE_AC = "Accepted";
