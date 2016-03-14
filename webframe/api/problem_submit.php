@@ -107,7 +107,7 @@
 		}
 	}
 
-	// submit code to db
+	// submit code info to db
 	if ($contest_id) {
 		$sql=$pdo->prepare("INSERT INTO solution
 						(problem_id,user_id,in_date,language,ip,code_length,contest_id,num)
@@ -120,6 +120,10 @@
 		$sql->execute(array($problem_id,$user_id,$submit_lang,$submit_ip,$code_len));
 	}
 	$submit_id = $pdo->lastinsertid();
+	
+	// sumbit code to db
+	$sql=$pdo->prepare("INSERT INTO `source_code`(`solution_id`,`source`)VALUES(?,?)");
+	$sql->execute(array($pdo->quote($submit_id),$pdo->quote($submit_src)));
 	
 	// redirect to 
 	if ($contest_id) {

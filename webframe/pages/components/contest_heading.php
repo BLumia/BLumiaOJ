@@ -3,7 +3,7 @@
 	<div class="btn-group" role="group" aria-label="...">
 		<a type="button" href="contest.php?cid=<?php echo $cid;?>" class="btn btn-default">Overview</a>
 		<a type="button" href="contest_problemset.php?cid=<?php echo $cid;?>" class="btn btn-default">Problem List</a>
-		<button type="button" class="btn btn-default">Status</button>
+		<a type="button" href="contest_status.php?cid=<?php echo $cid;?>" class="btn btn-default">Status</a>
 		<a type="button" href="contest_ranklist.php?cid=<?php echo $cid;?>" class="btn btn-default">Ranklist</a>
 	</div>
 	<div class="progress">
