@@ -123,7 +123,7 @@
 	
 	// sumbit code to db
 	$sql=$pdo->prepare("INSERT INTO `source_code`(`solution_id`,`source`)VALUES(?,?)");
-	$sql->execute(array($pdo->quote($submit_id),$pdo->quote($submit_src)));
+	$sql->execute(array($submit_id,$submit_src));
 	
 	// redirect to 
 	if ($contest_id) {

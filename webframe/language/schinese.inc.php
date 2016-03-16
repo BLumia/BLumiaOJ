@@ -26,11 +26,13 @@
 	const L_Start	= "开始于";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "提交中..";
+	const L_JUDGE_CI = "编译中..";
 	const L_JUDGE_AC = "答案正确";
 	const L_JUDGE_PE = "格式错误";
 	const L_JUDGE_WA = "答案错误";
 	const L_JUDGE_TLE = "时间超限";
 	const L_JUDGE_MLE = "内存超限";
+	const L_JUDGE_OLE = "输出超限";
 	const L_JUDGE_RE = "运行时错误";
 	const L_JUDGE_CE = "编译失败";
 	

@@ -61,7 +61,7 @@
 						<tbody>
 						<?php for($i=0;$i<$userCount;$i++) { //topic list ------------ 
 							if ($userList[$i]['submit'] == 0) $pctText = "N/A";
-							else $pctText = sprintf("%.2f%%",$userList[$i]['solved'] / $userList[$i]['submit']);
+							else $pctText = sprintf("%.2f%%",$userList[$i]['solved'] / $userList[$i]['submit'] * 100);
 						?>
 							<tr>
 								<td><?php echo ($i+1);?></td>
