@@ -44,7 +44,7 @@ tr > td.result:hover {
 	if(isset($_SESSION['administrator'])||isset($_SESSION['source_browser'])||(isset($_SESSION['user_id'])&&$_GET['user_id']==$_SESSION['user_id'])){
 		if ($_SESSION['user_id']!="guest") $sql_str="SELECT * FROM `solution` WHERE `contest_id`='{$cid}' ";
 	} else {
-		$sql_str="SELECT * FROM `solution` WHERE problem_id>0 and `contest_id`='{$cid} ";
+		$sql_str="SELECT * FROM `solution` WHERE problem_id>0 and `contest_id`='{$cid}' ";
 	}
 	$order_str=" ORDER BY `solution_id` DESC ";
 	
@@ -103,9 +103,14 @@ tr > td.result:hover {
 	$statusResult=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$totalCount=count($statusResult);
 	//print_r($statusResult);
+	
+	//Contest Item
+	$sql=$pdo->prepare("select * from contest where contest_id = ?");
+	$sql->execute(array($cid));
+	$contestItem=$sql->fetch(PDO::FETCH_ASSOC);
 
 	//Page Includes
-	require("./pages/status.php");
+	require("./pages/contest_status.php");
 ?>
 	
 </html>
