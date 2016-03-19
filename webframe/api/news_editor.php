@@ -15,7 +15,7 @@
 	}
 	
 	$news_title 	=$_POST['news_title'];
-	$news_content	=$_POST['news_content'];
+	$news_content	=replaceimg($_POST['news_content']);
 	$news_id		=$_POST['nid'];
 	
 	/*
