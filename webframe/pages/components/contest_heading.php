@@ -2,9 +2,9 @@
 	<h2><?php echo $contestItem['title'];?></h2>
 	<div class="btn-group" role="group" aria-label="...">
 		<a type="button" href="contest.php?cid=<?php echo $cid;?>" class="btn btn-default">Overview</a>
-		<a type="button" href="contest_problemset.php?cid=<?php echo $cid;?>" class="btn btn-default">Problem List</a>
-		<a type="button" href="contest_status.php?cid=<?php echo $cid;?>" class="btn btn-default">Status</a>
-		<a type="button" href="contest_ranklist.php?cid=<?php echo $cid;?>" class="btn btn-default">Ranklist</a>
+		<a type="button" href="contest_problemset.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_PROB_SET; ?></a>
+		<a type="button" href="contest_status.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_STATUS; ?></a>
+		<a type="button" href="contest_ranklist.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_RANKLIST; ?></a>
 	</div>
 	<div class="progress">
 		<div id="bl-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
