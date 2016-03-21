@@ -2,20 +2,26 @@
 // OJ Info (sample examples all without "[" and "]")
 	$OJ_NAME = "BLumiaOJ"; //Name of this OJ, e.g. [BLumiaOJ] , [BLOJ]
 	$OJ_HUSTOJ_COMPATIBLE = true; //If you haven't upgrade database to BLumiaOJ, set this to true.
-	$OJ_PROBLEM_DATA = "../../Archives/problems"; //Path to problem data floder. e.g. [/home/judge/data], this path will NOT work IF you are running on SAE or OpenShift
-	$OJ_LANGMASK = 4080; //1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 4080 for security reason to mask all other language
 	$OJ_LANGUAGE = "schinese";
+	
+// Data Path Setting
+	$OJ_PROBLEM_DATA = "../../Archives/problems"; //Path to problem data floder. e.g. [/home/judge/data], this path will NOT work IF you are running on SAE or OpenShift
+	$OJ_UPLOAD_DATA = ""; // Any file or image will be upload here
 	
 // Submit Setting
 	$OJ_SUBMIT_DELTATIME = 10; //allowed submit frequence. (seconds)
+	$OJ_LANGMASK = 4080; //1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 4080 for security reason to mask all other language
 	
 // Page Setting
 	$PAGE_ITEMS = 25;// Show how many comments/posts in one pages?
 	
+// Solution Setting
+	$SOLUTION_WA_INFO = true; // Show WA result compare?
+	$SOLUTION_SHARE = false; // Can people view the source if he/she Accepted that problem?
+	
 // Contest Setting
 	$OJ_LOCKRANK = false; // Default Lock Ranklist Mod
 	$OJ_LOCKRANK_PERCENT = 0.2; // 0~1. eg. 0.2: a 5 hours contest will lock one hour.
-	
 	
 // Virtual Judge Setting
 	$VJ_ENABLED = true;
@@ -37,7 +43,7 @@ You should modify the PDO statement in setting_db.inc.php if you are not using m
 	$SQL_DB_PASS = "usbw";//Your DB Management Password
 	
 // Developer Setting
-	$DEV_DISPLAY_ERRORS = false;//是否显示报错
+	$DEV_DISPLAY_ERRORS = false; // Display Error Messages of PHP display_errors
 	
 	
 // 普通用户无需在意本分割线下面的代码--------

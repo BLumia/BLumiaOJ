@@ -11,7 +11,7 @@
 			</p>
 			<p class="text-center">
 				<a id="oj-p-submit" class="btn btn-primary" href="./problemsubmit.php?pid=<?php echo $problemItem['problem_id'];?>" role="button">Submit</a>
-				<a class="btn btn-primary" href="#" role="button">Status</a>
+				<a class="btn btn-primary" href="./problemstatistics.php?pid=<?php echo $problemItem['problem_id'];?>" role="button">Status</a>
 				<a class="btn btn-primary" href="#" role="button">Edit</a>
 			</p>
 			

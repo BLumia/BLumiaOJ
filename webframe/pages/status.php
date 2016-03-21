@@ -61,7 +61,10 @@
 							
 						<?php 
 						foreach($statusResult as $row) { 
-							$codeUrl = "<a href='./source_view.php?id={$row['solution_id']}'>{$LANGUAGE_NAME[$row['language']]}</a>"; // TODO: can i see this code?
+							if (havePrivilege("SOURCE_VIEWER") || (isset($_SESSION['user_id']) && $_SESSION['user_id']==$row['user_id']) )
+								$codeUrl = "<a href='./source_view.php?id={$row['solution_id']}'>{$LANGUAGE_NAME[$row['language']]}</a>"; 
+							else
+								$codeUrl = "{$LANGUAGE_NAME[$row['language']]}"; 
 						?>
 							<tr class="<?php echo $JUDGE_ROW_CSS_CLASS[$row['result']]; ?>">
 								<td><?php echo $row['solution_id']; ?></td>
