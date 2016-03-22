@@ -53,7 +53,13 @@
 									</tr>
 								</thead>
 								<tbody id="oj-ps-problemlist">
-								
+								<?php foreach($acceptedList as $row) { ?>
+									<tr>
+										<td></td>
+										<td><?php echo $row['solution_id'];?></td>
+										<td><?php echo $row['user_id'];?></td>
+									</tr>
+								<?php } ?>
 								</tbody>
 							</table>
 						</div>
