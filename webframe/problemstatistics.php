@@ -44,7 +44,7 @@
 	$sql->execute(array($problem_id,$problem_id));
 	$acceptedList = $sql->fetchAll(PDO::FETCH_ASSOC);
 	$sql->closeCursor();
-	print_r($acceptedList);
+	//print_r($acceptedList);
 	
 	
 	

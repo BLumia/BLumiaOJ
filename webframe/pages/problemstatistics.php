@@ -58,6 +58,11 @@
 										<td></td>
 										<td><?php echo $row['solution_id'];?></td>
 										<td><?php echo $row['user_id'];?></td>
+										<td><?php echo intval(substr($row['score'],9,6))." KB";?></td>
+										<td><?php echo intval(substr($row['score'],1,8))." ms";?></td>
+										<td><?php echo $LANGUAGE_NAME[intval($row['language'])];?></td>
+										<td><?php echo $row['in_date'];?></td>
+										
 									</tr>
 								<?php } ?>
 								</tbody>
