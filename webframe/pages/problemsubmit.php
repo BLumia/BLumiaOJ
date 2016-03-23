@@ -2,10 +2,18 @@
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
-			<h1 class="text-center"><?php echo "Problem : ".$prob_id;?></h1><br/>
+			<h1 class="text-center">
+			<?php 
+				if ($contest_id) echo "Contest {$contest_id} : Problem {$ALPHABET_N_NUM[$problem_id]}";
+				else echo "Problem : {$problem_id}";
+			?>
+			</h1><br/>
 			<div class="row">
 				<form action="./api/problem_submit.php" method="post">
-					<input type="hidden" value="<?php echo $prob_id;?>" name="pid" class="form-control" readonly />
+					<input type="hidden" value="<?php echo $problem_id;?>" name="pid" class="form-control" readonly />
+					<?php 
+					if ($contest_id) echo "<input type='hidden' value='{$contest_id}' name='cid' class='form-control' readonly />";
+					?>
 					<div class="col-md-12 col-sm-12">
 						<div class="row">
 							<div class="col-md-4 col-sm-12">

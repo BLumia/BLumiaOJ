@@ -18,7 +18,8 @@
 		echo "No Problem ID";
 		exit(0);
 	}
-	$prob_id = intval($_GET['pid']);
+	$problem_id = intval($_GET['pid']);
+	$contest_id = isset($_GET['cid']) ? intval($_GET['cid']) : false;
 	
 	if(isset($_GET['langmask'])) $langMask=$_GET['langmask'];
 	else $langMask=$OJ_LANGMASK;

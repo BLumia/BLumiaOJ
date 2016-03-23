@@ -8,7 +8,7 @@
 	</div>
 	<div class="progress">
 		<div id="bl-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-			<span class="sr-only">60% Complete</span>
+			<span class="sr-only">Progress Bar</span>
 		</div>
 	</div>
 	<p class="text-center">
@@ -18,7 +18,7 @@
 		正确:<span class="label label-success"><?php echo $problemItem['accepted'];?></span>
 	</p>
 	<p class="text-center">
-		<a id="oj-p-submit" class="btn btn-primary" href="./problemsubmit.php?pid=<?php echo $problemItem['problem_id'];?>" role="button">Submit</a>
+		<a id="oj-p-submit" class="btn btn-primary" href="./problemsubmit.php?pid=<?php echo $pid."&cid=".$cid;?>" role="button">Submit</a>
 		<a class="btn btn-primary" href="#" role="button">Status</a>
 		<a class="btn btn-primary" href="#" role="button">Edit</a>
 	</p>
