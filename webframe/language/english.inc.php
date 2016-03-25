@@ -14,6 +14,7 @@
 	const L_RECENTSUB= "Recent Sumbits";
 	const L_CTRLPANEL= "Control Panel";
 	const L_LOGOUT	= "Logout";
+	const L_OVERVIEW= "Overview";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "Title";
 	const L_DESC  	= "Description";
@@ -35,5 +36,13 @@
 	const L_JUDGE_OLE = "Output Limit Exceeded";
 	const L_JUDGE_RE = "Runtime Error";
 	const L_JUDGE_CE = "Compilation Error";
-	
+	/************* Program Page *****************/
+	const L_PROB_DESC = "Problem Description";
+	const L_INPUT	= "Input";
+	const L_OUTPUT	= "Output";
+	const L_SAMP_INPUT = "Sample Input";
+	const L_SAMP_OUTPUT = "Sample Output";
+	const L_HINT	= "Hint";
+	const L_TAG		= "Tag";
+	const L_SOURCE	= "Source";
 ?>

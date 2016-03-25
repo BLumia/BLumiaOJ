@@ -7,7 +7,8 @@
 					<div class="btn-group" role="group" id="oj-ps-pager">
 						<?php
 							for($totnum = 1,$pagenum = 1;$totnum<=$totalCount;$totnum+=$PAGE_ITEMS,$pagenum++) {
-								echo "<button id='page".$pagenum."' onclick='changepage(".($pagenum-1).");' type='button' class='btn btn-default'>".$pagenum."</button>";
+								$btnClass = ($pagenum == $p) ? "btn-primary" : "btn-default";
+								echo "<a href='problemset.php?p={$pagenum}'><button type='button' class='btn {$btnClass}'>{$pagenum}</button></a>";
 							}
 						?>
 					</div>
@@ -45,7 +46,46 @@
 							</tr>
 						</thead>
 						<tbody id="oj-ps-problemlist">
-						
+						<?php foreach ($problemList as $row) { //problem list ------------  ?>
+							<tr>
+								<?php 
+									if ($row['submit'] == 0) {
+										$pctText = "N/A";
+										$procBarNum = 0;
+										$pctNum = 0;
+									} else {
+										$pctNum = ($row['accepted']/$row['submit'])*100;
+										$procBarNum = (1-($row['accepted']/$row['submit']))*100;
+										$pctText = sprintf("%.2f%%",$pctNum);
+									}
+								?>
+								<td>
+								<?php 
+									if ($row['defunct'] == 'Y') echo "<i class='fa fa-lock'></i>";
+									if (isset($probIDUCList[$row['problem_id']])) echo "<i class='fa fa-clock-o'></i>";
+									if (isset($probStatusList[$row['problem_id']])) {
+										$thisProbState = $probStatusList[$row['problem_id']];
+										switch($thisProbState) {
+										case "accepted":
+											echo "<i style='color: green;' class='fa fa-check'></i>";
+											break;
+										default:
+											echo "<i style='color: yellow;' class='fa fa-dot-circle-o'></i>";
+											break;
+										}
+									}
+								?>
+								</td>
+								<td><?php echo $row['problem_id'];?></td>
+								<td>
+									<a href="problem.php?pid=<?php echo $row['problem_id'];?>"><?php echo $row['title'];?></a>
+									<!--<div class="tr-tag"><span>搜索</span></div>-->
+								</td>
+								<td><div class="progress maxwidth150px"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
+								<td><?php echo utf8_substr($row['source'],0,14);?></td>
+								<td>(<?php echo $row['accepted']." / ".$row['submit'];?>) <?php echo $pctText;?></td>
+							</tr>
+						<?php } ?>
 						</tbody>
 					</table>
 				</div>
@@ -70,28 +110,5 @@
 			placement: "top"
 		}]
 	});
-	</script>
-	<script type="text/javascript">
-	function changepage(num){
-		$("button.btn-primary").addClass("btn-default");
-		$("button.btn-primary").removeClass("btn-primary");
-		$("button#page"+(num+1)).removeClass("btn-default");
-		$("button#page"+(num+1)).addClass("btn-primary");
-		NProgress.start();
-		$.ajax({
-			url:"./api/ajax_problemset.php?p="+num,
-			async:false,
-			contentType:"application/x-www-form-urlencoded; charset=utf-8",
-			success:function(data/*返回的数据*/, textStatus, jqXHR){
-				$("#oj-ps-problemlist").html(data);
-				$("tr").fadeIn();
-			},
-			complete:function(jqXHR, textStatus){
-				NProgress.done();
-			}
-		});
-	}
-	
-	changepage(<?php echo $p;?>);
 	</script>
 	</body>

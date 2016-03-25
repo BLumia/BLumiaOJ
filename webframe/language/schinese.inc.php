@@ -14,6 +14,7 @@
 	const L_RECENTSUB= "最近提交";
 	const L_CTRLPANEL= "后台管理";
 	const L_LOGOUT	= "退出登录";
+	const L_OVERVIEW= "概览";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "标题";
 	const L_DESC  	= "描述";
@@ -35,5 +36,13 @@
 	const L_JUDGE_OLE = "输出超限";
 	const L_JUDGE_RE = "运行时错误";
 	const L_JUDGE_CE = "编译失败";
-	
+	/************* Program Page *****************/
+	const L_PROB_DESC = "题目描述";
+	const L_INPUT	= "输入";
+	const L_OUTPUT	= "输出";
+	const L_SAMP_INPUT = "样例输入";
+	const L_SAMP_OUTPUT = "样例输出";
+	const L_HINT	= "提示";
+	const L_TAG		= "标签";
+	const L_SOURCE	= "来源";
 ?>

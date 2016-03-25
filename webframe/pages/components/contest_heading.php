@@ -1,7 +1,7 @@
 <div id="contestHeading" class="text-center">
 	<h2><?php echo $contestItem['title'];?></h2>
 	<div class="btn-group" role="group" aria-label="...">
-		<a type="button" href="contest.php?cid=<?php echo $cid;?>" class="btn btn-default">Overview</a>
+		<a type="button" href="contest.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_OVERVIEW; ?></a>
 		<a type="button" href="contest_problemset.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_PROB_SET; ?></a>
 		<a type="button" href="contest_status.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_STATUS; ?></a>
 		<a type="button" href="contest_ranklist.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_RANKLIST; ?></a>

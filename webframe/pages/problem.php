@@ -15,22 +15,22 @@
 				<a class="btn btn-primary" href="#" role="button">Edit</a>
 			</p>
 			
-			<h3><a data-toggle="collapse" data-target="#problemDesc">题目描述</a></h3>
+			<h3><a data-toggle="collapse" data-target="#problemDesc"><?php echo L_PROB_DESC;?></a></h3>
 			<div class="collapse in" id="problemDesc" aria-expanded="true">
 				<pre><?php echo $problemItem['description'];?></pre>
 			</div>
 			
-			<h3><a data-toggle="collapse" data-target="#problemInput">输入</a></h3>
+			<h3><a data-toggle="collapse" data-target="#problemInput"><?php echo L_INPUT;?></a></h3>
 			<div class="collapse in" id="problemInput" aria-expanded="true">
 				<pre><?php echo $problemItem['input'];?></pre>
 			</div>
 			
-			<h3><a data-toggle="collapse" data-target="#problemOut">输出</a></h3>
+			<h3><a data-toggle="collapse" data-target="#problemOut"><?php echo L_OUTPUT;?></a></h3>
 			<div class="collapse in" id="problemOut" aria-expanded="true">
 				<pre><?php echo $problemItem['output'];?></pre>
 			</div>
 			
-			<h3 id="bl-p-datain"><a data-toggle="collapse" data-target="#dataIn">样例输入</a></h3>
+			<h3 id="bl-p-datain"><a data-toggle="collapse" data-target="#dataIn"><?php echo L_SAMP_INPUT;?></a></h3>
 			<div class="collapse in" id="dataIn" aria-expanded="true">
 				<div class="zero-clipboard">
 					<span id="bl-p-copy" class="btn-clipboard" onclick="copyToClipboard(document.getElementById('dataInContent').innerHTML);">复制</span>
@@ -38,7 +38,7 @@
 				<pre id="dataInContent"><?php echo $problemItem['sample_input'];?></pre>
 			</div>
 			
-			<h3><a data-toggle="collapse" data-target="#dataOut">样例输出</a></h3>
+			<h3><a data-toggle="collapse" data-target="#dataOut"><?php echo L_SAMP_OUTPUT;?></a></h3>
 			<div class="collapse in" id="dataOut" aria-expanded="true">
 				<div class="zero-clipboard">
 					<span class="btn-clipboard" onclick="copyToClipboard(document.getElementById('dataOutContent').innerHTML);">复制</span>
@@ -46,19 +46,19 @@
 				<pre id="dataOutContent"><?php echo $problemItem['sample_output'];?></pre>
 			</div>
 
-			<h3><a data-toggle="collapse" data-target="#problemHint">提示</a></h3>
+			<h3><a data-toggle="collapse" data-target="#problemHint"><?php echo L_HINT;?></a></h3>
 			<div class="collapse" id="problemHint" aria-expanded="true">
 				<pre><?php echo $problemItem['hint'];?></pre>
 			</div>
 			
-			<h3><a data-toggle="collapse" data-target="#problemTag">标签</a></h3>
+			<h3><a data-toggle="collapse" data-target="#problemTag"><?php echo L_TAG;?></a></h3>
 			<div class="collapse" id="problemTag" aria-expanded="true">
 				<div class="well">
 					<span class="label label-default">搜索</span>
 				</div>
 			</div>
 			
-			<h3><a data-toggle="collapse" data-target="#problemSrc">来源</a></h3>
+			<h3><a data-toggle="collapse" data-target="#problemSrc"><?php echo L_SOURCE;?></a></h3>
 			<div class="collapse" id="problemSrc" aria-expanded="true">
 				<pre><?php echo $problemItem['source'];?></pre>
 			</div>
