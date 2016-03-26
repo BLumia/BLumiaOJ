@@ -15,7 +15,7 @@
 	$totalCount=count($sql->fetchAll(PDO::FETCH_ASSOC));
 	
 	$sql=$pdo->prepare("SELECT * FROM `news` WHERE `defunct`!='Y' 
-						ORDER BY `importance` ASC,`time` DESC LIMIT $show");
+						ORDER BY `importance` DESC,`time` DESC LIMIT $show");
 	$sql->execute();
 	$newsList=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$newsCount=count($newsList);

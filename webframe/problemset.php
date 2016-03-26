@@ -15,7 +15,7 @@
 	
 	//Prepare
 	$p=isset($_GET['p']) ? $_GET['p'] : 1;
-	if($p<=0){$p=1;}
+	if($p<=1){$p=1;}
 	$front=intval(($p-1)*$PAGE_ITEMS) + 1000;
 	$tail =$front + $PAGE_ITEMS;
 	$curTime=strftime("%Y-%m-%d %H:%M",time());

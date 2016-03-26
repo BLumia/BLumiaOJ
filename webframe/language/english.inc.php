@@ -15,6 +15,8 @@
 	const L_CTRLPANEL= "Control Panel";
 	const L_LOGOUT	= "Logout";
 	const L_OVERVIEW= "Overview";
+	const L_PREV_PAGE= "Previous Page";
+	const L_NEXT_PAGE= "Next Page";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "Title";
 	const L_DESC  	= "Description";

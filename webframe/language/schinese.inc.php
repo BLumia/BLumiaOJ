@@ -15,6 +15,8 @@
 	const L_CTRLPANEL= "后台管理";
 	const L_LOGOUT	= "退出登录";
 	const L_OVERVIEW= "概览";
+	const L_PREV_PAGE= "上一页";
+	const L_NEXT_PAGE= "下一页";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "标题";
 	const L_DESC  	= "描述";

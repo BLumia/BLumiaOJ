@@ -27,8 +27,8 @@ tr > td.result:hover {
 	$langmask=$OJ_LANGMASK;
 	
 	//Page
-	$p=isset($_GET['p']) ? $_GET['p'] : 0;
-	if($p<0){$p=0;}
+	$p=isset($_GET['p']) ? $_GET['p'] : 1;
+	if($p<=1){$p=1;}
 	$front=intval($p*$PAGE_ITEMS);
 	
 	//SQL Basic
@@ -86,7 +86,7 @@ tr > td.result:hover {
 	//Ignore SIM stuff
 	
 	//SQL Complete
-	$sql_str=$sql_str.$order_str." LIMIT 20";
+	$sql_str=$sql_str.$order_str." LIMIT {$PAGE_ITEMS}";
 	//var_dump($sql_str);
 	
 	$sql=$pdo->prepare($sql_str);
@@ -94,6 +94,10 @@ tr > td.result:hover {
 	$statusResult=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$totalCount=count($statusResult);
 	//print_r($statusResult);
+	
+	//Prev and Next PAGE
+	$prevPageTop = $totalCount == 0 ? '' : intval($statusResult[0]['solution_id']) + $PAGE_ITEMS;
+	$nextPageTop = $totalCount == 0 ? '' : intval($statusResult[0]['solution_id']) - $PAGE_ITEMS;
 
 	//Page Includes
 	require("./pages/status.php");

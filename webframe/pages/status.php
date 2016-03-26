@@ -5,9 +5,8 @@
 			<div class="row">
 				<div class="col-md-3">
 					<div class="btn-group" role="group" aria-label="...">
-						<button type="button" class="btn btn-default">《</button>
-						<button type="button" class="btn btn-default">1</button>
-						<button type="button" class="btn btn-default">》</button>
+						<a type="button" class="btn btn-default" href="status.php?top=<?php echo $prevPageTop;?>">&lt; <?php echo L_PREV_PAGE;?></a>
+						<a type="button" class="btn btn-default" href="status.php?top=<?php echo $nextPageTop;?>"><?php echo L_NEXT_PAGE;?> &gt;</a>
 					</div>
 				</div>
 				<div class="col-md-9">
