@@ -5,9 +5,12 @@
 			<div class="row">
 				<div class="col-md-4 col-xs-4">
 					<div class="btn-group" role="group" aria-label="...">
-						<button type="button" class="btn btn-default">《</button>
-						<button type="button" class="btn btn-default">1</button>
-						<button type="button" class="btn btn-default">》</button>
+						<?php
+							$prev = $p-1; $next = $p+1;
+							if ($p != 1) echo "<a href='ranklist.php?p={$prev}' type='button' class='btn btn-default'>&lt;</a>"; 
+							echo "<a href='ranklist.php?p={$p}' type='button' class='btn btn-default'>{$p}</a>"; 
+							if ($p != $pageCnt) echo "<a href='ranklist.php?p={$next}' type='button' class='btn btn-default'>&gt;</a>"; 
+						?>
 					</div>
 				</div>
 				<div class="col-md-4 col-xs-4 text-right">

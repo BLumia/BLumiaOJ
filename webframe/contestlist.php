@@ -12,9 +12,9 @@
 	require_once('./include/setting_oj.inc.php');
 	
 	//Prepare
-	$p=isset($_GET['p']) ? $_GET['p'] : 0;
-	if($p<0){$p=0;}
-	$front=intval($p*$PAGE_ITEMS);
+	$p=isset($_GET['p']) ? $_GET['p'] : 1;
+	if($p<1){$p=1;}
+	$front=intval(($p-1)*$PAGE_ITEMS);
 	
 	$sql=$pdo->prepare("select * from contest
 						left join (select * from privilege where rightstr like 'm%') p on concat('m',contest_id)=rightstr
@@ -24,11 +24,14 @@
 	$contestCount=count($contestList);
 	//var_dump($contestList);
 	
-	$sql=$pdo->prepare("select * from contest where `defunct`='N' ORDER BY `contest_id` DESC");
+	$sql=$pdo->prepare("select count(*) as count from contest where `defunct`='N'");
 	$sql->execute();
-	$totalContest=$sql->fetchAll(PDO::FETCH_ASSOC);
-	$totalCount=count($totalContest);
-	//var_dump($totalContest);
+	$totalCount=$sql->fetch(PDO::FETCH_ASSOC);
+	$totalCount=intval($totalCount['count']);
+	//var_dump($totalCount);
+	
+	$pageCnt = ceil((double)$totalCount / $PAGE_ITEMS);
+	
 	
 	$i=0;
 	foreach ($contestList as $row){

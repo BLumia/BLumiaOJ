@@ -5,9 +5,12 @@
 			<div class="row">
 				<div class="col-md-3 col-xs-3">
 					<div class="btn-group" role="group" aria-label="...">
-						<button type="button" class="btn btn-default">《</button>
-						<button type="button" class="btn btn-default">1</button>
-						<button type="button" class="btn btn-default">》</button>
+						<?php
+							$prev = $p-1; $next = $p+1;
+							if ($p != 1) echo "<a href='ranklist.php?p={$prev}' type='button' class='btn btn-default'>&lt;</a>"; 
+							echo "<a href='ranklist.php?p={$p}' type='button' class='btn btn-default'>{$p}</a>"; 
+							if ($p != $pageCnt) echo "<a href='ranklist.php?p={$next}' type='button' class='btn btn-default'>&gt;</a>"; 
+						?>
 					</div>
 				</div>
 				<div class="col-md-3 col-xs-3">
@@ -59,15 +62,18 @@
 							</tr>
 						</thead>
 						<tbody>
-						<?php for($i=0;$i<$userCount;$i++) { //topic list ------------ 
-							if ($userList[$i]['submit'] == 0) $pctText = "N/A";
-							else $pctText = sprintf("%.2f%%",$userList[$i]['solved'] / $userList[$i]['submit'] * 100);
+						<?php 
+						$rank = $front;
+						foreach($userList as $row) { //rank list ---------------------
+							$rank++;
+							if ($row['submit'] == 0) $pctText = "N/A";
+							else $pctText = sprintf("%.2f%%",$row['solved'] / $row['submit'] * 100);
 						?>
 							<tr>
-								<td><?php echo ($i+1);?></td>
-								<td><?php echo $userList[$i]['user_id'];?></td>
-								<td><a href="./userinfo.php?uid=<?php echo $userList[$i]['user_id'];?>"><?php echo $userList[$i]['nick'];?></a></td>
-								<td><a href="#"><?php echo $userList[$i]['solved'];?></a> / <a href="#"><?php echo $userList[$i]['submit'];?></a> <?php echo $pctText;?></td>
+								<td><?php echo $rank;?></td>
+								<td><?php echo $row['user_id'];?></td>
+								<td><a href="./userinfo.php?uid=<?php echo $row['user_id'];?>"><?php echo $row['nick'];?></a></td>
+								<td><a href="#"><?php echo $row['solved'];?></a> / <a href="#"><?php echo $row['submit'];?></a> <?php echo $pctText;?></td>
 								<td>Lv.6 1/6000</td>
 							</tr>
 						<?php } //User list end --------------------------------------- ?>

@@ -11,9 +11,9 @@
 	require_once('./include/setting_oj.inc.php');
 	
 	//Prepares
-	$p=isset($_GET['p']) ? $_GET['p'] : 0;
-	if($p<0){$p=0;}
-	$front=intval($p*$PAGE_ITEMS);
+	$p=isset($_GET['p']) ? $_GET['p'] : 1;
+	if($p<1){$p=1;}
+	$front=intval(($p-1)*$PAGE_ITEMS);
 	
 	$keyword = isset($_GET["keyword"])? ($_GET["keyword"]."%") : false;
 	if ($keyword) {
@@ -22,12 +22,19 @@
 	} else {
 		$keywordSQL = "";
 	}
-
 	
 	$sql=$pdo->prepare("select * from users {$keywordSQL} order by solved desc limit $front,$PAGE_ITEMS");
 	$sql->execute();
 	$userList=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$userCount=count($userList);
+	
+	$sql=$pdo->prepare("select COUNT(*) as count from users {$keywordSQL}");
+	$sql->execute();
+	$totalCount=$sql->fetch(PDO::FETCH_ASSOC);
+	$totalCount = $totalCount['count'];
+	
+	$pageCnt = ceil((double)$totalCount / $PAGE_ITEMS);
+	//var_dump($pageCnt);
 	
 	//Page Includes
 	require("./pages/ranklist.php");

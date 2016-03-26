@@ -8,7 +8,7 @@
 						<?php
 							for($totnum = 1,$pagenum = 1;$totnum<=$totalCount;$totnum+=$PAGE_ITEMS,$pagenum++) {
 								$btnClass = ($pagenum == $p) ? "btn-primary" : "btn-default";
-								echo "<a href='problemset.php?p={$pagenum}'><button type='button' class='btn {$btnClass}'>{$pagenum}</button></a>";
+								echo "<a type='button' class='btn {$btnClass}' href='problemset.php?p={$pagenum}'>{$pagenum}</a>";
 							}
 						?>
 					</div>
