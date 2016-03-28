@@ -24,12 +24,14 @@
 					</form>
 				</div><!-- /.col-lg-3 -->
 				<div class="col-md-3 col-xs-6">
+				<form method="get">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="输入标题关键字">
+						<input type="text" name="wd" class="form-control" placeholder="输入标题关键字">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">搜索</button>
+							<button class="btn btn-default" type="submit">搜索</button>
 						</span>
 					</div><!-- /input-group -->
+				</form>
 				</div><!-- /.col-lg-3 -->
 			</div><!-- /.row -->
 			<div class="row">

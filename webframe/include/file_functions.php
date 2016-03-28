@@ -35,7 +35,7 @@
 				$pe=strpos($str,"\"",$pc);
 				$b64f=substr($str,$pc+1,$pe-$pc-1);
 				$md5=md5($b64f);
-				base64decode2File("/var/www/html/imguploads/".$md5.$ext,$b64f);
+				base64decode2File($OJ_UPLOAD_DATA.$md5.$ext,$b64f);
 				$str=substr_replace($str,"./imguploads/".$md5.$ext,$ps+5,$pe-$ps-5);
 			}
 			$offset=$p+1;

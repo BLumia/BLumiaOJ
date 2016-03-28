@@ -6,7 +6,7 @@
 	
 // Data Path Setting
 	$OJ_PROBLEM_DATA = "../../Archives/problems"; //Path to problem data floder. e.g. [/home/judge/data], this path will NOT work IF you are running on SAE or OpenShift
-	$OJ_UPLOAD_DATA = ""; // Any file or image will be upload here
+	$OJ_UPLOAD_DATA = "/var/www/html/imguploads/"; // Any file or image will be upload here. e.g. [/var/www/html/imguploads/]
 	
 // Submit Setting
 	$OJ_SUBMIT_DELTATIME = 10; //allowed submit frequence. (seconds)

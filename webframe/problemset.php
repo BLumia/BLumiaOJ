@@ -21,12 +21,19 @@
 	$curTime=strftime("%Y-%m-%d %H:%M",time());
 	$isProblemManager = isset($_SESSION['administrator']);
 	
+	//Problem Count
+	$sql=$pdo->prepare("SELECT COUNT(*) AS count FROM problem WHERE `defunct`!='Y'");
+	$sql->execute();
+	$totalProblemCnt=$sql->fetch(PDO::FETCH_ASSOC);
+	//var_dump($totalProblem);
+	$totalCount=intval($totalProblemCnt['count']);
+	
 	//Challenged Problems
 	if(isset($_SESSION['user_id'])) {
-		$sql=$pdo->prepare("SELECT `problem_id` FROM `solution` WHERE `user_id`='{$_SESSION['user_id']}' group by `problem_id`"); //All
+		$sql=$pdo->prepare("SELECT `problem_id` FROM `solution` WHERE `user_id`='{$_SESSION['user_id']}' GROUP BY `problem_id`"); //All
 		$sql->execute();
 		$challengedList=$sql->fetchAll(PDO::FETCH_ASSOC);
-		$sql=$pdo->prepare("SELECT `problem_id` FROM `solution` WHERE `user_id`='{$_SESSION['user_id']}' AND `result`=4 group by `problem_id`"); //Accepted
+		$sql=$pdo->prepare("SELECT `problem_id` FROM `solution` WHERE `user_id`='{$_SESSION['user_id']}' AND `result`=4 GROUP BY `problem_id`"); //Accepted
 		$sql->execute();
 		$acceptedList=$sql->fetchAll(PDO::FETCH_ASSOC);
 		//var_dump($acceptedList);
@@ -45,11 +52,20 @@
 			SELECT `contest_id` FROM `contest` WHERE 
 			(`end_time`>'{$curTime}' OR private=1) AND `defunct`='N'
 		)";
-	$common_filter = "`problem_id`>='{$front}' AND `problem_id`<'{$tail}'";
+		
+	//Keyword
+	if(isset($_GET['wd']) && trim($_GET['wd'])!="") {
+		$search = mysql_real_escape_string($_GET['wd']);
+		$common_filter = " ( title LIKE '%{$search}%' OR source LIKE '%{$search}%') ";
+		$totalCount = 1; // all search result in one page
+	} else {
+		$common_filter = "`problem_id`>='{$front}' AND `problem_id`<'{$tail}'";
+	}	
+	
 	if (!$isProblemManager) {
 		$sql=$pdo->prepare("SELECT * FROM problem WHERE `defunct`='N' AND {$common_filter} AND `problem_id` NOT IN({$any_running_contest})");
 	} else {
-		$sql=$pdo->prepare("select * from problem WHERE {$common_filter}");// limit $front,$PAGE_ITEMS
+		$sql=$pdo->prepare("SELECT * FROM problem WHERE {$common_filter}");// limit $front,$PAGE_ITEMS
 	}
 	$sql->execute();
 	$problemList=$sql->fetchAll(PDO::FETCH_ASSOC);
@@ -63,13 +79,6 @@
 			$probIDUCList[$item['problem_id']] = "contest";
 		}
 	}
-	
-	// TODO: 优化这一条
-	$sql=$pdo->prepare("select COUNT(*) as count from problem where `defunct`!='Y'");
-	$sql->execute();
-	$totalProblemCnt=$sql->fetch(PDO::FETCH_ASSOC);
-	//var_dump($totalProblem);
-	$totalCount=intval($totalProblemCnt['count']);
 	
 	//Page Includes
 	require("./pages/problemset.php");
