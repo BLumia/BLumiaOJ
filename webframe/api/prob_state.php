@@ -10,7 +10,7 @@
 	}
 	
 	if (!isset($_GET['do'])) {
-		echo "Not Got an News Id";
+		echo "No Operation";
 		exit(0);
 	}
 	
@@ -25,13 +25,12 @@
 	}*/
 	
 	/* do check work*/
-	$problem_id = intval($problem_id);
 	$sql=$pdo->prepare("SELECT * FROM `problem` WHERE `problem_id`=?");
 	$sql->execute(array($problem_id));
 	$affected_rows = $sql->rowCount();
-	$news_exist = ($affected_rows == 1) ? true : false;
+	$it_exist = ($affected_rows == 1) ? true : false;
 	
-	if($news_exist) {
+	if($it_exist) {
 		
 		switch($problem_do) {
 			case 1:

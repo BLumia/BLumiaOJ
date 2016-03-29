@@ -46,7 +46,6 @@
 					$contest_private = $row['private'] == "0" ? 2 : 1;
 					$text_private = $row['private'] == "0" ? "<span class='label label-info'>Public</span>" : "<span class='label label-primary'>Private</span>";
 					$url_private = "<a href='../api/contest_state.php?cid={$row['contest_id']}&do={$contest_private}'>{$text_private}</a>"; 
-					
 					echo "<tr>";
 					echo "<td>".$row['contest_id']."</td>";
 					echo "<td>".$row['title']."</td>";
