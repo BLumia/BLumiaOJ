@@ -18,9 +18,9 @@
 				</div><!-- /.col-lg-3 -->
 				<div class="col-md-4 col-xs-4 text-right">
 					<div class="btn-group" role="group" aria-label="...">
-					<button type="button" class="btn btn-default">All</button>
-					<button type="button" class="btn btn-default">Public</button>
-					<button type="button" class="btn btn-default">Private</button>
+					<a href="?private=2" type="button" class="btn btn-default">All</a>
+					<a href="?private=0" type="button" class="btn btn-default">Public</a>
+					<a href="?private=1" type="button" class="btn btn-default">Private</a>
 					</div>
 				</div><!-- /.col-lg-3 -->
 			</div><!-- /.row -->
