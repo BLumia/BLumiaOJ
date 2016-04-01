@@ -47,7 +47,9 @@ You should modify the PDO statement in setting_db.inc.php if you are not using m
 	$DEV_DISPLAY_ERRORS = false; // Display Error Messages of PHP display_errors
 	
 	
-// 普通用户无需在意本分割线下面的代码--------
+// 普通用户无需在意本分割线下面的代码
+	$OJ_PATH = dirname(dirname(__FILE__));
+
 	$OJ_PROBLEM_DATA = ($ENV_CASE == "OPEN_SHIFT") ? $_ENV['$OPENSHIFT_REPO_DIR'] : $OJ_PROBLEM_DATA;
 	if (isset($ON_ADMIN_PAGE) && $ON_ADMIN_PAGE==="Yap") {
 		require("../include/setting_db.inc.php");
