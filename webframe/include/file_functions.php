@@ -35,8 +35,11 @@
 				$pe=strpos($str,"\"",$pc);
 				$b64f=substr($str,$pc+1,$pe-$pc-1);
 				$md5=md5($b64f);
-				base64decode2File($OJ_UPLOAD_DATA.$md5.$ext,$b64f);
-				$str=substr_replace($str,"./imguploads/".$md5.$ext,$ps+5,$pe-$ps-5);
+				//!!FIXME: to make the current code work, you have to create the imguploads folder manually
+				//and symlink it to the admin folder...
+				//This should be fixed...
+				base64decode2File($GLOBALS['OJ_UPLOAD_DATA'].$md5.$ext,$b64f);
+				$str=substr_replace($str,$GLOBALS['OJ_WWW_UPLOAD_PATH'].$md5.$ext,$ps+5,$pe-$ps-5);
 			}
 			$offset=$p+1;
 		}
