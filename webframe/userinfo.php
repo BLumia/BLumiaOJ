@@ -26,6 +26,11 @@
 		//var_dump($res);
 		$sql->closeCursor();
 		
+		if($res == false) {
+			echo "403";
+			exit(0);
+		}
+		
 		$user_name = $res['nick'];
 		$user_school = $res['school'];
 		$user_email = $res['email'];
