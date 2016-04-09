@@ -7,7 +7,7 @@
 	require_once("../include/setting_oj.inc.php");
 	
 	//Prepare
-	$show=isset($_GET['show']) ? $_GET['show'] : 1;
+	$show=isset($_GET['show']) ? intval($_GET['show']) : 1;
 	if($show<1){$show=1;}
 	
 	$sql=$pdo->prepare("SELECT * FROM `news` WHERE `defunct`!='Y'");

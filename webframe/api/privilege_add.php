@@ -19,7 +19,7 @@
 		$password= stripslashes ( $password);
 	}*/
 	
-	// Delete a privilege
+	// Added a privilege
 	if (!isUseridExist($op_user_id,$pdo)) {
 		echo "User Not Exist!";
 		exit(0);
