@@ -50,7 +50,7 @@
 	$any_running_contest = "
 		SELECT `problem_id` FROM `contest_problem` WHERE `contest_id` IN (
 			SELECT `contest_id` FROM `contest` WHERE 
-			(`end_time`>'{$curTime}' OR private=1) AND `defunct`='N'
+			(`end_time`>'{$curTime}') AND `defunct`='N'
 		)";
 		
 	//Keyword
