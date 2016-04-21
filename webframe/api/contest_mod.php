@@ -3,8 +3,7 @@
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
 	require_once("../include/file_functions.php");
-	
-	//TODO: Session auth
+	require_once("../include/user_check_functions.php");
     
 	$contest_title	=$_POST['contest_title'];
 	$start_year		=intval($_POST['start_year']);
@@ -28,12 +27,16 @@
 	$start_time		=$start_year."-".$start_month."-".$start_day." ".$start_hour.":".$start_minute.":00";
 	$end_time		=$end_year."-".$end_month."-".$end_day." ".$end_hour.":".$end_minute.":00";
 	
+	//Privilege Check
+	if (!(isset($_SESSION["m$cid"])||!havePrivilege("CONTEST_EDITOR")) {
+		echo "403";
+		exit(403);
+	}
 	/*
 	if (get_magic_quotes_gpc ()) {
 		$user_id= stripslashes ( $user_id);
 		$password= stripslashes ( $password);
 	}
-	if(!(isset($_SESSION["m$cid"])||isset($_SESSION['administrator']))) exit();
 	*/
 	
 	$langmask=0;

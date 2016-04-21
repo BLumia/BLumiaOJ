@@ -3,6 +3,7 @@
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
 	require_once("../include/file_functions.php");
+	require_once("../include/user_check_functions.php");
     
 	$pid		   =intval($_POST['problem_id']);
 	$problem_title =$_POST['problem_title'];
@@ -21,9 +22,10 @@
 	
 	$isAddProblem = ($pid == 0) ? true : false;
 	
-	if (!(isset($_SESSION['administrator'])) && !isset( $_SESSION['op_ProblemEditor'] )){
-		echo "<a href='../loginpage.php'>Please Login First!</a>";
-		exit(1);
+	//Privilege Check
+	if (!havePrivilege("PROBLEM_EDITOR")) {
+		echo "403";
+		exit(403);
 	}
 	
 	/*if (get_magic_quotes_gpc ()) {

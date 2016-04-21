@@ -27,9 +27,9 @@
 	
 	if($news_id == "add") {
 		
-		$sql=$pdo->prepare("insert into news
+		$sql=$pdo->prepare("INSERT INTO news
 				(`user_id`,`title`,`content`,`time`)
-				values(?,?,?,now())");
+				VALUES(?,?,?,now())");
 		$sql->execute(array($_SESSION['user_id'],$news_title,$news_content));
 		echo "News Added Successful";
 		exit(0);
@@ -43,7 +43,7 @@
 	$news_exist = ($affected_rows == 1) ? true : false;
 	
 	if($news_exist) {
-		$sql=$pdo->prepare("UPDATE `news` set `title`=?,`time`=now(),`content`=?,user_id=? WHERE `news_id`=?");
+		$sql=$pdo->prepare("UPDATE `news` SET `title`=?,`time`=now(),`content`=?,user_id=? WHERE `news_id`=?");
 		$sql->execute(array($news_title,$news_content,$_SESSION['user_id'],$news_id));
 		echo "News Modified Successful";
 		
