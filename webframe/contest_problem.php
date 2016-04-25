@@ -24,7 +24,7 @@
 		exit(0);
 	}
 	
-	$sql=$pdo->prepare("select * from contest where contest_id = ?");
+	$sql=$pdo->prepare("SELECT * FROM contest WHERE contest_id = ?");
 	$sql->execute(array($cid));
 	$contestItem=$sql->fetch(PDO::FETCH_ASSOC);
 	

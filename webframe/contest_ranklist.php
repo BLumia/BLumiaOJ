@@ -61,7 +61,7 @@
 	
 	$highlightID = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : "";
 	
-	$sql=$pdo->prepare("select `start_time`,`title`,`end_time` from contest where contest_id = ?");
+	$sql=$pdo->prepare("SELECT `start_time`,`title`,`end_time` FROM contest WHERE contest_id = ?");
 	$sql->execute(array($cid));
 	$contestItem = $sql->fetch(PDO::FETCH_ASSOC);
 	
@@ -82,15 +82,15 @@
 	if (!$OJ_LOCKRANK) $OJ_LOCKRANK_PERCENT = 0 ;
 	$lock_time=$end_time-($end_time-$start_time)*$OJ_LOCKRANK_PERCENT;
 	
-	$sql=$pdo->prepare("SELECT count(1) as probCnt FROM `contest_problem` WHERE `contest_id`=?");
+	$sql=$pdo->prepare("SELECT count(1) AS probCnt FROM `contest_problem` WHERE `contest_id`=?");
 	$sql->execute(array($cid));
 	$problemItem=$sql->fetch(PDO::FETCH_ASSOC);//必须写PDO::FETCH_ASSOC，否则默认值影响count
 	$problemCount=count($problemItem);
 	
 	$sql=$pdo->prepare("SELECT users.user_id,users.nick,solution.result,solution.num,solution.in_date 
 	FROM (
-		select * from solution where solution.contest_id=? and num>=0 
-	) solution left join users on users.user_id=solution.user_id 
+		SELECT * FROM solution WHERE solution.contest_id=? AND num>=0 
+	) solution LEFT JOIN users ON users.user_id=solution.user_id 
 	ORDER BY users.user_id,in_date");
 	$sql->execute(array($cid));
 	$playerList = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -119,7 +119,7 @@
 	
 	$first_blood=array();
 	for($i=0;$i<$problemCount;$i++){
-		$sql=$pdo->prepare("select user_id from solution where contest_id=? and result=4 and num=? order by in_date limit 1");
+		$sql=$pdo->prepare("SELECT user_id FROM solution WHERE contest_id=? AND result=4 AND num=? ORDER BY in_date LIMIT 1");
 		$sql->execute(array($cid,$i));
 		$fbResult = $sql->fetch(PDO::FETCH_ASSOC);
 		$fbResultCount=count($fbResult);
