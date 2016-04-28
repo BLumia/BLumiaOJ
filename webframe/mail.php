@@ -16,7 +16,7 @@
 		//User Logged in and wanna see him/herself's info.
 		$user_id = $_SESSION['user_id'];
 		
-		$sql=$pdo->prepare("select * from users where user_id=?");
+		$sql=$pdo->prepare("SELECT * FROM users WHERE user_id=?");
 		$sql->execute(array($user_id));
 		$res=$sql->fetch();
 		//var_dump($res);
@@ -60,7 +60,7 @@
 		$view_content=$result[0]['content'];
 		$view_date=$result[0]['in_date'];
 	
-		$sql=$pdo->prepare("update `mail` set new_mail=0 WHERE `mail_id`=".$vid);
+		$sql=$pdo->prepare("UPDATE `mail` SET new_mail=0 WHERE `mail_id`=".$vid);
 		$sql->execute();
 	}
 	//send mail page
@@ -82,7 +82,7 @@
 		$from_user=$pdo->quote($from_user);
 		$content=$pdo->quote($content);
 		
-		$sql=$pdo->prepare("select 1 from users where user_id=".$to_user);
+		$sql=$pdo->prepare("SELECT 1 FROM users WHERE user_id=".$to_user);
 		$sql->execute();
 		$res=$sql->fetchAll();//$res[0]['content']
 		if (count($res)==0) {
@@ -90,8 +90,8 @@
 			$view_content="用户不存在!";
 			$view_date="wwwwwww";
 		} else {
-			$sql=$pdo->prepare("insert into mail(to_user,from_user,title,content,in_date)
-							values($to_user,$from_user,$title,$content,now())");
+			$sql=$pdo->prepare("INSERT INTO mail(to_user,from_user,title,content,in_date)
+								VALUES($to_user,$from_user,$title,$content,now())");
 			
 			if(!$sql->execute()){
 				$view_title=  "状态提示 :";
@@ -108,7 +108,7 @@
 	}
 	//list mail
 	$sql=$pdo->prepare("SELECT * FROM `mail` WHERE to_user='".$_SESSION['user_id']."'
-						order by mail_id desc");
+						ORDER BY mail_id DESC");
 	$sql->execute();
 	$res=$sql->fetchAll();//$res[$i]['mail_id']
 	$view_mail=Array();
