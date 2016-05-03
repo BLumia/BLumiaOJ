@@ -42,7 +42,7 @@
 		echo "Now Added Problem {$pid}<br/>";
 	} else {
 		$sql=$pdo->prepare("UPDATE `problem` 
-						set `title`=?,`time_limit`=?,`memory_limit`=?,
+						SET `title`=?,`time_limit`=?,`memory_limit`=?,
 						`description`=?,`input`=?,`output`=?,
 						`sample_input`=?,`sample_output`=?,`hint`=?,
 						`source`=?,`spj`=?,`in_date`=NOW()
