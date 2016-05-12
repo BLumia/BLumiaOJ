@@ -1,0 +1,10 @@
+Installation Guide
+安装指引
+
+## 简述
+
+无论是HUST OJ还是BLumiaOJ（BLumiaOJ可以认为是HUSTOJ的完全重写版），结构都是相同的，需要的部分即为【判题部分】，【网页服务器】和【数据库】。这三者并不要求均在同一台服务器上，但一般的，会将这三者同时安装在一台服务器上。随自身需求选择自行处理即可。以下为三者的安装方式。
+
+## 网页服务器
+
+git clone https://github.com/BLumia/BLumiaOJ.git --depth 1
