@@ -7,9 +7,9 @@
 					<div class="btn-group" role="group" aria-label="...">
 						<?php
 							$prev = $p-1; $next = $p+1;
-							if ($p != 1) echo "<a href='ranklist.php?p={$prev}' type='button' class='btn btn-default'>&lt;</a>"; 
-							echo "<a href='ranklist.php?p={$p}' type='button' class='btn btn-default'>{$p}</a>"; 
-							if ($p != $pageCnt) echo "<a href='ranklist.php?p={$next}' type='button' class='btn btn-default'>&gt;</a>"; 
+							if ($p != 1) echo "<a href='contestlist.php?p={$prev}' type='button' class='btn btn-default'>&lt;</a>"; 
+							echo "<a href='contestlist.php?p={$p}' type='button' class='btn btn-default'>{$p}</a>"; 
+							if ($p != $pageCnt) echo "<a href='contestlist.php?p={$next}' type='button' class='btn btn-default'>&gt;</a>"; 
 						?>
 					</div>
 				</div>
