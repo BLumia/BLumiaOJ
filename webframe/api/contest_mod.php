@@ -28,7 +28,7 @@
 	$end_time		=$end_year."-".$end_month."-".$end_day." ".$end_hour.":".$end_minute.":00";
 	
 	//Privilege Check
-	if (!(isset($_SESSION["m$cid"])||!havePrivilege("CONTEST_EDITOR")) {
+	if (!(isset($_SESSION["m$cid"])||havePrivilege("CONTEST_EDITOR"))) {
 		echo "403";
 		exit(403);
 	}

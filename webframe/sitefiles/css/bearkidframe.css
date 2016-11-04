@@ -24,6 +24,10 @@ body {
 	color:#989;
 }
 
+pre {
+	white-space: pre-wrap;
+}
+
 .medal-heading {
     font-size: 50px;
     margin: 0px;
