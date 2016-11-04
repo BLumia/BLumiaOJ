@@ -5,7 +5,6 @@
 <meta name="msapplication-TileImage" content="./sitefiles/favicon.png">	
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="./sitefiles/css/bootstrap-cerulean.min.css">
-<link rel="stylesheet" href="./sitefiles/css/bootstrap-tour.min.css">
 <link rel="stylesheet" href="./sitefiles/css/prettify.css" type="text/css">
 <link rel="stylesheet" href="./sitefiles/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="./sitefiles/css/nprogress.css">
@@ -30,7 +29,6 @@
 <!-- js文件 -->
 <script src="./sitefiles/js/jquery.min.js"></script>
 <script src="./sitefiles/js/bootstrap.min.js"></script>
-<script src="./sitefiles/js/bootstrap-tour.min.js"></script>
 <script src="./sitefiles/js/prettify.js"></script>
 <script src="./sitefiles/js/cnblogs.js"></script>
 <script src="./sitefiles/js/nprogress.js"></script>

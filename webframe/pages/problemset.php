@@ -94,23 +94,5 @@
 			</div>
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
-	<script type="text/javascript">
-	var tour = new Tour({
-		backdrop: true,
-		debug: true,
-		steps: [
-		{
-			element: "#oj-ps-pager",
-			title: "This is Pager",
-			content: "You can switch page by click here",
-			placement: "bottom"
-		},
-		{
-			element: "#oj-ps-problemlist",
-			title: "This is the Problem list",
-			content: "Click a problem title to challenge the problem.",
-			placement: "top"
-		}]
-	});
-	</script>
+
 	</body>

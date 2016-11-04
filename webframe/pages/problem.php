@@ -106,37 +106,4 @@ $(window).load(function(){
 })
 	</script>
 	
-	<script type="text/javascript">
-	//http://bootstraptour.com/api/
-	var tour = new Tour({
-		backdrop: true,
-		debug: true,
-		steps: [
-		{
-			element: "#problemDesc",
-			title: "This is the Problem Description",
-			content: "This block tell you what is the problem.",
-			placement: "top"
-		},
-		{
-			element: "#bl-p-datain",
-			title: "This is the Sample in-data",
-			content: "Click these title of the blocks will collapse the context of a block",
-			placement: "top"
-		},
-		{
-			element: "#bl-p-copy",
-			//backdrop: false,
-			title: "This is the copy button",
-			content: "You can copy the input/output speedly by click here.",
-			placement: "left"
-		},
-		{
-			element: "#oj-p-submit",
-			title: "This is Submit button",
-			content: "When you finished the problem, click here to submit code",
-			placement: "bottom"
-		}]
-	});
-	</script>
 	</body>

@@ -58,7 +58,7 @@
 					<ul class="dropdown-menu" role="menu">
 					<li><a href="./modifyinfo.php"><i class="fa fa-edit"></i> <?php echo L_MOD_INFO;?></a></li>
 					<li><a href="./userinfo.php"><i class="fa fa-at"></i> <?php echo L_USR_PAGE;?></a></li>
-					<li><a href="#"><i class="fa fa-history"></i> <?php echo L_RECENTSUB;?></a></li>
+					<li><a href="./status.php?uid=<?php echo $_SESSION['user_id'];?>"><i class="fa fa-history"></i> <?php echo L_RECENTSUB;?></a></li>
 					<?php if (isset($_SESSION['is_operator']) && $_SESSION['is_operator']) {?>
 					<li class="divider"></li>
 					<li><a href="./admin/index.php"><i class="fa fa-cogs"></i> <?php echo L_CTRLPANEL;?></a></li>

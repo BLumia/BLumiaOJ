@@ -1,16 +1,16 @@
 <?php
 // OJ Info (sample examples all without "[" and "]")
-	$OJ_NAME = "BLumiaOJ"; //Name of this OJ, e.g. [BLumiaOJ] , [BLOJ]
-	$OJ_HUSTOJ_COMPATIBLE = true; //If you haven't upgrade database to BLumiaOJ, set this to true.
-	$OJ_LANGUAGE = "schinese";
+	$OJ_NAME = "BLumiaOJ"; // Name of this OJ, e.g. [BLumiaOJ] , [BLOJ]
+	$OJ_HUSTOJ_COMPATIBLE = true; // If you haven't upgrade database to BLumiaOJ, set this to true.
+	$OJ_LANGUAGE = "schinese"; // Check out language folder to know what to fill.
 	
 // Data Path Setting
 	$OJ_PROBLEM_DATA = "../../Archives/problems"; //Path to problem data floder. e.g. [/home/judge/data], this path will NOT work IF you are running on SAE or OpenShift
 	$OJ_UPLOAD_DATA = "/var/www/html/BLumiaOJ/webframe/imguploads/"; // Any file or image will be upload here. e.g. [/var/www/html/BLumiaOJ/webframe/imguploads/]
-	$OJ_WWW_UPLOAD_PATH = "./imguploads/"; // img can be visit at http://your.site/path/to/folder/ , u should fill [path/to/folder]
+	$OJ_WWW_UPLOAD_PATH = "./imguploads/"; // Img can be visit at http://your.site/path/to/folder/ , u should fill [path/to/folder]
 	
 // Submit Setting
-	$OJ_SUBMIT_DELTATIME = 10; //allowed submit frequence. (seconds)
+	$OJ_SUBMIT_DELTATIME = 10; // allowed submit frequence. (seconds)
 	$OJ_LANGMASK = 4080; //1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 4080 for security reason to mask all other language
 	
 // Page Setting
@@ -25,7 +25,7 @@
 	$OJ_LOCKRANK_PERCENT = 0.2; // 0~1. eg. 0.2: a 5 hours contest will lock one hour.
 	
 // Virtual Judge Setting
-	$VJ_ENABLED = true;
+	$VJ_ENABLED = false; // Currently not finished. Don't enable it unless you gonna hacking this part.
 
 // Run Enviroment and DB setting
 /* ********************

@@ -30,6 +30,7 @@
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "提交中..";
 	const L_JUDGE_CI = "编译中..";
+	const L_JUDGE_RG = "判题中..";
 	const L_JUDGE_AC = "答案正确";
 	const L_JUDGE_PE = "格式错误";
 	const L_JUDGE_WA = "答案错误";
