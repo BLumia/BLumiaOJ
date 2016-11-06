@@ -77,9 +77,8 @@
 				<div class="col-sm-4">
 				<label>Permission:</label>
 				<select name="permission" class="selectpicker" data-width="100%">
-					<option <?php if ($CONT_PERMISSION==1) echo "selected='selected'";?>>Private</option>
-					<option <?php if ($CONT_PERMISSION==0) echo "selected='selected'";?>>Public</option>
-					<option>Password</option>
+					<option value=1 <?php if ($CONT_PERMISSION==1) echo "selected='selected'";?>>Private / Password</option>
+					<option value=0 <?php if ($CONT_PERMISSION==0) echo "selected='selected'";?>>Public</option>
 				</select>
 				</div>
 			</div>

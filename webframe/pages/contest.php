@@ -17,7 +17,7 @@
 						开始时间: <font class="text-primary"><?php echo $contestItem['start_time'];?></font><br/>
 						截止时间: <font class="text-primary"><?php echo $contestItem['end_time'];?></font><br/>
 						比赛性质: <font class="text-success"><?php echo $contestItem['private']?"Private":"Public";?></font><br/>
-						比赛状态: Ended
+						比赛状态: <?php echo $contestState;?>
 					</p>
 				</div>
 			</div>

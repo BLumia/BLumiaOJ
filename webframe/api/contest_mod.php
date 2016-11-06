@@ -48,15 +48,15 @@
 	// TODO: check if contest is exist.
 	if ($cid == 0) {
 		$sql=$pdo->prepare("INSERT INTO `contest`
-		(`title`,`start_time`,`end_time`,`private`,`langmask`,`description`)
+		(`title`,`start_time`,`end_time`,`private`,`langmask`,`description`,`password`)
 		VALUES
-		(?,?,?,?,?,?)");
-		$sql->execute(array($contest_title,$start_time,$end_time,$permission,$langmask,$contest_desc));
+		(?,?,?,?,?,?,?)");
+		$sql->execute(array($contest_title,$start_time,$end_time,$permission,$langmask,$contest_desc,$cont_password));
 		$cid = $pdo->lastinsertid(); // TODO: check if insert failed
 		echo "Add Contest ".$cid."<br/>";
 	} else {
-		$sql=$pdo->prepare("UPDATE `contest` set `title`=?,description=?,`start_time`=?,`end_time`=?,`private`=?,`langmask`=? WHERE `contest_id`=?");
-		$sql->execute(array($contest_title,$contest_desc,$start_time,$end_time,$permission,$langmask,$cid));
+		$sql=$pdo->prepare("UPDATE `contest` set `title`=?,description=?,`start_time`=?,`end_time`=?,`private`=?,`langmask`=?,`password`=? WHERE `contest_id`=?");
+		$sql->execute(array($contest_title,$contest_desc,$start_time,$end_time,$permission,$langmask,$cont_password,$cid));
 		echo "Now Modifing Contest ".$cid."<br/>";
 	}
 	

@@ -1,3 +1,19 @@
+<?php 
+	$start_time = date("Y/m/d h:i:s",strtotime($contestItem['start_time']));
+	$end_time = date("Y/m/d h:i:s",strtotime($contestItem['end_time']));
+
+	// Check if user can taking part in this contest (private / password check)
+	$contestAuthResult = false;
+	if (havePrivilege("CONTEST_EDITOR") || isset($_SESSION["m{$cid}"])) $contestAuthResult = true;
+	else {
+		// Password check
+		if ($contestItem['password'] != '' && isset($_SESSION['pass{$cid}'])) {
+			if($contestItem['password'] == $_SESSION['pass{$cid}']) {
+				$contestAuthResult = true;
+			}
+		}
+	}
+?>
 <div id="contestHeading" class="text-center">
 	<h2><?php echo $contestItem['title'];?></h2>
 	<div class="btn-group" role="group" aria-label="...">
@@ -12,16 +28,15 @@
 		</div>
 	</div>
 	<br/>
+	<?php 
+		if (!$contestAuthResult) echo "<h2>NOT AUTH!</h2>"
+	?>
 </div>
-<?php 
-	$start_time = date("Y/m/d h:i:s",strtotime($contestItem['start_time']));
-	$end_time = date("Y/m/d h:i:s",strtotime($contestItem['end_time']));
-?>
 <script>
 	function run() {	
 		var offset = new Date("<?php echo date("Y/m/d H:i:s")?>").getTime()-new Date().getTime();
-		var start_time=new Date(new Date("<?php echo $start_time;?>").getTime()+offset).getTime();  //开始时间
-		var end_time=new Date(new Date("<?php echo $end_time;?>").getTime()+offset).getTime();   //结束时间
+		var start_time=new Date(new Date("<?php echo $contestItem['start_time'];?>").getTime()+offset).getTime();  //开始时间
+		var end_time=new Date(new Date("<?php echo $contestItem['end_time'];?>").getTime()+offset).getTime();   //结束时间
 		var cur_time=new Date(new Date().getTime()+offset);    //当前时间
 
 		//console.log(typeof end_time);
