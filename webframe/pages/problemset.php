@@ -18,7 +18,7 @@
 					<div class="input-group">
 						<input type="text" class="form-control" name="pid" placeholder="输入题目编号">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">走起</button>
+							<button class="btn btn-default" type="submit">走起</button>
 						</span>
 					</div><!-- /input-group -->
 					</form>

@@ -17,6 +17,7 @@
 	const L_OVERVIEW= "概览";
 	const L_PREV_PAGE= "上一页";
 	const L_NEXT_PAGE= "下一页";
+	const L_OR		= "或";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "标题";
 	const L_DESC  	= "描述";
@@ -27,6 +28,8 @@
 	const L_Private  = "私有";
 	const L_Ended	= "已结束";
 	const L_Start	= "开始于";
+	/************* Hint Statement **************/
+	const L_CONTEST_NOT_AUTH	= "您没有权限参加该竞赛";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "提交中..";
 	const L_JUDGE_CI = "编译中..";

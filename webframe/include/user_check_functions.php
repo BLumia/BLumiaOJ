@@ -2,7 +2,7 @@
 
 /*
 	HustOJ:"administrator","problem_editor",  "source_browser","contest_creator", "http_judge","password_setter"
-	BLOJ:  "administrator","op_ProblemEditor","?",             "op_ContestEditor","http_judge","op_UserManager"
+	BLOJ:  "administrator","op_ProblemEditor","op_SourceViewer","op_ContestEditor","http_judge","op_UserManager"
 	New:   "op_PageModifier"
 */
 

@@ -50,14 +50,14 @@
 			<div class="collapse" id="problemHint" aria-expanded="true">
 				<pre><?php echo $problemItem['hint'];?></pre>
 			</div>
-			
+			<!--
 			<h3><a data-toggle="collapse" data-target="#problemTag"><?php echo L_TAG;?></a></h3>
 			<div class="collapse" id="problemTag" aria-expanded="true">
 				<div class="well">
 					<span class="label label-default">搜索</span>
 				</div>
 			</div>
-			
+			-->
 			<h3><a data-toggle="collapse" data-target="#problemSrc"><?php echo L_SOURCE;?></a></h3>
 			<div class="collapse" id="problemSrc" aria-expanded="true">
 				<pre><?php echo $problemItem['source'];?></pre>

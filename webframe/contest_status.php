@@ -41,7 +41,7 @@ tr > td.result:hover {
 	// TODO: 时间范围
 	
 	//SQL Basic
-	if(isset($_SESSION['administrator'])||isset($_SESSION['source_browser'])||(isset($_SESSION['user_id'])&&$_GET['user_id']==$_SESSION['user_id'])){
+	if(havePrivilege("SOURCE_VIEWER")||(isset($_SESSION['user_id'])&&isset($_GET['user_id'])&&$_GET['user_id']==$_SESSION['user_id'])){
 		if ($_SESSION['user_id']!="guest") $sql_str="SELECT * FROM `solution` WHERE `contest_id`='{$cid}' ";
 	} else {
 		$sql_str="SELECT * FROM `solution` WHERE problem_id>0 and `contest_id`='{$cid}' ";

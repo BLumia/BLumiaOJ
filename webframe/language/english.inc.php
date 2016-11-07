@@ -17,6 +17,7 @@
 	const L_OVERVIEW= "Overview";
 	const L_PREV_PAGE= "Previous Page";
 	const L_NEXT_PAGE= "Next Page";
+	const L_OR		= "or";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "Title";
 	const L_DESC  	= "Description";
@@ -27,6 +28,8 @@
 	const L_Private  = "Private";
 	const L_Ended	= "Ended";
 	const L_Start	= "Start at:";
+	/************* Hint Statement **************/
+	const L_CONTEST_NOT_AUTH	= "You need permission to join this contest";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "Pending..";
 	const L_JUDGE_CI = "Compiling..";

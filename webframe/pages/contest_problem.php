@@ -2,8 +2,8 @@
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
-			<?php require("./pages/components/contest_problem_heading.php");?>
-			
+			<?php require("./pages/components/contest_heading.php");?>
+			<?php if($contestAuthResult) { ?>
 			<h3><a data-toggle="collapse" data-target="#problemDesc">题目描述</a></h3>
 			<div class="collapse in" id="problemDesc" aria-expanded="true">
 				<pre><?php echo $problemItem['description'];?></pre>
@@ -39,19 +39,19 @@
 			<div class="collapse" id="problemHint" aria-expanded="true">
 				<pre><?php echo $problemItem['hint'];?></pre>
 			</div>
-			
+			<!--
 			<h3><a data-toggle="collapse" data-target="#problemTag">标签</a></h3>
 			<div class="collapse" id="problemTag" aria-expanded="true">
 				<div class="well">
 					<span class="label label-default">搜索</span>
 				</div>
 			</div>
-			
+			-->
 			<h3><a data-toggle="collapse" data-target="#problemSrc">来源</a></h3>
 			<div class="collapse" id="problemSrc" aria-expanded="true">
 				<pre><?php echo $problemItem['source'];?></pre>
 			</div>
-			
+			<?php } ?>
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
 	<script type="text/javascript">
@@ -95,37 +95,4 @@ $(window).load(function(){
 })
 	</script>
 	
-	<script type="text/javascript">
-	//http://bootstraptour.com/api/
-	var tour = new Tour({
-		backdrop: true,
-		debug: true,
-		steps: [
-		{
-			element: "#problemDesc",
-			title: "This is the Problem Description",
-			content: "This block tell you what is the problem.",
-			placement: "top"
-		},
-		{
-			element: "#bl-p-datain",
-			title: "This is the Sample in-data",
-			content: "Click these title of the blocks will collapse the context of a block",
-			placement: "top"
-		},
-		{
-			element: "#bl-p-copy",
-			//backdrop: false,
-			title: "This is the copy button",
-			content: "You can copy the input/output speedly by click here.",
-			placement: "left"
-		},
-		{
-			element: "#oj-p-submit",
-			title: "This is Submit button",
-			content: "When you finished the problem, click here to submit code",
-			placement: "bottom"
-		}]
-	});
-	</script>
 	</body>

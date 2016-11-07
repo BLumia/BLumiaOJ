@@ -38,6 +38,12 @@
 		$contestState = "<font class='text-danger'>Running</font>";
 	}
 	
+	if(isset($_POST['psw']) && ($contestItem['password'] != '')) {
+		if ($_POST['psw'] == $contestItem['password']) {
+			$_SESSION["m{$cid}"] = "true";
+		}
+	}
+	
 	//Page Includes
 	require("./pages/contest.php");
 ?>

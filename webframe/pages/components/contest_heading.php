@@ -1,13 +1,15 @@
 <?php 
+	// Time format
 	$start_time = date("Y/m/d h:i:s",strtotime($contestItem['start_time']));
 	$end_time = date("Y/m/d h:i:s",strtotime($contestItem['end_time']));
 
 	// Check if user can taking part in this contest (private / password check)
 	$contestAuthResult = false;
+	$contestUsePassword = ($contestItem['password'] == '') ? false : true;
 	if (havePrivilege("CONTEST_EDITOR") || isset($_SESSION["m{$cid}"])) $contestAuthResult = true;
 	else {
 		// Password check
-		if ($contestItem['password'] != '' && isset($_SESSION['pass{$cid}'])) {
+		if ($contestUsePassword && isset($_SESSION['pass{$cid}'])) {
 			if($contestItem['password'] == $_SESSION['pass{$cid}']) {
 				$contestAuthResult = true;
 			}
@@ -15,7 +17,12 @@
 	}
 ?>
 <div id="contestHeading" class="text-center">
-	<h2><?php echo $contestItem['title'];?></h2>
+	<h2>
+	<?php
+		if (isset($pid) && $contestAuthResult) echo $ALPHABET_N_NUM[$pid]." : ".$problemItem['title'];
+		else echo $contestItem['title'];
+	?>
+	</h2>
 	<div class="btn-group" role="group" aria-label="...">
 		<a type="button" href="contest.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_OVERVIEW; ?></a>
 		<a type="button" href="contest_problemset.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_PROB_SET; ?></a>
@@ -27,27 +34,35 @@
 			<span class="sr-only">Progress Bar</span>
 		</div>
 	</div>
+	<?php if (isset($pid) && $contestAuthResult) { ?>
+	<p class="text-center">
+		时间限制:<span class="label label-primary"><?php echo $problemItem['time_limit']." Sec";?></span>
+		内存限制:<span class="label label-primary"><?php echo $problemItem['memory_limit']." MiB";?></span><br/>
+		提交:<span class="label label-info"><?php echo $problemItem['submit'];?></span>
+		正确:<span class="label label-success"><?php echo $problemItem['accepted'];?></span>
+	</p>
+	<p class="text-center">
+		<a id="oj-p-submit" class="btn btn-primary" href="./problemsubmit.php?pid=<?php echo $pid."&cid=".$cid;?>" role="button">Submit</a>
+		<a class="btn btn-primary" href="#" role="button">Status</a>
+		<a class="btn btn-primary" href="#" role="button">Edit</a>
+	</p>
+	<?php } ?>
 	<br/>
 	<?php 
-		if (!$contestAuthResult) echo "<h2>NOT AUTH!</h2>"
+		if (!$contestAuthResult) require("./pages/components/contest_not_auth.php");
 	?>
 </div>
 <script>
 	function run() {	
 		var offset = new Date("<?php echo date("Y/m/d H:i:s")?>").getTime()-new Date().getTime();
-		var start_time=new Date(new Date("<?php echo $contestItem['start_time'];?>").getTime()+offset).getTime();  //开始时间
-		var end_time=new Date(new Date("<?php echo $contestItem['end_time'];?>").getTime()+offset).getTime();   //结束时间
+		var start_time=new Date(new Date("<?php echo $start_time;?>").getTime()+offset).getTime();  //开始时间
+		var end_time=new Date(new Date("<?php echo $end_time;?>").getTime()+offset).getTime();   //结束时间
 		var cur_time=new Date(new Date().getTime()+offset);    //当前时间
-
-		//console.log(typeof end_time);
-		//console.log(typeof start_time);
 		
 		var delta_time= end_time - start_time;  //时间差的毫秒数
 		var passed_time= cur_time - start_time;  //过去的时间的毫秒数
 		var percentage = passed_time / delta_time * 100;
 		
-		//console.log(percentage);
-		//alert(percentage);
 		$("div[id=bl-progress-bar]").css("width",percentage+"%");
 		if (percentage<100) {
 			var timer=setTimeout("run()",1000);
