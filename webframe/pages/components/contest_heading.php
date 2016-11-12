@@ -1,19 +1,23 @@
 <?php 
 	// Time format
-	$start_time = date("Y/m/d h:i:s",strtotime($contestItem['start_time']));
-	$end_time = date("Y/m/d h:i:s",strtotime($contestItem['end_time']));
+	$start_time = date("Y/m/d H:i:s",strtotime($contestItem['start_time']));
+	$end_time = date("Y/m/d H:i:s",strtotime($contestItem['end_time']));
 
 	// Check if user can taking part in this contest (private / password check)
 	$contestAuthResult = false;
 	$contestUsePassword = ($contestItem['password'] == '') ? false : true;
-	if (havePrivilege("CONTEST_EDITOR") || isset($_SESSION["m{$cid}"])) $contestAuthResult = true;
+	
+	// m{cid}: contest modifier, c{cid}: contest user.
+	if (havePrivilege("CONTEST_EDITOR") || isset($_SESSION["m{$cid}"]) || isset($_SESSION["c{$cid}"])) $contestAuthResult = true;
 	else {
 		// Password check
+		/* Already set permission at contest.php, no need for check again.
 		if ($contestUsePassword && isset($_SESSION['pass{$cid}'])) {
 			if($contestItem['password'] == $_SESSION['pass{$cid}']) {
 				$contestAuthResult = true;
 			}
 		}
+		*/
 	}
 ?>
 <div id="contestHeading" class="text-center">

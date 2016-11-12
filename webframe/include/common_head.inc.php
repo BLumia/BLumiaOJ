@@ -30,5 +30,4 @@
 <script src="./sitefiles/js/jquery.min.js"></script>
 <script src="./sitefiles/js/bootstrap.min.js"></script>
 <script src="./sitefiles/js/prettify.js"></script>
-<script src="./sitefiles/js/cnblogs.js"></script>
 <script src="./sitefiles/js/nprogress.js"></script>

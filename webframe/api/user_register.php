@@ -48,7 +48,7 @@
 		//权限部分未添加
 		echo "success";
 		echo "<script language='javascript'>\n";
-		echo "window.location.replace('../userinfo.php?guide=1');\n";
+		echo "window.location.replace('../userinfo.php');\n";
 		echo "</script>";
 	} else {
 		echo "failed";

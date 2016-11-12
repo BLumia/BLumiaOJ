@@ -40,7 +40,7 @@
 	
 	if(isset($_POST['psw']) && ($contestItem['password'] != '')) {
 		if ($_POST['psw'] == $contestItem['password']) {
-			$_SESSION["m{$cid}"] = "true";
+			$_SESSION["c{$cid}"] = "true";
 		}
 	}
 	

@@ -4,6 +4,7 @@
 	require_once("../include/setting_oj.inc.php");
 	require_once("../include/common_const.inc.php");
 	require_once("../include/file_functions.php");
+	require_once("../include/user_check_functions.php");
 	
 	//比赛和非比赛状态下对应$problem_id数值含义不同，比赛时为比赛对应的题目编号，普通则为题目id
 	//非hustoj兼容版或将不使用这种方式，而对所有题目增加新的全局ID
@@ -20,9 +21,9 @@
 	if ($submit_lang>count($LANGUAGE_NAME) || $submit_lang<0) $submit_lang=0;
 	$submit_src=preg_replace ( "(\r\n)", "\n", $submit_src );
 	
-	var_dump($problem_id);
-	var_dump($submit_lang);
-	var_dump($submit_src);
+	//var_dump($problem_id);
+	//var_dump($submit_lang);
+	//var_dump($submit_src);
 	
 	//check code length
 	$code_len=strlen($submit_src);
@@ -43,15 +44,32 @@
 	
 	// Check if in Contest and if Contest is start or not
 	if ($contest_id) {
-		$sql=$pdo->prepare("SELECT `private` FROM `contest` WHERE `contest_id`=? AND `start_time`<=? AND `end_time`>?");
+		$sql=$pdo->prepare("SELECT `private`,`password` FROM `contest` WHERE `contest_id`=? AND `start_time`<=? AND `end_time`>?");
 		$sql->execute(array($contest_id,$submit_time,$submit_time));
-		$contestChecker = $sql->fetchAll(PDO::FETCH_ASSOC);
+		$contestChecker = $sql->fetch(PDO::FETCH_ASSOC);
 		$sql->closeCursor();
-		if(count($contestChecker)!=1) {
-			echo "403";
+		if(count($contestChecker)!=2) { // Two are: private and password. Maybe another way to check if contest exist?
+			echo "Contest not exist.";
+			exit(0);
 		} else {
-			//TODO: check private, private=1 means need invite
-			//skip this now..
+			// Check private, private=1 means need invite
+			if(intval($contestChecker['private']) == 1) {
+				// Password or User in list.
+				if (havePrivilege("CONTEST_EDITOR") || isset($_SESSION["m{$contest_id}"]) || isset($_SESSION["c{$contest_id}"])) {
+					// Check done.
+				} else {
+					// Password session missed? user should enter the contest by using password to get a new session.
+					$sql=$pdo->prepare("SELECT count(*) FROM `privilege` WHERE `user_id`='$user_id' AND `rightstr`='c{$contest_id}'");
+					$sql->execute(array($user_id,"c{$contest_id}"));
+					$privateChecker = $sql->fetch(PDO::FETCH_ASSOC);
+					//var_dump($privateChecker);
+					if (intval($privateChecker['count(*)']) != 1) {
+						echo "No permission to taking part in this contest.<br/>";
+						if ($contestChecker['password'] != '') echo "Or you maybe need to enter password again.<br/>";
+						exit(403);
+					}
+				}
+			}
 		}
 	}
 	
@@ -89,7 +107,7 @@
 	$existChecker = $sql->fetchAll(PDO::FETCH_ASSOC);
 	$existCounter = count($existChecker);
 	if ($existCounter == 1) {
-		echo "You submit too frequence. try again after {$OJ_SUBMIT_DELTATIME} seconds.";
+		echo "Your submit frequence too high. try again after {$OJ_SUBMIT_DELTATIME} seconds.";
 		exit(0);
 	}
 	
@@ -128,11 +146,12 @@
 	// redirect to 
 	if ($contest_id) {
 		//excited
+		$statusURI=strstr($_SERVER['REQUEST_URI'],"api",true)."status.php";
 	} else {
 		$toUrl = $statusURI=strstr($_SERVER['REQUEST_URI'],"api",true)."status.php";
 	}
 	
-	header("Location: $statusURI");
+	//header("Location: {$statusURI}");
 	echo $submit_id."(solution id) submit successful";
 	exit(0);
 	//--------------代码分割线
