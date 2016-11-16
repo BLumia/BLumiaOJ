@@ -14,6 +14,12 @@
 		exit(0);
 	}
 	
+	//Privilege Check
+	if (!havePrivilege("PROBLEM_EDITOR")) {
+		echo "403";
+		exit(403);
+	}
+	
 	$problem_do		= intval($_GET['do']);
 	$problem_id		= intval($_GET['pid']);
 	

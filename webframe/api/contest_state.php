@@ -14,6 +14,12 @@
 		exit(0);
 	}
 	
+	// m{cid}: contest modifier, c{cid}: contest user.
+	if (!(isset($_SESSION["m$cid"])||havePrivilege("CONTEST_EDITOR"))) {
+		echo "403";
+		exit(403);
+	}
+	
 	$contest_do		= intval($_GET['do']);
 	$contest_id		= intval($_GET['cid']);
 	

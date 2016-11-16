@@ -6,7 +6,7 @@
 	require_once("../include/user_check_functions.php");
 	
 	//Admin Auth
-	if (!(isset($_SESSION['administrator']))){
+	if (!havePrivilege("SUPERUSER")){
 		echo "<a href='../loginpage.php'>Please Login First!</a>";
 		exit(1);
 	}

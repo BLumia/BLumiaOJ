@@ -40,7 +40,6 @@
 		$user_id= stripslashes ( $user_id);
 		$password= stripslashes ( $password);
 	}*/
-	//TODO: check if contest need password
 	
 	// Check if in Contest and if Contest is start or not
 	if ($contest_id) {
@@ -145,7 +144,7 @@
 	
 	// redirect to 
 	if ($contest_id) {
-		//excited
+		//TODO: Currectly this to the right url location.
 		$statusURI=strstr($_SERVER['REQUEST_URI'],"api",true)."status.php";
 	} else {
 		$toUrl = $statusURI=strstr($_SERVER['REQUEST_URI'],"api",true)."status.php";
@@ -154,8 +153,6 @@
 	//header("Location: {$statusURI}");
 	echo $submit_id."(solution id) submit successful";
 	exit(0);
-	//--------------代码分割线
-	
 	
 	
 ?>

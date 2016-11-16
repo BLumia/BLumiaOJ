@@ -12,6 +12,13 @@
 		echo $_POST['pageauth']."Auth failed";
 		exit(0);
 	}
+	
+	// No idea about password_setter in hustoj, check it here.
+	// Make a standalone privilege to manage password? weird.
+	if (!havePrivilege("SUPERUSER") || !isset($_SESSION["password_setter"])) {
+		echo "403";
+		exit(403);
+	}
     
 	$user_id=trim($_POST['user_id']);
 	$user_pwd=$_POST['new_password'];
