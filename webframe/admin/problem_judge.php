@@ -24,6 +24,14 @@
 			'sid'
 		'getprobleminfo' // given pid. finally one not using sid.
 			'pid'
+		'addceinfo' // Add compile error info
+			'sid'
+			'ceinfo'
+		'addreinfo' // Add runtime error info
+			'sid'
+			'reinfo'
+		'updateuser' // Update user solved count and submit count
+			'user_id'
 	*/
 
 	session_start();
@@ -153,6 +161,46 @@
 			echo $result['spj']."\n";
 		}
 
+		exit(1);
+	}
+	
+	if(isset($_POST['addceinfo'])){
+		$sid = intval($_POST['sid']);
+		$ceinfo = $_POST['ceinfo'];
+		
+		$sql = $pdo->prepare("DELETE FROM compileinfo WHERE solution_id=?");
+		$sql->execute(array($sid));
+		
+		// $ceinfo safe check?
+		$sql = $pdo->prepare("INSERT INTO compileinfo VALUES(?,?)");
+		$sql->execute(array($sid,$ceinfo));
+		
+		exit(1);
+	}
+
+	if(isset($_POST['addreinfo'])){
+		$sid = intval($_POST['sid']);
+		$reinfo = $_POST['reinfo'];
+		
+		$sql = $pdo->prepare("DELETE FROM runtimeinfo WHERE solution_id=?");
+		$sql->execute(array($sid));
+		
+		// $reinfo safe check?
+		$sql = $pdo->prepare("INSERT INTO runtimeinfo VALUES(?,?)");
+		$sql->execute(array($sid,$reinfo));
+		
+		exit(1);
+	}
+	
+	if(isset($_POST['updateuser'])){
+		$user_id = $_POST['user_id']; // safe check?
+		
+		$sql = $pdo->prepare("UPDATE `users` SET `solved`=(SELECT count(DISTINCT `problem_id`) FROM `solution` WHERE `user_id`=? AND `result`=4) WHERE `user_id`=?");
+		$sql->execute(array($user_id, $user_id));
+		
+		$sql = $pdo->prepare("UPDATE `users` SET `submit`=(SELECT count(*) FROM `solution` WHERE `user_id`=?) WHERE `user_id`=?");
+		$sql->execute(array($user_id,$user_id));
+		
 		exit(1);
 	}
 ?>
