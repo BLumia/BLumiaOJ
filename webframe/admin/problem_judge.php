@@ -32,6 +32,13 @@
 			'reinfo'
 		'updateuser' // Update user solved count and submit count
 			'user_id'
+		'updateproblem' // Update how many people solved this problem
+			'pid'
+		'checklogin' // What's the **** man? Always return 1 ?
+		'gettestdatalist'
+			'pid'
+		'gettestdata' 
+			'filename'
 	*/
 
 	session_start();
@@ -41,8 +48,7 @@
 	
 	// Permission check
 	if (!(isset($_SESSION['http_judge']))){
-		echo "403";
-		exit(1);
+		exit("403");
 	}
 	
 	if (isset($_POST['manual'])) {
@@ -61,10 +67,10 @@
 			$sql->execute(array($sid,$reinfo));
         }
 		echo "<script>history.go(-1);</script>";
-		exit(1); // should return now?
+		exit(0); // should return now?
 	}
 	
-	if(isset($_POST['update_solution'])) {
+	if (isset($_POST['update_solution'])) {
 		$sid = intval($_POST['sid']);
 		$result = intval($_POST['result']);
 		$time = intval($_POST['time']);
@@ -81,20 +87,20 @@
 			$sql->execute(array($sid,$simid,$sim,$simid,$sim));
 		}
 		
-		exit(1);
+		exit(0);
 	}
 	
-	if(isset($_POST['checkout'])) {
+	if (isset($_POST['checkout'])) {
 		$sid = intval($_POST['sid']);
 		$result = intval($_POST['result']);
 		$sql=$pdo->prepare("UPDATE solution SET result=?,time=0,memory=0,judgetime=NOW() WHERE solution_id=? and (result<2 or (result<4 and NOW()-judgetime>60)) LIMIT 1");
 		$affectedRowCnt = $sql->execute(array($result, $sid));
 		
 		echo ($affectedRowCnt > 0) ? "1" : "0";
-		exit(1);
+		exit(0);
 	}
 	
-	if(isset($_POST['getpending'])) {
+	if (isset($_POST['getpending'])) {
 		$max_running = intval($_POST['max_running']);
 		$oj_lang_set = $_POST['oj_lang_set'];
 		$sql=$pdo->prepare("SELECT solution_id FROM solution WHERE language in ($oj_lang_set) and (result<2 or (result<4 and NOW()-judgetime>60)) ORDER BY result ASC,solution_id ASC limit $max_running");
@@ -105,10 +111,10 @@
 			echo $row['solution_id']."\n";
 		}
 		
-		exit(1);
+		exit(0);
 	}
 	
-	if(isset($_POST['getsolutioninfo'])) {
+	if (isset($_POST['getsolutioninfo'])) {
 		$sid = intval($_POST['sid']);
 		$sql=$pdo->prepare("SELECT problem_id, user_id, language FROM solution WHERE solution_id=?");
 		$sql->execute(array($sid));
@@ -120,10 +126,10 @@
 			echo $result['language']."\n";	
 		}
 		
-		exit(1);
+		exit(0);
 	}
 	
-	if(isset($_POST['getsolution'])) {
+	if (isset($_POST['getsolution'])) {
 		$sid = intval($_POST['sid']);
 		$sql = $pdo->prepare("SELECT source FROM source_code WHERE solution_id=?");
 		$sql->execute(array($sid));
@@ -133,10 +139,10 @@
 			echo $result['source']."\n";
 		}
 		
-		exit(1);
+		exit(0);
 	}
 	
-	if(isset($_POST['getcustominput'])) {
+	if (isset($_POST['getcustominput'])) {
 		$sid = intval($_POST['sid']);
 		$sql = $pdo->prepare("SELECT input_text FROM custominput WHERE solution_id=?");
 		$sql->execute(array($sid));
@@ -146,10 +152,10 @@
 			echo $result['input_text']."\n";
 		}
 
-		exit(1);
+		exit(0);
 	}
 
-	if(isset($_POST['getprobleminfo'])) {
+	if (isset($_POST['getprobleminfo'])) {
 		$pid = intval($_POST['pid']);
 		$sql = $pdo->prepare("SELECT time_limit,memory_limit,spj FROM problem where problem_id=?");
 		$sql->execute(array($pid));
@@ -161,10 +167,10 @@
 			echo $result['spj']."\n";
 		}
 
-		exit(1);
+		exit(0);
 	}
 	
-	if(isset($_POST['addceinfo'])){
+	if (isset($_POST['addceinfo'])) {
 		$sid = intval($_POST['sid']);
 		$ceinfo = $_POST['ceinfo'];
 		
@@ -175,10 +181,10 @@
 		$sql = $pdo->prepare("INSERT INTO compileinfo VALUES(?,?)");
 		$sql->execute(array($sid,$ceinfo));
 		
-		exit(1);
+		exit(0);
 	}
 
-	if(isset($_POST['addreinfo'])){
+	if (isset($_POST['addreinfo'])) {
 		$sid = intval($_POST['sid']);
 		$reinfo = $_POST['reinfo'];
 		
@@ -189,10 +195,10 @@
 		$sql = $pdo->prepare("INSERT INTO runtimeinfo VALUES(?,?)");
 		$sql->execute(array($sid,$reinfo));
 		
-		exit(1);
+		exit(0);
 	}
 	
-	if(isset($_POST['updateuser'])){
+	if (isset($_POST['updateuser'])) {
 		$user_id = $_POST['user_id']; // safe check?
 		
 		$sql = $pdo->prepare("UPDATE `users` SET `solved`=(SELECT count(DISTINCT `problem_id`) FROM `solution` WHERE `user_id`=? AND `result`=4) WHERE `user_id`=?");
@@ -201,6 +207,46 @@
 		$sql = $pdo->prepare("UPDATE `users` SET `submit`=(SELECT count(*) FROM `solution` WHERE `user_id`=?) WHERE `user_id`=?");
 		$sql->execute(array($user_id,$user_id));
 		
-		exit(1);
+		exit(0);
+	}
+	
+	if (isset($_POST['updateproblem'])) {
+		$pid = intval($_POST['pid']);
+		
+		$sql = $pdo->prepare("UPDATE `problem` SET `accepted`=(SELECT count(1) FROM `solution` WHERE `problem_id`=? AND `result`=4) WHERE `problem_id`=?");
+		$sql->execute(array($pid, $pid));
+		
+		$sql = $pdo->prepare("UPDATE `problem` SET `submit`=(SELECT count(1) FROM `solution` WHERE `problem_id`=?) WHERE `problem_id`=?");
+		$sql->execute(array($pid,$pid));
+		
+		exit(0);
+	}
+	
+	if (isset($_POST['checklogin'])) {
+		exit("1"); // WTF ???????!!!!!!!
+	}
+	
+	if (isset($_POST['gettestdatalist'])) {
+		$pid = intval($_POST['pid']);
+		
+		// SAE support unavaliable now.
+		
+		$dir = opendir($OJ_PROBLEM_DATA."/$pid");
+		while (($file = readdir($dir)) != "") {
+		  if(!is_dir($file)){
+				$file=pathinfo($file);
+				$file=$file['basename'];
+				echo "$file\n";
+		  }
+		}
+		closedir($dir);
+		
+		exit(0);
+	}
+	
+	if (isset($_POST['gettestdata'])) {
+		$file=$_POST['filename'];
+		echo file_get_contents($OJ_PROBLEM_DATA.'/'.$file);
+		exit(0);
 	}
 ?>
