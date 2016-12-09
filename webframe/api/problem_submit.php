@@ -28,12 +28,10 @@
 	//check code length
 	$code_len=strlen($submit_src);
 	if($code_len < 2) {
-		echo "your code is tooooo short.";
-		exit(403);
+		exit("your code is tooooo short.");
 	}
 	if($code_len > 65536) {
-		echo "your code is tooooo long.";
-		exit(403);
+		exit("your code is tooooo long.");
 	}
 	
 	/*if (get_magic_quotes_gpc ()) {
@@ -79,7 +77,7 @@
 	} else {
 		$sql="SELECT `problem_id` from `problem` where `problem_id`='{$problem_id}' and problem_id not in (select distinct problem_id from contest_problem where `contest_id` IN (
 			SELECT `contest_id` FROM `contest` WHERE 
-			(`end_time`>'{$submit_time}' or private=1)and `defunct`='N'
+				(`end_time`>'{$submit_time}')and `defunct`='N'
 			))";
 		if(!isset($_SESSION['administrator']))
 			$sql.=" and defunct='N'";
@@ -91,8 +89,7 @@
 	$sql->closeCursor();
 	$existCounter = count($existChecker);
 	if ($existCounter < 1) {
-		echo "403";
-		exit(0);
+		exit("403");
 	}
 	
 	//ignore append code feature.

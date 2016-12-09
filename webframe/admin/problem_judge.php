@@ -4,16 +4,16 @@
 		HUST OJ's Judged (Judge Daemon) use this as an api to set solution judge result.
 		
 		POST:
-		'manual'
+		'manual' // Set sid solution's result, also optional explain
 			'sid','result',
 			'explain' // optional, judge result explain.
 		'update_solution'
 			'sid','result',
 			'time','memory','pass_rate',
 			'sim','simid' // optional, for sim (cheat check)
-		'checkout' // Update all unjudged sumbit as {$result} ???
+		'checkout' // [`judged` use this] Update all unjudged sumbit as {$result} ???
 			'sid','result'
-		'getpending' // Return a list of pending status solution_id, one sid per line.
+		'getpending' // [`judged` use this] Return a list of pending status solution_id, one sid per line.
 			'max_running'
 			'oj_lang_set'
 		'getsolutioninfo' // Return problem_id, user_id and language of given sid.
@@ -34,7 +34,7 @@
 			'user_id'
 		'updateproblem' // Update how many people solved this problem
 			'pid'
-		'checklogin' // What's the **** man? Always return 1 ?
+		'checklogin' // [`judged` use this] What's the **** man? Always return 1 ?
 		'gettestdatalist'
 			'pid'
 		'gettestdata' 
@@ -48,7 +48,7 @@
 	
 	// Permission check
 	if (!(isset($_SESSION['http_judge']))){
-		exit("403");
+		exit("0"); // Should return "0", used by checklogin. return a zero if don't have the rights to use this api.
 	}
 	
 	if (isset($_POST['manual'])) {
@@ -233,11 +233,11 @@
 		
 		$dir = opendir($OJ_PROBLEM_DATA."/$pid");
 		while (($file = readdir($dir)) != "") {
-		  if(!is_dir($file)){
+			if(!is_dir($file)){
 				$file=pathinfo($file);
 				$file=$file['basename'];
 				echo "$file\n";
-		  }
+			}
 		}
 		closedir($dir);
 		
