@@ -12,9 +12,8 @@
 	require_once("../include/user_check_functions.php");
 	
 	//Privilege Check
-	if (!havePrivilege("PROBLEM_EDITOR")) { // TODO: is that okay?
-		echo "403";
-		exit(403);
+	if (!havePrivilege("PROBLEM_EDITOR")) { 
+		exit("403");
 	}
 	
 	//Prepares

@@ -32,6 +32,7 @@
 	const L_CONTEST_NOT_AUTH	= "您没有权限参加该竞赛";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "提交中..";
+	const L_JUDGE_PR = "等待判题";
 	const L_JUDGE_CI = "编译中..";
 	const L_JUDGE_RG = "判题中..";
 	const L_JUDGE_AC = "答案正确";

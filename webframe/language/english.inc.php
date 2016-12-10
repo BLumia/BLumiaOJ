@@ -32,6 +32,7 @@
 	const L_CONTEST_NOT_AUTH	= "You need permission to join this contest";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "Pending..";
+	const L_JUDGE_PR = "Wait for Judge";
 	const L_JUDGE_CI = "Compiling..";
 	const L_JUDGE_RG = "Running & Judging";
 	const L_JUDGE_AC = "Accepted";
