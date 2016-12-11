@@ -12,7 +12,7 @@
 	require_once("../include/user_check_functions.php");
 	
 	//Privilege Check
-	if (!havePrivilege("PROBLEM_EDITOR")) { 
+	if (!havePrivilege("ANUBIS")) { 
 		exit("403");
 	}
 	

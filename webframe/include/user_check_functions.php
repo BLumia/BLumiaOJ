@@ -21,6 +21,9 @@
 				return (isset($_SESSION['administrator'])||isset($_SESSION['op_PageModifier'])); break;
 			case "SOURCE_VIEWER":
 				return (isset($_SESSION['administrator'])||isset($_SESSION['op_SourceViewer'])); break;
+			case "JUDGER":
+			case "ANUBIS":
+				return (isset($_SESSION['administrator'])||isset($_SESSION['op_Judger'])||isset($_SESSION['http_judge'])); break;
 		}
 		
 		return false;
@@ -28,7 +31,7 @@
 	}
 
 	function isOperator() {
-		if (isset($_SESSION['administrator']) || isset($_SESSION['op_ProblemEditor']) || isset($_SESSION['op_ContestEditor']) || isset($_SESSION['op_PageModifier']) || isset($_SESSION['op_UserManager'])) {
+		if (isset($_SESSION['administrator']) || isset($_SESSION['op_ProblemEditor']) || isset($_SESSION['op_ContestEditor']) || isset($_SESSION['op_PageModifier']) || isset($_SESSION['op_UserManager']) || isset($_SESSION['op_Judger'])) {
 			return true;
 		} else {
 			if (isset($_SESSION['http_judge'])) return true;//暂留
