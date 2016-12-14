@@ -2,7 +2,7 @@
 #OJ Install Script for Debian 8
 
 #Configure variables
-WWW_PATH=/var/www/
+WWW_PATH=/var/www/html/
 JUDGER_USER=judge
 HTTPD_USER=www-data
 DB_USER=root
@@ -30,4 +30,14 @@ sudo chmod -R 771 $WWW_PATH/OnlineJudge/
 sudo chown -R $HTTPD_USER $WWW_PATH/OnlineJudge/
 sudo mysql -h localhost -u$DB_USER -p$DB_PASSWORD < BLumiaOJ/utils/sql_runner/db.sql
 
-
+#Creating folder for Judger
+sudo mkdir /home/$JUDEGR_USER/etc
+sudo mkdir /home/$JUDEGR_USER/data
+sudo mkdir /home/$JUDEGR_USER/log
+sudo mkdir /home/$JUDEGR_USER/run0
+sudo mkdir /home/$JUDEGR_USER/run1
+sudo mkdir /home/$JUDEGR_USER/run2
+sudo mkdir /home/$JUDEGR_USER/run3
+cd hustoj/beta/install/
+sudo cp java0.policy judge.conf /home/$JUDEGR_USER/etc
+sudo chown -R $JUDEGR_USER /home/$JUDEGR_USER
