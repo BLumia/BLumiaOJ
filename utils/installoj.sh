@@ -38,6 +38,20 @@ sudo mkdir /home/$JUDEGR_USER/run0
 sudo mkdir /home/$JUDEGR_USER/run1
 sudo mkdir /home/$JUDEGR_USER/run2
 sudo mkdir /home/$JUDEGR_USER/run3
+
+#Copying data for judger
 cd hustoj/beta/install/
 sudo cp java0.policy judge.conf /home/$JUDEGR_USER/etc
+
+#Ownership with judger and httpd user
 sudo chown -R $JUDEGR_USER /home/$JUDEGR_USER
+sudo chgrp -R $HTTPD_USER /home/$JUDEGR_USER/data
+sudo chgrp -R root /home/$JUDEGR_USER/etc /home/$JUDEGR_USER/run?
+sudo chmod 775 /home/$JUDEGR_USER /home/$JUDEGR_USER/data /home/$JUDEGR_USER/etc /home/$JUDEGR_USER/run?
+
+#Make judge daemon run at boot up
+sudo cp judged /etc/init.d/judged
+sudo chmod +x /etc/init.d/judged
+sudo ln -s /etc/init.d/judged /etc/rc3.d/S93judged
+sudo ln -s /etc/init.d/judged /etc/rc2.d/S93judged
+sudo /etc/init.d/judged start
