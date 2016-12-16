@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	$_SESSION['http_judge'] = true;
+	// $_SESSION['http_judge'] = true; // uncomment this if you wanna use for quick test
 ?>
 <h2>Manual rejugde.</h2>
 <form action='./admin/problem_judge.php' method="post">

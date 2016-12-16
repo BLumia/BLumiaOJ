@@ -114,8 +114,7 @@
 		$sql->execute(array($contest_id,$problem_in_contest_id));
 		$existChecker = $sql->fetch(PDO::FETCH_ASSOC);
 		if (count($existChecker)!=1) {
-			echo "403";
-			exit(0);
+			exit("403");
 		} else {
 			$problem_id = $existChecker["problem_id"];
 		}
@@ -141,13 +140,12 @@
 	
 	// redirect to 
 	if ($contest_id) {
-		//TODO: Currectly this to the right url location.
-		$statusURI=strstr($_SERVER['REQUEST_URI'],"api",true)."status.php";
+		$statusURI=strstr($_SERVER['REQUEST_URI'],"api",true)."contest_status.php?top={$submit_id}";
 	} else {
-		$toUrl = $statusURI=strstr($_SERVER['REQUEST_URI'],"api",true)."status.php";
+		$toUrl = $statusURI=strstr($_SERVER['REQUEST_URI'],"api",true)."status.php?top={$submit_id}";
 	}
 	
-	//header("Location: {$statusURI}");
+	header("Location: {$statusURI}");
 	echo $submit_id."(solution id) submit successful";
 	exit(0);
 	

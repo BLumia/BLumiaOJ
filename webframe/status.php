@@ -1,3 +1,17 @@
+<?php
+	/*
+		This page accept provide normal judge status display.
+		Contest judge status please see `contest_status.php`
+		
+		GET:
+		'p' (default value 1) // Page number.
+		'top' // The top `solution_id` of the result will be the value of 'top'
+		'pid' // All status of the given problem.
+		'uid' // All status of the given user.
+		'language' // Language filter
+		'judgeresult' // Judge result filter
+	*/
+?>
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html>

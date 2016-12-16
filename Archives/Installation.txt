@@ -30,4 +30,11 @@ Installation Guide
 
 ## 判题模块
 
-暂留
+### 判题模块配置问题排查
+
+ - 用户提交问题后无限显示提交中：  
+判题进程未在运行或配置有误。检查 /home/judge/etc/judge.conf
+ - 用户提交问题后无限显示判题中：  
+检查题目是否有对应数据。
+ - 变更配置文件后依旧出错：  
+需要重启judge服务应用配置文件变更，方法 `sudo pkill -9 judged` 后 `sudo /etc/init.d/judged` ，或者 `/etc/init.d/judged restart`
