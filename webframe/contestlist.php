@@ -69,6 +69,8 @@
 			$row['private'] = "<span class='label label-danger'>".L_Private."</span>";
 	}
 	
+	unset($row); // avoid last row overwritten.
+	
 	//Page Includes
 	require("./pages/contestlist.php");
 ?>
