@@ -75,7 +75,7 @@
 		exit(0);
 	}
 	
-	if ($start_time>time()){
+	if ($start_time>time()) {
 		$view_errors= "Contest Not Start!";
 		exit(0);
 	}
@@ -86,7 +86,7 @@
 	$sql=$pdo->prepare("SELECT count(1) AS probCnt FROM `contest_problem` WHERE `contest_id`=?");
 	$sql->execute(array($cid));
 	$problemItem=$sql->fetch(PDO::FETCH_ASSOC);//必须写PDO::FETCH_ASSOC，否则默认值影响count
-	$problemCount=count($problemItem);
+	$problemCount=$problemItem['probCnt'];
 	
 	$sql=$pdo->prepare("SELECT users.user_id,users.nick,solution.result,solution.num,solution.in_date 
 	FROM (
