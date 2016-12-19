@@ -2,16 +2,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<?php 
-			require_once('./include/common_head.inc.php'); 
-			require_once('./include/common_functions.inc.php'); 
-		?>
+		<?php require_once('./include/common_head.inc.php'); ?>
 		<title>Problem Set</title>
 	</head>	
 	
 <?php
 	//Vars
 	require_once('./include/setting_oj.inc.php');
+	require_once('./include/common_functions.inc.php'); 
+	require_once('./include/user_check_functions.php');
 	
 	//Prepare
 	$p=isset($_GET['p']) ? $_GET['p'] : 1;
@@ -19,10 +18,11 @@
 	$front=intval(($p-1)*$PAGE_ITEMS) + 1000;
 	$tail =$front + $PAGE_ITEMS;
 	$curTime=strftime("%Y-%m-%d %H:%M",time());
-	$isProblemManager = isset($_SESSION['administrator']);
+	$isProblemManager = havePrivilege("PROBLEM_EDITOR");
 	
 	//Problem Count
-	$sql=$pdo->prepare("SELECT COUNT(*) AS count FROM problem WHERE `defunct`!='Y'");
+	$append = $isProblemManager ? "" : "WHERE `defunct`!='Y'";
+	$sql=$pdo->prepare("SELECT COUNT(*) AS count FROM problem".$append);
 	$sql->execute();
 	$totalProblemCnt=$sql->fetch(PDO::FETCH_ASSOC);
 	//var_dump($totalProblem);
