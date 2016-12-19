@@ -20,13 +20,15 @@
 	$curTime=strftime("%Y-%m-%d %H:%M",time());
 	$isProblemManager = havePrivilege("PROBLEM_EDITOR");
 	
-	//Problem Count
-	$append = $isProblemManager ? "" : "WHERE `defunct`!='Y'";
-	$sql=$pdo->prepare("SELECT COUNT(*) AS count FROM problem".$append);
+	$sql=$pdo->prepare("SELECT max(`problem_id`) as upid FROM `problem`");
 	$sql->execute();
-	$totalProblemCnt=$sql->fetch(PDO::FETCH_ASSOC);
-	//var_dump($totalProblem);
-	$totalCount=intval($totalProblemCnt['count']);
+	$maxProbID=$sql->fetch(PDO::FETCH_ASSOC);
+	$maxProbID=intval($maxProbID['upid']);
+	$minProbID=1000;
+	
+	$pstart = $minProbID + ($curPageNum-1)*$PAGE_ITEMS;
+	$pend = $pstart + $PAGE_ITEMS;
+	$pageCnt = ($maxProbID - $minProbID) / $PAGE_ITEMS + 1;
 	
 	//Challenged Problems
 	if(isset($_SESSION['user_id'])) {

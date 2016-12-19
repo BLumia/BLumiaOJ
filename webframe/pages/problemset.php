@@ -6,9 +6,9 @@
 				<div class="col-md-6 col-xs-12">
 					<div class="btn-group" role="group" id="oj-ps-pager">
 						<?php
-							for($totnum = 1,$pagenum = 1;$totnum<=$totalCount;$totnum+=$PAGE_ITEMS,$pagenum++) {
-								$btnClass = ($pagenum == $p) ? "btn-primary" : "btn-default";
-								echo "<a type='button' class='btn {$btnClass}' href='problemset.php?p={$pagenum}'>{$pagenum}</a>";
+							for($i=1;$i<=$pageCnt;$i++) {
+								$pageNavBtnClass = ($i == $p) ? "btn-primary" : "btn-default";
+								echo "<a type='button' class='btn {$pageNavBtnClass}' href='problemset.php?p={$i}'>{$i}</a>";
 							}
 						?>
 					</div>

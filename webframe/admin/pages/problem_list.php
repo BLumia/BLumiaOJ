@@ -11,11 +11,9 @@
 			<ul class="pagination">
 			<?php
 				for($i=1;$i<=$pageCnt;$i++) {
-					if ($i==$curPageNum) $pageNavBtnClass = "class='active'";
-					else $pageNavBtnClass = "";
+					$pageNavBtnClass = ($i==$curPageNum) ? "class='active'" : "";
 					echo "<li {$pageNavBtnClass}><a href='?p={$i}'>{$i}</a></li>";
 				}
-				
 			?>
 			</ul>
 		</nav>
