@@ -26,7 +26,7 @@
 	$maxProbID=intval($maxProbID['upid']);
 	$minProbID=1000;
 	
-	$pstart = $minProbID + ($curPageNum-1)*$PAGE_ITEMS;
+	$pstart = $minProbID + ($p-1)*$PAGE_ITEMS;
 	$pend = $pstart + $PAGE_ITEMS;
 	$pageCnt = ($maxProbID - $minProbID) / $PAGE_ITEMS + 1;
 	

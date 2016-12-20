@@ -44,6 +44,7 @@
 					</div>
 				</form>
 			</div>
+			<!--
 			<br/>
 			<div class="row">
 				<div class="col-md-6">
@@ -57,6 +58,7 @@
 					</textarea>
 				</div>
 			</div>
+			-->
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
 		

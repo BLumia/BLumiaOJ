@@ -54,7 +54,21 @@ tr > td.result:hover {
 	$cid=intval($_GET['cid']);
 	
 	// TODO: 时间范围
-	
+
+	// Problem ID match
+	$sql=$pdo->prepare("
+			SELECT `problem`.`problem_id` AS `pid`,`contest_problem`.`num` AS `pnum`
+			FROM `contest_problem`,`problem`
+			WHERE `contest_problem`.`problem_id`=`problem`.`problem_id` 
+			AND `contest_problem`.`contest_id`=? ORDER BY `contest_problem`.`num` 
+	");
+	$sql->execute(array($cid));
+	$problemList=$sql->fetchAll(PDO::FETCH_ASSOC);
+	//var_dump($problemList);
+	foreach($problemList as $oneProblem) {
+		$problemIDPair[$oneProblem['pid']] = $oneProblem['pnum'];
+	}
+
 	//SQL Basic
 	if(havePrivilege("SOURCE_VIEWER")||(isset($_SESSION['user_id'])&&isset($_GET['user_id'])&&$_GET['user_id']==$_SESSION['user_id'])){
 		if ($_SESSION['user_id']!="guest") $sql_str="SELECT * FROM `solution` WHERE `contest_id`='{$cid}' ";
@@ -73,11 +87,8 @@ tr > td.result:hover {
 	$problem_id="";
 	if (isset($_GET['pid'])&&$_GET['pid']!="") {
 		$problem_id=intval($_GET['pid']);
-        if ($problem_id!=0) {
-			$sql_str=$sql_str."AND `problem_id`='".$problem_id."' ";
-		} else {
-			$problem_id="";
-		}
+		$sql_str=$sql_str."AND `problem_id`=(SELECT `problem_id` FROM `contest_problem` WHERE `contest_id`={$cid} AND `num`={$problem_id})";
+		$problem_id = $ALPHABET_N_NUM[$problem_id];
 	}
 	
 	//Check UserID("uid") arg

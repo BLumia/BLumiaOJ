@@ -72,7 +72,7 @@
 											echo "<i style='color: green;' class='fa fa-check'></i>";
 											break;
 										default:
-											echo "<i style='color: yellow;' class='fa fa-dot-circle-o'></i>";
+											echo "<i style='color: orange;' class='fa fa-dot-circle-o'></i>";
 											break;
 										}
 									}

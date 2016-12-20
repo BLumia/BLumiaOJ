@@ -15,7 +15,7 @@
 					<form method="get" class="form-inline text-right">
 						<div class="form-group">
 							<input name="pid" value="<?php echo $problem_id;?>" type="text" class="form-control" placeholder="题目编号">
-							<input name="uid" type="text" class="form-control" placeholder="用户名">
+							<input name="uid" value="<?php echo $user_id;?>" type="text" class="form-control" placeholder="用户名">
 							<select name="language" class="form-control">
 								<option value="-1">==语言==</option>
 								<?php
@@ -63,11 +63,12 @@
 						<?php 
 						foreach($statusResult as $row) { 
 							$codeUrl = "<a href='./source_view.php?id={$row['solution_id']}'>{$LANGUAGE_NAME[$row['language']]}</a>"; // TODO: can i see this code?
+							$problemNum = intval($problemIDPair[$row['problem_id']]);
 						?>
 							<tr class="<?php echo $JUDGE_ROW_CSS_CLASS[$row['result']]; ?>">
 								<td><?php echo $row['solution_id']; ?></td>
 								<td><?php echo "<a href='./userinfo.php?uid={$row['user_id']}'>{$row['user_id']}</a>"; ?></td>
-								<td><?php echo $row['problem_id']; ?></td>
+								<td><?php echo "<a href='./contest_problem.php?cid={$cid}&pid={$problemNum}'>{$ALPHABET_N_NUM[$problemNum]}</a>"; ?></td>
 								<td class="result">
 								<?php 
 								echo "<span class='label label-{$JUDGE_ROW_CSS_CLASS[$row['result']]}'>{$JUDGE_RESULT[$row['result']]}</span>"; 

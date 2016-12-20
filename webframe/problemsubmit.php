@@ -7,6 +7,13 @@
 		<script src="./sitefiles/codemirror/codemirror.js"></script>
 		<script src="./sitefiles/codemirror/mode/javascript/javascript.js"></script>
 		<title>BLumiaOJ</title>
+		<style>
+.CodeMirror {
+	border-style: solid;
+	border-width: 2px;
+	border-color: rgba(76, 5, 247, 0.3);
+}
+		</style>
 	</head>	
 	
 <?php

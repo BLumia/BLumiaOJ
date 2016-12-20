@@ -13,7 +13,7 @@
 					<form method="get" class="form-inline text-right">
 						<div class="form-group">
 							<input name="pid" value="<?php echo $problem_id;?>" type="text" class="form-control" placeholder="题目编号">
-							<input name="uid" type="text" class="form-control" placeholder="用户名">
+							<input name="uid" value="<?php echo $user_id;?>" type="text" class="form-control" placeholder="用户名">
 							<select name="language" class="form-control">
 								<option value="-1">==语言==</option>
 								<?php
@@ -74,8 +74,8 @@
 						?>
 							<tr class="<?php echo $JUDGE_ROW_CSS_CLASS[$row['result']]; ?>">
 								<td><?php echo $row['solution_id']; ?></td>
-								<td><?php echo "<a href='./userinfo.php?uid={$row['user_id']}'>{$row['user_id']}</a>"; ?></td>
-								<td><?php echo $row['problem_id']; ?></td>
+								<td><?php echo "<a href='./userinfo.php?uid={$row['user_id']}'>{$row['user_id']}</a>";?></td>
+								<td><?php echo "<a href='./problem.php?pid={$row['problem_id']}'>{$row['problem_id']}</a>";?></td>
 								<td class="result"><?php echo $resUrl; ?></td>
 								<td><?php echo $row['memory']; ?></td>
 								<td><?php echo $row['time']; ?></td>

@@ -29,21 +29,22 @@
 					</thead>
 					<tbody>
 					<?php for($i=0;$i<$problemCount;$i++) { //problem list ------------ ?>
-						<tr>
-							<?php 
-								$problemList[$i]['submit'] = $problemList[$i]['submit'] == NULL ? 0 : $problemList[$i]['submit'];
-								$problemList[$i]['accepted'] = $problemList[$i]['accepted'] == NULL ? 0 : $problemList[$i]['accepted'];
-								if ($problemList[$i]['submit'] == 0) {
-									$pctText = "Unavalible";
-									$procBarNum = 0;
-									$pctNum = 0;
-								} else {
-									$pctNum = ($problemList[$i]['accepted']/$problemList[$i]['submit'])*100;
-									$procBarNum = (1-($problemList[$i]['accepted']/$problemList[$i]['submit']))*100;
-									$pctText = sprintf("%.2f%%",$pctNum);
-								}
-							?>
-							<td></td>
+					<?php 
+							$problemList[$i]['submit'] = $problemList[$i]['submit'] == NULL ? 0 : $problemList[$i]['submit'];
+							$problemList[$i]['accepted'] = $problemList[$i]['accepted'] == NULL ? 0 : $problemList[$i]['accepted'];
+							if ($problemList[$i]['submit'] == 0) {
+								$pctText = "Unavalible";
+								$procBarNum = 0;
+								$pctNum = 0;
+							} else {
+								$pctNum = ($problemList[$i]['accepted']/$problemList[$i]['submit'])*100;
+								$procBarNum = (1-($problemList[$i]['accepted']/$problemList[$i]['submit']))*100;
+								$pctText = sprintf("%.2f%%",$pctNum);
+							}
+							$solved = (isset($acceptedPair[$problemList[$i]['pid']])) ? true :false;
+						?>
+						<tr <?php if ($solved) echo "class='success'";?>>
+							<td><?php if($solved) echo $acceptedPair[$problemList[$i]['pid']];?></td>
 							<td><?php echo $ALPHABET_N_NUM[$i];?></td>
 							<td>
 								<a href="contest_problem.php?cid=<?php echo $cid;?>&pid=<?php echo $i;?>"><?php echo $problemList[$i]['title'];?></a>

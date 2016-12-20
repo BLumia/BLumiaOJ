@@ -111,7 +111,7 @@
 			$playerArr[$user_cnt]->nick=$onePlayer['nick'];
 			$user_name=$n_user;
         }
-		if(time()<$end_time&&$lock<strtotime($onePlayer['in_date']))
+		if(time()<$end_time&&$lock_time<strtotime($onePlayer['in_date']))
 			$playerArr[$user_cnt]->Add($onePlayer['num'],strtotime($onePlayer['in_date'])-$start_time,0);
 		else
 			$playerArr[$user_cnt]->Add($onePlayer['num'],strtotime($onePlayer['in_date'])-$start_time,intval($onePlayer['result']));

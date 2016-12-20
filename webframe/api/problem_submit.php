@@ -75,12 +75,15 @@
 		$sql="SELECT `problem_id` from `contest_problem` 
 				where `num`='{$problem_id}' and contest_id={$contest_id}";
 	} else {
-		$sql="SELECT `problem_id` from `problem` where `problem_id`='{$problem_id}' and problem_id not in (select distinct problem_id from contest_problem where `contest_id` IN (
-			SELECT `contest_id` FROM `contest` WHERE 
-				(`end_time`>'{$submit_time}')and `defunct`='N'
-			))";
-		if(!isset($_SESSION['administrator']))
-			$sql.=" and defunct='N'";
+		if(isset($_SESSION['administrator'])) {
+			$sql="SELECT `problem_id` FROM `problem` WHERE `problem_id`='{$problem_id}'";
+		} else {
+			$sql="SELECT `problem_id` FROM `problem` WHERE `problem_id`='{$problem_id}' AND problem_id not IN (
+					SELECT DISTINCT problem_id FROM contest_problem WHERE `contest_id` IN (
+						SELECT `contest_id` FROM `contest` WHERE (`end_time`>'{$submit_time}') AND `defunct`='N'
+					)
+				) AND defunct='N'";
+		}
 	}
 	
 	$sql=$pdo->prepare($sql);
@@ -89,7 +92,7 @@
 	$sql->closeCursor();
 	$existCounter = count($existChecker);
 	if ($existCounter < 1) {
-		exit("403");
+		exit("403 Problem not exist");
 	}
 	
 	//ignore append code feature.
@@ -140,7 +143,7 @@
 	
 	// redirect to 
 	if ($contest_id) {
-		$statusURI=strstr($_SERVER['REQUEST_URI'],"api",true)."contest_status.php?top={$submit_id}";
+		$statusURI=strstr($_SERVER['REQUEST_URI'],"api",true)."contest_status.php?top={$submit_id}&cid={$contest_id}";
 	} else {
 		$toUrl = $statusURI=strstr($_SERVER['REQUEST_URI'],"api",true)."status.php?top={$submit_id}";
 	}

@@ -4,16 +4,10 @@
 		<div class="container">
 			<?php require("./pages/components/contest_heading.php");?>
 			<div class="row">
-				<div class="col-md-12 text-center">
-					<div class="btn-group" role="group" aria-label="...">
-						<button type="button" class="btn btn-default">1</button>
-						<button type="button" class="btn btn-default">2</button>
-						<button type="button" class="btn btn-default">3</button>
-					</div>
-				</div>
-			</div><!-- /.row -->
-			<div class="row">
 				<div class="col-md-12">
+					<?php if(time()<$end_time && time()>$lock_time) { ?>
+						<br/><div class="alert alert-info" role="alert"><i class="fa fa-lock" aria-hidden="true"></i> Rank list Locked, time is running out! Good lock!</div>
+					<?php } ?>
 					<table class="table table-striped table-hover" id="tableID">
 						<thead>
 							<tr>
@@ -55,7 +49,7 @@
 								<td>
 								<?php 
 									//Solved
-									echo "<a href='status.php?user_id=$cur_name&cid=$cid'>$cur_solved</a>";
+									echo "<a href='status.php?uid=$cur_name&cid=$cid'>$cur_solved</a>";
 								?>
 								</td>
 								<td>
