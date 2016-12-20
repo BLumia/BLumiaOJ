@@ -8,16 +8,9 @@
 	$contestUsePassword = ($contestItem['password'] == '') ? false : true;
 	
 	// m{cid}: contest modifier, c{cid}: contest user.
-	if (havePrivilege("CONTEST_EDITOR") || isset($_SESSION["m{$cid}"]) || isset($_SESSION["c{$cid}"])) $contestAuthResult = true;
+	if (time()>strtotime($contestItem['end_time'])) $contestAuthResult = true;
 	else {
-		// Password check
-		/* Already set permission at contest.php, no need for check again.
-		if ($contestUsePassword && isset($_SESSION['pass{$cid}'])) {
-			if($contestItem['password'] == $_SESSION['pass{$cid}']) {
-				$contestAuthResult = true;
-			}
-		}
-		*/
+		if (havePrivilege("CONTEST_EDITOR") || isset($_SESSION["m{$cid}"]) || isset($_SESSION["c{$cid}"])) $contestAuthResult = true;
 	}
 ?>
 <div id="contestHeading" class="text-center">
