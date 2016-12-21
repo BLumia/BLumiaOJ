@@ -21,9 +21,11 @@
 	require_once('./include/setting_oj.inc.php');
 	require_once('./include/common_const.inc.php');
 	//Prepares
+	if (!isset($_SESSION['user_id']) {
+		exit("403 Please Login First");
+	}
 	if (!isset($_GET['pid'])) {
-		echo "No Problem ID";
-		exit(0);
+		exit("403 No Problem ID");
 	}
 	$problem_id = intval($_GET['pid']);
 	$contest_id = isset($_GET['cid']) ? intval($_GET['cid']) : false;

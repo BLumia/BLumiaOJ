@@ -3,6 +3,7 @@
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
 	require_once("../include/file_functions.php");
+	require_once("../include/user_check_functions.php");
     
 	if (!isset($_GET['pid'])) {
 		echo "Not Got an Problem Id";
@@ -53,6 +54,7 @@
 		$sql=$pdo->prepare("UPDATE `problem` set `defunct`=? WHERE `problem_id`=?");
 		$sql->execute(array($problem_defunct,$problem_id));
 		echo "Problem State Modified Successful";
+		header("Location: {$_SERVER['HTTP_REFERER']}");
 		
 	} else {
 		echo "Problem NOT Exist!";

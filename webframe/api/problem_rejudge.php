@@ -12,6 +12,7 @@
 	if (isset($_POST['rjsid'])) {
 		// Rejudge one solution
 		$rjsid = intval($_POST['rjsid']);
+		if ($rjsid == 0) exit("Error: Solution ID not valid.");
 		
 		$sql=$pdo->prepare("UPDATE `solution` SET `result`=1 WHERE `solution_id`=?");
 		$sql->execute(array($rjsid));
@@ -26,6 +27,7 @@
 	if (isset($_POST['rjpid'])) {
 		// Rejudge one problem
 		$rjpid = intval($_POST['rjpid']);
+		if ($rjpid == 0) exit("Error: Problem ID not valid.");
 		
 		$sql=$pdo->prepare("UPDATE `solution` SET `result`=1 WHERE `problem_id`=?");
 		$sql->execute(array($rjpid));

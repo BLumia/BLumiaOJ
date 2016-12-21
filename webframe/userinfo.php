@@ -22,13 +22,12 @@
 		
 		$sql=$pdo->prepare("select * from users where user_id=?");
 		$sql->execute(array($user_id));
-		$res=$sql->fetch();
+		$res=$sql->fetch(PDO::FETCH_ASSOC);
 		//var_dump($res);
 		$sql->closeCursor();
 		
 		if($res == false) {
-			echo "403";
-			exit(0);
+			exit("403");
 		}
 		
 		$user_name = $res['nick'];
@@ -37,7 +36,7 @@
 		
 	} else {
 		//退出
-		exit(0);
+		exit("403 Please Login First");
 	}
 	
 	// count solved
@@ -56,7 +55,7 @@
 	$sql->closeCursor();
 	
 	// count other
-	$sql=$pdo->prepare("SELECT result,count(1) FROM solution WHERE `user_id`=? AND result>=4 group by result order by result");
+	$sql=$pdo->prepare("SELECT result,count(1) FROM solution WHERE `user_id`=? AND result>=4 GROUP BY result ORDER BY result");
 	$sql->execute(array($user_id));
 	$res=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$sql->closeCursor();
