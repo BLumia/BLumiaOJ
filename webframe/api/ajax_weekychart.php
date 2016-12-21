@@ -15,7 +15,7 @@
 	$sql->execute();
 	$weekyResult=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$tableResult = null;
-	/*
+	
 	foreach($weekyResult as $row) {
 		$submit_time = $row['submit_time'];
 		$tableResult[$submit_time]['date'] = $submit_time;
@@ -27,6 +27,6 @@
 		}
 		$tableResult[$submit_time][$row['result']] = $row['COUNT(*)'];
 	}
-	*/
-	echo json_encode($weekyResult);
+	
+	echo json_encode($tableResult);
 ?>
