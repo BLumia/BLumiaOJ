@@ -78,7 +78,7 @@
 			},
 			tooltip: {
 				shared: true,
-				valueSuffix: ' millions' 
+				valueSuffix: ' Submits' 
 			},
 			plotOptions: {
 				area: {

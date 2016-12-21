@@ -15,13 +15,12 @@
 	
 	//Prepares
 	$pid=isset($_GET['pid']) ? intval($_GET['pid']) : 0;
-	$gpid=isset($_GET['gpid']) ? intval($_GET['gpid']) : 0;
-	if ($gpid==0 && $pid==0) {
+	
+	if ($pid==0) {
 		echo "No such problem";
 		exit(0);
 	}
 	
-	//TODO: Grobal Problem ID
 	$sql=$pdo->prepare("select * from problem where problem_id = ?");
 	$sql->execute(array($pid));
 	$problemItem=$sql->fetch(PDO::FETCH_ASSOC);

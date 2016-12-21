@@ -1,17 +1,10 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('./include/common_head.inc.php'); ?>
-		<script src="./sitefiles/js/highcharts.js"></script>
-		<title>BLumiaOJ</title>
-	</head>	
-	
 <?php
-	//Vars
-	require_once('./include/setting_oj.inc.php');
-	//Prepares
+	session_start();
 	
+	$ON_ADMIN_PAGE="Yap";
+	require_once("../include/setting_oj.inc.php");
+	
+	//Prepare
 	$sql=$pdo->prepare(
 		"SELECT COUNT(*) , COUNT(1) , DATE(in_date) submit_time , result
 		FROM solution
@@ -22,6 +15,7 @@
 	$sql->execute();
 	$weekyResult=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$tableResult = null;
+	/*
 	foreach($weekyResult as $row) {
 		$submit_time = $row['submit_time'];
 		$tableResult[$submit_time]['date'] = $submit_time;
@@ -33,11 +27,6 @@
 		}
 		$tableResult[$submit_time][$row['result']] = $row['COUNT(*)'];
 	}
-	
-	//var_dump($tableResult);
-	
-	//Page Includes
-	require("./pages/index.php");
+	*/
+	echo json_encode($weekyResult);
 ?>
-	
-</html>
