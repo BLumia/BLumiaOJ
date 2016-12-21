@@ -21,7 +21,7 @@
 	require_once('./include/setting_oj.inc.php');
 	require_once('./include/common_const.inc.php');
 	//Prepares
-	if (!isset($_SESSION['user_id']) {
+	if (!isset($_SESSION['user_id'])) {
 		exit("403 Please Login First");
 	}
 	if (!isset($_GET['pid'])) {
