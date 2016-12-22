@@ -15,20 +15,27 @@
 	$sql->execute();
 	$weekyResult=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$tableResult = null;
+	$returnResult = null;
+	$weekIdx = null; //$weekIdx['Y-m-d'] = index;
 	
-	$tableResult['today'] = date('Y-m-d',time());
-	
-	foreach($weekyResult as $row) {
-		$submit_time = $row['submit_time'];
-		$tableResult[$submit_time]['date'] = $submit_time;
-		if(!isset($tableResult[$submit_time]['4'])) $tableResult[$submit_time]['4'] = 0;
-		if(!isset($tableResult[$submit_time]['6'])) $tableResult[$submit_time]['6'] = 0;
-		if(!isset($tableResult[$submit_time]['count'])) $tableResult[$submit_time]['count'] = $row['COUNT(*)'];
-		else {
-			$tableResult[$submit_time]['count'] += $row['COUNT(*)'];
-		}
-		$tableResult[$submit_time][$row['result']] = $row['COUNT(*)'];
+	for($i=-6;$i<=0;$i++) {
+		$idx = $i + 6; // 0~6
+		$day = date('Y-m-d',strtotime("{$i} day"));
+		$weekIdx[$day] = $idx;
+		$tableResult[$i+6]['date'] = date('Y-m-d',strtotime("{$i} day"));
+		$tableResult[$i+6]['4'] = 0;
+		$tableResult[$i+6]['6'] = 0;
+		$tableResult[$i+6]['count'] = 0;
 	}
 	
-	echo json_encode($tableResult);
+	foreach($weekyResult as $row) {
+		$idx = $weekIdx[$row['submit_time']];
+		$tableResult[$idx]['count'] += intval($row['COUNT(*)']);
+		$tableResult[$idx][$row['result']] = intval($row['COUNT(*)']);
+	}
+	
+	$returnResult['today'] = date('Y-m-d',time());
+	$returnResult['data'] = $tableResult;
+	
+	echo json_encode($returnResult);
 ?>

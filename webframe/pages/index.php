@@ -60,19 +60,24 @@
 	
 	loadnews(5);
 	
-	$(function () {
-		$('#chart').highcharts({
-			chart: { height: 300, type: 'area' },
+	$(function(){
+		var Accepted = [];
+		var WrongAnswer = [];
+		var Other = [];
+		var DataText = [];
+		var chart = new Highcharts.Chart({
+			chart: { height: 300, renderTo: 'chart', type: 'area' },
 			title: { text: 'Recently Submit and Accept count' },
 			xAxis: {
-				categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Naive', 'Excited'],
+				categories: [],
 				tickmarkPlacement: 'on', title: { enabled: false } 
 			},
 			yAxis: {
 				title: { text: 'Submit Count' },
+				allowDecimals: false,
 				labels: { 
 					formatter: function() {
-						return this.value / 100; 
+						return this.value; 
 					} 
 				} 
 			},
@@ -90,14 +95,45 @@
 					} 
 				} 
 			},
-			series: [
-				{ name: 'Accepted', data: [106, 107, 111, 133, 221, 767, 1766] },
-				{ name: 'Wrong Answer', data: [163, 203, 276, 408, 547, 729, 628] },
-				{ name: 'Compile Error', data: [18, 31, 54, 156, 339, 818, 1201] },
-				{ name: 'Other Error', data: [2, 2, 2, 6, 13, 30, 46] }
-			]
-		}); 
+			series: []
+		});
+		$.ajax({
+			type:'get',
+			url:'./api/ajax_weekychart.php',
+			success:function(data){
+				var json = eval("("+data+")");
+				json = json['data'];
+
+				for(var key in json){
+					Accepted.push(json[key][4]);
+					WrongAnswer.push(json[key][6]);
+					Other.push(json[key]['count'] - json[key][4] - json[key][6])
+					DataText.push(json[key]['date'])
+				}
+				chart.xAxis[0].setCategories(DataText);
+				chart.addSeries({                       
+					name: "Accepted",
+					color: "#7fff00",
+					data: Accepted
+				},false);
+				chart.addSeries({                       
+					name: "Wrong Answer",
+					color: "#ff5151",
+					data: WrongAnswer
+				},false);
+				chart.addSeries({                       
+					name: "Other Status",
+					color: "#d0d0d0",
+					data: Other
+				},false);
+				chart.redraw();
+			},
+			error:function(e){
+				chart.setTitle({ text: 'Error::Load data failed.' });
+			} 
+		});
 	});
+
 	</script>
 		
 	</body>
