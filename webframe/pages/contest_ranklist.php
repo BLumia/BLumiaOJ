@@ -41,15 +41,15 @@
 								<td>
 								<?php
 									//Nick & Name
-									echo "<a name=\"$cur_nick\" href='userinfo.php?user=$cur_nick'>$cur_name</a>";
+									echo "<a name=\"$cur_nick\" href='userinfo.php?uid={$cur_nick}'>{$cur_name}</a>";
 									echo "</td><td>";
-									echo "<a name=\"$cur_nick\" href='userinfo.php?user=$cur_nick'>$cur_nick</a>";
+									echo "<a name=\"$cur_nick\" href='userinfo.php?uid={$cur_nick}'>{$cur_nick}</a>";
 								?>
 								</td>
 								<td>
 								<?php 
 									//Solved
-									echo "<a href='status.php?uid=$cur_name&cid=$cid'>$cur_solved</a>";
+									echo "<a href='status.php?uid={$cur_name}&cid={$cid}'>{$cur_solved}</a>";
 								?>
 								</td>
 								<td>
