@@ -16,14 +16,14 @@
 							<div class="row">
 							<div class="col-sm-12">
 							<ul class="list-group">
-								<li class="list-group-item">Solved: <a href="#"><?php echo $problemInfo['solved'];?> Solved</a></li>
-								<li class="list-group-item">Challenged: <a href="#"><?php echo $problemInfo['submit'];?> Submits</a></li>
+								<li class="list-group-item">Solved: <?php echo "<a href='status.php?judgeresult=4&pid={$problem_id}'>{$problemInfo['solved']} Solved</a>";?></li>
+								<li class="list-group-item">Challenged: <?php echo "<a href='status.php?pid={$problem_id}'>{$problemInfo['submit']} Submits</a>";?></li>
 								<?php 
-								if (isset($user_other)) {
-									foreach($user_other as $row){
+								if (isset($problemSubmits)) {
+									foreach($problemSubmits as $row){
 										echo "<li class='list-group-item'>";
 										//echo $JUDGE_RESULT[$row[0]]." - ".$row[1]; 与下一行功能一致
-										echo $JUDGE_RESULT[$row['result']].": <a href='status.php?uid={$user_id}&judgeresult={$row['result']}'>".$row['count(1)'];
+										echo $JUDGE_RESULT[$row['result']].": <a href='status.php?judgeresult={$row['result']}'>".$row['count'];
 										echo "</a></li>";
 									}
 								}
@@ -31,10 +31,10 @@
 							</ul>
 							</div>
 							<div class="col-sm-12">
-							<?php if (isset($user_other)) { ?>
+							<?php if (isset($problemSubmits) && count($problemSubmits) != 0) { ?>
 								<div id="cont" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 							<?php } else {
-								echo "No data can be displayed, Try to solve one problem now :)";
+								echo "No one solved this problem, try be the 1st man :)";
 							} ?>
 							</div>
 							</div>
@@ -57,7 +57,7 @@
 									<tr>
 										<td></td>
 										<td><?php echo $row['solution_id'];?></td>
-										<td><?php echo $row['user_id'];?></td>
+										<td><?php echo "<a href='./userinfo.php?uid={$row['user_id']}'>{$row['user_id']}</a>";?></td>
 										<td><?php echo intval(substr($row['score'],9,6))." KB";?></td>
 										<td><?php echo intval(substr($row['score'],1,8))." ms";?></td>
 										<td><?php echo $LANGUAGE_NAME[intval($row['language'])];?></td>
@@ -110,10 +110,10 @@
 							name: 'percentage',
 							data: [
 								<?php 
-									if (isset($user_other)) {
-										foreach($user_other as $row){
+									if (isset($problemSubmits)) {
+										foreach($problemSubmits as $row){
 											//echo $JUDGE_RESULT[$row[0]]." - ".$row[1]; 与下一行功能一致
-											echo "['".$JUDGE_RESULT[$row['result']]."', ".$row['count(1)']."],";
+											echo "['".$JUDGE_RESULT[$row['result']]."', ".$row['count']."],";
 										}
 									} else {
 										echo "[ 'Challenged' , 0 ]";

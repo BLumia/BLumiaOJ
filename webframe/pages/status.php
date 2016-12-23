@@ -18,9 +18,10 @@
 								<option value="-1">==语言==</option>
 								<?php
 								$lang=(~((int)$langmask))&((1<<($lang_count))-1);
-								for($i=0;$i<$lang_count;$i++){
+								for($i=0;$i<$lang_count;$i++) {
+									$selected_attr = ($language == $i) ? "selected" : "";
 									if($lang&(1<<$i))
-										echo "<option value='{$i}'>{$LANGUAGE_NAME[$i]}</option>";
+										echo "<option value='{$i}' {$selected_attr}>{$LANGUAGE_NAME[$i]}</option>";
 								}
 								?>
 							</select>
@@ -29,7 +30,8 @@
 								<?php 
 								$i=0;
 								foreach($JUDGE_RESULT as $row) {
-									echo "<option value='{$i}'>{$row}</option>";
+									$selected_attr = ($result == $i) ? "selected" : "";
+									echo "<option value='{$i}' {$selected_attr}>{$row}</option>";
 									$i++;
 								}
 								?>
