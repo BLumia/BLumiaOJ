@@ -20,7 +20,7 @@
 	}
 	
 	// Count solved
-	$sql=$pdo->prepare("SELECT `title`,`accepted`,`submit`,`solved` FROM problem WHERE problem_id = ?");
+	$sql=$pdo->prepare("SELECT `title`,`accepted`,`submit` FROM problem WHERE problem_id = ?");
 	$sql->execute(array($problem_id));
 	$problemInfo=$sql->fetch(PDO::FETCH_ASSOC);
 	$sql->closeCursor();
