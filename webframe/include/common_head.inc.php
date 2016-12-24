@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <!-- Icons -->
-<link rel="icon" href="./sitefiles/favicon.ico">	
+<link rel="icon" href="./sitefiles/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="msapplication-TileColor" content="#FEF2E6">
 <meta name="msapplication-TileImage" content="./sitefiles/favicon.png">	
 <!-- Bootstrap CSS -->
