@@ -61,7 +61,14 @@
 							
 						<?php 
 						foreach($statusResult as $row) { 
-							$resUrl = "<span class='label label-{$JUDGE_ROW_CSS_CLASS[$row['result']]}'>{$JUDGE_RESULT[$row['result']]}</span>";
+							$passRate = "";
+							if (isset($row['pass_rate'])) {
+								if($row['result']!=4 && $row['pass_rate']>0 && $row['pass_rate']<0.98) {
+									$rate = 100 - $row['pass_rate'] * 100;
+									$passRate = "<span class='label label-warning'>{$rate}%</span>";
+								}	
+							}
+							$resUrl = "<span class='label label-{$JUDGE_ROW_CSS_CLASS[$row['result']]}'>{$JUDGE_RESULT[$row['result']]}</span>{$passRate}";
 							if (havePrivilege("SOURCE_VIEWER") || (isset($_SESSION['user_id']) && $_SESSION['user_id']==$row['user_id']) ) {
 								$codeUrl = "<a href='./source_view.php?id={$row['solution_id']}'>{$LANGUAGE_NAME[$row['language']]}</a>"; 
 								if($row['result'] == 6 && $SOLUTION_WA_INFO) {

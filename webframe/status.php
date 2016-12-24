@@ -64,7 +64,7 @@ tr > td.result:hover {
 	if (isset($_GET['pid'])&&$_GET['pid']!="") {
 		$problem_id=intval($_GET['pid']);
         if ($problem_id!=0) {
-			$sql_str=$sql_str."AND `problem_id`='".$problem_id."' ";
+			$sql_str=$sql_str."AND `problem_id`='{$problem_id}' ";
 		} else {
 			$problem_id="";
 		}
@@ -75,7 +75,7 @@ tr > td.result:hover {
 	if (isset($_GET['uid'])&&$_GET['uid']!=""){
 		$user_id=trim($_GET['uid']);
 		if (isUseridExist($user_id,$pdo) && $user_id!=""){
-			$sql_str=$sql_str."AND `user_id`='".$user_id."' ";
+			$sql_str=$sql_str."AND `user_id`='{$user_id}' ";
         } else {
 			$user_id="";
 		}
