@@ -21,6 +21,9 @@
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "Title";
 	const L_DESC  	= "Description";
+	const L_SUBMIT	= "Submit";
+	const L_TIME_LIMIT = "Time Limit";
+	const L_MEM_LIMIT = "Memory Limit";
 	/************* Contest Status **************/
 	const L_LeftTime = "Left Time";
 	const L_Running  = "Running";
@@ -43,6 +46,7 @@
 	const L_JUDGE_OLE = "Output Limit Exceeded";
 	const L_JUDGE_RE = "Runtime Error";
 	const L_JUDGE_CE = "Compilation Error";
+	const L_JUDGE_TR = "Test Run";
 	/************* Program Page *****************/
 	const L_PROB_DESC = "Problem Description";
 	const L_INPUT	= "Input";

@@ -21,6 +21,9 @@
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "标题";
 	const L_DESC  	= "描述";
+	const L_SUBMIT	= "提交";
+	const L_TIME_LIMIT = "时间限制";
+	const L_MEM_LIMIT = "内存限制";
 	/************* Contest Status **************/
 	const L_LeftTime = "剩余时间";
 	const L_Running  = "进行中";
@@ -43,6 +46,7 @@
 	const L_JUDGE_OLE = "输出超限";
 	const L_JUDGE_RE = "运行时错误";
 	const L_JUDGE_CE = "编译失败";
+	const L_JUDGE_TR = "测试运行";
 	/************* Program Page *****************/
 	const L_PROB_DESC = "题目描述";
 	const L_INPUT	= "输入";
