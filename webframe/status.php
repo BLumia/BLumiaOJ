@@ -20,12 +20,7 @@
 		<title>Status</title>
 		<style>
 tr > td.result {
-  transition: background-color 0.5s;
   text-align: center;
-}
-tr > td.result:hover {
-  background-color: rgba(255,255,255,0.25)!important;
-  transition: background-color 0s ease 0.4s;
 }
 		</style>
 	</head>	

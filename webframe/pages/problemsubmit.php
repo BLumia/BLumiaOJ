@@ -40,7 +40,7 @@
 					
 					<div class="col-md-12 col-sm-12">
 						<br/>
-						<textarea style="display: none;" id="source" name="source"></textarea>
+						<textarea style="display: none;" id="source" name="source"><?php if($can_edit) echo $code_src;?></textarea>
 					</div>
 				</form>
 			</div>

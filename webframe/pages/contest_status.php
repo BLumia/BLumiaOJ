@@ -62,6 +62,7 @@
 						<?php 
 						foreach($statusResult as $row) { 
 							$passRate = "";
+							$problemNum = intval($problemIDPair[$row['problem_id']]);
 							if (isset($row['pass_rate'])) {
 								if($row['result']!=4 && $row['pass_rate']>0 && $row['pass_rate']<0.98) {
 									$rate = 100 - $row['pass_rate'] * 100;
@@ -70,7 +71,7 @@
 							}
 							$resUrl = "<span class='label label-{$JUDGE_ROW_CSS_CLASS[$row['result']]}'>{$JUDGE_RESULT[$row['result']]}</span>{$passRate}";
 							if (havePrivilege("SOURCE_VIEWER") || (isset($_SESSION['user_id']) && $_SESSION['user_id']==$row['user_id']) ) {
-								$codeUrl = "<a href='./source_view.php?id={$row['solution_id']}'>{$LANGUAGE_NAME[$row['language']]}</a>"; 
+								$codeUrl = "<a href='./source_view.php?id={$row['solution_id']}'>{$LANGUAGE_NAME[$row['language']]}</a> | <a href='./problemsubmit.php?sid={$row['solution_id']}&pid={$problemNum}&cid={$cid}'>Edit</a>"; 
 								if($row['result'] == 6 && $SOLUTION_WA_INFO) {
 									$resUrl = "<i class='fa fa-question-circle'></i><a href='./error_view.php?id={$row['solution_id']}&type=6'>{$resUrl}</a><i class='fa fa-question-circle'></i>";
 								} 
@@ -80,7 +81,6 @@
 							} else {
 								$codeUrl = "{$LANGUAGE_NAME[$row['language']]}"; 
 							}
-							$problemNum = intval($problemIDPair[$row['problem_id']]);
 						?>
 							<tr class="<?php echo $JUDGE_ROW_CSS_CLASS[$row['result']]; ?>">
 								<td><?php echo $row['solution_id']; ?></td>
