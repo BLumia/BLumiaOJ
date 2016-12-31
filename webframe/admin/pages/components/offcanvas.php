@@ -1,6 +1,6 @@
 	<?php if (!is_pjax()) { ?>
 	<nav nav-pjax class="navmenu navmenu-inverse navmenu-fixed-left offcanvas-sm" role="navigation">
-		<a class="navmenu-brand" href="#">BLumia OJ Admin</a>
+		<a class="navmenu-brand" href="#"><?php echo $OJ_NAME; ?> Admin</a>
 		
 	<?php if (isset($_SESSION['administrator'])||isset( $_SESSION['op_ProblemEditor'] )) { ?>
 		<div class="navmenu-group-header">Problem Editor</div>
@@ -44,6 +44,6 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="#">BLumia OJ Admin</a>
+		<a class="navbar-brand" href="#"><?php echo $OJ_NAME; ?> Admin</a>
 	</div>
 	<?php } ?>
