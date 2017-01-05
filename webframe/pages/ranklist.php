@@ -58,7 +58,7 @@
 								<th width="20%">User ID</th>
 								<th width="30%">User Name</th>
 								<th width="20%">Submits</th>
-								<th width="20%">Exp.</th>
+								<th width="20%">Pass Rate</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -73,8 +73,8 @@
 								<td><?php echo $rank;?></td>
 								<td><?php echo $row['user_id'];?></td>
 								<td><a href="./userinfo.php?uid=<?php echo $row['user_id'];?>"><?php echo $row['nick'];?></a></td>
-								<td><a href="#"><?php echo $row['solved'];?></a> / <a href="#"><?php echo $row['submit'];?></a> <?php echo $pctText;?></td>
-								<td>Lv.6 1/6000</td>
+								<td><?php echo "<a href='./status.php?uid={$row['user_id']}&judgeresult=4'>{$row['solved']}</a>";?> / <a href="#"><?php echo "<a href='./status.php?uid={$row['user_id']}'>{$row['submit']}</a>";?></td>
+								<td><?php echo $pctText;?></td>
 							</tr>
 						<?php } //User list end --------------------------------------- ?>
 						</tbody>
