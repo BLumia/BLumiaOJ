@@ -30,7 +30,7 @@
 	if ($login) {
 		$_SESSION['user_id']=$login;
 		
-		$sql=$pdo->prepare("select * from users where user_id=?");
+		$sql=$pdo->prepare("SELECT * FROM `users` WHERE `user_id`=?");
 		$sql->execute(array($login));
 		$res=$sql->fetch(PDO::FETCH_ASSOC);
 		
