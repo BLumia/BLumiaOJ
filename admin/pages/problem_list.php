@@ -46,7 +46,7 @@
 					echo "<td><a href='../problem.php?pid={$row['problem_id']}'>".$row['title']."</a></td>";
 					echo "<td>".$row['in_date']."</td>";
 					echo "<td>{$url_defunct}</td>";
-					echo "<td><a href='./problem_editor.php?nid=".$row['problem_id']."'>Edit</a></td>";
+					echo "<td><a href='./problem_editor.php?nid={$row['problem_id']}'>Edit</a> | <a href='./problem_data.php?pid={$row['problem_id']}'>Test Data</a></td>";
 					echo "</tr>";
 					//var_dump($row);
 				}

@@ -15,7 +15,19 @@
 	$OJ_PROBLEM_DATA = ($ENV_CASE == "OPEN_SHIFT") ? $_ENV['$OPENSHIFT_REPO_DIR'] : $OJ_PROBLEM_DATA;
 
 	require("{$OJ_PATH}/include/setting_db.inc.php");
-	require("{$OJ_PATH}/language/{$OJ_LANGUAGE}.inc.php");
+	
+	if(file_exists("{$OJ_PATH}/language/{$OJ_LANGUAGE}.inc.php")) {
+		require("{$OJ_PATH}/language/{$OJ_LANGUAGE}.inc.php");
+	} else {
+		require("{$OJ_PATH}/language/english.inc.php");
+	}
+	
+	if(file_exists("{$OJ_PATH}/language/{$OJ_LANGUAGE}.admin.inc.php")) {
+		require("{$OJ_PATH}/language/{$OJ_LANGUAGE}.admin.inc.php");
+	} else {
+		require("{$OJ_PATH}/language/english.admin.inc.php");
+	}
+	
 
 	if ($DEV_DISPLAY_ERRORS)
 		ini_set("display_errors","Off");

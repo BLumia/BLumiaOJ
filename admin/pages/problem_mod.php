@@ -38,13 +38,9 @@
 			</div>
 			<p>The Sample Input / Output will display in a problem description, <em>but Test Input / Output will not.</em></p>
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-sm-12">
 					<label>Test Input:</label>
-					<textarea class="form-control" rows="5" name="test_in_data" placeholder="Test Input Data Here"><?php echo $PROB_TEST_IN;?></textarea>
-				</div>
-				<div class="col-sm-6">
-					<label>Test Output:</label>
-					<textarea class="form-control" rows="5" name="test_out_data" placeholder="Test Output Data Here"><?php echo $PROB_TEST_OUT;?></textarea>
+					<p>Manage the test case of the problem at <a href="./problem_data.php?pid=<?php echo $PROB_ID;?>">HERE</a></p>
 				</div>
 			</div>
 			<label>Hint:</label>

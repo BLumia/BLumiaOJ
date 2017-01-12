@@ -1,40 +1,40 @@
 	<?php if (!is_pjax()) { ?>
 	<nav nav-pjax class="navmenu navmenu-inverse navmenu-fixed-left offcanvas-sm" role="navigation">
-		<a class="navmenu-brand" href="#"><?php echo $OJ_NAME; ?> Admin</a>
+		<a class="navmenu-brand" href="./"><?php echo "{$OJ_NAME} ".LA_BKSTAGE_ADMIN; ?></a>
 		
 	<?php if (isset($_SESSION['administrator'])||isset( $_SESSION['op_ProblemEditor'] )) { ?>
-		<div class="navmenu-group-header">Problem Editor</div>
+		<div class="navmenu-group-header"><?php echo LA_PROB_EDITOR; ?></div>
 		<ul class="nav navmenu-nav">
-			<li><a href="./problem_list.php">问题列表</a></li>
-			<li><a href="./problem_manager.php">管理问题</a></li>
+			<li><a href="./problem_list.php"><?php echo LA_PROB_LIST;?></a></li>
+			<li><a href="./problem_manager.php"><?php echo LA_PROB_MAN;?></a></li>
 		</ul>
 	<?php } if (isset($_SESSION['administrator'])||isset( $_SESSION['op_ContestEditor'] )) { ?>
-		<div class="navmenu-group-header">Contest Editor</div>
+		<div class="navmenu-group-header"><?php echo LA_CONT_EDITOR; ?></div>
 		<ul class="nav navmenu-nav">
 			<li><a href="./contest_add.php">添加竞赛</a></li>
 			<li><a href="./contest_list.php">管理竞赛</a></li>
 		</ul>
 	<?php } if (isset($_SESSION['administrator'])||isset( $_SESSION['op_PageModifier'] )) { ?>
-		<div class="navmenu-group-header">Page Modifier</div>
+		<div class="navmenu-group-header"><?php echo LA_PAGE_MODIFIER; ?></div>
 		<ul class="nav navmenu-nav">
 			<li><a href="./news_manager.php">管理新闻</a></li>
 			<li><a href="./broadcast_editor.php">管理广播</a></li>
 		</ul>
 	<?php } if (isset($_SESSION['administrator'])||isset( $_SESSION['op_UserManager'] )) { ?>
-		<div class="navmenu-group-header">User Manager</div>
+		<div class="navmenu-group-header"><?php echo LA_USER_MGR;?></div>
 		<ul class="nav navmenu-nav">
 			<li><a href="./reset_password.php">重置密码</a></li>
 			<li><a href="./account_gen.php">账号生成器</a></li>
 		</ul>
 	<?php } if (isset($_SESSION['administrator'])) { ?>
-		<div class="navmenu-group-header">Super User</div>
+		<div class="navmenu-group-header"><?php echo LA_SUPER_USER;?></div>
 		<ul class="nav navmenu-nav">
 			<li><a href="./privilege_manager.php">权限管理</a></li>
 		</ul>
 	<?php } ?>
 		<div class="navmenu-divider"></div>
 		<ul class="nav navmenu-nav">
-			<li><a href="../index.php">退出管理页面</a></li>
+			<li><a href="../index.php"><?php echo LA_EXIT_ADMIN;?></a></li>
 		</ul>
 		
 	</nav>
