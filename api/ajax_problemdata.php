@@ -27,23 +27,68 @@
 	}
 	
 	//Prepare
-	$dataFolderPath = "../../BLumiaOJ-Misc/Archives/problems";//$OJ_PROBLEM_DATA;
+	$dataFolderPath = $OJ_PROBLEM_DATA;
 	$problemID = intval($_POST['pid']);
-	
+	$action = isset($_POST['action']) ? $_POST['action'] : 'ls';
 	$actualDataFolder = $dataFolderPath."/".$problemID;
-	$fileList = scandir($actualDataFolder);
-	$resultList = array();
 	
-	foreach($fileList as $oneFileName) {
-		$fileExt = getFileExtension($oneFileName);
-		$fileSize =  formatSizeUnits(filesize($actualDataFolder."/".$oneFileName));
-		if ($fileExt == 'in' || $fileExt == 'out') {
-			$fileName = basename($oneFileName, ".{$fileExt}");
-			array($fileExt=>true);
-			if(!isset($resultList[$fileName])) $resultList[$fileName] = array($fileExt=>$fileSize);
-			else $resultList[$fileName][$fileExt]=$fileSize;
-		}
+	switch($action) {
+		case 'ls':
+			$fileList = scandir($actualDataFolder);
+			$resultList = array();
+			
+			foreach($fileList as $oneFileName) {
+				$fileExt = getFileExtension($oneFileName);
+				$fileSize =  formatSizeUnits(filesize($actualDataFolder."/".$oneFileName));
+				if ($fileExt == 'in' || $fileExt == 'out') {
+					$fileName = basename($oneFileName, ".{$fileExt}");
+					array($fileExt=>true);
+					if(!isset($resultList[$fileName])) $resultList[$fileName] = array($fileExt=>$fileSize);
+					else $resultList[$fileName][$fileExt]=$fileSize;
+				}
+			}
+			
+			exit(json_encode($resultList));
+			
+		case 'rm':
+			$oneFileName = isset($_POST['filename']) ? $_POST['filename'] : null;
+			if ($oneFileName == null) exit(json_encode(array("status"=>false)));
+			
+			exit(json_encode(array("status"=>unlink($actualDataFolder."/".$oneFileName))));
+			
+		case 'cat':
+			$oneFileName = isset($_POST['filename']) ? $_POST['filename'] : null;
+			if ($oneFileName == null) exit(json_encode(array("status"=>false)));
+			
+			exit(readfile($actualDataFolder."/".$oneFileName));
+			
+		case 'wget':
+			$oneFileName = isset($_POST['filename']) ? $_POST['filename'] : null;
+			if ($oneFileName == null) exit(json_encode(array("status"=>false)));
+			header("Content-type: text/plain");
+			header("Content-Disposition: attachment; filename=\"{$_POST['filename']}\"");
+			header('Content-Length: ' . filesize($actualDataFolder."/".$oneFileName));
+			@readfile($actualDataFolder."/".$oneFileName);
+			
+			exit();
+			
+		case 'upload':
+			$allowedExts = array("in", "out");
+			
+			if(is_uploaded_file($_FILES['file']['tmp_name'])) {
+				if (!in_array(getFileExtension($_FILES["file"]["name"]), $allowedExts)) exit(json_encode(array("status"=>false)));
+				if (file_exists($actualDataFolder."/".$_FILES["file"]["name"])) unlink($actualDataFolder."/".$_FILES["file"]["name"]);
+				$status = move_uploaded_file($_FILES['file']['tmp_name'], $actualDataFolder."/".$_FILES["file"]["name"]);
+				
+				exit(json_encode(array("status"=>$status, "type"=>$_FILES["file"]["type"])));
+			} else {
+				exit(json_encode(array("status"=>false)));
+			}
+		
+		default:
+			exit(json_encode(array("status"=>false)));
 	}
 	
-	exit(json_encode($resultList));
+	
+
 ?>
