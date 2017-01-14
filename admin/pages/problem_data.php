@@ -39,13 +39,29 @@
 		var len = data.length;
 		$("#filelist tbody").empty();
 		var number = 1;
+		var actionDOM = "<a do='edit'>Edit</a> <a do='del'>Delete</a>";
 		$.each($.parseJSON(data), function(idx, obj) {
-			console.log(obj);
-			var inDataDOM = 'in' in obj ? idx+".in ("+obj.in+")" : "";
-			var outDataDOM = 'out' in obj ? idx+".out ("+obj.out+")" : "";
-			var newRowContent = "<tr><td>"+number+"</td><td>"+inDataDOM+"</td><td>"+outDataDOM+"</td></tr>";
+			//console.log(obj);
+			var inDataDOM = 'in' in obj ? idx+".in ("+obj.in+") "+actionDOM : "";
+			var outDataDOM = 'out' in obj ? idx+".out ("+obj.out+") "+actionDOM : "";
+			var newRowContent = "<tr file='"+ idx +"'><td>"+number+"</td><td ext='in'>"+inDataDOM+"</td><td ext='out'>"+outDataDOM+"</td></tr>";
 			$(newRowContent).appendTo("#filelist tbody");
 			number++;
+		});
+		
+		$("table#filelist a").click(function() {
+			var filename = $(this).parent().parent().attr('file') + '.' + $(this).parent().attr('ext');
+			var doAction = $(this).attr('do');
+			console.log(filename + " " + doAction);
+			
+			switch(doAction) {
+				case 'del':
+				break;
+				case 'edit':
+					$('#modalTitle').text('Edit ' + filename);
+					$('#dataModal').modal('toggle');
+				break;
+			}
 		});
 	}
 	
