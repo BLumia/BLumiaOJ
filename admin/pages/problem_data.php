@@ -55,7 +55,6 @@
 	
 	<script>
 	function updateTable(data) {
-		var len = data.length;
 		$("#filelist tbody").empty();
 		var number = 1;
 		var actionDOM = "<a do='edit'>Edit</a> <a do='del'>Delete</a>";

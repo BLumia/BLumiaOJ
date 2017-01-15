@@ -3,10 +3,10 @@
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
 	require_once("../include/login_functions.php");
+	require_once("../include/user_check_functions.php");
 	
 	if(!isset($_SESSION['SessionAuth']) || !isset($_POST['pageauth'])) {
-		echo "认证失败";
-		exit(0);
+		exit("Auth Failed");
 	}
 	if($_SESSION['SessionAuth'] != $_POST['pageauth']) {
 		echo $_POST['pageauth']."Auth failed";
@@ -15,9 +15,8 @@
 	
 	// No idea about password_setter in hustoj, check it here.
 	// Make a standalone privilege to manage password? weird.
-	if (!havePrivilege("SUPERUSER") || !isset($_SESSION["password_setter"])) {
-		echo "403";
-		exit(403);
+	if (!havePrivilege("SUPERUSER") && !isset($_SESSION["password_setter"])) {
+		exit("403");
 	}
     
 	$user_id=trim($_POST['user_id']);
@@ -30,7 +29,7 @@
 	
 	$password=pwGen($user_pwd);
 	
-	$sql=$pdo->prepare("update `users` set `password`=? where `user_id`=? and user_id not in( select user_id from privilege where rightstr='administrator') ");
+	$sql=$pdo->prepare("UPDATE `users` SET `password`=? WHERE `user_id`=? AND user_id NOT in( SELECT user_id FROM privilege WHERE rightstr='administrator') ");
 	$sql->execute(array($password,$user_id));
 	$affected_rows = $sql->rowCount();
 	if ($affected_rows == 1){
