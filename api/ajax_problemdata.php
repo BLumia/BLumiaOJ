@@ -3,6 +3,12 @@
 	
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
+	require_once("../include/user_check_functions.php");
+	
+	//Privilege Check
+	if (!havePrivilege("PROBLEM_EDITOR")) {
+		exit(json_encode(array("status"=>false)));
+	}
 	
 	//Functions
 	function getFileExtension($fileName) {

@@ -22,12 +22,13 @@
 		require("{$OJ_PATH}/language/english.inc.php");
 	}
 	
-	if(file_exists("{$OJ_PATH}/language/{$OJ_LANGUAGE}.admin.inc.php")) {
-		require("{$OJ_PATH}/language/{$OJ_LANGUAGE}.admin.inc.php");
-	} else {
-		require("{$OJ_PATH}/language/english.admin.inc.php");
+	if (isset($ON_ADMIN_PAGE)) {
+		if(file_exists("{$OJ_PATH}/language/{$OJ_LANGUAGE}.admin.inc.php")) {
+			require("{$OJ_PATH}/language/{$OJ_LANGUAGE}.admin.inc.php");
+		} else {
+			require("{$OJ_PATH}/language/english.admin.inc.php");
+		}
 	}
-	
 
 	if ($DEV_DISPLAY_ERRORS)
 		ini_set("display_errors","Off");

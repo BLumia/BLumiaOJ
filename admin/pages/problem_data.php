@@ -2,11 +2,10 @@
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1>Problem Management <small>Edit Data:<?php echo $problemID;?></small></h1>
+			<h1><?php echo LA_PROB_MAN; ?> <small><?php echo LA_EDIT_DATA.":{$problemID}"; ?></small></h1>
 		</div>
 		<p class="lead">
-			在这里编辑问题的测试数据。<br/>
-			若要对问题进行编辑和其他针对某个问题的操作，请进入“问题列表”。
+			<?php echo LA_TCE_LEAD; ?>
 		</p>
 		<table id="filelist" class="table table-hover">
 			<thead><tr><th>#</th><th>In Data</th><th>Out Data</th></tr></thead>
@@ -28,7 +27,27 @@
 			</div>
 			<div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-primary">Save changes</button>
+			<button type="button" id="saveBtn" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	  </div>
+	</div>
+	
+	<button type="button" class="btn btn-primary" data-toggle="modal" onclick="$('#deleteModal').modal('toggle')">Small modal</button>
+
+	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<h4 class="modal-title">Delete Test Data</h4>
+			</div>
+			<div class="modal-body">
+			Are you sure you want to delete <span id="deleteFileName">sample.in</span>
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			<button type="button" id="deleteBtn" class="btn btn-danger">Delete</button>
 			</div>
 		</div>
 	  </div>
@@ -56,10 +75,20 @@
 			
 			switch(doAction) {
 				case 'del':
+					$('#deleteFileName').text(filename);
+					$('#deleteModal').modal('toggle');
+					$("#deleteBtn").click(function() {
+						console.log("delete: "+filename);
+						$('#deleteModal').modal('hide');
+					})
 				break;
 				case 'edit':
 					$('#modalTitle').text('Edit ' + filename);
 					$('#dataModal').modal('toggle');
+					$("#saveBtn").click(function() {
+						console.log("saving: "+filename);
+						$('#dataModal').modal('hide');
+					})
 				break;
 			}
 		});

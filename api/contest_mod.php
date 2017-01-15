@@ -29,8 +29,7 @@
 	
 	//Privilege Check
 	if (!(isset($_SESSION["m$cid"])||havePrivilege("CONTEST_EDITOR"))) {
-		echo "403";
-		exit(403);
+		exit("403");
 	}
 	/*
 	if (get_magic_quotes_gpc ()) {
