@@ -23,7 +23,12 @@
 			<h4 class="modal-title" id="modalTitle">Modal title</h4>
 			</div>
 			<div class="modal-body">
-			<textarea class="form-control" id="fileContent" rows="5" name="content" placeholder="Data Here"></textarea>
+			<form id="updateDataForm">
+				<input type="hidden" name="action" value="update"/>
+				<input type="hidden" id="updateProblemID" name="pid"/>
+				<input type="hidden" id="updateFileName" name="filename"/>
+				<textarea class="form-control" id="fileContent" rows="5" name="content" placeholder="Data Here"></textarea>
+			</form>
 			</div>
 			<div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

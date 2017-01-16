@@ -20,6 +20,7 @@
 			case 'action' = 'upload' [required 'file']
 				Upload file as test data. if file with same filename already exist then replace with the uploaded one.
 			case 'action' = 'update' [required 'filename' && 'content']
+				Update the file name matched data using the given content as test data. if file not exist then create one.
 		
 	*/
 	session_start();
@@ -122,11 +123,15 @@
 			
 			$oneFileName = isset($_POST['filename']) ? $_POST['filename'] : null;
 			if ($oneFileName == null) exit(json_encode(array("status"=>false, "reason"=>"Missing file name.")));
-			
+			if (!in_array(getFileExtension($oneFileName), $allowedExts)) exit(json_encode(array("status"=>false)));
 			$dataContent = isset($_POST['content']) ? $_POST['content'] : null;
 			if ($oneFileName == null) exit(json_encode(array("status"=>false, "reason"=>"Missing data content.")));
 			
-			exit(json_encode(array("status"=>false, "reason"=>"Unimplemented exception.")));
+			$fp = fopen($actualDataFolder."/".$oneFileName,"w");
+			fputs($fp,preg_replace("(\r\n)","\n",$dataContent));
+			fclose($fp);
+			
+			exit(json_encode(array("status"=>true)));
 		
 		default:
 			exit(json_encode(array("status"=>false)));

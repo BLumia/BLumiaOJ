@@ -14,8 +14,6 @@
 	$problem_output=$_POST['problem_output'];
 	$samp_in_data  =$_POST['samp_in_data'];
 	$samp_out_data =$_POST['samp_out_data'];
-	$test_in_data  =$_POST['test_in_data'];
-	$test_out_data =$_POST['test_out_data'];
 	$problem_hint  =$_POST['problem_hint'];
 	$problem_spj   =$_POST['problem_spj'];
 	$problem_source=$_POST['problem_source'];
@@ -24,8 +22,7 @@
 	
 	//Privilege Check
 	if (!havePrivilege("PROBLEM_EDITOR")) {
-		echo "403";
-		exit(403);
+		exit("403");
 	}
 	
 	/*if (get_magic_quotes_gpc ()) {
@@ -68,26 +65,16 @@
 		}
 	} else {
 	
-		if($ENV_CASE!="SAE"){
+		if($ENV_CASE!="SAE") {
 			//mkdir($basedir);
 			
-			if($samp_in_data){
+			if($samp_in_data) {
 				echo "Now Updating data at: ".$basedir."<br/>";
 				$fp=fopen($basedir."/sample.in","w");
 				fputs($fp,preg_replace("(\r\n)","\n",$samp_in_data));
 				fclose($fp);
 				$fp=fopen($basedir."/sample.out","w");
 				fputs($fp,preg_replace("(\r\n)","\n",$samp_out_data));
-				fclose($fp);
-			}
-			
-			if($test_in_data){
-				echo "Now Updating data at: ".$basedir."<br/>";
-				$fp=fopen($basedir."/test.in","w");
-				fputs($fp,preg_replace("(\r\n)","\n",$test_in_data));
-				fclose($fp);
-				$fp=fopen($basedir."/test.out","w");
-				fputs($fp,preg_replace("(\r\n)","\n",$test_out_data));
 				fclose($fp);
 			}
 			

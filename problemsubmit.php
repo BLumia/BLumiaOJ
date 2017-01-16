@@ -32,19 +32,22 @@
 	$contest_id = isset($_GET['cid']) ? intval($_GET['cid']) : false;
 	
 	// Edit code if provide a solution id.
-	$code_id = intval($_GET['sid']);
-	$sql = $pdo->prepare("SELECT * FROM `solution` WHERE `solution_id`=?");
-	$sql->execute(array($code_id));
-	$codeInfo=$sql->fetch(PDO::FETCH_ASSOC);
-	
-	$sql = $pdo->prepare("SELECT * FROM `source_code` WHERE `solution_id`=?");
-	$sql->execute(array($code_id));
-	$codeContent=$sql->fetch(PDO::FETCH_ASSOC);
-	$code_src = str_replace(array('<', '>'), array('&lt;', '&gt;'), $codeContent['source']);
-	
 	$can_edit = false;
-	if (havePrivilege("SOURCE_VIEWER")) $can_edit=true;
-	if (isset($_SESSION['user_id'])&&$codeInfo['user_id']==$_SESSION['user_id']) $can_edit=true;
+	if(isset($_GET['sid'])) {
+		$code_id = intval($_GET['sid']);
+		$sql = $pdo->prepare("SELECT * FROM `solution` WHERE `solution_id`=?");
+		$sql->execute(array($code_id));
+		$codeInfo=$sql->fetch(PDO::FETCH_ASSOC);
+		
+		$sql = $pdo->prepare("SELECT * FROM `source_code` WHERE `solution_id`=?");
+		$sql->execute(array($code_id));
+		$codeContent=$sql->fetch(PDO::FETCH_ASSOC);
+		$code_src = str_replace(array('<', '>'), array('&lt;', '&gt;'), $codeContent['source']);
+		
+		$can_edit = false;
+		if (havePrivilege("SOURCE_VIEWER")) $can_edit=true;
+		if (isset($_SESSION['user_id'])&&$codeInfo['user_id']==$_SESSION['user_id']) $can_edit=true;
+	}
 	
 	// Language Mask
 	if(isset($_GET['langmask'])) $langMask=$_GET['langmask'];

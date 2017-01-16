@@ -2,7 +2,7 @@
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1>Problem Management <small>Problem List</small></h1>
+			<h1><?php echo LA_PROB_MAN; ?> <small><?php echo LA_PROB_LIST; ?></small></h1>
 		</div>
 		<p class="lead">
 			您可以从这里对问题进行编辑和管理。
@@ -23,7 +23,7 @@
 		</ul>
 		<br/>
 		<div>
-			<table class="table table-striped">
+			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
 						<th>ID</th>
