@@ -13,42 +13,38 @@
 	require_once('./include/common_const.inc.php');
 	require_once('./include/user_check_functions.php');
 	
-	class Player{
+	class Player {
 		var $solved=0;
 		var $time=0;
 		var $p_wa_num;
 		var $p_ac_sec;
 		var $user_id;
 		var $nick;
-		function Player(){
+		function __construct() {
 			$this->solved=0;
 			$this->time=0;
 			$this->p_wa_num=array(0);
 			$this->p_ac_sec=array(0);
 		}
-		function Add($pid,$sec,$res){
-			//echo "Add $pid $sec $res<br>";
+		function Add($pid,$sec,$res) {
 			if (isset($this->p_ac_sec[$pid])&&$this->p_ac_sec[$pid]>0)
 				return;
 			if ($res!=4){
-				if(isset($this->p_wa_num[$pid])){
+				if(isset($this->p_wa_num[$pid])) {
 					$this->p_wa_num[$pid]++;
 				}else{
 					$this->p_wa_num[$pid]=1;
 				}
-			}else{
+			} else {
 				$this->p_ac_sec[$pid]=$sec;
 				$this->solved++;
 				if(!isset($this->p_wa_num[$pid])) $this->p_wa_num[$pid]=0;
 				$this->time+=$sec+$this->p_wa_num[$pid]*1200;
-				//echo "Time:".$this->time."<br>";
-				//echo "Solved:".$this->solved."<br>";
 			}
 		}
 	}
 	
-	function s_cmp($A,$B){
-		//echo "Cmp....<br>";
+	function s_cmp($A,$B) {
 		if ($A->solved!=$B->solved) return $A->solved<$B->solved;
 		else return $A->time>$B->time;
 	}
@@ -85,7 +81,7 @@
 	
 	$sql=$pdo->prepare("SELECT count(1) AS probCnt FROM `contest_problem` WHERE `contest_id`=?");
 	$sql->execute(array($cid));
-	$problemItem=$sql->fetch(PDO::FETCH_ASSOC);//必须写PDO::FETCH_ASSOC，否则默认值影响count
+	$problemItem=$sql->fetch(PDO::FETCH_ASSOC);
 	$problemCount=$problemItem['probCnt'];
 	
 	$sql=$pdo->prepare("SELECT users.user_id,users.nick,solution.result,solution.num,solution.in_date 

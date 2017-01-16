@@ -1,4 +1,25 @@
 <?php
+	/*  
+		API for test case file management.
+		Require 'PROBLEM_EDITOR' privilege.
+		
+		POST:
+			'pid' (required)
+			'action' (if not posting, default variable will be 'ls')
+			'filename' (optional, only some action need this variable)
+			'file' (optional, only when action is uploading data)
+		RETURN:
+			case 'action' = 'ls'
+				Return array of test case files, json encoded. grouped by test case name, contains a file size.
+			case 'action' = 'rm' [required 'filename']
+				Remove the data file by the given filename. return status of operation.
+			case 'action' = 'cat' [required 'filename']
+				Get the full text content of given filename and return it. if file not exist, return a json contains a 'status=false'.
+			case 'action' = 'wget' [required 'filename']
+				Download the data file of given filename. if file not exist, return a json contains a 'status=false'.
+			case 'action' = 'upload' [required 'file']
+		
+	*/
 	session_start();
 	
 	$ON_ADMIN_PAGE="Yap";
