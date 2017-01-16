@@ -18,6 +18,8 @@
 			case 'action' = 'wget' [required 'filename']
 				Download the data file of given filename. if file not exist, return a json contains a 'status=false'.
 			case 'action' = 'upload' [required 'file']
+				Upload file as test data. if file with same filename already exist then replace with the uploaded one.
+			case 'action' = 'update' [required 'filename' && 'content']
 		
 	*/
 	session_start();
@@ -28,7 +30,11 @@
 	
 	//Privilege Check
 	if (!havePrivilege("PROBLEM_EDITOR")) {
-		exit(json_encode(array("status"=>false)));
+		exit(json_encode(array("status"=>false, "reason"=>"Missing privilege.")));
+	}
+	
+	if(!isset($_POST['pid'])) {
+		exit(json_encode(array("status"=>false, "reason"=>"Missing Problem ID.")));
 	}
 	
 	//Functions
@@ -69,7 +75,6 @@
 				$fileSize =  formatSizeUnits(filesize($actualDataFolder."/".$oneFileName));
 				if ($fileExt == 'in' || $fileExt == 'out') {
 					$fileName = basename($oneFileName, ".{$fileExt}");
-					array($fileExt=>true);
 					if(!isset($resultList[$fileName])) $resultList[$fileName] = array($fileExt=>$fileSize);
 					else $resultList[$fileName][$fileExt]=$fileSize;
 				}
@@ -79,13 +84,13 @@
 			
 		case 'rm':
 			$oneFileName = isset($_POST['filename']) ? $_POST['filename'] : null;
-			if ($oneFileName == null) exit(json_encode(array("status"=>false)));
+			if ($oneFileName == null) exit(json_encode(array("status"=>false, "reason"=>"Missing file name.")));
 			
 			exit(json_encode(array("status"=>unlink($actualDataFolder."/".$oneFileName))));
 			
 		case 'cat':
 			$oneFileName = isset($_POST['filename']) ? $_POST['filename'] : null;
-			if ($oneFileName == null) exit(json_encode(array("status"=>false)));
+			if ($oneFileName == null) exit(json_encode(array("status"=>false, "reason"=>"Missing file name.")));
 			
 			exit(readfile($actualDataFolder."/".$oneFileName));
 			
@@ -111,6 +116,17 @@
 			} else {
 				exit(json_encode(array("status"=>false)));
 			}
+			
+		case 'update':
+			$allowedExts = array("in", "out");
+			
+			$oneFileName = isset($_POST['filename']) ? $_POST['filename'] : null;
+			if ($oneFileName == null) exit(json_encode(array("status"=>false, "reason"=>"Missing file name.")));
+			
+			$dataContent = isset($_POST['content']) ? $_POST['content'] : null;
+			if ($oneFileName == null) exit(json_encode(array("status"=>false, "reason"=>"Missing data content.")));
+			
+			exit(json_encode(array("status"=>false, "reason"=>"Unimplemented exception.")));
 		
 		default:
 			exit(json_encode(array("status"=>false)));

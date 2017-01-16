@@ -5,8 +5,8 @@
 		<?php require_once('../include/admin_head.inc.php'); ?>
 		<title>Problem Data</title>
 		<style>
-table#filelist a {
-	cursor: pointer;
+table#tableFileList a {
+	padding-left: 5px;
 }
 		</style>
 	</head>	
