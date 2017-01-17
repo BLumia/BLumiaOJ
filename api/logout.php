@@ -2,5 +2,5 @@
 unset($_SESSION['user_id']);
 session_destroy();
 
-header("Location: {$statusURI}");
+header("Location: ../index.php");
 ?>
