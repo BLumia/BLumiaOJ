@@ -24,4 +24,6 @@
 	/************* Test Case Editor **************/
 	const LA_EDIT_DATA			= "Edit Data";
 	const LA_TCE_LEAD			= "Edit problem's test data  here.<br/>If you want to edit a problem, please navigate to 'Problem List' page.";
+	const LA_DELETE_DATA		= "Delete Test Data";
+	const LA_DELETE_WARNING		= "Are you sure you want to delete";
 ?>

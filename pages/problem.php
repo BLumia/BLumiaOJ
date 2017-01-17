@@ -10,9 +10,9 @@
 				<?php echo L_JUDGE_AC;?>:<span class="label label-success"><?php echo $problemItem['accepted'];?></span>
 			</p>
 			<p class="text-center">
-				<a id="oj-p-submit" class="btn btn-primary" href="./problemsubmit.php?pid=<?php echo $problemItem['problem_id'];?>" role="button">Submit</a>
-				<a class="btn btn-primary" href="./problemstatistics.php?pid=<?php echo $problemItem['problem_id'];?>" role="button">Status</a>
-				<?php if ($isProblemManager) { ?><a class="btn btn-primary" href="./admin/problem_editor.php?nid=<?php echo $problemItem['problem_id'];?>" role="button">Edit</a><?php } ?>
+				<a id="oj-p-submit" class="btn btn-primary" href="./problemsubmit.php?pid=<?php echo $problemItem['problem_id'];?>" role="button"><?php echo L_SUBMIT;?></a>
+				<a class="btn btn-primary" href="./problemstatistics.php?pid=<?php echo $problemItem['problem_id'];?>" role="button"><?php echo L_STATUS;?></a>
+				<?php if ($isProblemManager) { ?><a class="btn btn-primary" href="./admin/problem_editor.php?nid=<?php echo $problemItem['problem_id'];?>" role="button"><?php echo L_EDIT;?></a><?php } ?>
 			</p>
 			
 			<h3><a data-toggle="collapse" data-target="#problemDesc"><?php echo L_PROB_DESC;?></a></h3>

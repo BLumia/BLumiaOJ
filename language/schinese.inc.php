@@ -22,6 +22,7 @@
 	const L_TITLE 	= "标题";
 	const L_DESC  	= "描述";
 	const L_SUBMIT	= "提交";
+	const L_EDIT	= "编辑";
 	const L_TIME_LIMIT = "时间限制";
 	const L_MEM_LIMIT = "内存限制";
 	/************* Contest Status **************/
@@ -56,4 +57,11 @@
 	const L_HINT	= "提示";
 	const L_TAG		= "标签";
 	const L_SOURCE	= "来源";
+	/************* Misc *****************/
+	const L_DELETE	= "删除";
+	const L_DOWNLOAD= "下载";
+	const L_UPLOAD	= "上传";
+	const L_CHANGE	= "更换";
+	const L_REMOVE	= "移除";
+	const L_SELECT_FILE	= "选择文件";
 ?>

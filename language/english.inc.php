@@ -22,6 +22,7 @@
 	const L_TITLE 	= "Title";
 	const L_DESC  	= "Description";
 	const L_SUBMIT	= "Submit";
+	const L_EDIT	= "Edit";
 	const L_TIME_LIMIT = "Time Limit";
 	const L_MEM_LIMIT = "Memory Limit";
 	/************* Contest Status **************/
@@ -56,4 +57,11 @@
 	const L_HINT	= "Hint";
 	const L_TAG		= "Tag";
 	const L_SOURCE	= "Source";
+	/************* Misc *****************/
+	const L_DELETE	= "Delete";
+	const L_DOWNLOAD= "Download";
+	const L_UPLOAD	= "Upload";
+	const L_CHANGE	= "更换";
+	const L_REMOVE	= "Remove";
+	const L_SELECT_FILE	= "Select file";
 ?>
