@@ -16,13 +16,11 @@
 	$pid=isset($_GET['pid']) ? intval($_GET['pid']) : -1;
 	$gpid=isset($_GET['gpid']) ? intval($_GET['gpid']) : -1;
 	if ($gpid==-1 && $pid==-1) {
-		echo "No such problem";
-		exit(0);
+		exit("404 No such problem");
 	}
 	$cid=isset($_GET['cid']) ? intval($_GET['cid']) : 0;
 	if ($cid==0) {
-		echo "No such contest";
-		exit(0);
+		exit("404 No such contest");
 	}
 	
 	$sql=$pdo->prepare("SELECT * FROM contest WHERE contest_id = ?");

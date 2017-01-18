@@ -46,13 +46,13 @@
 					<table class="table table-striped table-hover" id="tableID">
 						<thead>
 							<tr>
-								<th width="10%">Run ID</th>
+								<th width="8%">Run ID</th>
 								<th width="14%">User ID</th>
 								<th width="10%">Problem ID</th>
 								<th width="20%" style="text-align: center;">Result</th>
 								<th width="8%">Memory</th>
 								<th width="8%">Time</th>
-								<th width="8%">Compiler</th>
+								<th width="10%">Compiler</th>
 								<th width="8%">Length</th>
 								<th width="14%">Submit Time</th>
 							</tr>
