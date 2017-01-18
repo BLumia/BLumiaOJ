@@ -3,57 +3,57 @@
     <div class="container" style="max-width:400px; padding-top:61px;">
 		<div class="panel" style="padding:20px 20px;">
 			<form action="./api/user_register.php" method="post">
-			<h2>Please Sign Up</h2>
-			<label class="control-label">User ID</label>
+			<h2><?php echo L_PLZ.' '.L_SIGNUP;?></h2>
+			<label class="control-label"><?php echo L_UID;?></label>
 			<div class="control-group">
 				<input 
 					name="username" 
 					class="form-control" 
 					minlength="3" 
 					maxlength="20" 
-					placeholder="(*) User ID" 
-					data-validation-minlength-message="UserID Should be longer than 3 char." 
+					placeholder="(*) <?php echo L_UID;?>" 
+					data-validation-minlength-message="<?php echo L_UID_DV_MSG;?>" 
 					type="text" 
 					required
 				/>
 				<p class="help-block"></p>
 			</div>
-			<label class="control-label">Nick Name</label>
+			<label class="control-label"><?php echo L_NICK;?></label>
 			<div class="control-group">
-				<input name="nickname" class="form-control" placeholder="Nick Name" type="text">
+				<input name="nickname" class="form-control" placeholder="<?php echo L_NICK;?>" type="text">
 				<p class="help-block"></p>
 			</div>
-			<label class="control-label">Password</label>
+			<label class="control-label"><?php echo L_PSW;?></label>
 			<div class="control-group">
 				<input
 					name="password" 
 					class="form-control" 
-					placeholder="(*) Password" 
+					placeholder="(*) <?php echo L_PSW;?>" 
 					type="password"
 					minlength="6"
-					data-validation-minlength-message="Password Should be longer than 6 char."
+					data-validation-minlength-message="<?php echo L_PSW_DV_MSG;?>"
 					required
 				>
 				<p class="help-block"></p>
 			</div>
-			<label class="control-label">Repeat Password</label>
+			<label class="control-label"><?php echo L_PSW_AGAIN;?></label>
 			<div class="control-group">
 				<input 
 					name="password_again" 
 					class="form-control" 
 					data-validation-match-match="password" 
-					data-validation-match-message = "Password NOT Matched"
-					placeholder="(*) Password Again" 
+					data-validation-match-message = "<?php echo L_PSW2_DV_MSG;?>"
+					placeholder="(*) <?php echo L_PSW_AGAIN;?>" 
 					type="password"
 				>
 				<p class="help-block"></p>
 			</div>
-			<label class="control-label">School</label>
+			<label class="control-label"><?php echo L_SCHOOL;?></label>
 			<div class="control-group">
-				<input name="school" class="form-control" placeholder="School" type="text">
+				<input name="school" class="form-control" placeholder="<?php echo L_SCHOOL;?>" type="text">
 				<p class="help-block"></p>
 			</div>
-			<label class="control-label">E-Mail</label>
+			<label class="control-label"><?php echo L_EMAIL;?></label>
 			<div class="control-group">
 				<input name="email" class="form-control" placeholder="(*) E-Mail" type="email" required>
 				<p class="help-block"></p>
@@ -65,7 +65,7 @@
 							name="eula" 
 							type="checkbox" 
 							required
-						> Accept End-user license agreements
+						> <?php echo L_AGREE_EULA;?>
 					</label>
 					<p class="help-block"></p>
 				</div>
@@ -73,7 +73,7 @@
 			
 			<?php require_once('./include/pageauth_post.php'); ?>
 		
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo L_SIGNUP;?></button>
 			</form>
 		</div>
     </div> <!-- /container -->

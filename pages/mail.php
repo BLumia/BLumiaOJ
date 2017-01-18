@@ -56,28 +56,28 @@
 							<form role="form" method=post action=mail.php>
 				
 							<div class="form-group">
-								<label>To:</label>
+								<label><?php echo L_SEND_TO;?>:</label>
 								<input class="form-control" name=to_user placeholder="Enter User Name Here">
 							</div>
 							
 							<div class="form-group">
-								<label>Title:</label>
+								<label><?php echo L_TITLE;?>:</label>
 								<input class="form-control" name=title>
 							</div>
 				
 							<div class="form-group">
-								<label>Content</label>
+								<label><?php echo L_CONTENT;?>:</label>
 								<textarea class="form-control" name=content rows="4"></textarea>
 							</div>
 				
-							<button type="submit" class="btn btn-default">发送</button>
-							<button type="reset" class="btn btn-default">清空</button>  
+							<button type="submit" class="btn btn-default"><?php echo L_SEND;?></button>
+							<button type="reset" class="btn btn-default"><?php echo L_CLEAR;?></button>  
 				
 							</form>
 						</div>
 						
 						<div class="col-lg-12">
-							<h2>My In-box<small> <a class="" data-toggle="collapse" href="#create-mail" aria-expanded="true">Write New Mail</a></small></h2>
+							<h2><?php echo L_INBOX;?><small> <a class="" data-toggle="collapse" href="#create-mail" aria-expanded="true"><?php echo L_WRITE_NEW_MAIL;?></a></small></h2>
 							<div class="table-responsive">
 							<table class="table table-bordered table-hover tablesorter">
 								<thead>
@@ -114,8 +114,6 @@
 			
 				</div>
 			</div><!-- /.row, 3 medal -->
-			<!-- 显示一个统计图 -->
-			<!-- 显示其他信息 -->
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
 	</body>

@@ -34,6 +34,8 @@
 	const L_Start	= "开始于";
 	/************* Hint Statement **************/
 	const L_CONTEST_NOT_AUTH	= "您没有权限参加该竞赛";
+	const L_NO_SUBMIT_RECORD	= "没有可展示的数据，先去写道 A+B 吧 :)";
+	const L_WEEKY_SUBMIT_N_AC	= "最近一周内提交情况";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "提交中..";
 	const L_JUDGE_PR = "等待判题";
@@ -57,6 +59,34 @@
 	const L_HINT	= "提示";
 	const L_TAG		= "标签";
 	const L_SOURCE	= "来源";
+	/************* Mail Page *****************/
+	const L_SEND	= "发送";
+	const L_CLEAR	= "清空";
+	const L_CONTENT	= "内容";
+	const L_SEND_TO	= "收件人ID";
+	const L_WRITE_NEW_MAIL	= "创建新站内信";
+	/************* Register ****************/
+	const L_PLZ			= "请";
+	const L_UID			= "用户ID";
+	const L_NICK		= "昵称";
+	const L_PSW			= "密码";
+	const L_PSW_AGAIN	= "再次输入密码";
+	const L_SCHOOL		= "学校";
+	const L_EMAIL		= "电子邮箱";
+	const L_AGREE_EULA	= "同意 最终用户许可协议";
+	const L_UID_DV_MSG	= "用户ID 长度应当超过 3 个字符.";
+	const L_PSW_DV_MSG	= "密码应当至少包括 6 个字符.";
+	const L_PSW2_DV_MSG	= "两次输入的密码不匹配";
+	/************* User Page ***************/
+	const L_USER_PAGE	= "用户页面";
+	const L_USER_INFO	= "用户信息";
+	const L_ORI_PSW		= "原密码";
+	const L_NEW_PSW		= "新密码 (不修改则不填写)";
+	const L_NEW_PSW_AGAIN= "再次输入新密码";
+	const L_MODIFY_INFO	= "修改信息";
+	const L_SOLVED		= "已解决";
+	const L_CHALLENGED	= "已挑战";
+	const L_NOT_EDITABLE= "不可修改";
 	/************* Misc *****************/
 	const L_DELETE	= "删除";
 	const L_DOWNLOAD= "下载";

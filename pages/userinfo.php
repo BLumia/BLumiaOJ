@@ -5,10 +5,10 @@
 			<div class="row">
 				<div class="col-lg-12">
 				
-					<h1><?php echo $user_name; ?> <small>ID: <?php echo $user_id;?></small></h1>
+					<h1><?php echo $user_name; ?> <small><?php echo L_UID.": {$user_id}";?></small></h1>
 					<ol class="breadcrumb">
-						<li><a href="userinfo.php"><i class="icon-dashboard"></i> User Page</a></li>
-						<li class="active"><i class="icon-file-alt"></i> User Info</li>
+						<li><a href="userinfo.php"><i class="icon-dashboard"></i> <?php echo L_USER_PAGE;?></a></li>
+						<li class="active"><i class="icon-file-alt"></i> <?php echo L_USER_INFO;?></li>
 					</ol>
 					
 					<div class="row">
@@ -21,7 +21,7 @@
 								</div>
 								<div class="col-xs-6 text-right">
 									<p class="medal-heading"><?php echo $user_solved; ?></p>
-									<p class="medal-text">Solved!</p>
+									<p class="medal-text"><?php echo L_SOLVED;?>!</p>
 								</div>
 								</div>
 							</div>
@@ -48,7 +48,7 @@
 								</div>
 								<div class="col-xs-6 text-right">
 									<p class="medal-heading"><?php echo $user_submit;?></p>
-									<p class="medal-text">Challenged!</p>
+									<p class="medal-text"><?php echo L_CHALLENGED;?>!</p>
 								</div>
 								</div>
 							</div>
@@ -75,7 +75,7 @@
 								</div>
 								<div class="col-xs-9 text-right">
 									<p class="medal-heading"><?php echo $user_name; ?></p>
-									<p class="medal-text">e-mail: <?php echo $user_email; ?></p>
+									<p class="medal-text"><?php echo L_EMAIL;?>: <?php echo $user_email; ?></p>
 								</div>
 								</div>
 							</div>
@@ -98,8 +98,8 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<ul class="list-group">
-								<li class="list-group-item">Solved: <a href="#"><?php echo $user_solved;?> Solved</a></li>
-								<li class="list-group-item">Challenged: <a href="#"><?php echo $user_submit;?> Submits</a></li>
+								<li class="list-group-item"><?php echo L_SOLVED;?>: <a href="#"><?php echo $user_solved;?> Solved</a></li>
+								<li class="list-group-item"><?php echo L_CHALLENGED;?>: <a href="status.php?uid=<?php echo $user_id; ?>"><?php echo $user_submit;?> Submits</a></li>
 								<?php 
 								if (isset($user_other)) {
 									foreach($user_other as $row){
@@ -116,7 +116,7 @@
 						<?php if (isset($user_other)) { ?>
 							<div id="cont" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 						<?php } else {
-							echo "No data can be displayed, Try to solve one problem now :)";
+							echo L_NO_SUBMIT_RECORD;
 						} ?>
 						</div>
 					</div><!-- /.row -->

@@ -34,6 +34,8 @@
 	const L_Start	= "Start at:";
 	/************* Hint Statement **************/
 	const L_CONTEST_NOT_AUTH	= "You need permission to join this contest";
+	const L_NO_SUBMIT_RECORD	= "No data can be displayed, Try to solve one problem now :)";
+	const L_WEEKY_SUBMIT_N_AC	= "Weeky Submit and Accept count";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "Pending..";
 	const L_JUDGE_PR = "Wait for Judge";
@@ -57,11 +59,39 @@
 	const L_HINT	= "Hint";
 	const L_TAG		= "Tag";
 	const L_SOURCE	= "Source";
+	/************* Mail Page *****************/
+	const L_SEND	= "Send";
+	const L_CLEAR	= "Clear";
+	const L_CONTENT	= "Content";
+	const L_SEND_TO	= "Send to";
+	const L_WRITE_NEW_MAIL	= "Create new mail";
+	/************* Register ****************/
+	const L_PLZ			= "Please";
+	const L_UID			= "User ID";
+	const L_NICK		= "Nick Name";
+	const L_PSW			= "Password";
+	const L_PSW_AGAIN	= "Repeat Password";
+	const L_SCHOOL		= "School";
+	const L_EMAIL		= "E-mail";
+	const L_AGREE_EULA	= "Accept End-user license agreements";
+	const L_UID_DV_MSG	= "UserID Should be longer than 3 char.";
+	const L_PSW_DV_MSG	= "Password Should be longer than 6 char.";
+	const L_PSW2_DV_MSG	= "Password NOT Matched";
+	/************* User Page ***************/
+	const L_USER_PAGE	= "User Page";
+	const L_USER_INFO	= "User Info";
+	const L_ORI_PSW		= "Original Password";
+	const L_NEW_PSW		= "New Password";
+	const L_NEW_PSW_AGAIN= "New Password Again";
+	const L_MODIFY_INFO	= "Modify User Info";
+	const L_SOLVED		= "Solved";
+	const L_CHALLENGED	= "Challenged";
+	const L_NOT_EDITABLE= "not editable";
 	/************* Misc *****************/
 	const L_DELETE	= "Delete";
 	const L_DOWNLOAD= "Download";
 	const L_UPLOAD	= "Upload";
-	const L_CHANGE	= "更换";
+	const L_CHANGE	= "Change";
 	const L_REMOVE	= "Remove";
 	const L_SELECT_FILE	= "Select file";
 ?>

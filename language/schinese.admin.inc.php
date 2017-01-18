@@ -6,8 +6,14 @@
 	const LA_PROB_MAN			= "管理问题";
 	const LA_CONT_EDITOR		= "比赛编辑";
 	const LA_CONT_ADD			= "添加竞赛";
+	const LA_CONT_LIST			= "竞赛列表";
+	const LA_NEWS_MAN			= "管理新闻";
+	const LA_CAST_MAN			= "管理广播";
+	const LA_RESET_PSW			= "重置密码";
+	const LA_ACCOUNT_GEN		= "账号生成器";
 	const LA_PAGE_MODIFIER		= "页面编辑";
 	const LA_USER_MGR			= "用户管理";
+	const LA_PRIVILEGE_MAN		= "权限管理";
 	const LA_SUPER_USER			= "最高权限";
 	const LA_EXIT_ADMIN			= "退出管理页面";
 	/************* Index **************/

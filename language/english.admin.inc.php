@@ -6,8 +6,14 @@
 	const LA_PROB_MAN			= "Problem Management";
 	const LA_CONT_EDITOR		= "Contest Editor";
 	const LA_CONT_ADD			= "Add Contest";
+	const LA_CONT_LIST			= "Contest List";
+	const LA_NEWS_MAN			= "News Management";
+	const LA_CAST_MAN			= "Broadcast Management";
+	const LA_RESET_PSW			= "Reset Password";
+	const LA_ACCOUNT_GEN		= "Account Generator";
 	const LA_PAGE_MODIFIER		= "Page Modifier";
 	const LA_USER_MGR			= "User Manager";
+	const LA_PRIVILEGE_MAN		= "Privilege Management";
 	const LA_SUPER_USER			= "Super User";
 	const LA_EXIT_ADMIN			= "Back to OJ";
 	/************* Index **************/
