@@ -57,7 +57,7 @@
 		
 	//Keyword
 	if(isset($_GET['wd']) && trim($_GET['wd'])!="") {
-		$search = mysql_real_escape_string(urldecode($_GET['wd']));
+		$search = pdo_real_escape_string(urldecode($_GET['wd']), $pdo);
 		$common_filter = " ( title LIKE '%{$search}%' OR source LIKE '%{$search}%') ";
 		$totalCount = 1; // all search result in one page
 	} else {

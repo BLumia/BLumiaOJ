@@ -29,4 +29,8 @@
 			}
 		}
 	}
+	
+	function pdo_real_escape_string($value, $pdo) {
+		return substr($pdo->quote($value), 1, -1);       
+	}
 ?>
