@@ -29,6 +29,7 @@
 	}
 	
 	foreach($weekyResult as $row) {
+		if(!isset($weekIdx[$row['submit_time']])) continue;
 		$idx = $weekIdx[$row['submit_time']];
 		$tableResult[$idx]['count'] += intval($row['COUNT(*)']);
 		$tableResult[$idx][$row['result']] = intval($row['COUNT(*)']);

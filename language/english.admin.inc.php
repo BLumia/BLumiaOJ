@@ -28,6 +28,7 @@
 	const LA_DEFAULT_CFG_HELP	= "We recommand you copy <code>config.sample.php</code> as <code>config.php</code> in <code>include</code> folder and modify it to configure this OJ.";
 	const LA_SHOW_WA_INFO		= "Show solution Wrong Answer detail";
 	/************* Test Case Editor **************/
+	const LA_TEST_DATA			= "Test Data";
 	const LA_EDIT_DATA			= "Edit Data";
 	const LA_TCE_LEAD			= "Edit problem's test data  here.<br/>If you want to edit a problem, please navigate to 'Problem List' page.";
 	const LA_DELETE_DATA		= "Delete Test Data";

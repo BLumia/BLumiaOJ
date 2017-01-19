@@ -43,10 +43,10 @@
 					
 					echo "<tr>";
 					echo "<td>".$row['problem_id']."</td>";
-					echo "<td><a href='../problem.php?pid={$row['problem_id']}'>".$row['title']."</a></td>";
+					echo "<td><a href='../problem.php?pid={$row['problem_id']}'>{$row['title']}</a></td>";
 					echo "<td>".$row['in_date']."</td>";
 					echo "<td>{$url_defunct}</td>";
-					echo "<td><a href='./problem_editor.php?nid={$row['problem_id']}'>Edit</a> | <a href='./problem_data.php?pid={$row['problem_id']}'>Test Data</a></td>";
+					echo "<td><a href='./problem_editor.php?nid={$row['problem_id']}'>".L_EDIT."</a> | <a href='./problem_data.php?pid={$row['problem_id']}'>".LA_TEST_DATA."</a></td>";
 					echo "</tr>";
 					//var_dump($row);
 				}

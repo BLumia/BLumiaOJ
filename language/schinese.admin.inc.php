@@ -28,6 +28,7 @@
 	const LA_DEFAULT_CFG_HELP	= "我们建议您复制 <code>include</code> 文件夹中的 <code>config.sample.php</code> 为 <code>config.php</code> 并修改它，以配置该在线评测系统.";
 	const LA_SHOW_WA_INFO		= "是否显示答案错误对比";
 	/************* Test Case Editor **************/
+	const LA_TEST_DATA			= "测试数据";
 	const LA_EDIT_DATA			= "编辑数据";
 	const LA_TCE_LEAD			= "在这里编辑问题的测试数据。<br/>若要对问题进行编辑和其他针对某个问题的操作，请进入“问题列表”。";
 	const LA_DELETE_DATA		= "删除测试数据";
