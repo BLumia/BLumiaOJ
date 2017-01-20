@@ -88,10 +88,14 @@
 	const L_CHALLENGED	= "已挑战";
 	const L_NOT_EDITABLE= "不可修改";
 	/************* Misc *****************/
+	const L_ALL		= "所有";
+	const L_LANG	= "语言";
+	const L_RESULT	= "结果";
 	const L_DELETE	= "删除";
 	const L_DOWNLOAD= "下载";
 	const L_UPLOAD	= "上传";
 	const L_CHANGE	= "更换";
 	const L_REMOVE	= "移除";
+	const L_OTHER	= "其它";
 	const L_SELECT_FILE	= "选择文件";
 ?>

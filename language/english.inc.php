@@ -88,10 +88,14 @@
 	const L_CHALLENGED	= "Challenged";
 	const L_NOT_EDITABLE= "not editable";
 	/************* Misc *****************/
+	const L_ALL		= "All";
+	const L_LANG	= "Language";
+	const L_RESULT	= "Result";
 	const L_DELETE	= "Delete";
 	const L_DOWNLOAD= "Download";
 	const L_UPLOAD	= "Upload";
 	const L_CHANGE	= "Change";
 	const L_REMOVE	= "Remove";
+	const L_OTHER	= "Other";
 	const L_SELECT_FILE	= "Select file";
 ?>

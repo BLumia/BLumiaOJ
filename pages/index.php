@@ -48,7 +48,7 @@
 			url:"./api/ajax_newslist.php?show="+num,
 			async:false,
 			contentType:"application/x-www-form-urlencoded; charset=utf-8",
-			success:function(data/*返回的数据*/, textStatus, jqXHR){
+			success:function(data, textStatus, jqXHR){
 				document.getElementById("news").innerHTML=data;
 				$(".alter").fadeIn();
 			},
@@ -112,17 +112,17 @@
 				}
 				chart.xAxis[0].setCategories(DataText);
 				chart.addSeries({                       
-					name: "Accepted",
+					name: "<?php echo L_JUDGE_AC;?>",
 					color: "#7fff00",
 					data: Accepted
 				},false);
 				chart.addSeries({                       
-					name: "Wrong Answer",
+					name: "<?php echo L_JUDGE_WA;?>",
 					color: "#ff5151",
 					data: WrongAnswer
 				},false);
 				chart.addSeries({                       
-					name: "Other Status",
+					name: "<?php echo L_OTHER;?>",
 					color: "#d0d0d0",
 					data: Other
 				},false);

@@ -15,7 +15,7 @@
 							<input name="pid" value="<?php echo $problem_id;?>" type="text" class="form-control" placeholder="题目编号">
 							<input name="uid" value="<?php echo $user_id;?>" type="text" class="form-control" placeholder="用户名">
 							<select name="language" class="form-control">
-								<option value="-1">==语言==</option>
+								<option value="-1">==<?php echo L_LANG;?>==</option>
 								<?php
 								$lang=(~((int)$langmask))&((1<<($lang_count))-1);
 								for($i=0;$i<$lang_count;$i++) {
@@ -26,7 +26,7 @@
 								?>
 							</select>
 							<select name="judgeresult" class="form-control">
-								<option value="-1">==结果==</option>
+								<option value="-1">==<?php echo L_RESULT;?>==</option>
 								<?php 
 								$i=0;
 								foreach($JUDGE_RESULT as $row) {
@@ -49,10 +49,10 @@
 								<th width="8%">Run ID</th>
 								<th width="14%">User ID</th>
 								<th width="10%">Problem ID</th>
-								<th width="20%" style="text-align: center;">Result</th>
+								<th width="18%" style="text-align: center;">Result</th>
 								<th width="8%">Memory</th>
 								<th width="8%">Time</th>
-								<th width="10%">Compiler</th>
+								<th width="12%">Compiler</th>
 								<th width="8%">Length</th>
 								<th width="14%">Submit Time</th>
 							</tr>
@@ -70,7 +70,7 @@
 							}
 							$resUrl = "<span class='label label-{$JUDGE_ROW_CSS_CLASS[$row['result']]}'>{$JUDGE_RESULT[$row['result']]}</span>{$passRate}";
 							if (havePrivilege("SOURCE_VIEWER") || (isset($_SESSION['user_id']) && $_SESSION['user_id']==$row['user_id']) ) {
-								$codeUrl = "<a href='./source_view.php?id={$row['solution_id']}'>{$LANGUAGE_NAME[$row['language']]}</a> | <a href='./problemsubmit.php?sid={$row['solution_id']}&pid={$row['problem_id']}'>Edit</a>"; 
+								$codeUrl = "<a href='./source_view.php?id={$row['solution_id']}'>{$LANGUAGE_NAME[$row['language']]}</a> | <a href='./problemsubmit.php?sid={$row['solution_id']}&pid={$row['problem_id']}'>".L_EDIT."</a>"; 
 								if($row['result'] == 6 && $SOLUTION_WA_INFO) {
 									$resUrl = "<i class='fa fa-question-circle'></i><a href='./error_view.php?id={$row['solution_id']}&type=6'>{$resUrl}</a><i class='fa fa-question-circle'></i>";
 								} 

@@ -14,13 +14,13 @@
 					</div>
 				</div>
 				<div class="col-md-4 col-xs-4 text-right">
-					<button type="button" class="btn btn-default">Create Contest</button>
+					<!--<button type="button" class="btn btn-default">Create Contest</button>-->
 				</div><!-- /.col-lg-3 -->
 				<div class="col-md-4 col-xs-4 text-right">
-					<div class="btn-group" role="group" aria-label="...">
-					<a href="?private=2" type="button" class="btn btn-default">All</a>
-					<a href="?private=0" type="button" class="btn btn-default">Public</a>
-					<a href="?private=1" type="button" class="btn btn-default">Private</a>
+					<div class="btn-group" role="group">
+					<a href="?private=2" type="button" class="btn btn-default"><?php echo L_ALL;?></a>
+					<a href="?private=0" type="button" class="btn btn-default"><?php echo L_Public;?></a>
+					<a href="?private=1" type="button" class="btn btn-default"><?php echo L_Private;?></a>
 					</div>
 				</div><!-- /.col-lg-3 -->
 			</div><!-- /.row -->
