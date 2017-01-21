@@ -10,11 +10,6 @@
 <link rel="stylesheet" href="./sitefiles/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="./sitefiles/css/nprogress.css">
 
-<!--[if lte IE 6]>
-<link rel="stylesheet" type="text/css" href="./sitefiles/css/bootstrap-ie6.css">
-<link rel="stylesheet" type="text/css" href="./sitefiles/css/ie.css">
-<![endif]-->
-
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
   <script src="./sitefiles/js/html5shiv.js"></script>
