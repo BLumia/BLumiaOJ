@@ -64,21 +64,19 @@
 $(document).ready(function() {
 	$('.summernote').summernote({
 		height: 120,
-		callbacks: {
-			onImageUpload: function(files) {
-				var formData = new FormData();
-				formData.append('file',files[0]);
-				$.ajax({
-					url : '../api/pic_upload.php',
-					type : 'POST',
-					data : formData,
-					processData : false,
-					contentType : false,
-					success : function(data) {
-						$('#summernote').summernote('insertImage',data,'img');
-					}
-				});
-			}
+		onImageUpload: function(files) {
+			var formData = new FormData();
+			formData.append('file',files[0]);
+			$.ajax({
+				url : '../api/pic_upload.php',
+				type : 'POST',
+				data : formData,
+				processData : false,
+				contentType : false,
+				success : function(data) {
+					$('#summernote').summernote('insertImage',data,'img');
+				}
+			});
 		}
 	});
 });
