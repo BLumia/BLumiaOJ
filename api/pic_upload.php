@@ -28,8 +28,8 @@
 	
 	//Prepare
 	$dataFolderPath = $OJ_UPLOAD_DATA;
-	$actualDataFolder = $dataFolderPath."/".date('Y-m-d')."/";
-	$outPath = "/{$OJ_WWW_UPLOAD_PATH}".date('Y-m-d')."/";
+	$actualDataFolder = $dataFolderPath.date('Y-m-d');
+	$outPath = "/{$OJ_WWW_UPLOAD_PATH}/".date('Y-m-d')."/";
 	
 	//Do Work
 	$allowedExts = array("gif", "jpeg", "jpg", "png", "bmp");
@@ -41,7 +41,7 @@
 			if (!file_exists($actualDataFolder)) mkdir($actualDataFolder);
 			if (!in_array(getFileExtension($_FILES["file"]["name"]), $allowedExts)) exit(json_encode(array("status"=>false)));
 			if (file_exists($actualDataFolder."/".$urlencodedFileName)) unlink($actualDataFolder."/".$urlencodedFileName);
-			$status = move_uploaded_file($_FILES['file']['tmp_name'], $actualDataFolder.$urlencodedFileName);
+			$status = move_uploaded_file($_FILES['file']['tmp_name'], $actualDataFolder."/".$urlencodedFileName);
 			$outPath.=$urlencodedFileName;
 			
 			exit($outPath);

@@ -6,8 +6,8 @@
 	
 // Data Path Setting
 	$OJ_PROBLEM_DATA = "/home/judge/data"; //Path to problem data floder. e.g. [/home/judge/data], this path will NOT work IF you are running on SAE or OpenShift
-	$OJ_UPLOAD_DATA = "/var/www/html/BLumiaOJ/webframe/imguploads/"; // Any file or image will be upload here. e.g. [/var/www/html/BLumiaOJ/webframe/imguploads/]
-	$OJ_WWW_UPLOAD_PATH = "./imguploads/"; // Img can be visit at http://your.site/path/to/folder/ , u should fill [path/to/folder]
+	$OJ_UPLOAD_DATA = "/var/www/html/OnlineJudge/uploads/"; // Any file or image will be upload here. e.g. [/var/www/html/BLumiaOJ/webframe/imguploads/]
+	$OJ_WWW_UPLOAD_PATH = "uploads"; // Img can be visit at http://your.site/path/to/folder/ , u should fill [path/to/folder]
 	
 // Submit Setting
 	$OJ_SUBMIT_DELTATIME = 10; // allowed submit frequence. (seconds)

@@ -65,6 +65,7 @@ $(document).ready(function() {
 	$('.summernote').summernote({
 		height: 120,
 		onImageUpload: function(files) {
+			var $curSummernote = $(this);
 			var formData = new FormData();
 			formData.append('file',files[0]);
 			$.ajax({
@@ -74,7 +75,7 @@ $(document).ready(function() {
 				processData : false,
 				contentType : false,
 				success : function(data) {
-					$('#summernote').summernote('insertImage',data,'img');
+					$curSummernote.summernote('insertImage',data,'img');
 				}
 			});
 		}
