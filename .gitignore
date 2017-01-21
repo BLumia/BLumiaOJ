@@ -50,3 +50,6 @@ Temporary Items
 
 # OJ Config file
 config.php
+
+# OJ Uploads
+uploads/

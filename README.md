@@ -13,7 +13,7 @@ HUSTOJ Web 完全重写版本。更易用的前端交互，新增部分实用功
 
 预览
 ===
-如果您需要预览，您可以在[这里（腾讯云位置）](http://oj.blumia.cn/)或者[这里（OpenShift位置）](https://testbed-blumia.rhcloud.com/webframe/index.php)看到新评测系统的预览状况。
+如果您需要预览，您可以在[这里（腾讯云位置）](http://oj.blumia.cn/)或者[这里（OpenShift位置）](https://testbed-blumia.rhcloud.com/)看到新评测系统的预览状况。
 在完善的版本完成前，暂不计划提供此OJ的部署方案。
 
 参与开发
