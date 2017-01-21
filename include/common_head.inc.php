@@ -5,7 +5,7 @@
 <meta name="msapplication-TileColor" content="#FEF2E6">
 <meta name="msapplication-TileImage" content="./sitefiles/favicon.png">	
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="./sitefiles/css/bootstrap-cerulean.min.css">
+<link rel="stylesheet" href="./sitefiles/css/bootstrap.min.css">
 <link rel="stylesheet" href="./sitefiles/css/prettify.css" type="text/css">
 <link rel="stylesheet" href="./sitefiles/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="./sitefiles/css/nprogress.css">
