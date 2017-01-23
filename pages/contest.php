@@ -1,4 +1,3 @@
-
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">

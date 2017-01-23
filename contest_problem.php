@@ -27,12 +27,13 @@
 	$sql->execute(array($cid));
 	$contestItem=$sql->fetch(PDO::FETCH_ASSOC);
 	
-	//TODO: Grobal Problem ID
-	$sql=$pdo->prepare("
-		SELECT * FROM `problem` WHERE `defunct`='N' AND `problem_id`=(
+	$isProblemManager = havePrivilege("PROBLEM_EDITOR");
+	
+	$sql=$pdo->prepare(
+		"SELECT * FROM `problem` WHERE `defunct`='N' AND `problem_id`=(
 			SELECT `problem_id` FROM `contest_problem` WHERE `contest_id`=? AND `num`=?
-		)
-	");
+		)"
+	);
 	$sql->execute(array($cid,$pid));
 	$problemItem=$sql->fetch(PDO::FETCH_ASSOC);
 	
