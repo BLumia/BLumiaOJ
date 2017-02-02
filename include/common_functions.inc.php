@@ -33,4 +33,28 @@
 	function pdo_real_escape_string($value, $pdo) {
 		return substr($pdo->quote($value), 1, -1);       
 	}
+	
+	function fire($status, $message, $result = null) {
+	/*
+		Ajax返回json，用于API。
+		@param $status HTTP状态码
+		@param $message 提示信息，正常则"OK"，不正常提示错误原因
+		@param $result 待返回结果
+	*/
+		if ($result == null) unset($result);
+		$httpStatusCode = array( 
+			200 => "HTTP/1.1 200 OK",
+			400 => "HTTP/1.1 400 Bad Request",
+			401 => "HTTP/1.1 401 Unauthorized",
+			403 => "HTTP/1.1 403 Forbidden",
+			404 => "HTTP/1.1 404 Not Found",
+			500 => "HTTP/1.1 500 Internal Server Error",
+			501 => "HTTP/1.1 501 Not Implemented",
+			503 => "HTTP/1.1 503 Service Unavailable",
+			504 => "HTTP/1.1 504 Gateway Time-out"
+		);
+		header('Content-Type: application/json');
+		@header($httpStatusCode[$statusCode]);
+		exit(json_encode(compact("status", "message", "result")));
+	}
 ?>

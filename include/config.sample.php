@@ -24,6 +24,9 @@
 	$OJ_LOCKRANK = false; // Default Lock Ranklist Mod
 	$OJ_LOCKRANK_PERCENT = 0.2; // 0~1. eg. 0.2: a 5 hours contest will lock one hour.
 	
+// Community forum (Discuss board) Setting
+	$FORUM_ENABLED = true; // Currently not finished. Don't enable it unless you gonna hacking this part.
+	
 // Virtual Judge Setting
 	$VJ_ENABLED = false; // Currently not finished. Don't enable it unless you gonna hacking this part.
 
