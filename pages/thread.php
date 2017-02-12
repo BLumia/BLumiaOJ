@@ -37,7 +37,7 @@
 			var $userName = $("<div>").addClass("text-center").text(elem.author_id);
 			$replyLeftBlock.append($userContainer.append($userImg).append($userName));
 			
-			var $replyMainBlock = $("<div>").addClass("media-body").text(elem.content);
+			var $replyMainBlock = $("<div>").addClass("media-body").html(elem.content);
 			var $replyInfoBlock = $("<div>").addClass("pull-right text-muted").text(elem.time);
 			
 			$replyBlock.append($replyLeftBlock).append($replyMainBlock).append($replyInfoBlock);

@@ -33,7 +33,7 @@
 		$.each(data, function (index, elem) {
 			var $row = $("<tr>");
 			var $replyCount = $("<td>").text(elem.count);
-			var $titleLink = $("<a>").attr("href","thread.php?tid="+elem.tid).text("asdasd");
+			var $titleLink = $("<a>").attr("href","thread.php?tid="+elem.tid).text(elem.title);
 			var $title = $("<td>").append($titleLink);
 			var $problemID = $("<td>").text(elem.pid == 0 ? "" : elem.pid);
 			var $postData = $("<td>").text(elem.posttime);
