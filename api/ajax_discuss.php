@@ -44,6 +44,9 @@
 			$sql=$pdo->prepare("SELECT `rid`, `author_id`, `time`, `content`, `status` FROM `reply` WHERE `topic_id` = ? AND `status` <=1 ORDER BY `rid` LIMIT 30");
 			$sql->execute(array($tid));
 			$replies=$sql->fetchAll(PDO::FETCH_ASSOC);
+			foreach($replies as &$row) {
+				$row['content'] = nl2br($row['content']);
+			}
 			$result=compact("threadInfo", "replies");
 			fire(200, "OK", $result);
 			
