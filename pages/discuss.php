@@ -11,13 +11,13 @@
 		</div>		
 		<![endif]-->
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-sm-9">
 					<table id="threadList" class="table table-hover">
 					<thead><tr><th>Reply</th><th width="40%">Title</th><th>Problem</th><th>Date</th><th>Last</th></tr></thead>
 					<tbody></tbody>
 					</table>
 				</div>
-				<div class="col-md-3">
+				<div class="col-sm-3">
 					<div class="well">
 						<h3>Discuss</h3>
 						<button class="btn btn-primary btn-block">Post new thread</button>
@@ -33,7 +33,8 @@
 		$.each(data, function (index, elem) {
 			var $row = $("<tr>");
 			var $replyCount = $("<td>").text(elem.count);
-			var $title = $("<td>").text(elem.title);
+			var $titleLink = $("<a>").attr("href","thread.php?tid="+elem.tid).text("asdasd");
+			var $title = $("<td>").append($titleLink);
 			var $problemID = $("<td>").text(elem.pid == 0 ? "" : elem.pid);
 			var $postData = $("<td>").text(elem.posttime);
 			var $lastData = $("<td>").text(elem.lastupdate);
@@ -55,8 +56,6 @@
 				fillThreadList(data.result);
 			}
 		});
-		
-		
 	});
 	</script>
 		
