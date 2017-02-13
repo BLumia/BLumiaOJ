@@ -1,4 +1,9 @@
-
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php require_once('./include/common_head.inc.php'); ?>
+		<title><?php echo L_INBOX." - {$OJ_NAME}";?></title>
+	</head>	
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
@@ -7,8 +12,8 @@
 				
 					<h1><?php echo $user_name; ?> <small>ID: <?php echo $user_id;?></small></h1>
 					<ol class="breadcrumb">
-						<li><a href="userinfo.php"><i class="icon-dashboard"></i> User Page</a></li>
-						<li class="active"><i class="icon-file-alt"></i> Private Message</li>
+						<li><a href="userinfo.php"><i class="icon-dashboard"></i> <?php echo L_USER_PAGE;?></a></li>
+						<li class="active"><i class="icon-file-alt"></i> <?php echo L_INBOX;?></li>
 					</ol>
 					
 					<div class="row">
@@ -77,7 +82,7 @@
 						</div>
 						
 						<div class="col-lg-12">
-							<h2><?php echo L_INBOX;?><small> <a class="" data-toggle="collapse" href="#create-mail" aria-expanded="true"><?php echo L_WRITE_NEW_MAIL;?></a></small></h2>
+							<h2><?php echo L_INBOX;?><small> <a class="" data-toggle="collapse" href="#create-mail" aria-expanded="true"><span class="label label-primary"><?php echo L_WRITE_NEW_MAIL;?></span></a></small></h2>
 							<div class="table-responsive">
 							<table class="table table-bordered table-hover tablesorter">
 								<thead>
@@ -117,3 +122,4 @@
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
 	</body>
+</html>

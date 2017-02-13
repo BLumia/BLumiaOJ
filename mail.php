@@ -1,12 +1,5 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('./include/common_head.inc.php'); ?>
-		<title>私信 - BLumiaOJ</title>
-	</head>	
-	
-<?php
+<?php 
+	session_start();
 	//Vars
 	require_once('./include/setting_oj.inc.php');
 	require_once('./include/safe_func.inc.php');
@@ -29,7 +22,6 @@
 		$user_email = $res['email'];
 		
 	} else {
-		//TODO： 访问指定用户的用户页面，$_GET['user'];传入user_id
 		exit(0);
 	}
 	
@@ -124,5 +116,3 @@
 	//Page Includes
 	require("./pages/mail.php");
 ?>
-	
-</html>

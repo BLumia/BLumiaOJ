@@ -1,4 +1,18 @@
-
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php require_once('./include/common_head.inc.php'); ?>
+		<script src="./sitefiles/js/highcharts.js"></script>
+		<title><?php echo L_FORUM." - {$OJ_NAME}";?></title>
+		<style>
+.avatar {
+	padding: 0 20px 10px;
+}
+span.label {
+	margin-left: .3em;
+}
+		</style>
+	</head>	
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
@@ -11,7 +25,13 @@
 		</div>		
 		<![endif]-->
 			<div class="row">
-				<h3 style="padding-left:15px;" id="threadTitle">Title title</h3><hr/>
+				<ol class="breadcrumb">
+					<li><a href="discuss.php"><i class="icon-dashboard"></i> <?php echo L_FORUM;?></a></li>
+					<li id="problemBreadcrumb" class="hidden"><i class="icon-file-alt"></i> <a id="probDiscussLink">Problem Discuss</a></li>
+					<li class="active"><i class="icon-file-alt"></i> Thread Page</li>
+				</ol>
+				<h3 id="threadTitle">Loading...</h3>
+				<hr/>
 				<div id="replyList" class="col-sm-9"></div>
 				<div class="col-sm-3">
 					<div class="well">
@@ -25,15 +45,30 @@
 		
 	<script type="text/javascript">
 	function fillThreadList(data) {
+		if (data.threadInfo == false) {
+			$("#threadTitle").text("Thread not exist!");
+		} else {
+			var labelText = "";
+			switch (data.threadInfo.top_level) {
+				case "1": labelText = "<?php echo L_TOP_1;?>"; break;
+				case "2": labelText = "<?php echo L_TOP_2;?>"; break;
+				case "3": labelText = "<?php echo L_TOP_3;?>"; break;
+			}
+			var $label = $("<span>").addClass("label label-primary").text(labelText);
+			$("#threadTitle").text(data.threadInfo.title).append($label);
+		}
 		
-		$("#threadTitle").text(data.threadInfo.title);
+		if (data.threadInfo.pid != undefined && data.threadInfo.pid != 0) {
+			$("#problemBreadcrumb").attr("class","active");
+			$("#probDiscussLink").attr("href","discuss.php?pid="+data.pid);
+		}
 		
 		var $tableBody = $("#replyList").empty();
 		$.each(data.replies, function (index, elem) {
 			var $replyBlock = $("<div>").addClass("media");
-			var $replyLeftBlock = $("<div>").addClass("media-left media-middle");
-			var $userContainer = $("<a>").attr('href','#');
-			var $userImg = $("<img>").attr("src","data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWEzMTM2ZDBjNSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1YTMxMzZkMGM1Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNCIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=");
+			var $replyLeftBlock = $("<div>").addClass("media-left");
+			var $userContainer = $("<a>").attr('href','userinfo.php?uid='+elem.author_id);
+			var $userImg = $("<img>").attr("src","data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWEzMTM2ZDBjNSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1YTMxMzZkMGM1Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNCIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=").addClass("avatar");
 			var $userName = $("<div>").addClass("text-center").text(elem.author_id);
 			$replyLeftBlock.append($userContainer.append($userImg).append($userName));
 			
@@ -51,15 +86,15 @@
 			method: "POST",
 			data: {
 				"do": "replylist",
-				"tid": <?php echo $_GET["tid"];?>
+				"tid": <?php echo intval($_GET["tid"]);?>
 			},
 			dataType: "json",
 			success: function (data, textStatus, jqXHR) {
-				if (data.status === 200)
-				fillThreadList(data.result);
+				if (data.status === 200) fillThreadList(data.result);
+				else $("#threadTitle").text(data.message);
 			}
 		});
 	});
 	</script>
-		
 	</body>
+</html>

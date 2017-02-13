@@ -6,6 +6,7 @@
 	const L_RANKLIST= "排名";
 	const L_CONTEST	= "比赛";
 	const L_VJ		= "虚拟判题";
+	const L_FORUM	= "讨论区";
 	const L_SIGNUP	= "注册";
 	const L_LOGIN	= "登陆";
 	const L_INBOX	= "收件箱";
@@ -87,6 +88,11 @@
 	const L_SOLVED		= "已解决";
 	const L_CHALLENGED	= "已挑战";
 	const L_NOT_EDITABLE= "不可修改";
+	/************* Forum ***************/
+	const L_LOCKED	= "已锁定";
+	const L_TOP_1	= "置顶";
+	const L_TOP_2	= "区置顶";
+	const L_TOP_3	= "总置顶";
 	/************* Misc *****************/
 	const L_ALL		= "所有";
 	const L_LANG	= "语言";

@@ -1,4 +1,10 @@
-
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php require_once('./include/common_head.inc.php'); ?>
+		<script src="./sitefiles/js/highcharts.js"></script>
+		<title><?php echo "{$OJ_NAME}";?></title>
+	</head>	
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
@@ -12,11 +18,11 @@
 		<![endif]-->
 			<div class="row">
 				<div id="chart" class="col-md-9 col-sm-9">
-					统计信息或巨幕
+					Chart
 				</div>
 				<div class="col-md-3 col-sm-3">
 					<ul class="list-group">
-						<li class="list-group-item"><a href="./discuss/discuss.php">讨论版</a></li>
+						<li class="list-group-item"><a href="./discuss.php">讨论版</a></li>
 						<li class="list-group-item"><a href="#">常见问答</a></li>
 						<li class="list-group-item"><a href="#">代码便签盒</a></li>
 						<li class="list-group-item"><a href="#">工具和向导</a></li>
@@ -46,7 +52,6 @@
 		NProgress.start();
 		$.ajax({
 			url:"./api/ajax_newslist.php?show="+num,
-			async:false,
 			contentType:"application/x-www-form-urlencoded; charset=utf-8",
 			success:function(data, textStatus, jqXHR){
 				document.getElementById("news").innerHTML=data;
@@ -133,7 +138,7 @@
 			} 
 		});
 	});
-
 	</script>
 		
 	</body>
+</html>

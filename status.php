@@ -11,21 +11,7 @@
 		'language' // Language filter
 		'judgeresult' // Judge result filter
 	*/
-?>
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('./include/common_head.inc.php'); ?>
-		<title>Status</title>
-		<style>
-tr > td.result {
-  text-align: center;
-}
-		</style>
-	</head>	
-	
-<?php
+	session_start();
 	//Vars
 	require_once("./include/setting_oj.inc.php");
 	require_once('./include/common_const.inc.php');
@@ -111,5 +97,3 @@ tr > td.result {
 	//Page Includes
 	require("./pages/status.php");
 ?>
-	
-</html>

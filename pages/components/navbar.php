@@ -38,6 +38,10 @@
 				<li><a href="ranklist.php"><?php echo L_RANKLIST;?></a></li>
 				<li><a href="contestlist.php"><?php echo L_CONTEST;?></a></li>
 				
+				<?php if ($FORUM_ENABLED) {?>
+				<li><a href="discuss.php"><?php echo L_FORUM;?></a></li>
+				<?php } ?>
+				
 				<?php if ($VJ_ENABLED) {?>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo L_VJ;?> <span class="caret"></span></a>

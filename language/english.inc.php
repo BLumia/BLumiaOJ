@@ -6,6 +6,7 @@
 	const L_RANKLIST= "Rank List";
 	const L_CONTEST	= "Contest";
 	const L_VJ		= "Virtual Judge";
+	const L_FORUM	= "Forum";
 	const L_SIGNUP	= "Sign Up";
 	const L_LOGIN	= "Login";
 	const L_INBOX	= "In-box";
@@ -87,6 +88,11 @@
 	const L_SOLVED		= "Solved";
 	const L_CHALLENGED	= "Challenged";
 	const L_NOT_EDITABLE= "not editable";
+	/************* Forum ***************/
+	const L_LOCKED	= "Locked";
+	const L_TOP_1	= "Sticky";
+	const L_TOP_2	= "Topic Sticky";
+	const L_TOP_3	= "Global Sticky";
 	/************* Misc *****************/
 	const L_ALL		= "All";
 	const L_LANG	= "Language";

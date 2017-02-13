@@ -1,4 +1,9 @@
-
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php require_once('./include/common_head.inc.php'); ?>
+		<title>Problem Set</title>
+	</head>	
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
@@ -96,3 +101,4 @@
 		<?php require("./pages/components/footer.php");?>
 
 	</body>
+</html>

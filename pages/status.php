@@ -1,4 +1,14 @@
-
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php require_once('./include/common_head.inc.php'); ?>
+		<title><?php echo L_STATUS." - {$OJ_NAME}";?></title>
+		<style>
+tr > td.result {
+  text-align: center;
+}
+		</style>
+	</head>	
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
@@ -100,3 +110,4 @@
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
 	</body>
+</html>
