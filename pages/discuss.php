@@ -29,7 +29,7 @@
 					<thead><tr><th>Reply</th><th width="40%">Title</th><th>Problem</th><th>Date</th><th>Last</th></tr></thead>
 					<tbody></tbody>
 					</table>
-					<form id="postThreadForm">
+					<form id="postThreadForm" class="form-group">
 						<input type="hidden" class="form-control" name="do" value="postthread">
 						<label for="titleInput">Title:</label>
 						<input type="text" class="form-control" id="titleInput" name="title" placeholder="Title">

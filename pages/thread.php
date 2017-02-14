@@ -34,7 +34,7 @@ span.label {
 				<hr/>
 				<div class="col-sm-9">
 					<div id="replyList"></div>
-					<form id="postReplyForm">
+					<form id="postReplyForm" class="form-group">
 						<input type="hidden" class="form-control" name="do" value="postreply">
 						<input type="hidden" class="form-control" name="tid" value="<?php echo intval($_GET["tid"]);?>">
 						<label for="contentInput">Reply:</label>

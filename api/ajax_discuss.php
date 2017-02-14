@@ -29,6 +29,15 @@
 	$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 	$action = isset($_REQUEST['do']) ? $_REQUEST['do'] : "threadlist";
 	// what? no pager?
+	
+	function isPostFreqTooHigh($user_id, $seconds, $pdo) {
+		$ckeckTime=strftime("%Y-%m-%d %X",time()-$seconds);
+		$sql=$pdo->prepare("SELECT `time` from `reply` where `author_id`=? and `time`>? limit 1");
+		$sql->execute(array($user_id,$ckeckTime));
+		$existChecker = $sql->fetchAll(PDO::FETCH_ASSOC);
+		$existCounter = count($existChecker);
+		return $existCounter == 1;
+	}
 
 	
 	switch($action) {
@@ -71,6 +80,7 @@
 			$title = htmlspecialchars($_POST['title']);
 			$content = RemoveXSS(UBB2Html(htmlspecialchars($_POST['content'])));
 			if (empty($title) || empty($content)) fire(400, "Title or content can't be empty.");
+			if (isPostFreqTooHigh($user_id,$FORUM_SUBMIT_DELTATIME,$pdo)) fire(403, "You post too fast, take a rest and try again!");
 			$pidStr = is_null($pid) ? 0 : intval($pid);
 			$cidStr = is_null($cid) ? "NULL" : intval($cid);
 			$sqlStr="INSERT INTO `topic` (`title`, `author_id`, `cid`, `pid`) SELECT ?, ?, {$cidStr}, '{$pidStr}'";
@@ -98,6 +108,7 @@
 			if (is_null($user_id)) fire(403, "Please Login First.");
 			if (!isset($_POST['content'])) fire(400, "Missing `content` parameter.");
 			if (empty($_POST['content'])) fire(400, "`content` can't be empty.");
+			if (isPostFreqTooHigh($user_id,$FORUM_SUBMIT_DELTATIME,$pdo)) fire(403, "You post too fast, take a rest and try again!");
 			$content = RemoveXSS(UBB2Html(htmlspecialchars($_POST['content'])));
 			$sql=$pdo->prepare("INSERT INTO `reply` (`author_id`, `time`, `content`, `topic_id`,`ip`) SELECT ?, NOW(), ?, ?, ? FROM `topic` WHERE `tid` = ? AND `status` = 0 ");
 			$state = $sql->execute(array($user_id, $content, $tid, $_SERVER['REMOTE_ADDR'], $tid));
