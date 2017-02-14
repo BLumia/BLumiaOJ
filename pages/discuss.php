@@ -29,6 +29,7 @@
 					<thead><tr><th>Reply</th><th width="40%">Title</th><th>Problem</th><th>Date</th><th>Last</th></tr></thead>
 					<tbody></tbody>
 					</table>
+					<?php if (isset($_SESSION["user_id"])) { ?>
 					<form id="postThreadForm" class="form-group">
 						<input type="hidden" class="form-control" name="do" value="postthread">
 						<label for="titleInput">Title:</label>
@@ -37,6 +38,11 @@
 						<textarea class="form-control" id="contentInput" name="content" rows="4"></textarea>
 					</form>
 					<button class="btn btn-primary" id="doPostBtn" style="margin: .4em 0;">Submit</button>
+					<?php } else { ?>
+					<div class="alert alert-info">
+						<strong> 【提示信息】 </strong>您必须登陆以发表主题。
+					</div>
+					<?php } ?>
 				</div>
 				<div class="col-sm-3">
 					<?php if(isset($_GET["pid"]) && $_GET["pid"]!=0) { ?>
@@ -102,6 +108,7 @@
 	}
 	
 	function button_doPostBtn_onClick() {
+<?php if (isset($_SESSION["user_id"])) { ?>
 		var $divModal = $("#dialogModel");
 		
 		$.post('./api/ajax_discuss.php', 
@@ -119,6 +126,7 @@
 			$("#btnPostSuccess").hide();
 			$divModal.modal("show");
 		});
+<?php } ?>
 	}
 	
 	$(document).ready(function () {

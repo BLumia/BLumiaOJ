@@ -34,6 +34,7 @@ span.label {
 				<hr/>
 				<div class="col-sm-9">
 					<div id="replyList"></div>
+					<?php if (isset($_SESSION["user_id"])) { ?>
 					<form id="postReplyForm" class="form-group">
 						<input type="hidden" class="form-control" name="do" value="postreply">
 						<input type="hidden" class="form-control" name="tid" value="<?php echo intval($_GET["tid"]);?>">
@@ -41,6 +42,11 @@ span.label {
 						<textarea class="form-control" id="contentInput" name="content" rows="4"></textarea>
 					</form>
 					<button class="btn btn-primary" id="doReplyBtn" style="margin: .4em 0;">Submit</button>
+					<?php } else { ?>
+					<div class="alert alert-info">
+						<strong> 【提示信息】 </strong>您必须登陆以发表回复。
+					</div>
+					<?php } ?>
 				</div>
 				<div class="col-sm-3">
 					<div class="well">
@@ -105,6 +111,7 @@ span.label {
 	}
 	
 	function button_doReplyBtn_onClick() {
+<?php if (isset($_SESSION["user_id"])) { ?>
 		var $divModal = $("#dialogModel");
 		
 		$.post('./api/ajax_discuss.php', 
@@ -122,9 +129,11 @@ span.label {
 			$("#btnPostSuccess").hide();
 			$divModal.modal("show");
 		});
+<?php } ?>
 	}
 	
 	$(document).ready(function () {
+		prettyPrint();
 		$('#doReplyBtn').click(button_doReplyBtn_onClick);
 		$.ajax({
 			url: "./api/ajax_discuss.php",
