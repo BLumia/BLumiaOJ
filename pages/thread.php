@@ -133,7 +133,6 @@ span.label {
 	}
 	
 	$(document).ready(function () {
-		prettyPrint();
 		$('#doReplyBtn').click(button_doReplyBtn_onClick);
 		$.ajax({
 			url: "./api/ajax_discuss.php",
@@ -149,6 +148,10 @@ span.label {
 			}
 		});
 	});
+	
+	$(window).load(function(){
+		prettyPrint();
+	})
 	</script>
 	</body>
 </html>

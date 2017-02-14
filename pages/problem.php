@@ -106,7 +106,6 @@ function copyToClipboard(s){
 }
 
 $(window).load(function(){
-    //$("pre").addClass("prettyprint");
     prettyPrint();
 })
 	</script>
