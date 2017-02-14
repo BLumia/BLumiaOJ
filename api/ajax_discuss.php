@@ -1,8 +1,19 @@
 <?php
 	/*  
 		API for discuss forum.
-		Require '' privilege.
+		All request send via POST method:
 		
+		Post new thread(require user login):
+			`do` = 'postthread' 
+			`content` required, content of the new thread.
+			`title` required, title of the new thread.
+			`pid` optional. post thread to special problem.
+			`cid` optional. idk wtf it is.
+			
+		Post reply(require user login):
+			`do` = 'postthread' 
+			`content` required, content of the reply.
+			`tid` required. post reply to which thread.
 
 	*/
 	session_start();
@@ -59,6 +70,7 @@
 			if (!isset($_POST['content']) || !isset($_POST['title'])) fire(400, "Missing required parameters.");
 			$title = htmlspecialchars($_POST['title']);
 			$content = RemoveXSS(UBB2Html(htmlspecialchars($_POST['content'])));
+			if (empty($title) || empty($content)) fire(400, "Title or content can't be empty.");
 			$pidStr = is_null($pid) ? 0 : intval($pid);
 			$cidStr = is_null($cid) ? "NULL" : intval($cid);
 			$sqlStr="INSERT INTO `topic` (`title`, `author_id`, `cid`, `pid`) SELECT ?, ?, {$cidStr}, '{$pidStr}'";
@@ -85,10 +97,11 @@
 		case 'postreply':
 			if (is_null($user_id)) fire(403, "Please Login First.");
 			if (!isset($_POST['content'])) fire(400, "Missing `content` parameter.");
+			if (empty($_POST['content'])) fire(400, "`content` can't be empty.");
 			$content = RemoveXSS(UBB2Html(htmlspecialchars($_POST['content'])));
 			$sql=$pdo->prepare("INSERT INTO `reply` (`author_id`, `time`, `content`, `topic_id`,`ip`) SELECT ?, NOW(), ?, ?, ? FROM `topic` WHERE `tid` = ? AND `status` = 0 ");
 			$state = $sql->execute(array($user_id, $content, $tid, $_SERVER['REMOTE_ADDR'], $tid));
-			fire(200, "OK", array("result"=>$tid));
+			fire(200, "OK", array("tid"=>$tid));
 			break;
 		
 		default:

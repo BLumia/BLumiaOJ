@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<?php require_once('./include/common_head.inc.php'); ?>
-		<title>Problem Set</title>
+		<title><?php echo L_PROB_SET." - {$OJ_NAME}";?></title>
 	</head>	
 	<body>
 		<?php require("./pages/components/navbar.php");?>

@@ -32,7 +32,16 @@ span.label {
 				</ol>
 				<h3 id="threadTitle">Loading...</h3>
 				<hr/>
-				<div id="replyList" class="col-sm-9"></div>
+				<div class="col-sm-9">
+					<div id="replyList"></div>
+					<form id="postReplyForm">
+						<input type="hidden" class="form-control" name="do" value="postreply">
+						<input type="hidden" class="form-control" name="tid" value="<?php echo intval($_GET["tid"]);?>">
+						<label for="contentInput">Reply:</label>
+						<textarea class="form-control" id="contentInput" name="content" rows="4"></textarea>
+					</form>
+					<button class="btn btn-primary" id="doReplyBtn" style="margin: .4em 0;">Submit</button>
+				</div>
 				<div class="col-sm-3">
 					<div class="well">
 						<h3>Discuss</h3>
@@ -41,6 +50,21 @@ span.label {
 				</div>
 			</div>
 		</div><!--main wrapper end-->
+		<div class="modal fade" tabindex="-1" role="dialog" id="dialogModel">
+		  <div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+				  <h4 class="modal-title" id="dialogTitle">Hey!</h4>
+				</div>
+				<div class="modal-body" id="dialogText"></div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				  <a type="button" class="btn btn-primary" id="btnPostSuccess">Go</a>
+				</div>
+			</div>
+		  </div>
+		</div>
 		<?php require("./pages/components/footer.php");?>
 		
 	<script type="text/javascript">
@@ -80,7 +104,28 @@ span.label {
 		});
 	}
 	
+	function button_doReplyBtn_onClick() {
+		var $divModal = $("#dialogModel");
+		
+		$.post('./api/ajax_discuss.php', 
+			$('#postReplyForm').serialize(),
+			function(data, status) {
+				$("#dialogTitle").text("Post success!");
+				$("#dialogText").text("Would you like reload this page now?");
+				$("#btnPostSuccess").attr("href","thread.php?tid="+data.result.tid).show();
+				$divModal.modal("show");
+			}
+		).error(function(data, status) {
+			var ret = $.parseJSON(data.responseText);
+			$("#dialogTitle").text("Post failed!");
+			$("#dialogText").text(ret.message);
+			$("#btnPostSuccess").hide();
+			$divModal.modal("show");
+		});
+	}
+	
 	$(document).ready(function () {
+		$('#doReplyBtn').click(button_doReplyBtn_onClick);
 		$.ajax({
 			url: "./api/ajax_discuss.php",
 			method: "POST",
