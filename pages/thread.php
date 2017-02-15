@@ -3,7 +3,7 @@
 	<head>
 		<?php require_once('./include/common_head.inc.php'); ?>
 		<script src="./sitefiles/js/highcharts.js"></script>
-		<title><?php echo L_FORUM." - {$OJ_NAME}";?></title>
+		<title><?php echo L_THREAD." - {$OJ_NAME}";?></title>
 		<style>
 .avatar {
 	padding: 0 20px 10px;
@@ -27,8 +27,8 @@ span.label {
 			<div class="row">
 				<ol class="breadcrumb">
 					<li><a href="discuss.php"><i class="icon-dashboard"></i> <?php echo L_FORUM;?></a></li>
-					<li id="problemBreadcrumb" class="hidden"><i class="icon-file-alt"></i> <a id="probDiscussLink">Problem Discuss</a></li>
-					<li class="active"><i class="icon-file-alt"></i> Thread Page</li>
+					<li id="problemBreadcrumb" class="hidden"><i class="icon-file-alt"></i> <a id="probDiscussLink"><?php echo L_PROBLEM_DISCUSS;?></a></li>
+					<li class="active"><i class="icon-file-alt"></i> <?php echo L_THREADLIST;?></li>
 				</ol>
 				<h3 id="threadTitle">Loading...</h3>
 				<hr/>
@@ -44,11 +44,30 @@ span.label {
 					<button class="btn btn-primary" id="doReplyBtn" style="margin: .4em 0;">Submit</button>
 					<?php } else { ?>
 					<div class="alert alert-info">
-						<strong> 【提示信息】 </strong>您必须登陆以发表回复。
+						<strong> <?php echo L_INFOLABEL;?> </strong><?php echo L_MUST_LOGIN_TO_REPLY;?>
 					</div>
 					<?php } ?>
 				</div>
 				<div class="col-sm-3">
+					<?php if (havePrivilege("PAGE_EDITOR")) { ?>
+					<div class="bs-callout bs-callout-info">
+						<h4><?php echo L_MANAGEMENT;?></h4>
+						<p><?php echo L_STICKY;?>:</p>
+						<div class="btn-group" role="group">
+						  <button type="button" id="btnTop0" class="btn btn-primary"><?php echo L_TOP_0;?></button>
+						  <button type="button" id="btnTop1" class="btn btn-primary"><?php echo L_TOP_1;?></button>
+						  <button type="button" id="btnTop2" class="btn btn-primary"><?php echo L_TOP_2;?></button>
+						  <button type="button" id="btnTop3" class="btn btn-primary"><?php echo L_TOP_3;?></button>
+						</div>
+						<p><?php echo L_LOCK;?>:</p>
+						<div class="btn-group" role="group">
+						  <button type="button" class="btn btn-info"><?php echo L_LOCK;?></button>
+						  <button type="button" class="btn btn-info"><?php echo L_UNLOCK;?></button>
+						</div>
+						<p><?php echo L_DELETE_THREAD;?>:</p>
+						<button class="btn btn-warning btn-block"><?php echo L_DELETE;?></button>
+					</div>
+					<?php } ?>
 					<div class="well">
 						<h3>Discuss</h3>
 						<button class="btn btn-primary btn-block">Post reply</button>
@@ -65,7 +84,7 @@ span.label {
 				</div>
 				<div class="modal-body" id="dialogText"></div>
 				<div class="modal-footer">
-				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				  <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo L_CLOSE;?></button>
 				  <a type="button" class="btn btn-primary" id="btnPostSuccess">Go</a>
 				</div>
 			</div>
@@ -84,13 +103,14 @@ span.label {
 				case "2": labelText = "<?php echo L_TOP_2;?>"; break;
 				case "3": labelText = "<?php echo L_TOP_3;?>"; break;
 			}
+			$("#btnTop"+data.threadInfo.top_level).remove();
 			var $label = $("<span>").addClass("label label-primary").text(labelText);
 			$("#threadTitle").text(data.threadInfo.title).append($label);
 		}
 		
 		if (data.threadInfo.pid != undefined && data.threadInfo.pid != 0) {
 			$("#problemBreadcrumb").attr("class","active");
-			$("#probDiscussLink").attr("href","discuss.php?pid="+data.pid);
+			$("#probDiscussLink").attr("href","discuss.php?pid="+data.threadInfo.pid);
 		}
 		
 		var $tableBody = $("#replyList").empty();

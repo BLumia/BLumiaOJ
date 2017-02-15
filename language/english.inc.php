@@ -26,6 +26,12 @@
 	const L_EDIT	= "Edit";
 	const L_TIME_LIMIT = "Time Limit";
 	const L_MEM_LIMIT = "Memory Limit";
+	/************* Contest **************/
+	const L_START_TIME	= "Start Time";
+	const L_END_TIME	= "End Time";
+	const L_CONTEST_ID	= "Contest ID";
+	const L_CONTEST_DESC = "Contest Description";
+	const L_CONTEST_INFO = "Contest Infomation";
 	/************* Contest Status **************/
 	const L_LeftTime = "Left Time";
 	const L_Running  = "Running";
@@ -33,6 +39,7 @@
 	const L_Private  = "Private";
 	const L_Ended	= "Ended";
 	const L_Start	= "Start at:";
+	const L_Not_Start	= "Not Started";
 	/************* Hint Statement **************/
 	const L_CONTEST_NOT_AUTH	= "You need permission to join this contest";
 	const L_NO_SUBMIT_RECORD	= "No data can be displayed, Try to solve one problem now :)";
@@ -89,13 +96,29 @@
 	const L_CHALLENGED	= "Challenged";
 	const L_NOT_EDITABLE= "not editable";
 	/************* Forum ***************/
+	const L_THREADLIST	= "Thread List";
+	const L_THREAD		= "Thread List";
+	const L_LASTREPLY	= "Last Reply";
+	const L_REPLY	= "Reply";
+	const L_PROBLEM	= "Problem";
+	const L_LOCK	= "Lock Thread";
+	const L_UNLOCK	= "Unlock Thread";
 	const L_LOCKED	= "Locked";
+	const L_STICKY	= "Sticky Thread";
+	const L_TOP_0	= "Unsticky";
 	const L_TOP_1	= "Sticky";
 	const L_TOP_2	= "Topic Sticky";
 	const L_TOP_3	= "Global Sticky";
+	const L_DELETE_THREAD = "Delete Thread";
+	const L_PROBLEM_DISCUSS	= "Problem Discussion";
+	const L_GOTO_PROBLEM = "GO TO PROBLEM";
+	const L_MUST_LOGIN_TO_POST = "You must login to post new thread.";
+	const L_MUST_LOGIN_TO_REPLY = "You must login to reply this thread.";
 	/************* Misc *****************/
 	const L_ALL		= "All";
+	const L_DATE	= "Date";
 	const L_LANG	= "Language";
+	const L_CLOSE	= "Close";
 	const L_RESULT	= "Result";
 	const L_DELETE	= "Delete";
 	const L_DOWNLOAD= "Download";
@@ -103,5 +126,7 @@
 	const L_CHANGE	= "Change";
 	const L_REMOVE	= "Remove";
 	const L_OTHER	= "Other";
+	const L_MANAGEMENT = "Management";
 	const L_SELECT_FILE	= "Select file";
+	const L_INFOLABEL = "[INFO]";
 ?>

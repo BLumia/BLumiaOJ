@@ -26,13 +26,20 @@
 	const L_EDIT	= "编辑";
 	const L_TIME_LIMIT = "时间限制";
 	const L_MEM_LIMIT = "内存限制";
+	/************* Contest **************/
+	const L_START_TIME	= "开始时间";
+	const L_END_TIME	= "结束时间";
+	const L_CONTEST_ID	= "比赛编号";
+	const L_CONTEST_DESC = "竞赛描述";
+	const L_CONTEST_INFO = "竞赛信息";
 	/************* Contest Status **************/
-	const L_LeftTime = "剩余时间";
-	const L_Running  = "进行中";
-	const L_Public   = "公开";
-	const L_Private  = "私有";
+	const L_LeftTime= "剩余时间";
+	const L_Running	= "进行中";
+	const L_Public	= "公开";
+	const L_Private	= "私有";
 	const L_Ended	= "已结束";
 	const L_Start	= "开始于";
+	const L_Not_Start	= "尚未开始";
 	/************* Hint Statement **************/
 	const L_CONTEST_NOT_AUTH	= "您没有权限参加该竞赛";
 	const L_NO_SUBMIT_RECORD	= "没有可展示的数据，先去写道 A+B 吧 :)";
@@ -89,13 +96,29 @@
 	const L_CHALLENGED	= "已挑战";
 	const L_NOT_EDITABLE= "不可修改";
 	/************* Forum ***************/
+	const L_THREADLIST	= "主题列表";
+	const L_THREAD		= "主题帖";
+	const L_LASTREPLY	= "最后回复";
+	const L_REPLY	= "回复";
+	const L_PROBLEM	= "问题";
+	const L_LOCK	= "锁定主题";
+	const L_UNLOCK	= "取消锁定";
 	const L_LOCKED	= "已锁定";
+	const L_STICKY	= "置顶主题";
+	const L_TOP_0	= "取消置顶";
 	const L_TOP_1	= "置顶";
 	const L_TOP_2	= "区置顶";
 	const L_TOP_3	= "总置顶";
+	const L_DELETE_THREAD = "删除主题";
+	const L_PROBLEM_DISCUSS	= "问题讨论";
+	const L_GOTO_PROBLEM = "转到问题";
+	const L_MUST_LOGIN_TO_POST = "您必须登陆以发表主题。";
+	const L_MUST_LOGIN_TO_REPLY = "您必须登陆以发表回复。";
 	/************* Misc *****************/
 	const L_ALL		= "所有";
+	const L_DATE	= "日期";
 	const L_LANG	= "语言";
+	const L_CLOSE	= "关闭";
 	const L_RESULT	= "结果";
 	const L_DELETE	= "删除";
 	const L_DOWNLOAD= "下载";
@@ -103,5 +126,7 @@
 	const L_CHANGE	= "更换";
 	const L_REMOVE	= "移除";
 	const L_OTHER	= "其它";
+	const L_MANAGEMENT = "管理";
 	const L_SELECT_FILE	= "选择文件";
+	const L_INFOLABEL = "【提示信息】";
 ?>

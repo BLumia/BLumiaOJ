@@ -23,11 +23,11 @@
 	
 	// Not a good idea to hardcode bs-css class here.
 	if ($now > $endTime)
-		$contestState = "<font class='text-muted'>Ended</font>";
+		$contestState = "<font class='text-muted'>".L_Ended."</font>";
 	else if ($now < $startTime)
-		$contestState = "<font class='text-primary'>Not Started</font>";
+		$contestState = "<font class='text-primary'>".L_Not_Start."</font>";
 	else {
-		$contestState = "<font class='text-danger'>Running</font>";
+		$contestState = "<font class='text-danger'>".L_Running."</font>";
 	}
 	
 	if(isset($_POST['psw']) && ($contestItem['password'] != '')) {

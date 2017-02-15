@@ -20,13 +20,13 @@
 				<ol class="breadcrumb">
 					<li><a href="discuss.php"><i class="icon-dashboard"></i> <?php echo L_FORUM;?></a></li>
 					<?php if(isset($_GET["pid"]) && $_GET["pid"]!=0) { ?>
-						<li class="active"><a href="<?php echo "discuss.php?pid={$_GET["pid"]}";?>"><i class="icon-file-alt"></i> Problem Discuss</a></li>
+						<li class="active"><a href="<?php echo "discuss.php?pid={$_GET["pid"]}";?>"><i class="icon-file-alt"></i> <?php echo L_PROBLEM_DISCUSS;?></a></li>
 					<?php } ?>
-					<li class="active"><i class="icon-file-alt"></i> Thread List</li>
+					<li class="active"><i class="icon-file-alt"></i> <?php echo L_THREADLIST;?></li>
 				</ol>
 				<div class="col-sm-9">
 					<table id="threadList" class="table table-hover">
-					<thead><tr><th>Reply</th><th width="40%">Title</th><th>Problem</th><th>Date</th><th>Last</th></tr></thead>
+					<thead><tr><th><?php echo L_REPLY;?></th><th width="40%"><?php echo L_TITLE;?></th><th><?php echo L_PROBLEM;?></th><th><?php echo L_DATE;?></th><th><?php echo L_LASTREPLY;?></th></tr></thead>
 					<tbody></tbody>
 					</table>
 					<?php if (isset($_SESSION["user_id"])) { ?>
@@ -40,13 +40,16 @@
 					<button class="btn btn-primary" id="doPostBtn" style="margin: .4em 0;">Submit</button>
 					<?php } else { ?>
 					<div class="alert alert-info">
-						<strong> 【提示信息】 </strong>您必须登陆以发表主题。
+						<strong> <?php echo L_INFOLABEL;?> </strong><?php echo L_MUST_LOGIN_TO_POST;?>
 					</div>
 					<?php } ?>
 				</div>
 				<div class="col-sm-3">
 					<?php if(isset($_GET["pid"]) && $_GET["pid"]!=0) { ?>
-					<button class="btn btn-primary btn-block">GO TO PROBLEM</button>
+					<div class="bs-callout bs-callout-info">
+					  <p><?php echo L_PROBLEM;?></p>
+					  <a href="problem.php?pid=<?php echo intval($_GET["pid"]);?>" class="btn btn-primary btn-block"><?php echo L_GOTO_PROBLEM;?></a>
+					</div>
 					<?php } ?>
 					<div class="well">
 						<h3>Discuss</h3>

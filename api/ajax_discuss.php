@@ -15,12 +15,20 @@
 			`content` required, content of the reply.
 			`tid` required. post reply to which thread.
 
+		Manage thread(require PAGE_MANAGER privilege):
+			`do` = 'managethread'
+			`tid` required, topic id.
+			`action` = 'sticky' 
+				`level` Sticky level. 1, 2 or 3.
+			`action` = 'lock' || 'unlock' || 'delete'
+			
 	*/
 	session_start();
 	
 	require_once("../include/setting_oj.inc.php");
 	require_once("../include/common_functions.inc.php");
 	require_once('../include/safe_func.inc.php');
+	require_once('../include/user_check_functions.php');
 	
 	//Prepare
 	$pid = (isset($_REQUEST['pid']) && $_REQUEST['pid']!='') ? intval($_REQUEST['pid']) : null;
@@ -106,6 +114,7 @@
 			
 		case 'postreply':
 			if (is_null($user_id)) fire(403, "Please Login First.");
+			if (is_null($tid)) fire(400, "Missing `tid` parameter.");
 			if (!isset($_POST['content'])) fire(400, "Missing `content` parameter.");
 			if (empty($_POST['content'])) fire(400, "`content` can't be empty.");
 			if (isPostFreqTooHigh($user_id,$FORUM_SUBMIT_DELTATIME,$pdo)) fire(403, "You post too fast, take a rest and try again!");
@@ -113,6 +122,39 @@
 			$sql=$pdo->prepare("INSERT INTO `reply` (`author_id`, `time`, `content`, `topic_id`,`ip`) SELECT ?, NOW(), ?, ?, ? FROM `topic` WHERE `tid` = ? AND `status` = 0 ");
 			$state = $sql->execute(array($user_id, $content, $tid, $_SERVER['REMOTE_ADDR'], $tid));
 			fire(200, "OK", array("tid"=>$tid));
+			break;
+		
+		case 'managethread':
+			if (!havePrivilege("PAGE_EDITOR")) fire(403, "Missing privilege!");
+			if (is_null($tid)) fire(400, "Missing `tid` parameter.");
+			if (!isset($_REQUEST['action'])) fire(400, "Missing `action` parameter.");
+			$threadAction = $_REQUEST['action'];
+			switch($threadAction) {
+				case 'sticky':
+					if (!isset($_REQUEST['level'])) fire(400, "Missing `level` parameter.");
+					$toplevel = intval($_REQUEST['level']);
+					$sql=$pdo->prepare("UPDATE topic SET top_level = {$toplevel} WHERE `tid` = ?");
+					$state = $sql->execute(array($tid));
+					fire(200, "OK", array("tid"=>$tid));
+					break;
+				case 'unlock':
+					$sql=$pdo->prepare("UPDATE topic SET status = 0 WHERE `tid` = ?");
+					$state = $sql->execute(array($tid));
+					fire(200, "OK", array("tid"=>$tid));
+					break;
+				case 'lock':
+					$sql=$pdo->prepare("UPDATE topic SET status = 1 WHERE `tid` = ?");
+					$state = $sql->execute(array($tid));
+					fire(200, "OK", array("tid"=>$tid));
+					break;
+				case 'delete':
+					$sql=$pdo->prepare("UPDATE topic SET status = 2 WHERE `tid` = ?");
+					$state = $sql->execute(array($tid));
+					fire(200, "OK", array("tid"=>$tid));
+					break;
+				default:
+					fire(400, "Wrong 'action' parameter.");
+			}
 			break;
 		
 		default:
