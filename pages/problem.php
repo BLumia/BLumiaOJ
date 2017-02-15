@@ -18,6 +18,7 @@
 				<a id="oj-p-submit" class="btn btn-primary" href="./problemsubmit.php?pid=<?php echo $problemItem['problem_id'];?>" role="button"><?php echo L_SUBMIT;?></a>
 				<a class="btn btn-primary" href="./problemstatistics.php?pid=<?php echo $problemItem['problem_id'];?>" role="button"><?php echo L_STATUS;?></a>
 				<?php if ($isProblemManager) { ?><a class="btn btn-primary" href="./admin/problem_editor.php?nid=<?php echo $problemItem['problem_id'];?>" role="button"><?php echo L_EDIT;?></a><?php } ?>
+				<?php if ($FORUM_ENABLED) { ?><a class="btn btn-primary" href="./discuss.php?pid=<?php echo $problemItem['problem_id'];?>" role="button"><?php echo L_FORUM;?></a><?php } ?>
 			</p>
 			
 			<h3><a data-toggle="collapse" data-target="#problemDesc"><?php echo L_PROB_DESC;?></a></h3>

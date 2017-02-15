@@ -128,6 +128,8 @@ span.label {
 			$replyBlock.append($replyLeftBlock).append($replyMainBlock).append($replyInfoBlock);
 			$tableBody.append($replyBlock);
 		});
+		
+		prettyPrint();
 	}
 	
 	function button_doReplyBtn_onClick() {
@@ -168,10 +170,6 @@ span.label {
 			}
 		});
 	});
-	
-	$(window).load(function(){
-		prettyPrint();
-	})
 	</script>
 	</body>
 </html>
