@@ -31,6 +31,7 @@
 	require_once('../include/user_check_functions.php');
 	
 	//Prepare
+	if ($FORUM_ENABLED == false) fire(503, "Discuss forum not enabled.");
 	$pid = (isset($_REQUEST['pid']) && $_REQUEST['pid']!='') ? intval($_REQUEST['pid']) : null;
 	$cid = (isset($_REQUEST['cid']) && $_REQUEST['cid']!='') ? intval($_REQUEST['cid']) : null;
 	$tid = (isset($_REQUEST['tid']) && $_REQUEST['tid']!='') ? intval($_REQUEST['tid']) : null;
@@ -72,7 +73,18 @@
 			$sql=$pdo->prepare("SELECT `title`, `cid`, `pid`, `status`, `top_level` FROM `topic` WHERE `tid` = ? AND `status` <= 1");
 			$sql->execute(array($tid));
 			$threadInfo=$sql->fetch(PDO::FETCH_ASSOC);
-			$sql=$pdo->prepare("SELECT `rid`, `author_id`, `time`, `content`, `status` FROM `reply` WHERE `topic_id` = ? AND `status` <=1 ORDER BY `rid` LIMIT 30");
+			if(!$threadInfo) {
+				$result=compact("threadInfo", "replies");
+				fire(404, "Thread not exist", $result);
+			}
+			$sql=$pdo->prepare(
+				"SELECT `rid`, `author_id`, `time`, `content`, `status`, `nick`, `email` 
+				FROM `reply` 
+				LEFT JOIN (
+					SELECT `user_id`, `email`, `nick` FROM `users`
+				) `users` ON `reply`.`author_id` = `users`.`user_id`
+				WHERE `topic_id` = ? AND `status` <=1 ORDER BY `rid` LIMIT 30"
+			);
 			$sql->execute(array($tid));
 			$replies=$sql->fetchAll(PDO::FETCH_ASSOC);
 			foreach($replies as &$row) {

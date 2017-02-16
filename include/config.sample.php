@@ -26,7 +26,7 @@
 	
 // Community forum (Discuss board) Setting
 	$FORUM_ENABLED = false; // Currently not finished. Don't enable it unless you gonna hacking this part.
-	$FORUM_SUBMIT_DELTATIME = 300; // allowed submit frequence. (seconds)
+	$FORUM_SUBMIT_DELTATIME = 180; // allowed submit frequence. (seconds)
 	
 // Virtual Judge Setting
 	$VJ_ENABLED = false; // Currently not finished. Don't enable it unless you gonna hacking this part.

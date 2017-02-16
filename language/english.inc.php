@@ -114,7 +114,9 @@
 	const L_GOTO_PROBLEM = "GO TO PROBLEM";
 	const L_MUST_LOGIN_TO_POST = "You must login to post new thread.";
 	const L_MUST_LOGIN_TO_REPLY = "You must login to reply this thread.";
+	const L_LOCKED_FOR_EDIT = "This reply is locked for edit.";
 	/************* Misc *****************/
+	const L_OK		= "Okay";
 	const L_ALL		= "All";
 	const L_DATE	= "Date";
 	const L_LANG	= "Language";

@@ -114,7 +114,9 @@
 	const L_GOTO_PROBLEM = "转到问题";
 	const L_MUST_LOGIN_TO_POST = "您必须登陆以发表主题。";
 	const L_MUST_LOGIN_TO_REPLY = "您必须登陆以发表回复。";
+	const L_LOCKED_FOR_EDIT = "该回复被建议修改，故已锁定。";
 	/************* Misc *****************/
+	const L_OK		= "好的";
 	const L_ALL		= "所有";
 	const L_DATE	= "日期";
 	const L_LANG	= "语言";

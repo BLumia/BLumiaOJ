@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<?php require_once('./include/common_head.inc.php'); ?>
-		<script src="./sitefiles/js/highcharts.js"></script>
+		<script src="./sitefiles/js/md5.min.js"></script>
 		<title><?php echo L_THREAD." - {$OJ_NAME}";?></title>
 		<style>
 .avatar {
@@ -28,7 +28,7 @@ span.label {
 				<ol class="breadcrumb">
 					<li><a href="discuss.php"><i class="icon-dashboard"></i> <?php echo L_FORUM;?></a></li>
 					<li id="problemBreadcrumb" class="hidden"><i class="icon-file-alt"></i> <a id="probDiscussLink"><?php echo L_PROBLEM_DISCUSS;?></a></li>
-					<li class="active"><i class="icon-file-alt"></i> <?php echo L_THREADLIST;?></li>
+					<li class="active"><i class="icon-file-alt"></i> <?php echo L_THREAD;?></li>
 				</ol>
 				<h3 id="threadTitle">Loading...</h3>
 				<hr/>
@@ -37,7 +37,7 @@ span.label {
 					<?php if (isset($_SESSION["user_id"])) { ?>
 					<form id="postReplyForm" class="form-group">
 						<input type="hidden" class="form-control" name="do" value="postreply">
-						<input type="hidden" class="form-control" name="tid" value="<?php echo intval($_GET["tid"]);?>">
+						<input type="hidden" class="form-control" id="tidInput" name="tid" value="<?php echo intval($_GET["tid"]);?>">
 						<label for="contentInput">Reply:</label>
 						<textarea class="form-control" id="contentInput" name="content" rows="4"></textarea>
 					</form>
@@ -61,11 +61,11 @@ span.label {
 						</div>
 						<p><?php echo L_LOCK;?>:</p>
 						<div class="btn-group" role="group">
-						  <button type="button" class="btn btn-info"><?php echo L_LOCK;?></button>
-						  <button type="button" class="btn btn-info"><?php echo L_UNLOCK;?></button>
+						  <button type="button" id="btnLock" class="btn btn-info"><?php echo L_LOCK;?></button>
+						  <button type="button" id="btnUnlock" class="btn btn-info"><?php echo L_UNLOCK;?></button>
 						</div>
 						<p><?php echo L_DELETE_THREAD;?>:</p>
-						<button class="btn btn-warning btn-block"><?php echo L_DELETE;?></button>
+						<button id="btnDelete" class="btn btn-warning btn-block"><?php echo L_DELETE;?></button>
 					</div>
 					<?php } ?>
 					<div class="well">
@@ -85,7 +85,7 @@ span.label {
 				<div class="modal-body" id="dialogText"></div>
 				<div class="modal-footer">
 				  <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo L_CLOSE;?></button>
-				  <a type="button" class="btn btn-primary" id="btnPostSuccess">Go</a>
+				  <a type="button" class="btn btn-primary" id="btnPostSuccess"><?php echo L_OK;?></a>
 				</div>
 			</div>
 		  </div>
@@ -103,7 +103,7 @@ span.label {
 				case "2": labelText = "<?php echo L_TOP_2;?>"; break;
 				case "3": labelText = "<?php echo L_TOP_3;?>"; break;
 			}
-			$("#btnTop"+data.threadInfo.top_level).remove();
+			$("#btnTop"+data.threadInfo.top_level).hide();
 			var $label = $("<span>").addClass("label label-primary").text(labelText);
 			$("#threadTitle").text(data.threadInfo.title).append($label);
 		}
@@ -118,11 +118,12 @@ span.label {
 			var $replyBlock = $("<div>").addClass("media");
 			var $replyLeftBlock = $("<div>").addClass("media-left");
 			var $userContainer = $("<a>").attr('href','userinfo.php?uid='+elem.author_id);
-			var $userImg = $("<img>").attr("src","data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWEzMTM2ZDBjNSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1YTMxMzZkMGM1Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNCIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=").addClass("avatar");
+			var $userImg = $("<img>").attr("src","https://www.gravatar.com/avatar/"+md5(elem.email)+"?d=identicon&s=64").addClass("avatar");
 			var $userName = $("<div>").addClass("text-center").text(elem.author_id);
 			$replyLeftBlock.append($userContainer.append($userImg).append($userName));
 			
-			var $replyMainBlock = $("<div>").addClass("media-body").html(elem.content);
+			var postContent = elem.status == 0 ? elem.content : "<div class='alert alert-info'><strong> <?php echo L_INFOLABEL;?> </strong><?php echo L_LOCKED_FOR_EDIT;?></div>";
+			var $replyMainBlock = $("<div>").addClass("media-body").html(postContent);
 			var $replyInfoBlock = $("<div>").addClass("pull-right text-muted").text(elem.time);
 			
 			$replyBlock.append($replyLeftBlock).append($replyMainBlock).append($replyInfoBlock);
@@ -135,13 +136,17 @@ span.label {
 	function button_doReplyBtn_onClick() {
 <?php if (isset($_SESSION["user_id"])) { ?>
 		var $divModal = $("#dialogModel");
-		
 		$.post('./api/ajax_discuss.php', 
 			$('#postReplyForm').serialize(),
 			function(data, status) {
 				$("#dialogTitle").text("Post success!");
 				$("#dialogText").text("Would you like reload this page now?");
-				$("#btnPostSuccess").attr("href","thread.php?tid="+data.result.tid).show();
+				$("#btnPostSuccess").unbind("click");
+				$("#btnPostSuccess").show();
+				$("#btnPostSuccess").click(function () {
+					refreshThreadData($("#tidInput").val());
+					$("#dialogModel").modal("hide");
+				});
 				$divModal.modal("show");
 			}
 		).error(function(data, status) {
@@ -154,21 +159,94 @@ span.label {
 <?php } ?>
 	}
 	
-	$(document).ready(function () {
-		$('#doReplyBtn').click(button_doReplyBtn_onClick);
+	function refreshThreadData(tid) {
 		$.ajax({
 			url: "./api/ajax_discuss.php",
 			method: "POST",
 			data: {
 				"do": "replylist",
-				"tid": <?php echo intval($_GET["tid"]);?>
+				"tid": tid
 			},
 			dataType: "json",
 			success: function (data, textStatus, jqXHR) {
 				if (data.status === 200) fillThreadList(data.result);
 				else $("#threadTitle").text(data.message);
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				var ret = $.parseJSON(XMLHttpRequest.responseText);
+				$("#threadTitle").text(ret.message);
 			}
 		});
+	}
+	
+<?php if (havePrivilege("PAGE_EDITOR")) { ?>
+	function threadManagement(tid, action, level) {
+		var $divModal = $("#dialogModel");
+		var datas = {
+			"do": "managethread",
+			"tid": tid,
+			"action": action
+		};
+		if (typeof(level) != "undefined") datas["level"] = level;
+		$.ajax({
+			url: "./api/ajax_discuss.php",
+			method: "POST",
+			data: datas,
+			dataType: "json",
+			success: function (data, textStatus, jqXHR) {
+				$("#dialogTitle").text("Process result");
+				if (data.status === 200) $("#dialogText").text("Process success!");
+				else $("#dialogText").text(data.message);
+				$("#btnPostSuccess").unbind("click");
+				$("#btnPostSuccess").show();
+				$("#btnPostSuccess").click(function () {
+					refreshThreadData($("#tidInput").val());
+					$("#dialogModel").modal("hide");
+				});
+				$divModal.modal("show");
+			}
+		});
+	}
+<?php } ?>
+	
+	$(document).ready(function () {
+		$('#doReplyBtn').click(button_doReplyBtn_onClick);
+		refreshThreadData(<?php echo intval($_GET["tid"]);?>);
+		
+		<?php if (havePrivilege("PAGE_EDITOR")) { ?>
+		$('#btnTop0').click(function() {
+			for(var i=0;i<=3;i++) $("#btnTop"+i).show();
+			threadManagement($("#tidInput").val(), "sticky", 0);
+		});
+		$('#btnTop1').click(function() {
+			for(var i=0;i<=3;i++) $("#btnTop"+i).show();
+			threadManagement($("#tidInput").val(), "sticky", 1);
+		});
+		$('#btnTop2').click(function() {
+			for(var i=0;i<=3;i++) $("#btnTop"+i).show();
+			threadManagement($("#tidInput").val(), "sticky", 2);
+		});
+		$('#btnTop3').click(function() {
+			for(var i=0;i<=3;i++) $("#btnTop"+i).show();
+			threadManagement($("#tidInput").val(), "sticky", 3);
+		});
+		$('#btnUnlock').click(function() {
+			threadManagement($("#tidInput").val(), "unlock");
+		});
+		$('#btnLock').click(function() {
+			threadManagement($("#tidInput").val(), "lock");
+		});
+		$('#btnDelete').click(function() {
+			$("#dialogTitle").text("Warning!");
+			$("#dialogText").text("Do you REALLY want to delete this thread?");
+			$("#btnPostSuccess").unbind("click");
+			$("#btnPostSuccess").click(function () {
+				$("#dialogModel").modal("hide");
+				threadManagement($("#tidInput").val(), "delete");
+			}).show();
+			$("#dialogModel").modal("show");
+		});
+		<?php } ?>
 	});
 	</script>
 	</body>
