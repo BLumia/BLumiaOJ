@@ -41,7 +41,7 @@ span.label {
 						<label for="contentInput">Reply:</label>
 						<textarea class="form-control" id="contentInput" name="content" rows="4"></textarea>
 					</form>
-					<button class="btn btn-primary" id="doReplyBtn" style="margin: .4em 0;">Submit</button>
+					<button class="btn btn-primary" id="doReplyBtn" style="margin: .4em 0;"><?php echo L_REPLY;?></button>
 					<?php } else { ?>
 					<div class="alert alert-info">
 						<strong> <?php echo L_INFOLABEL;?> </strong><?php echo L_MUST_LOGIN_TO_REPLY;?>
@@ -68,9 +68,15 @@ span.label {
 						<button id="btnDelete" class="btn btn-warning btn-block"><?php echo L_DELETE;?></button>
 					</div>
 					<?php } ?>
-					<div class="well">
-						<h3>Discuss</h3>
-						<button class="btn btn-primary btn-block">Post reply</button>
+
+					<div class="bs-callout bs-callout-info" id="problemSidebar">
+					  <h4><?php echo L_PROBLEM;?></h4>
+					  <a id="gotoProblemBtn" class="btn btn-primary btn-block"><?php echo L_GOTO_PROBLEM;?></a>
+					</div>
+
+					<div class="bs-callout bs-callout-info" id="problemSidebar">
+					  <h4><?php echo L_HELP;?></h4>
+					  <p><?php echo L_THREAD_HELP;?></p>
 					</div>
 				</div>
 			</div>
@@ -106,6 +112,21 @@ span.label {
 			$("#btnTop"+data.threadInfo.top_level).hide();
 			var $label = $("<span>").addClass("label label-primary").text(labelText);
 			$("#threadTitle").text(data.threadInfo.title).append($label);
+			if (data.threadInfo.status == "1") {
+				$("#threadTitle").append($("<span>").addClass("label label-info").text("<?php echo L_LOCKED;?>"));
+				$("#postReplyForm").hide();
+				$("#doReplyBtn").hide();
+			} else {
+				$("#postReplyForm").show();
+				$("#doReplyBtn").show();
+			}
+			
+			if(data.threadInfo.pid != "0") {
+				$("#problemSidebar").show();
+				$("#gotoProblemBtn").attr("href","problem.php?pid="+data.threadInfo.pid);
+			} else {
+				$("#problemSidebar").hide();
+			}
 		}
 		
 		if (data.threadInfo.pid != undefined && data.threadInfo.pid != 0) {

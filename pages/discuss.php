@@ -31,13 +31,16 @@
 					</table>
 					<?php if (isset($_SESSION["user_id"])) { ?>
 					<form id="postThreadForm" class="form-group">
+						<?php if(isset($_GET["pid"]) && $_GET["pid"]!=0) { ?>
+						<input type="hidden" class="form-control" name="pid" value="<?php echo intval($_GET["pid"]);?>">
+						<?php } ?>
 						<input type="hidden" class="form-control" name="do" value="postthread">
-						<label for="titleInput">Title:</label>
+						<label for="titleInput"><?php echo L_TITLE;?>:</label>
 						<input type="text" class="form-control" id="titleInput" name="title" placeholder="Title">
-						<label for="contentInput">Content:</label>
+						<label for="contentInput"><?php echo L_CONTENT;?>:</label>
 						<textarea class="form-control" id="contentInput" name="content" rows="4"></textarea>
 					</form>
-					<button class="btn btn-primary" id="doPostBtn" style="margin: .4em 0;">Submit</button>
+					<button class="btn btn-primary" id="doPostBtn" style="margin: .4em 0;"><?php echo L_POST;?></button>
 					<?php } else { ?>
 					<div class="alert alert-info">
 						<strong> <?php echo L_INFOLABEL;?> </strong><?php echo L_MUST_LOGIN_TO_POST;?>
@@ -47,13 +50,13 @@
 				<div class="col-sm-3">
 					<?php if(isset($_GET["pid"]) && $_GET["pid"]!=0) { ?>
 					<div class="bs-callout bs-callout-info">
-					  <p><?php echo L_PROBLEM;?></p>
+					  <h4><?php echo L_PROBLEM;?></h4>
 					  <a href="problem.php?pid=<?php echo intval($_GET["pid"]);?>" class="btn btn-primary btn-block"><?php echo L_GOTO_PROBLEM;?></a>
 					</div>
 					<?php } ?>
-					<div class="well">
-						<h3>Discuss</h3>
-						<button class="btn btn-primary btn-block">Post new thread</button>
+					<div class="bs-callout bs-callout-info" id="problemSidebar">
+					  <h4><?php echo L_HELP;?></h4>
+					  <p><?php echo L_THREAD_HELP;?></p>
 					</div>
 				</div>
 			</div>

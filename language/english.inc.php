@@ -44,6 +44,7 @@
 	const L_CONTEST_NOT_AUTH	= "You need permission to join this contest";
 	const L_NO_SUBMIT_RECORD	= "No data can be displayed, Try to solve one problem now :)";
 	const L_WEEKY_SUBMIT_N_AC	= "Weeky Submit and Accept count";
+	const L_THREAD_HELP	= "UBB Code can be use when post or reply a thread. See FAQ page for more information.";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "Pending..";
 	const L_JUDGE_PR = "Wait for Judge";
@@ -99,6 +100,7 @@
 	const L_THREADLIST	= "Thread List";
 	const L_THREAD		= "Thread List";
 	const L_LASTREPLY	= "Last Reply";
+	const L_POST	= "Post";
 	const L_REPLY	= "Reply";
 	const L_PROBLEM	= "Problem";
 	const L_LOCK	= "Lock Thread";
@@ -119,6 +121,7 @@
 	const L_OK		= "Okay";
 	const L_ALL		= "All";
 	const L_DATE	= "Date";
+	const L_HELP	= "Help";
 	const L_LANG	= "Language";
 	const L_CLOSE	= "Close";
 	const L_RESULT	= "Result";

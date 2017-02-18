@@ -44,6 +44,7 @@
 	const L_CONTEST_NOT_AUTH	= "您没有权限参加该竞赛";
 	const L_NO_SUBMIT_RECORD	= "没有可展示的数据，先去写道 A+B 吧 :)";
 	const L_WEEKY_SUBMIT_N_AC	= "最近一周内提交情况";
+	const L_THREAD_HELP	= "可以在回复中使用UBB代码高亮。更多讨论版使用帮助请参见FAQ页面";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "提交中..";
 	const L_JUDGE_PR = "等待判题";
@@ -99,6 +100,7 @@
 	const L_THREADLIST	= "主题列表";
 	const L_THREAD		= "主题帖";
 	const L_LASTREPLY	= "最后回复";
+	const L_POST	= "发帖";
 	const L_REPLY	= "回复";
 	const L_PROBLEM	= "问题";
 	const L_LOCK	= "锁定主题";
@@ -119,6 +121,7 @@
 	const L_OK		= "好的";
 	const L_ALL		= "所有";
 	const L_DATE	= "日期";
+	const L_HELP	= "帮助";
 	const L_LANG	= "语言";
 	const L_CLOSE	= "关闭";
 	const L_RESULT	= "结果";
