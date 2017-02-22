@@ -45,6 +45,7 @@
 	const L_NO_SUBMIT_RECORD	= "没有可展示的数据，先去写道 A+B 吧 :)";
 	const L_WEEKY_SUBMIT_N_AC	= "最近一周内提交情况";
 	const L_THREAD_HELP	= "可以在回复中使用UBB代码高亮。更多讨论版使用帮助请参见FAQ页面";
+	const L_RANKLIST_LOCKED = "锁榜时间已到，榜单不再更新，请把握好最后的时间，祝你好运！";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "提交中..";
 	const L_JUDGE_PR = "等待判题";

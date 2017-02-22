@@ -1,4 +1,9 @@
-
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php require_once('./include/common_head.inc.php'); ?>
+		<title><?php echo L_RANKLIST." - {$OJ_NAME}";?></title>
+	</head>	
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
@@ -6,7 +11,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<?php if(time()<$end_time && time()>$lock_time) { ?>
-						<br/><div class="alert alert-info" role="alert"><i class="fa fa-lock" aria-hidden="true"></i> Rank list Locked, time is running out! Good lock!</div>
+						<br/><div class="alert alert-info" role="alert"><i class="fa fa-lock" aria-hidden="true"></i> <?php echo L_RANKLIST_LOCKED;?></div>
 					<?php } ?>
 					<table class="table table-striped table-hover" id="tableID">
 						<thead>
@@ -86,3 +91,4 @@
 		<?php require("./pages/components/footer.php");?>
 		
 	</body>
+</html>

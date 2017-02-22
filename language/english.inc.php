@@ -32,6 +32,7 @@
 	const L_CONTEST_ID	= "Contest ID";
 	const L_CONTEST_DESC = "Contest Description";
 	const L_CONTEST_INFO = "Contest Infomation";
+	const L_CONTEST_PROB = "Contest Problems";
 	/************* Contest Status **************/
 	const L_LeftTime = "Left Time";
 	const L_Running  = "Running";
@@ -45,6 +46,7 @@
 	const L_NO_SUBMIT_RECORD	= "No data can be displayed, Try to solve one problem now :)";
 	const L_WEEKY_SUBMIT_N_AC	= "Weeky Submit and Accept count";
 	const L_THREAD_HELP	= "UBB Code can be use when post or reply a thread. See FAQ page for more information.";
+	const L_RANKLIST_LOCKED = "Rank list Locked, time is running out! Good lock!";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "Pending..";
 	const L_JUDGE_PR = "Wait for Judge";

@@ -58,9 +58,9 @@
 	}	
 	
 	if (!$isProblemManager) {
-		$sql=$pdo->prepare("SELECT * FROM problem WHERE `defunct`='N' AND {$common_filter} AND `problem_id` NOT IN({$any_running_contest})");
+		$sql=$pdo->prepare("SELECT `problem_id`,`title`,`source`,`submit`,`accepted`,`defunct` FROM `problem` WHERE `defunct`='N' AND {$common_filter} AND `problem_id` NOT IN({$any_running_contest})");
 	} else {
-		$sql=$pdo->prepare("SELECT * FROM problem WHERE {$common_filter}");// limit $front,$PAGE_ITEMS
+		$sql=$pdo->prepare("SELECT `problem_id`,`title`,`source`,`submit`,`accepted`,`defunct` FROM `problem` WHERE {$common_filter}");// limit $front,$PAGE_ITEMS
 	}
 	$sql->execute();
 	$problemList=$sql->fetchAll(PDO::FETCH_ASSOC);

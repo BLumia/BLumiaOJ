@@ -1,12 +1,5 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('./include/common_head.inc.php'); ?>
-		<title>Problem</title>
-	</head>	
-	
-<?php
+<?php 
+	session_start();
 	//Vars
 	require_once('./include/setting_oj.inc.php');
 	require_once('./include/common_const.inc.php');
@@ -40,5 +33,3 @@
 	//Page Includes
 	require("./pages/contest_problem.php");
 ?>
-	
-</html>

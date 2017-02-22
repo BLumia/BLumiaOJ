@@ -17,32 +17,18 @@
 		</div>		
 		<![endif]-->
 			<div class="row">
-				<div id="chart" class="col-md-9 col-sm-9">
-					Chart
+				<div id="chart" class="col-md-12 col-sm-12">
+					Loading Chart...
 				</div>
-				<div class="col-md-3 col-sm-3">
-					<ul class="list-group">
-						<li class="list-group-item"><a href="./discuss.php">讨论版</a></li>
-						<li class="list-group-item"><a href="#">常见问答</a></li>
-						<li class="list-group-item"><a href="#">代码便签盒</a></li>
-						<li class="list-group-item"><a href="#">工具和向导</a></li>
-						<li class="list-group-item"><a href="#">建议反馈箱</a></li>
-						<li class="list-group-item"><a href="#">关于BLumiaOJ</a></li>
-					</ul>
-				</div>
+				<!--sidebar removed-->
 			</div>
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-12">
 					<div id="news" class="doc">
 						Loading News....
 					</div>
 				</div>
-				<div class="col-md-3">
-					<div class="well">
-						<h3>Top 10 Problems</h3>
-						
-					</div>
-				</div>
+				<!--sidebar removed-->
 			</div>
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
