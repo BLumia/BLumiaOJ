@@ -18,7 +18,7 @@
 	const L_OVERVIEW= "概览";
 	const L_PREV_PAGE= "上一页";
 	const L_NEXT_PAGE= "下一页";
-	const L_OR		= "或";
+	const L_SRC_VIEW= "查看代码";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "标题";
 	const L_DESC  	= "描述";
@@ -119,6 +119,7 @@
 	const L_MUST_LOGIN_TO_REPLY = "您必须登陆以发表回复。";
 	const L_LOCKED_FOR_EDIT = "该回复被建议修改，故已锁定。";
 	/************* Misc *****************/
+	const L_OR		= "或";
 	const L_OK		= "好的";
 	const L_ALL		= "所有";
 	const L_DATE	= "日期";

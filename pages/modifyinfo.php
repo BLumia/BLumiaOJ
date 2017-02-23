@@ -1,4 +1,10 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+	<?php require_once('./include/common_head.inc.php'); ?>
+	<script src="./sitefiles/js/jqBootstrapValidation.js"></script>
+	<title><?php echo L_MOD_INFO." - {$OJ_NAME}";?></title>
+</head>	
 <body>
 	<?php require("./pages/components/navbar.php");?>
 	<div class="container">
@@ -80,11 +86,10 @@
 				</div>
 			</div>
 		</div><!-- /.row, 3 medal -->
-		<!-- 显示一个统计图 -->
-		<!-- 显示其他信息 -->
 	</div><!--main wrapper end-->
 	<?php require("./pages/components/footer.php");?>
 <script>
 	$(function () { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); } );
 </script>
 </body>
+</html>

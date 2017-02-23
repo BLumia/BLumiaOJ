@@ -18,7 +18,7 @@
 	const L_OVERVIEW= "Overview";
 	const L_PREV_PAGE= "Previous Page";
 	const L_NEXT_PAGE= "Next Page";
-	const L_OR		= "or";
+	const L_SRC_VIEW= "View Source";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "Title";
 	const L_DESC  	= "Description";
@@ -120,6 +120,7 @@
 	const L_MUST_LOGIN_TO_REPLY = "You must login to reply this thread.";
 	const L_LOCKED_FOR_EDIT = "This reply is locked for edit.";
 	/************* Misc *****************/
+	const L_OR		= "or";
 	const L_OK		= "Okay";
 	const L_ALL		= "All";
 	const L_DATE	= "Date";

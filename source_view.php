@@ -1,12 +1,5 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('./include/common_head.inc.php'); ?>
-		<title>Source Viewer</title>
-	</head>	
-	
-<?php
+<?php 
+	session_start(); 
 	//Vars
 	require_once('./include/setting_oj.inc.php');
 	require_once('./include/common_const.inc.php');
@@ -27,7 +20,6 @@
 	$sql = $pdo->prepare("SELECT * FROM `source_code` WHERE `solution_id`=?");
 	$sql->execute(array($code_id));
 	$codeContent=$sql->fetch(PDO::FETCH_ASSOC);
-	//var_dump($codeInfo);
 	
 	$can_view = false;
 	if (havePrivilege("SOURCE_VIEWER")) $can_view=true;
@@ -38,9 +30,8 @@
 		exit(0);
 	}
 	
-	//var_dump($codeInfo);
 	$code_author = $codeInfo['user_id'];
-	$code_src = str_replace(array('<', '>'), array('&lt;', '&gt;'), $codeContent['source']);//$codeContent['source'];
+	$code_src = str_replace(array('<', '>'), array('&lt;', '&gt;'), $codeContent['source']);
 	$code_date = $codeInfo['in_date'];
 	$code_result = $JUDGE_RESULT[$codeInfo['result']];
 	$code_time = $codeInfo['time'];
@@ -52,9 +43,6 @@
 	//else
 	//$code_title = "Code Paster Title"
 	
-	
 	//Page Includes
 	require("./pages/source_view.php");
 ?>
-	
-</html>
