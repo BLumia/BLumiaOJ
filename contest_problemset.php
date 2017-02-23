@@ -1,12 +1,5 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('./include/common_head.inc.php'); ?>
-		<title>Contest</title>
-	</head>	
-	
-<?php
+<?php 
+	session_start();
 	//Vars
 	require_once('./include/setting_oj.inc.php');
 	require_once('./include/common_const.inc.php');
@@ -51,10 +44,7 @@
 			$acceptedPair[$row['problem_id']] = "<i style='color: green;' class='fa fa-check'></i>";
 		}
 	}
-
 	
 	//Page Includes
 	require("./pages/contest_problemset.php");
 ?>
-	
-</html>

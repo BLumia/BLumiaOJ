@@ -27,6 +27,10 @@
 	const LA_DEFAULT_CFG		= "使用默认示例配置文件";
 	const LA_DEFAULT_CFG_HELP	= "我们建议您复制 <code>include</code> 文件夹中的 <code>config.sample.php</code> 为 <code>config.php</code> 并修改它，以配置该在线评测系统.";
 	const LA_SHOW_WA_INFO		= "是否显示答案错误对比";
+	const LA_ENABLED_LANG		= "默认可提交的编程语言";
+	const LA_CODE_SUBMIT_LIMIT	= "代码提交最小间隔时间";
+	const LA_DO_LOCK_RANKLIST	= "竞赛后期是否锁定排名";
+	const LA_LOCK_RANKLIST_PCT	= "竞赛锁定排名时间比例";
 	/************* Test Case Editor **************/
 	const LA_TEST_DATA			= "测试数据";
 	const LA_EDIT_DATA			= "编辑数据";

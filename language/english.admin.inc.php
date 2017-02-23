@@ -27,6 +27,10 @@
 	const LA_DEFAULT_CFG		= "Using default sample configre file";
 	const LA_DEFAULT_CFG_HELP	= "We recommand you copy <code>config.sample.php</code> as <code>config.php</code> in <code>include</code> folder and modify it to configure this OJ.";
 	const LA_SHOW_WA_INFO		= "Show solution Wrong Answer detail";
+	const LA_ENABLED_LANG		= "Allowed languages by default";
+	const LA_CODE_SUBMIT_LIMIT	= "Code submit frequence limit";
+	const LA_DO_LOCK_RANKLIST	= "Lock ranklist when contest near end";
+	const LA_LOCK_RANKLIST_PCT	= "When to lock ranklist";
 	/************* Test Case Editor **************/
 	const LA_TEST_DATA			= "Test Data";
 	const LA_EDIT_DATA			= "Edit Data";
