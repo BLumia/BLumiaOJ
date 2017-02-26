@@ -12,26 +12,7 @@
 		'language' // Language filter
 		'judgeresult' // Judge result filter
 	*/
-?>
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('./include/common_head.inc.php'); ?>
-		<title>Status</title>
-		<style>
-tr > td.result {
-  transition: background-color 0.5s;
-  text-align: center;
-}
-tr > td.result:hover {
-  background-color: rgba(255,255,255,0.25)!important;
-  transition: background-color 0s ease 0.4s;
-}
-		</style>
-	</head>	
-	
-<?php
+	session_start();
 	//Vars
 	require_once("./include/setting_oj.inc.php");
 	require_once('./include/common_const.inc.php');
@@ -96,7 +77,7 @@ tr > td.result:hover {
 	if (isset($_GET['uid'])&&$_GET['uid']!=""){
 		$user_id=trim($_GET['uid']);
 		if (isUseridExist($user_id,$pdo) && $user_id!=""){
-			$sql_str=$sql_str."AND `user_id`='".$user_id."' ";
+			$sql_str=$sql_str."AND `user_id`='{$user_id}' ";
         } else {
 			$user_id="";
 		}
@@ -122,7 +103,6 @@ tr > td.result:hover {
 	
 	//SQL Complete
 	$sql_str=$sql_str.$order_str." LIMIT 20";
-	//var_dump($sql_str);
 	
 	$sql=$pdo->prepare($sql_str);
 	$sql->execute();
@@ -138,5 +118,3 @@ tr > td.result:hover {
 	//Page Includes
 	require("./pages/contest_status.php");
 ?>
-	
-</html>
