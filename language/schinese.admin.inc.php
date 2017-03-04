@@ -4,6 +4,7 @@
 	const LA_PROB_EDITOR		= "问题编辑";
 	const LA_PROB_LIST			= "问题列表";
 	const LA_PROB_MAN			= "管理问题";
+	const LA_DATA_MAN			= "管理数据";
 	const LA_CONT_EDITOR		= "比赛编辑";
 	const LA_CONT_ADD			= "添加竞赛";
 	const LA_CONT_LIST			= "竞赛列表";
@@ -26,6 +27,8 @@
 	const LA_NO					= "否";
 	const LA_DEFAULT_CFG		= "使用默认示例配置文件";
 	const LA_DEFAULT_CFG_HELP	= "我们建议您复制 <code>include</code> 文件夹中的 <code>config.sample.php</code> 为 <code>config.php</code> 并修改它，以配置该在线评测系统.";
+	const LA_MAGIC_QUOTE_WARN	= "<code>magic_quotes_gpc</code> 当前状态为 <b>开启</b>, 这个已弃用的选项会造成代码提交时被添加额外的转义符号并导致编译失败, 请在 <code>php.ini</code> 中关闭该选项并重启您的http服务或升级您的 PHP 版本以解决该问题. (<a href='https://secure.php.net/manual/zh/security.magicquotes.disabling.php'>了解应该怎么做</a>)";
+	const LA_HACKER_ROCKS		= "恭喜入侵后台成功！翻滚吧，牛宝宝！";
 	const LA_SHOW_WA_INFO		= "是否显示答案错误对比";
 	const LA_ENABLED_LANG		= "默认可提交的编程语言";
 	const LA_CODE_SUBMIT_LIMIT	= "代码提交最小间隔时间";

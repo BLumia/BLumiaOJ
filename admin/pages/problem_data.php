@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php require_once('../include/admin_head.inc.php'); ?>
+	<title><title><?php echo LA_DATA_MAN." - {$OJ_NAME}";?></title></title>
+	<style>
+table#tableFileList a {
+	padding-left: 5px;
+}
+	</style>
+</head>	
 <body>
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
@@ -251,3 +262,4 @@
 		});
 	</script>
 </body>
+</html>

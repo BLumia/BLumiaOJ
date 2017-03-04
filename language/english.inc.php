@@ -70,6 +70,7 @@
 	const L_HINT	= "Hint";
 	const L_TAG		= "Tag";
 	const L_SOURCE	= "Source";
+	const L_DIFFICUTY = "Difficuty";
 	/************* Mail Page *****************/
 	const L_SEND	= "Send";
 	const L_CLEAR	= "Clear";
@@ -98,6 +99,9 @@
 	const L_SOLVED		= "Solved";
 	const L_CHALLENGED	= "Challenged";
 	const L_NOT_EDITABLE= "not editable";
+	/************* Ranklist ***************/
+	const L_RANK	= "Rank";
+	const L_PASSRATE= "Pass Rate";
 	/************* Forum ***************/
 	const L_THREADLIST	= "Thread List";
 	const L_THREAD		= "Thread List";
@@ -122,6 +126,7 @@
 	/************* Misc *****************/
 	const L_OR		= "or";
 	const L_OK		= "Okay";
+	const L_GO		= "Go";
 	const L_ALL		= "All";
 	const L_DATE	= "Date";
 	const L_HELP	= "Help";
@@ -129,6 +134,7 @@
 	const L_CLOSE	= "Close";
 	const L_RESULT	= "Result";
 	const L_DELETE	= "Delete";
+	const L_WARNING = "Warning";
 	const L_DOWNLOAD= "Download";
 	const L_UPLOAD	= "Upload";
 	const L_CHANGE	= "Change";

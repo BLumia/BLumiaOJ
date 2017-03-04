@@ -8,7 +8,7 @@
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-xs-12">
+				<div class="col-md-6 col-sm-6 col-xs-12">
 					<div class="btn-group" role="group" id="oj-ps-pager">
 						<?php
 							for($i=1;$i<=$pageCnt;$i++) {
@@ -18,26 +18,26 @@
 						?>
 					</div>
 				</div>
-				<div class="col-md-3 col-xs-6">
+				<div class="col-md-3 col-sm-3 col-xs-6">
 					<form method="get" action="./problem.php">
 					<div class="input-group">
 						<input type="text" class="form-control" name="pid" placeholder="输入题目编号">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">走起</button>
+							<button class="btn btn-default" type="submit"><?php echo L_GO;?></button>
 						</span>
-					</div><!-- /input-group -->
+					</div>
 					</form>
-				</div><!-- /.col-lg-3 -->
-				<div class="col-md-3 col-xs-6">
+				</div>
+				<div class="col-md-3 col-sm-3 col-xs-6">
 				<form method="get">
 					<div class="input-group">
 						<input type="text" name="wd" class="form-control" placeholder="输入标题关键字">
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="submit">搜索</button>
 						</span>
-					</div><!-- /input-group -->
+					</div>
 				</form>
-				</div><!-- /.col-lg-3 -->
+				</div>
 			</div><!-- /.row -->
 			<div class="row">
 				<div class="col-md-12">
@@ -46,10 +46,10 @@
 							<tr>
 								<th width="5%">AC</th>
 								<th width="5%">ID</th>
-								<th width="40%">Title</th>
-								<th width="20%">Difficulty</th>
-								<th width="16%">Source</th>
-								<th width="14%">AC/Submit</th>
+								<th width="40%"><?php echo L_TITLE;?></th>
+								<th width="20%"><?php echo L_DIFFICUTY;?></th>
+								<th width="16%"><?php echo L_SOURCE;?></th>
+								<th width="14%"><?php echo "AC / ".L_SUBMIT;?></th>
 							</tr>
 						</thead>
 						<tbody id="oj-ps-problemlist">

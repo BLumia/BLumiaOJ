@@ -4,6 +4,7 @@
 	const LA_PROB_EDITOR		= "Problem Editor";
 	const LA_PROB_LIST			= "Problem List";
 	const LA_PROB_MAN			= "Problem Management";
+	const LA_DATA_MAN			= "Test Data Management";
 	const LA_CONT_EDITOR		= "Contest Editor";
 	const LA_CONT_ADD			= "Add Contest";
 	const LA_CONT_LIST			= "Contest List";
@@ -26,6 +27,8 @@
 	const LA_NO					= "No";
 	const LA_DEFAULT_CFG		= "Using default sample configre file";
 	const LA_DEFAULT_CFG_HELP	= "We recommand you copy <code>config.sample.php</code> as <code>config.php</code> in <code>include</code> folder and modify it to configure this OJ.";
+	const LA_MAGIC_QUOTE_WARN	= "<code>magic_quotes_gpc</code> is now <b>On</b>, that will cause problem when code submit processing, please trun it off by config your <code>php.ini</code> and restart your http server service, or upgrade your PHP package. (<a href='https://secure.php.net/manual/en/security.magicquotes.disabling.php'>See how to do it</a>)";
+	const LA_HACKER_ROCKS		= "You hacked into the server! Congratulations! You rocks!";
 	const LA_SHOW_WA_INFO		= "Show solution Wrong Answer detail";
 	const LA_ENABLED_LANG		= "Allowed languages by default";
 	const LA_CODE_SUBMIT_LIMIT	= "Code submit frequence limit";

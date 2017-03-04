@@ -69,6 +69,7 @@
 	const L_HINT	= "提示";
 	const L_TAG		= "标签";
 	const L_SOURCE	= "来源";
+	const L_DIFFICUTY = "难度";
 	/************* Mail Page *****************/
 	const L_SEND	= "发送";
 	const L_CLEAR	= "清空";
@@ -97,6 +98,9 @@
 	const L_SOLVED		= "已解决";
 	const L_CHALLENGED	= "已挑战";
 	const L_NOT_EDITABLE= "不可修改";
+	/************* Ranklist ***************/
+	const L_RANK	= "排名";
+	const L_PASSRATE= "通过率";
 	/************* Forum ***************/
 	const L_THREADLIST	= "主题列表";
 	const L_THREAD		= "主题帖";
@@ -121,6 +125,7 @@
 	/************* Misc *****************/
 	const L_OR		= "或";
 	const L_OK		= "好的";
+	const L_GO		= "走起";
 	const L_ALL		= "所有";
 	const L_DATE	= "日期";
 	const L_HELP	= "帮助";
@@ -128,6 +133,7 @@
 	const L_CLOSE	= "关闭";
 	const L_RESULT	= "结果";
 	const L_DELETE	= "删除";
+	const L_WARNING = "警告";
 	const L_DOWNLOAD= "下载";
 	const L_UPLOAD	= "上传";
 	const L_CHANGE	= "更换";

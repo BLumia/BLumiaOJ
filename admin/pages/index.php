@@ -8,14 +8,17 @@
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1><?php echo LA_WELCOME;?> <small>Manager</small></h1>
+			<h1><?php echo LA_WELCOME;?> <small><?php echo $isCurUserOperator?"Manager":"Hacker";?></small></h1>
 		</div>
 		<p class="lead">
-			<?php echo LA_INDEX_LEAD;?>
+			<?php echo $isCurUserOperator ? LA_INDEX_LEAD : LA_HACKER_ROCKS;?>
 		</p>
 		<p>
-			<?php echo LA_INDEX_MORE;?>
+			<?php if ($isCurUserOperator) echo LA_INDEX_MORE;?>
 		</p>
+		<?php if (get_magic_quotes_gpc()) { ?>
+		<div class="alert alert-danger" role="alert"><h4><?php echo L_WARNING;?> </h4><?php echo LA_MAGIC_QUOTE_WARN;?></div>
+		<?php } ?>
 		<table class="table">
 			<tr><th><?php echo LA_PROPERTY;?></th><th><?php echo LA_STATUS;?></th></tr>
 			<?php if ($OJ_IS_SAMPLE_CFG == true) { ?>

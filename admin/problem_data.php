@@ -1,17 +1,5 @@
-<?php session_start(); $ON_ADMIN_PAGE="Yap"; ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('../include/admin_head.inc.php'); ?>
-		<title>Problem Data</title>
-		<style>
-table#tableFileList a {
-	padding-left: 5px;
-}
-		</style>
-	</head>	
-	
-<?php
+<?php 
+	session_start(); $ON_ADMIN_PAGE="Yap";
 	//Vars
 	require_once('../include/setting_oj.inc.php');
 	require_once("../include/user_check_functions.php");
@@ -29,5 +17,3 @@ table#tableFileList a {
 	//Page Includes
 	require("./pages/problem_data.php");
 ?>
-	
-</html>
