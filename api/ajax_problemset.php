@@ -7,6 +7,7 @@
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
 	require_once("../include/common_functions.inc.php");
+	require_once('../include/user_check_functions.php');
 	
 	//Prepare
 	$p=isset($_GET['p']) ? $_GET['p'] : 1;
@@ -15,6 +16,16 @@
 	$tail =$front + $PAGE_ITEMS;
 	$curTime=strftime("%Y-%m-%d %H:%M",time());
 	$isProblemManager = isset($_SESSION['administrator']);
+	
+	$sql=$pdo->prepare("SELECT max(`problem_id`) as upid FROM `problem`");
+	$sql->execute();
+	$maxProbID=$sql->fetch(PDO::FETCH_ASSOC);
+	$maxProbID=intval($maxProbID['upid']);
+	$minProbID=1000;
+	
+	$pstart = $minProbID + ($p-1)*$PAGE_ITEMS;
+	$pend = $pstart + $PAGE_ITEMS;
+	$pageCnt = ($maxProbID - $minProbID) / $PAGE_ITEMS + 1;
 	
 	//Challenged Problems
 	if(isset($_SESSION['user_id'])) {
@@ -40,15 +51,22 @@
 			SELECT `contest_id` FROM `contest` WHERE 
 			(`end_time`>'{$curTime}' OR private=1) AND `defunct`='N'
 		)";
-	$common_filter = "`problem_id`>='{$front}' AND `problem_id`<'{$tail}'";
-	if (!$isProblemManager) {
-		$sql=$pdo->prepare("SELECT * FROM problem WHERE `defunct`='N' AND {$common_filter} AND `problem_id` NOT IN({$any_running_contest})");
+	//Keyword
+	if(isset($_GET['wd']) && trim($_GET['wd'])!="") {
+		$search = pdo_real_escape_string(urldecode($_GET['wd']), $pdo);
+		$common_filter = " ( title LIKE '%{$search}%' OR source LIKE '%{$search}%') ";
+		$totalCount = 1; // all search result in one page
 	} else {
-		$sql=$pdo->prepare("select * from problem WHERE {$common_filter}");// limit $front,$PAGE_ITEMS
+		$common_filter = "`problem_id`>='{$front}' AND `problem_id`<'{$tail}'";
+	}	
+	
+	if (!$isProblemManager) {
+		$sql=$pdo->prepare("SELECT `problem_id`,`title`,`source`,`submit`,`accepted`,`defunct` FROM `problem` WHERE `defunct`='N' AND {$common_filter} AND `problem_id` NOT IN({$any_running_contest})");
+	} else {
+		$sql=$pdo->prepare("SELECT `problem_id`,`title`,`source`,`submit`,`accepted`,`defunct` FROM `problem` WHERE {$common_filter}");// limit $front,$PAGE_ITEMS
 	}
 	$sql->execute();
 	$problemList=$sql->fetchAll(PDO::FETCH_ASSOC);
-	//$problemCount=count($problemList);
 	
 	//Which problem is under a running contest
 	if ($isProblemManager) {
@@ -60,48 +78,6 @@
 		}
 	}
 	
-	//Finally the output
-	foreach ($problemList as $row) { //problem list ------------ 
+	fire(501, "Not yet avaliable api");
 ?>
-	<tr>
-		<?php 
-			if ($row['submit'] == 0) {
-				$pctText = "N/A";
-				$procBarNum = 0;
-				$pctNum = 0;
-			} else {
-				$pctNum = ($row['accepted']/$row['submit'])*100;
-				$procBarNum = (1-($row['accepted']/$row['submit']))*100;
-				$pctText = sprintf("%.2f%%",$pctNum);
-			}
-		?>
-		<td>
-		<?php 
-			if ($row['defunct'] == 'Y') echo "<i class='fa fa-lock'></i>";
-			if (isset($probIDUCList[$row['problem_id']])) echo "<i class='fa fa-clock-o'></i>";
-			if (isset($probStatusList[$row['problem_id']])) {
-				$thisProbState = $probStatusList[$row['problem_id']];
-				switch($thisProbState) {
-				case "accepted":
-					echo "<i style='color: green;' class='fa fa-check'></i>";
-					break;
-				default:
-					echo "<i style='color: yellow;' class='fa fa-dot-circle-o'></i>";
-					break;
-				}
-			}
-		?>
-		</td>
-		<td><?php echo $row['problem_id'];?></td>
-		<td>
-			<a href="problem.php?pid=<?php echo $row['problem_id'];?>"><?php echo $row['title'];?></a>
-			<div class="tr-tag">
-				<span>搜索</span>
-			</div>
-		</td>
-		<td><div class="progress maxwidth150px"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
-		<td><?php echo utf8_substr($row['source'],0,14);?></td>
-		<td>(<?php echo $row['accepted']." / ".$row['submit'];?>) <?php echo $pctText;?></td>
-	</tr>
-<?php } ?>
 

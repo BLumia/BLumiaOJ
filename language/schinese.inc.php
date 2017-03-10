@@ -19,6 +19,7 @@
 	const L_PREV_PAGE= "上一页";
 	const L_NEXT_PAGE= "下一页";
 	const L_SRC_VIEW= "查看代码";
+	const L_ERR_VIEW= "错误详情";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "标题";
 	const L_DESC  	= "描述";

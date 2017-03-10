@@ -19,6 +19,7 @@
 	const L_PREV_PAGE= "Previous Page";
 	const L_NEXT_PAGE= "Next Page";
 	const L_SRC_VIEW= "View Source";
+	const L_ERR_VIEW= "Error Details";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "Title";
 	const L_DESC  	= "Description";
