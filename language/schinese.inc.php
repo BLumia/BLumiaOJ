@@ -25,6 +25,7 @@
 	const L_DESC  	= "描述";
 	const L_SUBMIT	= "提交";
 	const L_EDIT	= "编辑";
+	const L_CODE_SUBMIT	= "代码提交";
 	const L_TIME_LIMIT = "时间限制";
 	const L_MEM_LIMIT = "内存限制";
 	/************* Contest **************/

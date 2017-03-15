@@ -25,6 +25,7 @@
 	const L_DESC  	= "Description";
 	const L_SUBMIT	= "Submit";
 	const L_EDIT	= "Edit";
+	const L_CODE_SUBMIT	= "Code Submit";
 	const L_TIME_LIMIT = "Time Limit";
 	const L_MEM_LIMIT = "Memory Limit";
 	/************* Contest **************/

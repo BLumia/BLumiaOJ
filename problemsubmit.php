@@ -1,22 +1,5 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('./include/common_head.inc.php'); ?>
-		<link rel="stylesheet" href="./sitefiles/codemirror/codemirror.css">
-		<script src="./sitefiles/codemirror/codemirror.js"></script>
-		<script src="./sitefiles/codemirror/mode/javascript/javascript.js"></script>
-		<title>BLumiaOJ</title>
-		<style>
-.CodeMirror {
-	border-style: solid;
-	border-width: 2px;
-	border-color: rgba(76, 5, 247, 0.3);
-}
-		</style>
-	</head>	
-	
-<?php
+<?php 
+	session_start(); 
 	// Vars
 	require_once('./include/setting_oj.inc.php');
 	require_once('./include/common_const.inc.php');
@@ -61,5 +44,3 @@
 	//Page Includes
 	require("./pages/problemsubmit.php");
 ?>
-	
-</html>
