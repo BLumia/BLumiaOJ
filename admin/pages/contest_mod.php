@@ -2,7 +2,7 @@
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1>Contest Management <small>Edit Contest</small></h1>
+			<h1><?php echo LA_CONT_EDITOR;?> <small><?php echo LA_CONT_MAN;?></small></h1>
 		</div>
 		<p class="lead">
 			<?php echo $page_helper;?>
@@ -10,7 +10,7 @@
 		<form method="POST" class="form-horizontal" action="../api/contest_mod.php">
 		    <label>Contest Title:</label>
 			<input type="text" class="form-control" name="contest_title" placeholder="Enter Contest Title" value="<?php echo $CONT_TITLE;?>"><br/>
-			<label>Start Time:</label>
+			<label><?php echo L_START_TIME;?>:</label>
 			<div class="row">
 				<div class="col-sm-2">
 					<label>Year:</label>
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			<br/>
-			<label>End Time:</label>
+			<label><?php echo L_END_TIME;?>:</label>
 			<div class="row">
 				<div class="col-sm-2">
 					<label>Year:</label>
@@ -61,7 +61,7 @@
 			<label>权限和语言:</label>
 			<div class="row">
 				<div class="col-sm-8">
-				<label>Languages:</label>
+				<label><?php echo L_LANG;?>:</label>
 				<select name="language[]" id="id_select" class="selectpicker" multiple data-width="100%">
 					<?php
 					$lang=(~((int)$langmask))&((1<<($lang_count))-1);
@@ -85,7 +85,7 @@
 			<br/>
 			<div class="row">
 				<div class="col-sm-8">
-					<label>Description:</label>
+					<label><?php echo L_CONTEST_DESC;?>:</label>
 					<textarea class="summernote" name="contest_desc"><?php echo $CONT_DESC;?></textarea>
 				</div>
 				<div class="col-sm-4">
@@ -102,11 +102,8 @@
 			<?php require("../include/pageauth_post.php"); ?>
 			<input type="hidden" name="contest_id" value="<?php echo $cid;?>" readonly>
 			<br/>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary"><?php echo L_SUBMIT;?></button>
 		</form>
-		<p class="lead">
-			TODO: We NEED a tag system here.
-		</p>
 	</div>
 <script>
 $(document).ready(function() {

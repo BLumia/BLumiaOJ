@@ -20,11 +20,14 @@
 		else echo $contestItem['title'];
 	?>
 	</h2>
-	<div class="btn-group" role="group" aria-label="...">
+	<div class="btn-group" role="group">
 		<a type="button" href="contest.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_OVERVIEW; ?></a>
 		<a type="button" href="contest_problemset.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_PROB_SET; ?></a>
 		<a type="button" href="contest_status.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_STATUS; ?></a>
 		<a type="button" href="contest_ranklist.php?cid=<?php echo $cid;?>" class="btn btn-default"><?php echo L_RANKLIST; ?></a>
+		<?php if (function_exists('havePrivilege') && havePrivilege("CONTEST_EDITOR")) { ?>
+		<a type="button" href="./admin/contest_editor.php?cid=<?php echo $cid;?>" class="btn  btn-warning"><?php echo L_EDIT; ?></a>
+		<?php } ?>
 	</div>
 	<div class="progress">
 		<div id="bl-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">

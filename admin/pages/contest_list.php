@@ -2,10 +2,10 @@
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1>Contest Management <small>Control Panel</small></h1>
+			<h1><?php echo LA_CONT_LIST;?> <small><?php echo LA_CONT_MAN;?></small></h1>
 		</div>
 		<p class="lead">
-			您可以从这里开始进行竞赛的添加和管理。
+			<?php echo LA_CONTLIST_HEAD;?>
 		</p>
 		<nav style="text-align:center;">
 			<ul class="pagination">
@@ -19,8 +19,8 @@
 			</ul>
 		</nav>
 		<ul class="nav nav-pills nav-justified">
-			<li><a href="./news_editor.php">Add Contest</a></li>
-			<li><a href="./contest_manager.php">More Options</a></li>
+			<li><a href="./news_editor.php"><?php echo LA_CONT_ADD;?></a></li>
+			<li><a href="./contest_manager.php"><?php echo LA_MORE_OPTIONS;?></a></li>
 		</ul>
 		<br/>
 		<div>
@@ -52,9 +52,8 @@
 					echo "<td>".$row['start_time']."</td>";
 					echo "<td>".$row['end_time']."</td>";
 					echo "<td>{$url_defunct} {$url_private}</td>";
-					echo "<td><a href='./contest_editor.php?cid=".$row['contest_id']."'>Edit</a></td>";
+					echo "<td><a href='./contest_editor.php?cid={$row['contest_id']}'>".L_EDIT."</a></td>";
 					echo "</tr>";
-					//var_dump($row);
 				}
 				?>
 				</tbody>

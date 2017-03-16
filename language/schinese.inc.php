@@ -34,6 +34,8 @@
 	const L_CONTEST_ID	= "比赛编号";
 	const L_CONTEST_DESC = "竞赛描述";
 	const L_CONTEST_INFO = "竞赛信息";
+	const L_CONTEST_ISPUB = "比赛性质";
+	const L_CONTEST_STATUS = "比赛状态";
 	/************* Contest Status **************/
 	const L_LeftTime= "剩余时间";
 	const L_Running	= "进行中";

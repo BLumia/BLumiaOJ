@@ -17,14 +17,12 @@
 	//Prepares
 	if(isset($_REQUEST['cid'])) {
 		$cid = intval($_REQUEST['cid']);
-		$sql=$pdo->prepare("select * from contest where contest_id = ?");
+		$sql=$pdo->prepare("SELECT * FROM contest WHERE contest_id = ?");
 		$sql->execute(array($cid));
 		$contestItem=$sql->fetch(PDO::FETCH_ASSOC);
 		if (count($contestItem) == 0) {
-			echo "比赛不存在";
-			exit(404);
+			exit("Contest not exist");
 		}
-		//var_dump($contestItem);
 	}
 	
 	//Problem List
@@ -33,7 +31,8 @@
 	$result=$sql->fetchAll(PDO::FETCH_ASSOC);
 	$prob_list = "";
 	foreach($result as $one_prob) {
-		$prob_list.=$one_prob["problem_id"].',';
+		if(empty($prob_list)) $prob_list.=$one_prob["problem_id"];
+		else $prob_list.=','.$one_prob["problem_id"];
 	}
 	
 	
@@ -51,7 +50,7 @@
 	$start_time=$contestItem["start_time"];
 	$end_time=$contestItem["end_time"];
 	
-	$page_helper = "You are editing contest $cid.";
+	$page_helper = LA_U_ARE_EDITING.": [".L_CONTEST_ID.":{$cid}]";
 	$CONT_TITLE = $contestItem["title"];
 	$CONT_PROBLEMS = $prob_list;
 	$CONT_S_TIME_Y = substr($start_time,0,4);

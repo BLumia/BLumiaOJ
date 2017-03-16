@@ -6,6 +6,7 @@
 	const LA_PROB_MAN			= "管理问题";
 	const LA_DATA_MAN			= "管理数据";
 	const LA_CONT_EDITOR		= "比赛编辑";
+	const LA_CONT_MAN			= "比赛管理";
 	const LA_CONT_ADD			= "添加竞赛";
 	const LA_CONT_LIST			= "竞赛列表";
 	const LA_NEWS_MAN			= "管理新闻";
@@ -34,6 +35,10 @@
 	const LA_CODE_SUBMIT_LIMIT	= "代码提交最小间隔时间";
 	const LA_DO_LOCK_RANKLIST	= "竞赛后期是否锁定排名";
 	const LA_LOCK_RANKLIST_PCT	= "竞赛锁定排名时间比例";
+	/************* Contest Management Page **************/
+	const LA_CONTLIST_HEAD		= "您可以从这里开始进行竞赛的添加和管理。";
+	const LA_MORE_OPTIONS		= "更多选项";
+	const LA_U_ARE_EDITING		= "您正在编辑";
 	/************* Test Case Editor **************/
 	const LA_TEST_DATA			= "测试数据";
 	const LA_EDIT_DATA			= "编辑数据";

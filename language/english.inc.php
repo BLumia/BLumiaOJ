@@ -35,6 +35,8 @@
 	const L_CONTEST_DESC = "Contest Description";
 	const L_CONTEST_INFO = "Contest Infomation";
 	const L_CONTEST_PROB = "Contest Problems";
+	const L_CONTEST_ISPUB = "Contest Private";
+	const L_CONTEST_STATUS = "Contest Status";
 	/************* Contest Status **************/
 	const L_LeftTime = "Left Time";
 	const L_Running  = "Running";

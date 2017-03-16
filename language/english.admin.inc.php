@@ -6,6 +6,7 @@
 	const LA_PROB_MAN			= "Problem Management";
 	const LA_DATA_MAN			= "Test Data Management";
 	const LA_CONT_EDITOR		= "Contest Editor";
+	const LA_CONT_MAN			= "Contest Management";
 	const LA_CONT_ADD			= "Add Contest";
 	const LA_CONT_LIST			= "Contest List";
 	const LA_NEWS_MAN			= "News Management";
@@ -34,6 +35,10 @@
 	const LA_CODE_SUBMIT_LIMIT	= "Code submit frequence limit";
 	const LA_DO_LOCK_RANKLIST	= "Lock ranklist when contest near end";
 	const LA_LOCK_RANKLIST_PCT	= "When to lock ranklist";
+	/************* Contest Management Page **************/
+	const LA_CONTLIST_HEAD		= "You can start editing contest data here.";
+	const LA_MORE_OPTIONS		= "More Options";
+	const LA_U_ARE_EDITING		= "You are editing";
 	/************* Test Case Editor **************/
 	const LA_TEST_DATA			= "Test Data";
 	const LA_EDIT_DATA			= "Edit Data";

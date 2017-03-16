@@ -37,13 +37,21 @@
 	if(!empty($_FILES['file']['tmp_name'])) {
 	
 		if(is_uploaded_file($_FILES['file']['tmp_name'])) {
+			
 			$urlencodedFileName = rawurlencode($_FILES["file"]["name"]);
-			if (!file_exists($actualDataFolder)) mkdir($actualDataFolder);
-			if (!in_array(getFileExtension($_FILES["file"]["name"]), $allowedExts)) exit(json_encode(array("status"=>false)));
+			$status = false; 
+			
+			if (!file_exists($actualDataFolder)) {
+				$status = mkdir($actualDataFolder);
+				if ($status == false) exit(json_encode(array("status"=>false, "reason"=>"Create folder failed.")));
+			}
+			
+			if (!in_array(getFileExtension($_FILES["file"]["name"]), $allowedExts)) exit(json_encode(array("status"=>false, "reason"=>"File format not allowed.")));
 			if (file_exists($actualDataFolder."/".$urlencodedFileName)) unlink($actualDataFolder."/".$urlencodedFileName);
 			$status = move_uploaded_file($_FILES['file']['tmp_name'], $actualDataFolder."/".$urlencodedFileName);
-			$outPath.=$urlencodedFileName;
+			if ($status == false) exit(json_encode(array("status"=>false, "reason"=>"Cannot move uploaded file.")));
 			
+			$outPath.=$urlencodedFileName;
 			exit($outPath);
 		}
 	}
