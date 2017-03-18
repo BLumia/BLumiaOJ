@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php require_once('../include/admin_head.inc.php'); ?>
+	<title><?php echo LA_NEWS_MAN." - {$OJ_NAME}";?></title>
+</head>	
 <body>
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
@@ -40,7 +46,7 @@
 					echo "<td>".$row['title']."</td>";
 					echo "<td>".$row['time']."</td>";
 					echo "<td>{$url_defunct} {$url_importance}</td>";
-					echo "<td><a href='./news_editor.php?nid=".$row['news_id']."'>Edit</a></td>";
+					echo "<td><a href='./news_editor.php?nid={$row['news_id']}'>".L_EDIT."</a></td>";
 					echo "</tr>";
 					//var_dump($row);
 				}
@@ -50,3 +56,4 @@
 		</div>
 	</div>
 </body>
+</html>

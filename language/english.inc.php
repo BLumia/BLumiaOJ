@@ -135,6 +135,7 @@
 	const L_DATE	= "Date";
 	const L_HELP	= "Help";
 	const L_LANG	= "Language";
+	const L_NEWS	= "News";
 	const L_CLOSE	= "Close";
 	const L_RESULT	= "Result";
 	const L_DELETE	= "Delete";
