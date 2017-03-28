@@ -35,11 +35,11 @@
 					<table class="table table-striped table-hover" id="tableID">
 						<thead>
 							<tr>
-								<th width="15%">Contest ID</th>
-								<th width="45%">Title</th>
-								<th width="15%">Status</th>
-								<th width="10%">Privilege</th>
-								<th width="15%">Creator</th>
+								<th width="15%"><?php echo L_CONTEST_ID;?></th>
+								<th width="45%"><?php echo L_TITLE;?></th>
+								<th width="15%"><?php echo L_STATUS;?></th>
+								<th width="10%"><?php echo L_Privilege;?></th>
+								<th width="15%"><?php echo L_Creator;?></th>
 							</tr>
 						</thead>
 						<tbody>

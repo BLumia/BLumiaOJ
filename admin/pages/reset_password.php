@@ -1,8 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php require_once('../include/admin_head.inc.php'); ?>
+	<title><?php echo LA_RESET_PSW." - {$OJ_NAME}";?></title>
+</head>	
 <body>
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1>User Management <small>Reset Password</small></h1>
+			<h1><?php echo LA_RESET_PSW;?> <small><?php echo LA_USER_MGR;?></small></h1>
 		</div>
 		<p class="lead">
 			您可以通过这里重置用户的密码，但请注意：
@@ -22,8 +28,9 @@
 					<input type="password" class="form-control" name="new_password" placeholder="Password Here">
 				</div><br/><br/>
 				<?php require_once('../include/pageauth_post.php'); ?>
-				<button type="submit" class="btn btn-default">重置</button>
+				<button type="submit" class="btn btn-default"><?php echo L_SUBMIT;?></button>
 			</form><br/>
 		</div>
 	</div>
 </body>
+</html>

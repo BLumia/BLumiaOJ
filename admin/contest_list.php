@@ -1,12 +1,6 @@
-<?php session_start(); $ON_ADMIN_PAGE="Yap"; ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('../include/admin_head.inc.php'); ?>
-		<title>Contest List</title>
-	</head>	
-	
-<?php
+<?php 
+	session_start(); 
+	$ON_ADMIN_PAGE="Yap";
 	//Vars
 	require_once('../include/setting_oj.inc.php');
 	//Prepares
@@ -44,4 +38,3 @@
 	require("./pages/contest_list.php");
 ?>
 	
-</html>

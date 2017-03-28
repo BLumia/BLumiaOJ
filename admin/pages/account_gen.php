@@ -1,11 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php require_once('../include/admin_head.inc.php'); ?>
+	<link rel="stylesheet" type="text/css" href="../sitefiles/css/bootstrap-select.min.css">
+	<script type="text/javascript" src="../sitefiles/js/bootstrap-select.min.js"></script>
+	<title><?php echo LA_ACCOUNT_GEN." - {$OJ_NAME}";?></title>
+</head>	
 <body>
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1>Account Generator <small>Control Panel</small></h1>
+			<h1><?php echo LA_ACCOUNT_GEN;?> <small>Control Panel</small></h1>
 		</div>
 		<p class="lead">
-			您可以从这里开始进行竞赛的添加和管理。
+			您可以使用账号生成器生成账号，以便用于竞赛或其它用途。
 		</p>
 		<div class="well">
 			<form class="form" method="POST">
@@ -20,7 +28,7 @@
 						<input type="text" class="form-control" name='teamnumber' value=50 placeholder="A Number Here">
 					</div><br/><br/>
 					<?php require_once('../include/pageauth_post.php'); ?>
-					<button value=Generate type="submit" class="btn btn-default">提交</button>
+					<button value=Generate type="submit" class="btn btn-default"><?php echo L_SUBMIT;?></button>
 					</div>
 					<div class="col-md-6">
 						<label>用户列表（如果需要）: </label><br/>
@@ -31,3 +39,4 @@
 		</div>
 	</div>
 </body>
+</html>

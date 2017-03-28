@@ -38,6 +38,8 @@
 	const L_CONTEST_ISPUB = "Contest Private";
 	const L_CONTEST_STATUS = "Contest Status";
 	/************* Contest Status **************/
+	const L_Creator  = "Creator";
+	const L_Privilege = "Privilege";
 	const L_LeftTime = "Left Time";
 	const L_Running  = "Running";
 	const L_Public   = "Public";

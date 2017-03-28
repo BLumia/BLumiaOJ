@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php require_once('../include/admin_head.inc.php'); ?>
+	<title><?php echo LA_CONT_LIST." - {$OJ_NAME}";?></title>
+</head>	
 <body>
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
@@ -61,3 +67,4 @@
 		</div>
 	</div>
 </body>
+</html>

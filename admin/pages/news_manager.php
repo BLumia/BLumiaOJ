@@ -8,14 +8,14 @@
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1>News Management <small>Control Panel</small></h1>
+			<h1><?php echo LA_NEWS_MAN; ?> <small>Control Panel</small></h1>
 		</div>
 		<p class="lead">
-			您可以从这里开始进行新闻的管理。
+			<?php echo LA_NEWS_HEAD;?>
 		</p>
 		<ul class="nav nav-pills nav-justified">
-			<li><a href="./news_editor.php">Add News</a></li>
-			<li><a href="./broadcast_editor.php">Edit Broadcast</a></li>
+			<li><a href="./news_editor.php"><?php echo LA_ADD_NEWS;?></a></li>
+			<li><a href="./broadcast_editor.php"><?php echo LA_EDIT_BROADCAST;?></a></li>
 		</ul>
 		<br/>
 		<div>

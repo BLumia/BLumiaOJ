@@ -37,6 +37,8 @@
 	const L_CONTEST_ISPUB = "比赛性质";
 	const L_CONTEST_STATUS = "比赛状态";
 	/************* Contest Status **************/
+	const L_Creator  = "创建者";
+	const L_Privilege = "权限";
 	const L_LeftTime= "剩余时间";
 	const L_Running	= "进行中";
 	const L_Public	= "公开";

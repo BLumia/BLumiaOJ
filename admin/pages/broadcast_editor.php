@@ -1,8 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php require_once('../include/admin_head.inc.php'); ?>
+	<title><?php echo LA_CAST_MAN." - {$OJ_NAME}";?></title>
+</head>	
 <body>
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1>Broadcast Management <small>Announcement Editor</small></h1>
+			<h1><?php echo LA_CAST_MAN;?> <small>Announcement Editor</small></h1>
 		</div>
 		<p class="lead">
 			<?php echo $page_helper;?>
@@ -11,7 +17,7 @@
 			<label>Announcement Content:</label>
 			<textarea class="summernote" placeholder="Enter Announcement Content" name="broadcast_content"><?php echo $OJ_ANNOUNCEMENT;?></textarea>
 			<br/>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary"><?php echo L_SUBMIT;?></button>
 		</form>
 	</div>
 <script>
@@ -37,3 +43,4 @@ $(document).ready(function() {
 });
 </script>
 </body>
+</html>

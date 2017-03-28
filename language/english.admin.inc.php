@@ -45,4 +45,12 @@
 	const LA_TCE_LEAD			= "Edit problem's test data  here.<br/>If you want to edit a problem, please navigate to 'Problem List' page.";
 	const LA_DELETE_DATA		= "Delete Test Data";
 	const LA_DELETE_WARNING		= "Are you sure you want to delete";
+	/************* News Management Page **************/
+	const LA_ADD_NEWS			= "Add News";
+	const LA_EDIT_BROADCAST		= "Edit Broadcast";
+	const LA_NEWS_HEAD			= "You can manage all news and broadcast here.";
+	/************* Problem Management Page **************/
+	const LA_PROB_MAN_HEAD		= "You can start manage problems and do other operations about problem.<br/>To edit a problem, please go to `Problem List` page.";
+	const LA_ADD_A_PROBLEM		= "Add a problem to problem set";
+	const LA_VIEW_PROB_LIST		= "View list of all problems";
 ?>

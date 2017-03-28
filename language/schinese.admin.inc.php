@@ -45,4 +45,12 @@
 	const LA_TCE_LEAD			= "在这里编辑问题的测试数据。<br/>若要对问题进行编辑和其他针对某个问题的操作，请进入“问题列表”。";
 	const LA_DELETE_DATA		= "删除测试数据";
 	const LA_DELETE_WARNING		= "确认要删除";
+	/************* News Management Page **************/
+	const LA_ADD_NEWS			= "添加新闻";
+	const LA_EDIT_BROADCAST		= "编辑广播";
+	const LA_NEWS_HEAD			= "您可以从这里开始进行新闻的管理。";
+	/************* Problem Management Page **************/
+	const LA_PROB_MAN_HEAD		= "您可以从这里开始进行问题的导入和管理。<br/>若要对问题进行编辑和其他针对某个问题的操作，请进入“问题列表”。";
+	const LA_ADD_A_PROBLEM		= "添加一个问题";
+	const LA_VIEW_PROB_LIST		= "查看问题列表";
 ?>
