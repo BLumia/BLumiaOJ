@@ -20,6 +20,7 @@
 	const L_NEXT_PAGE= "下一页";
 	const L_SRC_VIEW= "查看代码";
 	const L_ERR_VIEW= "错误详情";
+	const L_TAGLIST	= "标签列表";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "标题";
 	const L_DESC  	= "描述";

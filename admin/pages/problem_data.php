@@ -2,7 +2,7 @@
 <html>
 <head>
 	<?php require_once('../include/admin_head.inc.php'); ?>
-	<title><title><?php echo LA_DATA_MAN." - {$OJ_NAME}";?></title></title>
+	<title><?php echo LA_DATA_MAN." - {$OJ_NAME}";?></title>
 	<style>
 table#tableFileList a {
 	padding-left: 5px;

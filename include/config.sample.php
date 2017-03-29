@@ -31,6 +31,9 @@
 // Virtual Judge Setting
 	$VJ_ENABLED = false; // Currently not finished. Don't enable it unless you gonna hacking this part.
 
+// Problem Tag System Setting
+	$PROBLEM_TAG_ENABLED = false;
+
 // Run Enviroment and DB setting
 /* ********************
 All Supported Enviroments($ENV_CASE, aka. Data Source): 
