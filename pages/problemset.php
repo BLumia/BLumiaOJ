@@ -78,7 +78,7 @@
 		var $tagSubContainer = $("#oj-ps-problemlist").empty();
 		$.each(data, function (index, elem) {
 			var isAcRateNaN = (elem.accepted == 0);
-			var passRate = isAcRateNaN ? "0%" : Math.round(elem.accepted / elem.submit) / 100.00 + "%"
+			var passRate = isAcRateNaN ? "0%" : Math.round(100 * elem.accepted / elem.submit) + "%"
 			
 			var $tableRow = $("<tr>");
 			var $solvedStateCol = $("<td>");
@@ -88,7 +88,7 @@
 			else if (elem.userchallenged) $solvedStateCol.append("<i style='color: orange;' class='fa fa-dot-circle-o'></i>");
 			var $pidCol = $("<td>").text(elem.pid);
 			var $titleCol = $("<td>").append(
-				$("<a>").attr("herf","problem.php?pid="+elem.pid).text(elem.title)
+				$("<a>").attr("href","problem.php?pid="+elem.pid).text(elem.title)
 			);
 			var $difficutyCol = $("<td>").append(
 				$("<div>").addClass("progress maxwidth150px").append(
@@ -120,6 +120,7 @@
 				if (data.status === 200) {
 					fillPager(data.result.currentpage, data.result.totalpages);
 					fillProblemList(data.result.data);
+					window.history.replaceState("","Problem Set","?p="+data.result.currentpage);
 				}
 			}
 		});
