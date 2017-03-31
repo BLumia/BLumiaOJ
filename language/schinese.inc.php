@@ -147,6 +147,7 @@
 	const L_CHANGE	= "更换";
 	const L_REMOVE	= "移除";
 	const L_OTHER	= "其它";
+	const L_SEARCH	= "搜索";
 	const L_MANAGEMENT = "管理";
 	const L_SELECT_FILE	= "选择文件";
 	const L_INFOLABEL = "【提示信息】";

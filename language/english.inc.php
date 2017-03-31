@@ -148,6 +148,7 @@
 	const L_CHANGE	= "Change";
 	const L_REMOVE	= "Remove";
 	const L_OTHER	= "Other";
+	const L_SEARCH	= "Search";
 	const L_MANAGEMENT = "Management";
 	const L_SELECT_FILE	= "Select file";
 	const L_INFOLABEL = "[INFO]";

@@ -10,12 +10,7 @@
 			<div class="row">
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					<div class="btn-group" role="group" id="oj-ps-pager">
-						<?php
-							for($i=1;$i<=$pageCnt;$i++) {
-								$pageNavBtnClass = ($i == $p) ? "btn-primary" : "btn-default";
-								echo "<a type='button' class='btn {$pageNavBtnClass}' href='problemset.php?p={$i}'>{$i}</a>";
-							}
-						?>
+						Loading...
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-3 col-xs-6">
@@ -31,9 +26,9 @@
 				<div class="col-md-3 col-sm-3 col-xs-6">
 				<form method="get">
 					<div class="input-group">
-						<input type="text" name="wd" class="form-control" placeholder="输入标题关键字">
+						<input type="text" name="wd" id="keyword" class="form-control" placeholder="输入标题关键字">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">搜索</button>
+							<button class="btn btn-default" type="submit"><?php echo L_SEARCH;?></button>
 						</span>
 					</div>
 				</form>
@@ -53,52 +48,90 @@
 							</tr>
 						</thead>
 						<tbody id="oj-ps-problemlist">
-						<?php foreach ($problemList as $row) { //problem list ------------  ?>
-							<tr>
-								<?php 
-									if ($row['submit'] == 0) {
-										$pctText = "N/A";
-										$procBarNum = 0;
-										$pctNum = 0;
-									} else {
-										$pctNum = ($row['accepted']/$row['submit'])*100;
-										$procBarNum = (1-($row['accepted']/$row['submit']))*100;
-										$pctText = sprintf("%.2f%%",$pctNum);
-									}
-								?>
-								<td>
-								<?php 
-									if ($row['defunct'] == 'Y') echo "<i class='fa fa-lock'></i>";
-									if (isset($probIDUCList[$row['problem_id']])) echo "<i class='fa fa-clock-o'></i>";
-									if (isset($probStatusList[$row['problem_id']])) {
-										$thisProbState = $probStatusList[$row['problem_id']];
-										switch($thisProbState) {
-										case "accepted":
-											echo "<i style='color: green;' class='fa fa-check'></i>";
-											break;
-										default:
-											echo "<i style='color: orange;' class='fa fa-dot-circle-o'></i>";
-											break;
-										}
-									}
-								?>
-								</td>
-								<td><?php echo $row['problem_id'];?></td>
-								<td>
-									<a href="problem.php?pid=<?php echo $row['problem_id'];?>"><?php echo $row['title'];?></a>
-									<!--<div class="tr-tag"><span>搜索</span></div>-->
-								</td>
-								<td><div class="progress maxwidth150px"><div class="progress-bar" style="width:<?php echo $procBarNum;?>%;"></div></div></td>
-								<td><?php echo utf8_substr($row['source'],0,14);?></td>
-								<td>(<?php echo $row['accepted']." / ".$row['submit'];?>) <?php echo $pctText;?></td>
-							</tr>
-						<?php } ?>
+							<tr><td>Loading...</td></tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
+	<script>
+	function fillPager(curPage, totalPages) {
+		var $pagerContainer = $("#oj-ps-pager").empty();
+		
+		var i = 1;
+		for(;i<=totalPages;i++) {
+			$aPageBtn = $("<a>").attr('type', 'button').attr('data-page', i).addClass("btn").text(i).click(pageBtn_onclick);
+			if (i == curPage) $aPageBtn.addClass("btn-primary");
+			else $aPageBtn.addClass("btn-default");
+			$pagerContainer.append($aPageBtn);
+		}
+	}
+	
+	function pageBtn_onclick() {
+		var $caller = $(this);
+		var pageNumber = Number($caller.attr('data-page'));
+		fetchProblemList(pageNumber);
+	}
+	
+	function fillProblemList(data) {
+		var $tagSubContainer = $("#oj-ps-problemlist").empty();
+		$.each(data, function (index, elem) {
+			var isAcRateNaN = (elem.accepted == 0);
+			var passRate = isAcRateNaN ? "0%" : Math.round(elem.accepted / elem.submit) / 100.00 + "%"
+			
+			var $tableRow = $("<tr>");
+			var $solvedStateCol = $("<td>");
+			if (elem.defunct) $solvedStateCol.append("<i class='fa fa-lock'></i>");
+			if (elem.undercontest) $solvedStateCol.append("<i class='fa fa-clock-o'></i>");
+			if (elem.usersolved) $solvedStateCol.append("<i style='color: green;' class='fa fa-check'></i>");
+			else if (elem.userchallenged) $solvedStateCol.append("<i style='color: orange;' class='fa fa-dot-circle-o'></i>");
+			var $pidCol = $("<td>").text(elem.pid);
+			var $titleCol = $("<td>").append(
+				$("<a>").attr("herf","problem.php?pid="+elem.pid).text(elem.title)
+			);
+			var $difficutyCol = $("<td>").append(
+				$("<div>").addClass("progress maxwidth150px").append(
+					$("<div>").addClass("progress-bar").css('width', passRate)
+				)
+			);
+			var $sourceCol = $("<td>").text(elem.source ? elem.source : "");
+			var $acceptRateCol = $("<td>").text('(' + elem.accepted + ' / ' + elem.submit + ') ' + passRate);
+			
+			$tableRow.append($solvedStateCol).append($pidCol).append($titleCol).append($difficutyCol).append($sourceCol).append($acceptRateCol);
+			$tagSubContainer.append($tableRow);
+		});
+	}
+	
+	function fetchProblemList(page, keyword) {
+		var theData = {
+			p: page
+		}
+		if (keyword && keyword != "") {
+			theData.wd = keyword;
+			$("#keyword").val(keyword);
+		}
+		$.ajax({
+			url: "./api/ajax_problemset.php",
+			method: "POST",
+			data: theData,
+			dataType: "json",
+			success: function (data, textStatus, jqXHR) {
+				if (data.status === 200) {
+					fillPager(data.result.currentpage, data.result.totalpages);
+					fillProblemList(data.result.data);
+				}
+			}
+		});
+	}
 
+	$(document).ready(function () {
+		fetchProblemList(<?php echo $p;
+			if(isset($_GET['wd']) && trim($_GET['wd'])!="") {
+				echo ',"'.pdo_real_escape_string(urldecode($_GET['wd']), $pdo).'"';
+			}
+		?>);
+	});
+	</script>
 	</body>
 </html>

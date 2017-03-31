@@ -1,6 +1,10 @@
 <?php
 	/*  
-	TODO: Return Type: json/xhtml
+	Return a list of problems.
+	All parameters are optional.
+	GET / POST:
+		'p':	page number, default value = 1
+		'wd':	searching keyword.
 	*/
 
 	session_start();
@@ -10,12 +14,12 @@
 	require_once('../include/user_check_functions.php');
 	
 	//Prepare
-	$p=isset($_GET['p']) ? $_GET['p'] : 1;
+	$p=isset($_REQUEST['p']) ? $_REQUEST['p'] : 1;
 	if($p<=1){$p=1;}
 	$front=intval(($p-1)*$PAGE_ITEMS) + 1000;
 	$tail =$front + $PAGE_ITEMS;
 	$curTime=strftime("%Y-%m-%d %H:%M",time());
-	$isProblemManager = isset($_SESSION['administrator']);
+	$isProblemManager = havePrivilege("PROBLEM_EDITOR");
 	
 	$sql=$pdo->prepare("SELECT max(`problem_id`) as upid FROM `problem`");
 	$sql->execute();
@@ -29,10 +33,10 @@
 	
 	//Challenged Problems
 	if(isset($_SESSION['user_id'])) {
-		$sql=$pdo->prepare("SELECT `problem_id` FROM `solution` WHERE `user_id`='{$_SESSION['user_id']}' group by `problem_id`"); //All
+		$sql=$pdo->prepare("SELECT `problem_id` FROM `solution` WHERE `user_id`='{$_SESSION['user_id']}' GROUP BY `problem_id`"); //All
 		$sql->execute();
 		$challengedList=$sql->fetchAll(PDO::FETCH_ASSOC);
-		$sql=$pdo->prepare("SELECT `problem_id` FROM `solution` WHERE `user_id`='{$_SESSION['user_id']}' AND `result`=4 group by `problem_id`"); //Accepted
+		$sql=$pdo->prepare("SELECT `problem_id` FROM `solution` WHERE `user_id`='{$_SESSION['user_id']}' AND `result`=4 GROUP BY `problem_id`"); //Accepted
 		$sql->execute();
 		$acceptedList=$sql->fetchAll(PDO::FETCH_ASSOC);
 		//var_dump($acceptedList);
@@ -49,11 +53,12 @@
 	$any_running_contest = "
 		SELECT `problem_id` FROM `contest_problem` WHERE `contest_id` IN (
 			SELECT `contest_id` FROM `contest` WHERE 
-			(`end_time`>'{$curTime}' OR private=1) AND `defunct`='N'
+			(`end_time`>'{$curTime}') AND `defunct`='N'
 		)";
+		
 	//Keyword
-	if(isset($_GET['wd']) && trim($_GET['wd'])!="") {
-		$search = pdo_real_escape_string(urldecode($_GET['wd']), $pdo);
+	if(isset($_REQUEST['wd']) && trim($_REQUEST['wd'])!="") {
+		$search = pdo_real_escape_string(urldecode($_REQUEST['wd']), $pdo);
 		$common_filter = " ( title LIKE '%{$search}%' OR source LIKE '%{$search}%') ";
 		$totalCount = 1; // all search result in one page
 	} else {
@@ -78,6 +83,38 @@
 		}
 	}
 	
-	fire(501, "Not yet avaliable api");
-?>
+	//---- construct result json container variable ----
+	$resultArr = array();
+	foreach ($problemList as $row) { 
+		
+		$oneResult['pid'] = $row['problem_id'];
+		$oneResult['title'] = $row['title'];
+		$oneResult['tags'] = array(); // WIP
+		$oneResult['source'] = utf8_substr($row['source'],0,14); 
+		$oneResult['accepted'] = intval($row['accepted']);
+		$oneResult['submit'] = intval($row['submit']);
+		$oneResult['defunct'] = ($row['defunct'] == 'Y');
+		$oneResult['undercontest'] = isset($probIDUCList[$row['problem_id']]);
+		$oneResult['usersolved'] = false;
+		$oneResult['userchallenged'] = false;
+		if (isset($probStatusList[$row['problem_id']])) {
+			$thisProbState = $probStatusList[$row['problem_id']];
+			switch($thisProbState) {
+			case "accepted":
+				$oneResult['usersolved'] = true;
+				$oneResult['userchallenged'] = true;
+				break;
+			default:
+				$oneResult['usersolved'] = false;
+				$oneResult['userchallenged'] = true;
+				break;
+			}
+		}
 
+		array_push($resultArr, $oneResult);
+	}
+	
+	$finalResult = array("currentpage"=>$p, "totalpages"=>$pageCnt, "data"=>$resultArr);
+	
+	fire(200, "OK", $finalResult);
+?>
