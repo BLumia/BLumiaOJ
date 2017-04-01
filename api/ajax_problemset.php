@@ -60,7 +60,7 @@
 	if(isset($_REQUEST['wd']) && trim($_REQUEST['wd'])!="") {
 		$search = pdo_real_escape_string(urldecode($_REQUEST['wd']), $pdo);
 		$common_filter = " ( title LIKE '%{$search}%' OR source LIKE '%{$search}%') ";
-		$totalCount = 1; // all search result in one page
+		$pageCnt = 1; // all search result in one page
 	} else {
 		$common_filter = "`problem_id`>='{$front}' AND `problem_id`<'{$tail}'";
 	}	

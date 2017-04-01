@@ -104,6 +104,7 @@
 	}
 	
 	function fetchProblemList(page, keyword) {
+		NProgress.start();
 		var theData = {
 			p: page
 		}
@@ -122,6 +123,9 @@
 					fillProblemList(data.result.data);
 					window.history.replaceState("","Problem Set","?p="+data.result.currentpage);
 				}
+			},
+			complete: function () {
+				NProgress.done();
 			}
 		});
 	}
