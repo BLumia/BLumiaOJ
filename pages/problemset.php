@@ -119,6 +119,7 @@
 			dataType: "json",
 			success: function (data, textStatus, jqXHR) {
 				if (data.status === 200) {
+					NProgress.inc();
 					fillPager(data.result.currentpage, data.result.totalpages);
 					fillProblemList(data.result.data);
 					window.history.replaceState("","Problem Set","?p="+data.result.currentpage);
