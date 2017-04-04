@@ -52,4 +52,4 @@ Temporary Items
 config.php
 
 # OJ Uploads
-uploads/
+upload*/
