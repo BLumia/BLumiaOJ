@@ -33,7 +33,7 @@
 				<div class="input-group">
 					<input type="text" class="form-control" name="keyword" placeholder="输入用户名(关键词)">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="submit">查询</button>
+						<button class="btn btn-default" type="submit"><?php echo L_SEARCH;?></button>
 					</span>
 				</div>
 				</form>
@@ -42,15 +42,15 @@
 				<form class="form-inline text-right">
 					<div class="form-group">
 						<select class="form-control" style="width: 111px;">
-							<option>==日期段==</option>
-							<option>总</option>
-							<option>日</option>
-							<option>周</option>
-							<option>月</option>
-							<option>年</option>
+							<option>==<?php echo L_DATE_SCALE;?>==</option>
+							<option><?php echo L_ALL;?></option>
+							<option><?php echo L_DAY;?></option>
+							<option><?php echo L_WEEK;?></option>
+							<option><?php echo L_MONTH;?></option>
+							<option><?php echo L_YEAR;?></option>
 						</select>
 					</div>
-					<button type="submit" class="btn btn-default">找</button>
+					<button type="submit" class="btn btn-default"><?php echo L_FIND;?></button>
 				</form>
 			</div>
 		</div><!-- /.row -->

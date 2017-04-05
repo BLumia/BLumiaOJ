@@ -69,6 +69,7 @@
 	const L_JUDGE_CE = "Compilation Error";
 	const L_JUDGE_TR = "Test Run";
 	/************* Program Page *****************/
+	const L_PROB_ID = "Problem ID";
 	const L_PROB_DESC = "Problem Description";
 	const L_INPUT	= "Input";
 	const L_OUTPUT	= "Output";
@@ -78,6 +79,13 @@
 	const L_TAG		= "Tag";
 	const L_SOURCE	= "Source";
 	const L_DIFFICUTY = "Difficuty";
+	/************* Status Page ****************/
+	const L_RUN_ID	= "Run ID";
+	const L_MEMORY	= "Memory";
+	const L_COMPILER= "Compiler";
+	const L_LENGHT	= "Lenght";
+	const L_TIME_COST	= "Time";
+	const L_SUBMIT_TIME	= "Submit Time";
 	/************* Mail Page *****************/
 	const L_SEND	= "Send";
 	const L_CLEAR	= "Clear";
@@ -135,7 +143,7 @@
 	const L_OK		= "Okay";
 	const L_GO		= "Go";
 	const L_ALL		= "All";
-	const L_DATE	= "Date";
+	const L_FIND	= "Find";
 	const L_HELP	= "Help";
 	const L_LANG	= "Language";
 	const L_NEWS	= "News";
@@ -152,4 +160,12 @@
 	const L_MANAGEMENT = "Management";
 	const L_SELECT_FILE	= "Select file";
 	const L_INFOLABEL = "[INFO]";
+	/************* Date *****************/
+	const L_DAY		= "Day";
+	const L_WEEK	= "Week";
+	const L_MONTH	= "Month";
+	const L_YEAR	= "Year";
+	const L_DATE	= "Date";
+	const L_SRV_TIME= "Server Time";
+	const L_DATE_SCALE= "Date Scale";
 ?>

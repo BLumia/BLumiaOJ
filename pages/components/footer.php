@@ -1,7 +1,7 @@
 <footer class="footer">
 	<div class="container">
 		<p style="float: left;" align="left">
-			<span id="clock">Server Time: Loading...</span><br/>
+			<span id="clock"><?php echo L_SRV_TIME;?>: Loading...</span><br/>
 			FAQ | <a class="bl-footer-link" href="#">Rule</a> 
 		</p>
 		<p style="float: right; margin-right: 15px;" class="hidden-xs" align="right">
@@ -23,7 +23,7 @@
 		h=realTime.getHours();
 		m=realTime.getMinutes();
 		s=realTime.getSeconds();
-		finalText="Server Time: "+year+"/"+mon+"/"+day+" "+(h>=10?h:"0"+h)+":"+(m>=10?m:"0"+m)+":"+(s>=10?s:"0"+s);
+		finalText="<?php echo L_SRV_TIME;?>: "+year+"/"+mon+"/"+day+" "+(h>=10?h:"0"+h)+":"+(m>=10?m:"0"+m)+":"+(s>=10?s:"0"+s);
 		document.getElementById('clock').innerHTML=finalText;
 		setTimeout("clock()", 1000);
 	}

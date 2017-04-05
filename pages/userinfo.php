@@ -100,7 +100,6 @@
 							</div>
 						</div>
 					</div><!-- /.row -->
-					
 					<div class="row">
 						<div class="col-sm-6">
 							<ul class="list-group">
@@ -136,16 +135,13 @@
 					</div>
 				</div>
 			</div><!-- /.row, 3 medal -->
-			<!-- 显示一个统计图 -->
 			<!-- 显示其他信息 -->
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
 		<script type="text/javascript">
 			$(function () {
 				var chart;
-				
 				$(document).ready(function () {
-					
 					// Build the chart
 					$('#cont').highcharts({
 						chart: {

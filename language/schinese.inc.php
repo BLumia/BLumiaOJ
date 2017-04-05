@@ -68,6 +68,7 @@
 	const L_JUDGE_CE = "编译失败";
 	const L_JUDGE_TR = "测试运行";
 	/************* Program Page *****************/
+	const L_PROB_ID = "题目编号";
 	const L_PROB_DESC = "题目描述";
 	const L_INPUT	= "输入";
 	const L_OUTPUT	= "输出";
@@ -77,6 +78,13 @@
 	const L_TAG		= "标签";
 	const L_SOURCE	= "来源";
 	const L_DIFFICUTY = "难度";
+	/************* Status Page ****************/
+	const L_RUN_ID	= "运行编号";
+	const L_MEMORY	= "内存";
+	const L_COMPILER= "编译器";
+	const L_LENGHT	= "长度";
+	const L_TIME_COST	= "耗时";
+	const L_SUBMIT_TIME	= "提交时间";
 	/************* Mail Page *****************/
 	const L_SEND	= "发送";
 	const L_CLEAR	= "清空";
@@ -134,7 +142,7 @@
 	const L_OK		= "好的";
 	const L_GO		= "走起";
 	const L_ALL		= "所有";
-	const L_DATE	= "日期";
+	const L_FIND	= "查找";
 	const L_HELP	= "帮助";
 	const L_LANG	= "语言";
 	const L_NEWS	= "新闻";
@@ -151,4 +159,12 @@
 	const L_MANAGEMENT = "管理";
 	const L_SELECT_FILE	= "选择文件";
 	const L_INFOLABEL = "【提示信息】";
+	/************* Date *****************/
+	const L_DAY		= "日";
+	const L_WEEK	= "周";
+	const L_MONTH	= "月";
+	const L_YEAR	= "年";
+	const L_DATE	= "日期";
+	const L_SRV_TIME= "服务器时间";
+	const L_DATE_SCALE= "日期段";
 ?>
