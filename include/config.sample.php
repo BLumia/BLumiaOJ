@@ -34,6 +34,15 @@
 // Problem Tag System Setting
 	$PROBLEM_TAG_ENABLED = false;
 
+// Custom Information Display
+	$FOOTER_POWERED_BY = "Powered by <a class='bl-footer-link' href='https://github.com/BLumia/BLumiaOJ/'>BLumiaOJ</a>";
+	$FOOTER_COPYRIGHT = "Copyright © <a class='bl-footer-link' href='./about.php'>{$OJ_NAME}</a> Maintenance Team";
+
+// Search Engine Optimization
+	$OJ_ENABLE_SEO = true;
+	$SEO_KEYWORD = "OJ,Online Judge,{$OJ_NAME},ACM,ICPC";
+	$SEO_DESC = "{$OJ_NAME} is an online judge system for ACM/ICPC";
+
 // Run Enviroment and DB setting
 /* ********************
 All Supported Enviroments($ENV_CASE, aka. Data Source): 

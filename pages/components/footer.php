@@ -5,8 +5,8 @@
 			FAQ | <a class="bl-footer-link" href="#">Rule</a> 
 		</p>
 		<p style="float: right; margin-right: 15px;" class="hidden-xs" align="right">
-			Powered by <a class="bl-footer-link" href="https://github.com/BLumia/BLumiaOJ/">BLumiaOJ</a><br/>
-			Copyright 2015~2017 © <a href="./about.php"><?php echo $OJ_NAME; ?> Develop Team</a>
+			<?php echo $FOOTER_POWERED_BY;?><br/>
+			<?php echo $FOOTER_COPYRIGHT;?></a>
 		</p>
 	</div> 
 </footer>

@@ -1,4 +1,9 @@
 <meta charset="utf-8">
+<?php if ($OJ_ENABLE_SEO) { ?>
+<!-- SEO -->
+<meta name="description" content="<?php echo $SEO_DESC;?>">
+<meta name="keywords" content="<?php echo $SEO_KEYWORD;?>">
+<?php } ?>
 <!-- Icons -->
 <link rel="icon" href="./sitefiles/favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -22,7 +27,7 @@
 
 <link rel="stylesheet" href="./sitefiles/css/bearkidframe.css" type="text/css">
 
-<!-- js文件 -->
+<!-- javascripts -->
 <script src="./sitefiles/js/jquery.min.js"></script>
 <script src="./sitefiles/js/bootstrap.min.js"></script>
 <script src="./sitefiles/js/prettify.js"></script>
