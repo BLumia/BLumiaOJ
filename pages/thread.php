@@ -139,7 +139,10 @@ span.label {
 			var $replyBlock = $("<div>").addClass("media");
 			var $replyLeftBlock = $("<div>").addClass("media-left");
 			var $userContainer = $("<a>").attr('href','userinfo.php?uid='+elem.author_id);
-			var $userImg = $("<img>").attr("src","https://www.gravatar.com/avatar/"+md5(elem.email)+"?d=identicon&s=64").addClass("avatar");
+			var $userImg = $("<img>").attr("src","https://www.gravatar.com/avatar/"+md5(elem.email)+"?d=identicon&s=64").addClass("avatar").error(function() {
+				$(this).attr('src',"./api/gen_identicon.php?size=64&hash="+md5(elem.email));
+				$(this).unbind('error');
+			});
 			var $userName = $("<div>").addClass("text-center").text(elem.author_id);
 			$replyLeftBlock.append($userContainer.append($userImg).append($userName));
 			
