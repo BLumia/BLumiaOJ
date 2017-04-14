@@ -85,7 +85,7 @@
 			if (elem.defunct) $solvedStateCol.append("<i class='fa fa-lock'></i>");
 			if (elem.undercontest) $solvedStateCol.append("<i class='fa fa-clock-o'></i>");
 			if (elem.usersolved) $solvedStateCol.append("<i style='color: green;' class='fa fa-check'></i>");
-			else if (elem.userchallenged) $solvedStateCol.append("<i style='color: orange;' class='fa fa-dot-circle-o'></i>");
+			else if (elem.usertried) $solvedStateCol.append("<i style='color: orange;' class='fa fa-dot-circle-o'></i>");
 			var $pidCol = $("<td>").text(elem.pid);
 			var $titleCol = $("<td>").append(
 				$("<a>").attr("href","problem.php?pid="+elem.pid).text(elem.title)
@@ -103,14 +103,21 @@
 		});
 	}
 	
-	function fetchProblemList(page, keyword) {
+	function fetchProblemList(page, keyword, tagid) {
 		NProgress.start();
+		var hasKeywordPara = false;
+		var hasTagidPara = false;
 		var theData = {
 			p: page
 		}
 		if (keyword && keyword != "") {
+			hasKeywordPara = true;
 			theData.wd = keyword;
 			$("#keyword").val(keyword);
+		}
+		if (tagid && tagid != "") {
+			hasTagidPara = true;
+			theData.tagid = tagid;
 		}
 		$.ajax({
 			url: "./api/ajax_problemset.php",
@@ -122,7 +129,9 @@
 					NProgress.inc();
 					fillPager(data.result.currentpage, data.result.totalpages);
 					fillProblemList(data.result.data);
-					window.history.replaceState("","Problem Set","?p="+data.result.currentpage);
+					window.history.replaceState("","Problem Set","?p="+data.result.currentpage+
+													(hasKeywordPara?("&wd="+keyword):"")+
+													(hasTagidPara?("&tagid="+tagid):""));
 				}
 			},
 			complete: function () {
@@ -135,6 +144,11 @@
 		fetchProblemList(<?php echo $p;
 			if(isset($_GET['wd']) && trim($_GET['wd'])!="") {
 				echo ',"'.pdo_real_escape_string(urldecode($_GET['wd']), $pdo).'"';
+			} else {
+				echo ",false";
+			}
+			if(isset($_GET['tagid']) && trim($_GET['tagid'])!="") {
+				echo ",".intval(urldecode($_GET['tagid']));
 			}
 		?>);
 	});

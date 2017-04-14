@@ -39,7 +39,7 @@
 			var $tagSubListContainer = $("<div>").addClass("taglist").attr('id','tag-'+elem.tag_id+'-sublist');
 			
 			var $tagNameSpan = $("<span>").addClass("label label-primary").text(elem.tag_name);
-			var $tagProblemListA = $("<a>").attr('href', '#').attr('data-tagid', elem.tag_id).text("[See Problems]");
+			var $tagProblemListA = $("<a>").attr('href', 'problemset.php?tagid='+elem.tag_id).attr('data-tagid', elem.tag_id).text("[See Problems]");
 			var $tagFetchSubListA = $("<a>").attr('href', '#').attr('data-tagid', elem.tag_id).text("[Fetch SubTags]");
 			$tagContent.append($tagNameSpan).append(elem.tag_desc).append($tagProblemListA).append($tagFetchSubListA);
 			

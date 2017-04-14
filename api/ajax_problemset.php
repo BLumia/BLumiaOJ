@@ -62,8 +62,16 @@
 		$common_filter = " ( title LIKE '%{$search}%' OR source LIKE '%{$search}%') ";
 		$pageCnt = 1; // all search result in one page
 	} else {
-		$common_filter = "`problem_id`>='{$front}' AND `problem_id`<'{$tail}'";
-	}	
+		$common_filter = "`problem_id`>='{$front}' AND `problem_id`<'{$tail}' ";
+	}
+	
+	if(isset($_REQUEST['tagid']) && trim($_REQUEST['tagid'])!="" && $PROBLEM_TAG_ENABLED) {
+		$tag_id = intval($_REQUEST['tagid']);
+		$common_filter.= "
+			AND `problem_id` IN (
+				SELECT `problem_id` FROM `problem_tag_match` WHERE `tag_id`={$tag_id}
+			) ";
+	}
 	
 	if (!$isProblemManager) {
 		$sql=$pdo->prepare("SELECT `problem_id`,`title`,`source`,`submit`,`accepted`,`defunct` FROM `problem` WHERE `defunct`='N' AND {$common_filter} AND `problem_id` NOT IN({$any_running_contest})");
@@ -96,17 +104,17 @@
 		$oneResult['defunct'] = ($row['defunct'] == 'Y');
 		$oneResult['undercontest'] = isset($probIDUCList[$row['problem_id']]);
 		$oneResult['usersolved'] = false;
-		$oneResult['userchallenged'] = false;
+		$oneResult['usertried'] = false;
 		if (isset($probStatusList[$row['problem_id']])) {
 			$thisProbState = $probStatusList[$row['problem_id']];
 			switch($thisProbState) {
 			case "accepted":
 				$oneResult['usersolved'] = true;
-				$oneResult['userchallenged'] = true;
+				$oneResult['usertried'] = true;
 				break;
 			default:
 				$oneResult['usersolved'] = false;
-				$oneResult['userchallenged'] = true;
+				$oneResult['usertried'] = true;
 				break;
 			}
 		}
