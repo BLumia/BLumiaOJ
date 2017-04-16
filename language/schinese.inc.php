@@ -51,11 +51,11 @@
 	const L_CONTEST_NOT_AUTH	= "您没有权限参加该竞赛";
 	const L_NO_SUBMIT_RECORD	= "没有可展示的数据，先去写道 A+B 吧 :)";
 	const L_WEEKY_SUBMIT_N_AC	= "最近一周内提交情况";
-	const L_THREAD_HELP	= "可以在回复中使用UBB代码高亮。更多讨论版使用帮助请参见FAQ页面";
+	const L_THREAD_HELP	= "可以在回复中使用 BBCode 。更多讨论版使用帮助请参见FAQ页面";
 	const L_RANKLIST_LOCKED = "锁榜时间已到，榜单不再更新，请把握好最后的时间，祝你好运！";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "提交中..";
-	const L_JUDGE_PR = "等待判题";
+	const L_JUDGE_PR = "等待重判";
 	const L_JUDGE_CI = "编译中..";
 	const L_JUDGE_RG = "判题中..";
 	const L_JUDGE_AC = "答案正确";
@@ -66,6 +66,7 @@
 	const L_JUDGE_OLE = "输出超限";
 	const L_JUDGE_RE = "运行时错误";
 	const L_JUDGE_CE = "编译失败";
+	const L_JUDGE_CO = "编译完成"; // ?????
 	const L_JUDGE_TR = "测试运行";
 	/************* Program Page *****************/
 	const L_PROB_ID = "题目编号";
@@ -165,6 +166,8 @@
 	const L_MONTH	= "月";
 	const L_YEAR	= "年";
 	const L_DATE	= "日期";
+	const L_HOUR	= "时";
+	const L_MINUTE	= "分";
 	const L_SRV_TIME= "服务器时间";
 	const L_DATE_SCALE= "日期段";
 ?>

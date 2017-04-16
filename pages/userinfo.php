@@ -80,7 +80,7 @@
 									<i class="fa fa-user fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
-									<p class="medal-heading"><?php echo $user_name; ?></p>
+									<p class="medal-heading ellipsis"><?php echo $user_name; ?></p>
 									<p class="medal-text"><?php echo L_EMAIL;?>: <?php echo $user_email; ?></p>
 								</div>
 								</div>

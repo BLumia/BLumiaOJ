@@ -52,7 +52,7 @@
 	const L_CONTEST_NOT_AUTH	= "You need permission to join this contest";
 	const L_NO_SUBMIT_RECORD	= "No data can be displayed, Try to solve one problem now :)";
 	const L_WEEKY_SUBMIT_N_AC	= "Weeky Submit and Accept count";
-	const L_THREAD_HELP	= "UBB Code can be use when post or reply a thread. See FAQ page for more information.";
+	const L_THREAD_HELP	= "BBCode can be use when post or reply a thread. See FAQ page for more information.";
 	const L_RANKLIST_LOCKED = "Rank list Locked, time is running out! Good lock!";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "Pending..";
@@ -67,6 +67,7 @@
 	const L_JUDGE_OLE = "Output Limit Exceeded";
 	const L_JUDGE_RE = "Runtime Error";
 	const L_JUDGE_CE = "Compilation Error";
+	const L_JUDGE_CO = "Compile OK"; // ?????
 	const L_JUDGE_TR = "Test Run";
 	/************* Program Page *****************/
 	const L_PROB_ID = "Problem ID";
@@ -166,6 +167,8 @@
 	const L_MONTH	= "Month";
 	const L_YEAR	= "Year";
 	const L_DATE	= "Date";
+	const L_HOUR	= "Hour";
+	const L_MINUTE	= "Minute";
 	const L_SRV_TIME= "Server Time";
 	const L_DATE_SCALE= "Date Scale";
 ?>

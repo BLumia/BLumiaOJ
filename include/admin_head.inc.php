@@ -31,7 +31,6 @@
 <script src="../sitefiles/js/summernote.min.js"></script>
 <script src="../sitefiles/js/prettify.js"></script>
 <script src="../sitefiles/js/nprogress.js"></script>
-<script src="../sitefiles/js/admin-js.js"></script>
 
 <?php
 	function is_pjax() { //place here to make sure this can be used in everypage

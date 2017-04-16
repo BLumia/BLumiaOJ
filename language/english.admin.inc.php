@@ -39,6 +39,8 @@
 	const LA_CONTLIST_HEAD		= "You can start editing contest data here.";
 	const LA_MORE_OPTIONS		= "More Options";
 	const LA_U_ARE_EDITING		= "You are editing";
+	const LA_PERMISSION_N_LANG	= "Permission and Language";
+	const LA_PROBLIST_HELP		= "Enter Problem ID Here, seperate with a comma punctuation. e.g. 1000,1001";
 	/************* Test Case Editor **************/
 	const LA_TEST_DATA			= "Test Data";
 	const LA_EDIT_DATA			= "Edit Data";

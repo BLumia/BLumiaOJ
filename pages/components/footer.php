@@ -2,7 +2,7 @@
 	<div class="container">
 		<p style="float: left;" align="left">
 			<span id="clock"><?php echo L_SRV_TIME;?>: Loading...</span><br/>
-			FAQ | <a class="bl-footer-link" href="#">Rule</a> 
+			<a class="bl-footer-link" href="document.php">FAQ</a> | <a class="bl-footer-link" href="#">Rule</a> 
 		</p>
 		<p style="float: right; margin-right: 15px;" class="hidden-xs" align="right">
 			<?php echo $FOOTER_POWERED_BY;?><br/>

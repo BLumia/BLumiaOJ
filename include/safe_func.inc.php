@@ -99,7 +99,6 @@ function UBB2Html($Text) {
 	$Text=preg_replace("/\[quote\](.+?)\[\/quote\]/is","<blockquote>引用:<div>\\1</div></blockquote>", $Text);
 	//style='border:1px solid silver;background:#EFFFDF;color:#393939;padding:5px' 
 	//这里是一个框住引用内容的框子，因为style和removeXSS冲突所以去掉了，原来在<div style..>这里
-	$Text=preg_replace("/\[php\](.+?)\[\/php\]/eis","highlight_code('\\1')", $Text);
 	$Text=preg_replace("/\[sig\](.+?)\[\/sig\]/is","<div><br><br>--------------------------<br>\\1<br>--------------------------</div>", $Text);
 	//style='text-align: left; color: darkgreen; margin-left: 5%'
 	//这里是一个让文字右移然后改变文字颜色的部分，用于签名档，去掉的原因同上

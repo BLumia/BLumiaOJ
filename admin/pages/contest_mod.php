@@ -8,28 +8,28 @@
 			<?php echo $page_helper;?>
 		</p>
 		<form method="POST" class="form-horizontal" action="../api/contest_mod.php">
-		    <label>Contest Title:</label>
+		    <label><?php echo L_TITLE;?>:</label>
 			<input type="text" class="form-control" name="contest_title" placeholder="Enter Contest Title" value="<?php echo $CONT_TITLE;?>"><br/>
 			<label><?php echo L_START_TIME;?>:</label>
 			<div class="row">
 				<div class="col-sm-2">
-					<label>Year:</label>
+					<label><?php echo L_YEAR;?>:</label>
 					<input type="text" class="form-control" name="start_year" placeholder="Year" value="<?php echo $CONT_S_TIME_Y;?>">
 				</div>
 				<div class="col-sm-2">
-					<label>Month:</label>
+					<label><?php echo L_MONTH;?>:</label>
 					<input type="text" class="form-control" name="start_month" placeholder="Month" value="<?php echo $CONT_S_TIME_MO;?>">
 				</div>
 				<div class="col-sm-3">
-					<label>Day:</label>
+					<label><?php echo L_DAY;?>:</label>
 					<input type="text" class="form-control" name="start_day" placeholder="Day" value="<?php echo $CONT_S_TIME_D;?>">
 				</div>
 				<div class="col-sm-3">
-					<label>Hour:</label>
+					<label><?php echo L_HOUR;?>:</label>
 					<input type="text" class="form-control" name="start_hour" placeholder="Hour" value="<?php echo $CONT_S_TIME_H;?>">
 				</div>
 				<div class="col-sm-2">
-					<label>Minute:</label>
+					<label><?php echo L_MINUTE;?>:</label>
 					<input type="text" class="form-control" name="start_minute" placeholder="Minute" value="<?php echo $CONT_S_TIME_MI;?>">
 				</div>
 			</div>
@@ -37,28 +37,28 @@
 			<label><?php echo L_END_TIME;?>:</label>
 			<div class="row">
 				<div class="col-sm-2">
-					<label>Year:</label>
+					<label><?php echo L_YEAR;?>:</label>
 					<input type="text" class="form-control" name="end_year" placeholder="Year" value="<?php echo $CONT_E_TIME_Y;?>">
 				</div>
 				<div class="col-sm-2">
-					<label>Month:</label>
+					<label><?php echo L_MONTH;?>:</label>
 					<input type="text" class="form-control" name="end_month" placeholder="Month" value="<?php echo $CONT_E_TIME_MO;?>">
 				</div>
 				<div class="col-sm-3">
-					<label>Day:</label>
+					<label><?php echo L_DAY;?>:</label>
 					<input type="text" class="form-control" name="end_day" placeholder="Day" value="<?php echo $CONT_E_TIME_D;?>">
 				</div>
 				<div class="col-sm-3">
-					<label>Hour:</label>
+					<label><?php echo L_HOUR;?>:</label>
 					<input type="text" class="form-control" name="end_hour" placeholder="Hour" value="<?php echo $CONT_E_TIME_H;?>">
 				</div>
 				<div class="col-sm-2">
-					<label>Minute:</label>
+					<label><?php echo L_MINUTE;?>:</label>
 					<input type="text" class="form-control" name="end_minute" placeholder="Minute" value="<?php echo $CONT_E_TIME_MI;?>">
 				</div>
 			</div>
 			<br/>
-			<label>权限和语言:</label>
+			<label><?php echo LA_PERMISSION_N_LANG;?>:</label>
 			<div class="row">
 				<div class="col-sm-8">
 				<label><?php echo L_LANG;?>:</label>
@@ -77,8 +77,8 @@
 				<div class="col-sm-4">
 				<label>Permission:</label>
 				<select name="permission" class="selectpicker" data-width="100%">
-					<option value=1 <?php if ($CONT_PERMISSION==1) echo "selected='selected'";?>>Private / Password</option>
-					<option value=0 <?php if ($CONT_PERMISSION==0) echo "selected='selected'";?>>Public</option>
+					<option value=1 <?php if ($CONT_PERMISSION==1) echo "selected='selected'";?>><?php echo L_Private." / ".L_PSW;?></option>
+					<option value=0 <?php if ($CONT_PERMISSION==0) echo "selected='selected'";?>><?php echo L_Public;?></option>
 				</select>
 				</div>
 			</div>
@@ -97,8 +97,8 @@
 				</div>
 			</div>
 			<br/>
-			<label>Problem List:</label>
-			<input type="text" class="form-control" name="problem_list" placeholder="Enter Problem ID Here, seperate with a comma punctuation. e.g. 1000,1001" value="<?php echo $CONT_PROBLEMS;?>"><br/>
+			<label><?php echo LA_PROB_LIST;?>:</label>
+			<input type="text" class="form-control" name="problem_list" placeholder="<?php echo LA_PROBLIST_HELP;?>" value="<?php echo $CONT_PROBLEMS;?>"><br/>
 			<?php require("../include/pageauth_post.php"); ?>
 			<input type="hidden" name="contest_id" value="<?php echo $cid;?>" readonly>
 			<br/>

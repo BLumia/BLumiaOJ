@@ -39,6 +39,8 @@
 	const LA_CONTLIST_HEAD		= "您可以从这里开始进行竞赛的添加和管理。";
 	const LA_MORE_OPTIONS		= "更多选项";
 	const LA_U_ARE_EDITING		= "您正在编辑";
+	const LA_PERMISSION_N_LANG	= "权限和语言";
+	const LA_PROBLIST_HELP		= "在这里输入竞赛要使用的问题编号，编号间使用英文逗号分隔。例如：1000,1001";
 	/************* Test Case Editor **************/
 	const LA_TEST_DATA			= "测试数据";
 	const LA_EDIT_DATA			= "编辑数据";

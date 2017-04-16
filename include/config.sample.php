@@ -2,7 +2,7 @@
 // OJ Info (sample examples all without "[" and "]")
 	$OJ_NAME = "BLumiaOJ"; // Name of this OJ, e.g. [BLumiaOJ] , [BLOJ]
 	$OJ_HUSTOJ_COMPATIBLE = true; // If you haven't upgrade database to BLumiaOJ, set this to true.
-	$OJ_LANGUAGE = "schinese"; // Check out language folder to know what to fill.
+	$OJ_LANGUAGE = "schinese"; // Check out language folder to know what to fill. if you wanna contribute, see https://github.com/ValveSoftware/source-sdk-2013/blob/master/sp/src/common/language.cpp for the country code string.
 	
 // Data Path Setting
 	$OJ_PROBLEM_DATA = "/home/judge/data"; //Path to problem data floder. e.g. [/home/judge/data], this path will NOT work IF you are running on SAE or OpenShift
@@ -36,7 +36,7 @@
 
 // Custom Information Display
 	$FOOTER_POWERED_BY = "Powered by <a class='bl-footer-link' href='https://github.com/BLumia/BLumiaOJ/'>BLumiaOJ</a>";
-	$FOOTER_COPYRIGHT = "Copyright © <a class='bl-footer-link' href='./about.php'>{$OJ_NAME}</a> Maintenance Team";
+	$FOOTER_COPYRIGHT = "Copyright © <a class='bl-footer-link' href='./about.php'>{$OJ_NAME} Maintenance Team</a>";
 
 // Search Engine Optimization
 	$OJ_ENABLE_SEO = true;
