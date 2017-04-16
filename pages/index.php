@@ -57,7 +57,7 @@
 		var Other = [];
 		var DataText = [];
 		var chart = new Highcharts.Chart({
-			chart: { height: 300, renderTo: 'chart', type: 'area', backgroundColor:'#FFFFFF00' },
+			chart: { height: 300, renderTo: 'chart', type: 'area', backgroundColor: 'rgba(0,0,0,0)' },
 			title: { text: '<?php echo L_WEEKY_SUBMIT_N_AC;?>' },
 			xAxis: {
 				categories: [],
