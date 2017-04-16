@@ -10,7 +10,11 @@
 <meta name="msapplication-TileColor" content="#FEF2E6">
 <meta name="msapplication-TileImage" content="./sitefiles/favicon.png">	
 <!-- Bootstrap CSS -->
+<?php if (isset($_COOKIE["night"])) { ?>
+<link rel="stylesheet" href="./sitefiles/css/bootstrapnight.min.css">
+<?php } else { ?>
 <link rel="stylesheet" href="./sitefiles/css/bootstrap.min.css">
+<?php } ?>
 <link rel="stylesheet" href="./sitefiles/css/prettify.css" type="text/css">
 <link rel="stylesheet" href="./sitefiles/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="./sitefiles/css/nprogress.css">

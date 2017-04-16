@@ -147,7 +147,8 @@
 						chart: {
 							plotBackgroundColor: null,
 							plotBorderWidth: null,
-							plotShadow: false
+							plotShadow: false,
+							backgroundColor:'#FFFFFF00'
 						},
 						title: {
 							text: 'User Submits Map'

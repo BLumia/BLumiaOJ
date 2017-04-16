@@ -26,6 +26,11 @@
 		$tableResult[$submit_time][$row['result']] = $row['COUNT(*)'];
 	}
 	
+	if (isset($_GET['night'])) {
+		$expireData = intval($_GET['night']) == 1 ? time()+4*7*24*3600 : time()-61;
+		setcookie("night","true",$expireData);
+	}
+	
 	//Page Includes
 	require("./pages/index.php");
 ?>

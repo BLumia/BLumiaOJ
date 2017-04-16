@@ -21,6 +21,7 @@
 	const L_SRC_VIEW= "View Source";
 	const L_ERR_VIEW= "Error Details";
 	const L_TAGLIST	= "Tag List";
+	const L_DOCUMENT= "Document";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "Title";
 	const L_DESC  	= "Description";

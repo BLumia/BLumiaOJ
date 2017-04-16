@@ -74,7 +74,7 @@ BBCode ，全称 Bulletin Board Code 是一种特殊的标记。UBB代码很简�
 BBCode                  | 对应含义
 ------------------------|-------------------
 [b]加粗文字[/b]			| __加粗文字__
-[i]斜体文字[/b]			| _斜体文字_
+[i]斜体文字[/i]			| _斜体文字_
 [u]下划线文字[/u]		| <u>下划线文字</u>
 [del]删除线文字[/del]	| ~~删除线文字~~
 [br]					| 换行符，和 HTML 中的 &lt;br&gt; 效果一致
@@ -99,7 +99,7 @@ BBCode                  | 对应含义
 我们使用了一些开源软件来进行该系统的开发，它们是：
 
  - [HUSTOJ](https://github.com/zhblue/hustoj) 我们使用了 HUSTOJ 的判题核心并使用了部分代码使得该系统与 HUSTOJ 兼容。
- - [Bootstrap 3](https://getbootstrap.com/) 我们使用了 Twitter 公司的 bootstrao 3 来构建前端页面.
+ - [Bootstrap 3](https://getbootstrap.com/) 我们使用了 Twitter 公司的 bootstrap 3 来构建前端页面.
  - [jQuery](https://jquery.com/) 我们使用 jQuery 来更方便的直接操作 DOM 以及使用网络异步加载内容.
  - [Code Prettify](https://github.com/google/code-prettify) 我们使用 Google 的 Code Prettify 来进行代码高亮.
  - [Highcharts](https://www.highcharts.com/) 我们使用 Highcharts 来展示图表.
@@ -108,6 +108,7 @@ BBCode                  | 对应含义
  - [Summernote](http://summernote.org/) 我们使用 Summernote 作为后台的富文本编辑器
  - [Simple HTML Dom](http://simplehtmldom.sourceforge.net/) 我们使用 Simple HTML Dom 以在后端处理 DOM.
  - [Paresdown](https://github.com/erusev/parsedown) 我们使用 Parsedown 来解析 markdown 并展示.
+ - [Bootswatch](https://bootswatch.com/) 我们使用的 bootstrap 主题来自 Bootswatch
  - [JasnyBootstrap](http://www.jasny.net/bootstrap/) 我们使用该插件作为后台的部分组件.
  
 感谢开源软件的力量使得该在线评测系统变得更好.

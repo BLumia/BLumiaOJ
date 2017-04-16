@@ -74,9 +74,9 @@ Here are some BBCode tags that we support in this discuss forum.
 BBCode                 | Output display or meaning of the BBCode
 -----------------------|-------------------
 [b]bolded text[/b]     | __bolded text__
-[i]italicized text[/b] | _italicized text_
+[i]italicized text[/i] | _italicized text_
 [u]underlined text[/u] | <u>underlined text</u>
-[del]deleted text[/del]| ~~underlined text~~
+[del]deleted text[/del]| ~~deleted text~~
 [br]				   | inserts a single line break, worked as &lt;br&gt; in HTML
 [hr]				   | inserts a single horizontal rule, worked as &lt;hr&gt; in HTML
 [url]https://g.cn[/url] | Clickable link. Works as: [https://g.cn](https://g.cn)
@@ -108,6 +108,7 @@ We use a list of open source softwares to make this online judge. They are:
  - [Summernote](http://summernote.org/) We use Summernote as the text editor in the admin page.
  - [Simple HTML Dom](http://simplehtmldom.sourceforge.net/) We use this to process html dom in server side.
  - [Paresdown](https://github.com/erusev/parsedown) We use this to parse markdown documents and display it.
+ - [Bootswatch](https://bootswatch.com/) We use the bootstrap theme from Bootswatch
  - [JasnyBootstrap](http://www.jasny.net/bootstrap/) We use this as some componment in the admin page.
  
 Thanks the open source power to make this online judge system success.

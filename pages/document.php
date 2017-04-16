@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<?php require_once('./include/common_head.inc.php'); ?>
-		<title><?php echo "Document - {$OJ_NAME}";?></title>
+		<title><?php echo L_DOCUMENT." - {$OJ_NAME}";?></title>
 	</head>	
 	<body>
 		<?php require("./pages/components/navbar.php");?>

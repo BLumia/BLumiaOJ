@@ -21,6 +21,7 @@
 	const L_SRC_VIEW= "查看代码";
 	const L_ERR_VIEW= "错误详情";
 	const L_TAGLIST	= "标签列表";
+	const L_DOCUMENT= "文档";
 	/*********** Problem Description ***********/
 	const L_TITLE 	= "标题";
 	const L_DESC  	= "描述";
@@ -35,6 +36,7 @@
 	const L_CONTEST_ID	= "比赛编号";
 	const L_CONTEST_DESC = "竞赛描述";
 	const L_CONTEST_INFO = "竞赛信息";
+	const L_CONTEST_PROB = "竞赛问题";
 	const L_CONTEST_ISPUB = "比赛性质";
 	const L_CONTEST_STATUS = "比赛状态";
 	/************* Contest Status **************/
