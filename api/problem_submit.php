@@ -21,9 +21,8 @@
 	if ($submit_lang>count($LANGUAGE_NAME) || $submit_lang<0) $submit_lang=0;
 	$submit_src=preg_replace ( "(\r\n)", "\n", $submit_src );
 	
-	//var_dump($problem_id);
-	//var_dump($submit_lang);
-	//var_dump($submit_src);
+	// Last language saved into cookie
+	setcookie('lastlang',$language,time()+360000);
 	
 	//check code length
 	$code_len=strlen($submit_src);
