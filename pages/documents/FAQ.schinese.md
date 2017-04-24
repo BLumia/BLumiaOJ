@@ -67,7 +67,7 @@ Java*					| javac -J-Xms32m -J-Xmx256m Main.java
 
 ### BBCode 是什么? 应该怎样在讨论版中使用它？
 
-BBCode ，全称 Bulletin Board Code 是一种特殊的标记。UBB代码很简单，但可以方便用户在论坛等位置使用链接/加粗字体等常见富文本功能。所以不少我们引入了这种代码支持。
+BBCode ，全称 Bulletin Board Code 是一种特殊的标记。UBB代码很简单，但可以方便用户在论坛等位置使用链接/加粗字体等常见富文本功能。所以我们引入了这种代码支持。
 
 以下是在该讨论版中所支持的部分 BBCode
 
