@@ -11,6 +11,10 @@
 span.label {
 	margin-left: .3em;
 }
+blockquote {
+	font-size: 1em;
+	margin-bottom: 6px;
+}
 		</style>
 	</head>	
 	<body>
