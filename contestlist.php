@@ -2,6 +2,7 @@
 	session_start();
 	//Vars
 	require_once('./include/setting_oj.inc.php');
+	require_once('./include/contest_functions.inc.php');
 	
 	//Prepare
 	$p=isset($_GET['p']) ? $_GET['p'] : 1;
