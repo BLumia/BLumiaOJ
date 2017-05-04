@@ -12,6 +12,8 @@
 	else {
 		if (havePrivilege("CONTEST_EDITOR") || isset($_SESSION["m{$cid}"]) || isset($_SESSION["c{$cid}"])) $contestAuthResult = true;
 	}
+	
+	if ($contestUsePassword == false && time()>strtotime($contestItem['start_time']) && !$contestItem['private']) $contestAuthResult = true;
 ?>
 <div id="contestHeading" class="text-center">
 	<h2>
