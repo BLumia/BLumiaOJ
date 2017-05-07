@@ -51,7 +51,7 @@
 	
 	$highlightID = isset($_REQUEST['user_id']) ? $_REQUEST['user_id'] : "";
 	
-	$sql=$pdo->prepare("SELECT `start_time`,`title`,`end_time`,`password` FROM contest WHERE contest_id = ?");
+	$sql=$pdo->prepare("SELECT `start_time`,`title`,`end_time`,`password`,`private` FROM contest WHERE contest_id = ?");
 	$sql->execute(array($cid));
 	$contestItem = $sql->fetch(PDO::FETCH_ASSOC);
 	
