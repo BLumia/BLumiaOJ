@@ -16,11 +16,11 @@
 					<table class="table table-striped table-hover" id="tableID">
 						<thead>
 							<tr>
-								<th width="4%">Rank</th>
-								<th width="7%">ID</th>
-								<th width="10%">Nick</th>
-								<th width="4%">Solved</th>
-								<th width="10%">Penalty</th>
+								<th width="4%"><?php echo L_RANK;?></th>
+								<th width="7%"><?php echo L_UID;?></th>
+								<th width="10%"><?php echo L_NICK;?></th>
+								<th width="4%"><?php echo L_SOLVED;?></th>
+								<th width="10%"><?php echo L_PASSRATE;?></th>
 								<?php
 								for ($i=0;$i<$problemCount;$i++) {
 									echo "<th style='text-align: center;'><a href='#'>$ALPHABET_N_NUM[$i]</a></th>";
@@ -46,9 +46,9 @@
 								<td>
 								<?php
 									//Nick & Name
-									echo "<a name=\"$cur_nick\" href='userinfo.php?uid={$cur_nick}'>{$cur_name}</a>";
+									echo "<a name=\"$cur_nick\" href='userinfo.php?uid={$cur_name}'>{$cur_name}</a>";
 									echo "</td><td>";
-									echo "<a name=\"$cur_nick\" href='userinfo.php?uid={$cur_nick}'>{$cur_nick}</a>";
+									echo "<a name=\"$cur_nick\" href='userinfo.php?uid={$cur_name}'>{$cur_nick}</a>";
 								?>
 								</td>
 								<td>
