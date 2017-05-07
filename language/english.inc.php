@@ -33,6 +33,7 @@
 	/************* Contest **************/
 	const L_START_TIME	= "Start Time";
 	const L_END_TIME	= "End Time";
+	const L_JOIN_CONTEST = "Join Contest";
 	const L_CONTEST_ID	= "Contest ID";
 	const L_CONTEST_DESC = "Contest Description";
 	const L_CONTEST_INFO = "Contest Infomation";
@@ -51,6 +52,9 @@
 	const L_Not_Start	= "Not Started";
 	/************* Hint Statement **************/
 	const L_CONTEST_NOT_AUTH	= "You need permission to join this contest";
+	const L_CONTEST_NOT_START	= "Contest not started. Please wait.";
+	const L_CONTEST_NEED_PSW	= "You can also access this contest by using a password. Enter the password if you know.";
+	const L_CONTEST_NEED_ACCOUNT= "An account is required to take part in any contest";
 	const L_NO_SUBMIT_RECORD	= "No data can be displayed, Try to solve one problem now :)";
 	const L_WEEKY_SUBMIT_N_AC	= "Weeky Submit and Accept count";
 	const L_THREAD_HELP	= "BBCode can be use when post or reply a thread. See FAQ page for more information.";

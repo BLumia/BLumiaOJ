@@ -33,6 +33,7 @@
 	/************* Contest **************/
 	const L_START_TIME	= "开始时间";
 	const L_END_TIME	= "结束时间";
+	const L_JOIN_CONTEST = "加入比赛";
 	const L_CONTEST_ID	= "比赛编号";
 	const L_CONTEST_DESC = "竞赛描述";
 	const L_CONTEST_INFO = "竞赛信息";
@@ -51,6 +52,9 @@
 	const L_Not_Start	= "尚未开始";
 	/************* Hint Statement **************/
 	const L_CONTEST_NOT_AUTH	= "您没有权限参加该竞赛";
+	const L_CONTEST_NOT_START	= "当前比赛尚未开始，请做好准备...";
+	const L_CONTEST_NEED_PSW	= "你可以使用密码来获得访问该比赛的权限，如果你知道密码，请输入以参加比赛";
+	const L_CONTEST_NEED_ACCOUNT= "要参加任何比赛，你都需要先登陆一个账号";
 	const L_NO_SUBMIT_RECORD	= "没有可展示的数据，先去写道 A+B 吧 :)";
 	const L_WEEKY_SUBMIT_N_AC	= "最近一周内提交情况";
 	const L_THREAD_HELP	= "可以在回复中使用 BBCode 。更多讨论版使用帮助请参见FAQ页面";

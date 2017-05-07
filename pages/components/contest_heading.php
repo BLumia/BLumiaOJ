@@ -5,6 +5,7 @@
 
 	// Check if user can taking part in this contest (private / password check)
 	$contestAuthResult = false;
+	$contestStarted = true; // auth failed because contest not started?
 	$contestUsePassword = ($contestItem['password'] == '') ? false : true;
 	
 	// m{cid}: contest modifier, c{cid}: contest user.
@@ -14,6 +15,10 @@
 	}
 	
 	if ($contestUsePassword == false && time()>strtotime($contestItem['start_time']) && !$contestItem['private']) $contestAuthResult = true;
+	if (time()<strtotime($contestItem['start_time']) && $contestAuthResult == true) {
+		$contestAuthResult = false;
+		$contestStarted = false;
+	}
 ?>
 <div id="contestHeading" class="text-center">
 	<h2>

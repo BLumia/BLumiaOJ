@@ -19,7 +19,7 @@
 								<th width="4%"><?php echo L_RANK;?></th>
 								<th width="7%"><?php echo L_UID;?></th>
 								<th width="10%"><?php echo L_NICK;?></th>
-								<th width="4%"><?php echo L_SOLVED;?></th>
+								<th width="6%"><?php echo L_SOLVED;?></th>
 								<th width="10%"><?php echo L_PASSRATE;?></th>
 								<?php
 								for ($i=0;$i<$problemCount;$i++) {
