@@ -93,6 +93,7 @@
 	const L_TIME_COST	= "耗时";
 	const L_SUBMIT_TIME	= "提交时间";
 	/************* Mail Page *****************/
+	const L_VIEW	= "查看";
 	const L_SEND	= "发送";
 	const L_CLEAR	= "清空";
 	const L_CONTENT	= "内容";

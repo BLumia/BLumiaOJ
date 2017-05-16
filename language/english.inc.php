@@ -93,6 +93,7 @@
 	const L_TIME_COST	= "Time";
 	const L_SUBMIT_TIME	= "Submit Time";
 	/************* Mail Page *****************/
+	const L_VIEW	= "View";
 	const L_SEND	= "Send";
 	const L_CLEAR	= "Clear";
 	const L_CONTENT	= "Content";

@@ -22,7 +22,7 @@
 		$user_email = $res['email'];
 		
 	} else {
-		exit(0);
+		fire(403, "Please login first.");
 	}
 	
 	$view_title="私信";
@@ -109,9 +109,9 @@
 		$view_mail[$i][0]=$res[$i]['mail_id'];
 		if ($res[$i]['new_mail']) $view_mail[$i][0].= "<span class='badge'>New</span>";
 		$view_mail[$i][1]="<a href='mail.php?vid={$res[$i]['mail_id']}'>{$res[$i]['title']}</a>";
-		$view_mail[$i][2]="<a href='userinfo.php?user={$res[$i]['from_user']}'>{$res[$i]['from_user']}</a>";
+		$view_mail[$i][2]="<a href='userinfo.php?uid={$res[$i]['from_user']}'>{$res[$i]['from_user']}</a>";
 		$view_mail[$i][3]=$res[$i]['in_date'];
-		$view_mail[$i][4]="<a href='api/ajax_mail.php?vid={$res[$i]['mail_id']}' disabled>".L_DELETE."</a>";
+		$view_mail[$i][4]="<a href='mail.php?vid={$res[$i]['mail_id']}'>".L_VIEW."</a>";//"<a href='api/ajax_mail.php?vid={$res[$i]['mail_id']}' disabled>".L_DELETE."</a>";
 	}
 	//Page Includes
 	require("./pages/mail.php");
