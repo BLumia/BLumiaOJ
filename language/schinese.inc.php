@@ -97,6 +97,7 @@
 	const L_CLEAR	= "清空";
 	const L_CONTENT	= "内容";
 	const L_SEND_TO	= "收件人ID";
+	const L_USER_NOT_EXIST	= "用户不存在!";
 	const L_WRITE_NEW_MAIL	= "创建新站内信";
 	/************* Register ****************/
 	const L_PLZ			= "请";
@@ -141,6 +142,7 @@
 	const L_DELETE_THREAD = "删除主题";
 	const L_PROBLEM_DISCUSS	= "问题讨论";
 	const L_GOTO_PROBLEM = "转到问题";
+	const L_LOGIN_TO_CONTINUE = "若要继续操作，您需要先登陆";
 	const L_MUST_LOGIN_TO_POST = "您必须登陆以发表主题。";
 	const L_MUST_LOGIN_TO_REPLY = "您必须登陆以发表回复。";
 	const L_LOCKED_FOR_EDIT = "该回复被建议修改，故已锁定。";

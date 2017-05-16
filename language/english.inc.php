@@ -97,6 +97,7 @@
 	const L_CLEAR	= "Clear";
 	const L_CONTENT	= "Content";
 	const L_SEND_TO	= "Send to";
+	const L_USER_NOT_EXIST	= "User not exist!";
 	const L_WRITE_NEW_MAIL	= "Create new mail";
 	/************* Register ****************/
 	const L_PLZ			= "Please";
@@ -141,6 +142,7 @@
 	const L_DELETE_THREAD = "Delete Thread";
 	const L_PROBLEM_DISCUSS	= "Problem Discussion";
 	const L_GOTO_PROBLEM = "GO TO PROBLEM";
+	const L_LOGIN_TO_CONTINUE = "You must login to continue";
 	const L_MUST_LOGIN_TO_POST = "You must login to post new thread.";
 	const L_MUST_LOGIN_TO_REPLY = "You must login to reply this thread.";
 	const L_LOCKED_FOR_EDIT = "This reply is locked for edit.";

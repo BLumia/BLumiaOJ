@@ -2,26 +2,24 @@
 	session_start();
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
+	require_once("../include/common_functions.inc.php");
 	require_once("../include/file_functions.php");
     
 	if (!isset($_GET['cid'])) {
-		echo "Not Got an Contest Id";
-		exit(0);
+		exit("Not Got an Contest Id");
 	}
 	
 	if (!isset($_GET['do'])) {
-		echo "No Operation";
-		exit(0);
+		exit("No Operation");
 	}
 	
 	// m{cid}: contest modifier, c{cid}: contest user.
 	if (!(isset($_SESSION["m$cid"])||havePrivilege("CONTEST_EDITOR"))) {
-		echo "403";
-		exit(403);
+		fire(403, "No permission to access this api.");
 	}
 	
-	$contest_do		= intval($_GET['do']);
-	$contest_id		= intval($_GET['cid']);
+	$contest_do	= intval($_GET['do']);
+	$contest_id	= intval($_GET['cid']);
 	
 	/*
 	removexss
@@ -59,12 +57,10 @@
 		
 		$sql=$pdo->prepare("UPDATE `contest` set `private`=?,`defunct`=? WHERE `contest_id`=?");
 		$sql->execute(array($is_private,$contest_defunct,$contest_id));
-		echo "Contest State Modified Successful";
+		exit("Contest State Modified Successful");
 		
 	} else {
-		echo "Contest NOT Exist!";
-		exit(0);
+		exit("Contest NOT Exist!");
 	}
-	
 	
 ?>

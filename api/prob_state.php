@@ -6,19 +6,16 @@
 	require_once("../include/user_check_functions.php");
     
 	if (!isset($_GET['pid'])) {
-		echo "Not Got an Problem Id";
-		exit(0);
+		exit("Not Got an Problem Id");
 	}
 	
 	if (!isset($_GET['do'])) {
-		echo "No Operation";
-		exit(0);
+		exit("No Operation");
 	}
 	
 	//Privilege Check
 	if (!havePrivilege("PROBLEM_EDITOR")) {
-		echo "403";
-		exit(403);
+		exit("403");
 	}
 	
 	$problem_do		= intval($_GET['do']);

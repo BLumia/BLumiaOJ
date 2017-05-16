@@ -36,7 +36,7 @@
 	}
 	
 	if (!isset($_SESSION['user_id'])){
-		echo "<a href=loginpage.php>要发送私信需要先登录</a>";
+		echo "<a href=loginpage.php>".L_LOGIN_TO_CONTINUE."</a>";
 		exit(0);
 	}
 	
@@ -78,19 +78,19 @@
 		$sql->execute();
 		$res=$sql->fetchAll();//$res[0]['content']
 		if (count($res)==0) {
-			$view_title= "状态提示 :";
-			$view_content="用户不存在!";
+			$view_title = L_INFOLABEL;
+			$view_content = L_USER_NOT_EXIST;
 			$view_date="wwwwwww";
 		} else {
 			$sql=$pdo->prepare("INSERT INTO mail(to_user,from_user,title,content,in_date)
 								VALUES($to_user,$from_user,$title,$content,now())");
 			
 			if(!$sql->execute()){
-				$view_title=  "状态提示 :";
+				$view_title=  L_INFOLABEL;
 				$view_content="发送失败!";
 				$view_date="这个问题需要反馈给管理员啦~";
 			}else{
-				$view_title=  "状态提示 :";
+				$view_title=  L_INFOLABEL;
 				$view_content="发送成功!";
 				$view_date="可喜可贺，可喜可贺";
 			}
@@ -108,10 +108,10 @@
 	for($i=0;$i<count($res);$i++){
 		$view_mail[$i][0]=$res[$i]['mail_id'];
 		if ($res[$i]['new_mail']) $view_mail[$i][0].= "<span class='badge'>New</span>";
-		$view_mail[$i][1]="<a href='mail.php?vid=".$res[$i]['mail_id']."'>".$res[$i]['title']."</a>";
-		$view_mail[$i][2]="<a href='userinfo.php?user=".$res[$i]['from_user']."'>".$res[$i]['from_user']."</a>";
+		$view_mail[$i][1]="<a href='mail.php?vid={$res[$i]['mail_id']}'>{$res[$i]['title']}</a>";
+		$view_mail[$i][2]="<a href='userinfo.php?user={$res[$i]['from_user']}'>{$res[$i]['from_user']}</a>";
 		$view_mail[$i][3]=$res[$i]['in_date'];
-		$view_mail[$i][4]="<a href='api/mail_delete.php?vid=".$res[$i]['mail_id']."'>删除</a>";
+		$view_mail[$i][4]="<a href='api/ajax_mail.php?vid={$res[$i]['mail_id']}' disabled>".L_DELETE."</a>";
 	}
 	//Page Includes
 	require("./pages/mail.php");
