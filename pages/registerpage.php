@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php require_once('./include/common_head.inc.php'); ?>
+	<script src="./sitefiles/js/jqBootstrapValidation.js"></script>
+	<title><?php echo L_SIGNUP." - {$OJ_NAME}";?></title>
+</head>	
 <body style="background:url(./sitefiles/pic/loginbg.png);">
 
     <div class="container" style="max-width:400px; padding-top:61px;">
@@ -82,3 +89,4 @@
 	$(function () { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); } );
 </script>
 </body>
+</html>

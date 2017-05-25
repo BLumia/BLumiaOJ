@@ -189,6 +189,10 @@ div.tr-tag span{
 	white-space: nowrap;
 }
 
+.avatar {
+	padding: 0 20px 10px;
+}
+
 .ac { background: #e1ffb5; }
 .firstac { background: #080; color: white !important; font-weight: bold; }
 .fail { background: #ffdada; }

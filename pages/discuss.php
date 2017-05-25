@@ -54,6 +54,13 @@
 					  <a href="problem.php?pid=<?php echo intval($_GET["pid"]);?>" class="btn btn-primary btn-block"><?php echo L_GOTO_PROBLEM;?></a>
 					</div>
 					<?php } ?>
+					<?php if (isset($_SESSION["user_id"])) { ?>
+					<div class="bs-callout bs-callout-info" id="problemSidebar" style="text-align:center;">
+					  <img src="https://www.gravatar.com/avatar/<?php echo md5($user_email);?>?d=identicon&s=64" class="avatar"  data-toggle="tooltip" data-placement="top" title="Wanna change your avatar? Read FAQ!">
+					  <h4><?php echo $_SESSION['user_id'];?></h4>
+					  <p><?php echo L_NICK.": {$_SESSION['user_name']}";?></p>
+					</div>
+					<?php } ?>
 					<div class="bs-callout bs-callout-info" id="problemSidebar">
 					  <h4><?php echo L_HELP;?></h4>
 					  <p><?php echo L_THREAD_HELP;?></p>
@@ -70,8 +77,8 @@
 				</div>
 				<div class="modal-body" id="dialogText"></div>
 				<div class="modal-footer">
-				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				  <a type="button" class="btn btn-primary" id="btnPostSuccess">Go</a>
+				  <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo L_CLOSE;?></button>
+				  <a type="button" class="btn btn-primary" id="btnPostSuccess"><?php echo L_GO;?></a>
 				</div>
 			</div>
 		  </div>
@@ -81,6 +88,10 @@
 	<script type="text/javascript">
 	function fillThreadList(data) {
 		var $tableBody = $("#threadList > tbody").empty();
+		if (typeof data === "undefined") {
+			$tableBody.append("<tr><td/><td><?php echo L_THREADLIST_EMPTY;?></td></tr>");
+			return;
+		}
 		$.each(data, function (index, elem) {
 			var $topLabel = null;
 			var $lockLabel = null;
@@ -146,10 +157,10 @@
 			},
 			dataType: "json",
 			success: function (data, textStatus, jqXHR) {
-				if (data.status === 200)
-				fillThreadList(data.result);
+				if (data.status === 200) fillThreadList(data.result);
 			}
 		});
+		$('[data-toggle="tooltip"]').tooltip()
 	});
 	</script>
 	</body>

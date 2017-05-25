@@ -143,6 +143,7 @@
 	const L_DELETE_THREAD = "Delete Thread";
 	const L_PROBLEM_DISCUSS	= "Problem Discussion";
 	const L_GOTO_PROBLEM = "GO TO PROBLEM";
+	const L_THREADLIST_EMPTY = "Thread list is empty";
 	const L_LOGIN_TO_CONTINUE = "You must login to continue";
 	const L_MUST_LOGIN_TO_POST = "You must login to post new thread.";
 	const L_MUST_LOGIN_TO_REPLY = "You must login to reply this thread.";

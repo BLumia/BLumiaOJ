@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php require_once('./include/common_head.inc.php'); ?>
+	<title><?php echo L_LOGIN." - {$OJ_NAME}";?></title>
+</head>	
 <body style="background:url(./sitefiles/pic/loginbg.png);">
 
     <div class="container" style="max-width:400px; padding-top:61px;">
@@ -16,5 +22,5 @@
 		</div>
     </div> <!-- /container -->
   
-
 </body>
+</html>

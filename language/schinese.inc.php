@@ -143,6 +143,7 @@
 	const L_DELETE_THREAD = "删除主题";
 	const L_PROBLEM_DISCUSS	= "问题讨论";
 	const L_GOTO_PROBLEM = "转到问题";
+	const L_THREADLIST_EMPTY = "还没有任何相关主题";
 	const L_LOGIN_TO_CONTINUE = "若要继续操作，您需要先登陆";
 	const L_MUST_LOGIN_TO_POST = "您必须登陆以发表主题。";
 	const L_MUST_LOGIN_TO_REPLY = "您必须登陆以发表回复。";

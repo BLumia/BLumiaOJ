@@ -5,9 +5,6 @@
 		<script src="./sitefiles/js/md5.min.js"></script>
 		<title><?php echo L_THREAD." - {$OJ_NAME}";?></title>
 		<style>
-.avatar {
-	padding: 0 20px 10px;
-}
 span.label {
 	margin-left: .3em;
 }
