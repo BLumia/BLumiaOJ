@@ -62,6 +62,14 @@ function RemoveXSS($val) {
    return $val;
 }
 
+function RemoveUnsafeCode($val) {
+   // remove dangerous operation inside user submited code.
+   // * avoid include blah.php file or /dev/blah
+   $patterns = Array('/.php/', '/\/dev\//');
+   $replacements = Array('/.wtf/', '/\/wtf\//');
+   return preg_replace($patterns, $replacements, $val);
+}
+
 function UBB2Html($Text) {
 	//来自ThinkPHP的代码，有稍做修改
 	$Text=trim($Text);
