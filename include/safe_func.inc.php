@@ -66,7 +66,7 @@ function RemoveUnsafeCode($val) {
    // remove dangerous operation inside user submited code.
    // * avoid include blah.php file or /dev/blah
    $patterns = Array('/.php/', '/\/dev\//');
-   $replacements = Array('/.wtf/', '/\/wtf\//');
+   $replacements = Array('.wtf', 'wtf');
    return preg_replace($patterns, $replacements, $val);
 }
 
