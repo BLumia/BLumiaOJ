@@ -41,13 +41,28 @@
 	
 	function isPostFreqTooHigh($user_id, $seconds, $pdo) {
 		$ckeckTime=strftime("%Y-%m-%d %X",time()-$seconds);
-		$sql=$pdo->prepare("SELECT `time` from `reply` where `author_id`=? and `time`>? limit 1");
-		$sql->execute(array($user_id,$ckeckTime));
+		$sql=$pdo->prepare("SELECT `time` FROM `reply` where `author_id`=? AND `time`>? LIMIT 1");
+		$sql->execute(array($user_id, $ckeckTime));
 		$existChecker = $sql->fetchAll(PDO::FETCH_ASSOC);
 		$existCounter = count($existChecker);
 		return $existCounter == 1;
 	}
 
+	function subscribeThread($user_id, $thread_id, $pdo, $updateOnly = false) {
+		$readTime=strftime("%Y-%m-%d %X",time());
+		$sql=$pdo->prepare("SELECT `notify_id` FROM `forum_notification` WHERE `user_id`=? AND `thread_id`=?");
+		$sql->execute(array($user_id, $thread_id));
+		$existChecker = $sql->fetch(PDO::FETCH_ASSOC);
+		if($existChecker) { // UPDATE
+			$sql=$pdo->prepare("UPDATE `forum_notification` SET `last_read_time`=? WHERE `notify_id`=?");
+			$sql->execute(array($readTime, $existChecker['notify_id']));
+		} else { // INSERT
+			if ($updateOnly) return true;
+			$sql=$pdo->prepare("INSERT INTO forum_notification(user_id, last_read_time, thread_id) VALUES(?,?,?)");
+			$sql->execute(array($user_id, $readTime, $thread_id));
+		}
+		return true;
+	}
 	
 	switch($action) {
 		case 'threadlist':
@@ -60,7 +75,7 @@
 			$sqlStmt = "SELECT `tid`, `title`, `top_level`, `topic`.`status`, `cid`, `pid`, CONVERT(MIN(`reply`.`time`),DATE) `posttime`, MAX(`reply`.`time`) `lastupdate`, `topic`.`author_id`, COUNT(`rid`) `count` 
 				FROM `topic`, `reply` 
 				WHERE `topic`.`status`!=2 AND `reply`.`status`!=2 AND `tid` = `topic_id` {$cidCondition} {$pidCondition}
-				GROUP BY `topic_id` ORDER BY `top_level` {$lvCondition} DESC, MAX(`reply`.`time`) DESC LIMIT 30";
+				GROUP BY `topic_id` ORDER BY `top_level` {$lvCondition} DESC, MAX(`reply`.`time`) DESC LIMIT {$PAGE_ITEMS}";
 		
 			$sql=$pdo->prepare($sqlStmt);
 			$sql->execute();
@@ -91,7 +106,32 @@
 				$row['content'] = nl2br($row['content']);
 			}
 			$result=compact("threadInfo", "replies");
+			
+			if ($FORUM_ENHAUNCEMENT) {
+				// Subscribe the post posted by this user.
+				subscribeThread($user_id, $tid, $pdo, true);
+			}
+			
 			fire(200, "OK", $result);
+			break;
+			
+		case 'notifylist':
+			if (is_null($user_id)) fire(403, "Please Login First.");
+			if ($FORUM_ENHAUNCEMENT) {
+				$sql=$pdo->prepare(
+					"SELECT `tid`, `title`, `last_read_time`, `replytime` `lastupdate`, `topic`.`author_id`, `topic_id`, `ridcount` `replycount` 
+					FROM `topic`, `forum_notification`, (
+						SELECT MAX(`time`) `replytime`, `status`, `topic_id`, COUNT(`rid`) `ridcount` FROM `reply` GROUP BY `topic_id` 
+					) `reply`
+					WHERE `user_id`=? AND `topic`.`status`!=2 AND `reply`.`status`!=2 AND `tid` = `topic_id` AND `tid` = `thread_id` AND `last_read_time`<`replytime`
+					GROUP BY `topic_id` ORDER BY `lastupdate` DESC"
+				);
+				$sql->execute(array($user_id));
+				$result=$sql->fetchAll(PDO::FETCH_ASSOC);
+				fire(200, "OK", $result);
+			} else {
+				fire(503, "Forum notify service not avaliable.");
+			}
 			break;
 			
 		case 'postthread':
@@ -121,6 +161,12 @@
 			// Adding content block.
 			$sql=$pdo->prepare("INSERT INTO `reply` (`author_id`, `time`, `content`, `topic_id`,`ip`) SELECT ?, NOW(), ?, ?, ? FROM `topic` WHERE `tid` = ? AND `status` = 0 ");
 			$state = $sql->execute(array($user_id, $content, $tid, $_SERVER['REMOTE_ADDR'], $tid));
+			
+			if ($FORUM_ENHAUNCEMENT) {
+				// Subscribe the post posted by this user.
+				subscribeThread($user_id, $tid, $pdo);
+			}
+			
 			fire(200, "OK", array("tid"=>$tid));
 			break;
 			
@@ -133,6 +179,12 @@
 			$content = RemoveXSS(UBB2Html(htmlspecialchars($_POST['content'])));
 			$sql=$pdo->prepare("INSERT INTO `reply` (`author_id`, `time`, `content`, `topic_id`,`ip`) SELECT ?, NOW(), ?, ?, ? FROM `topic` WHERE `tid` = ? AND `status` = 0 ");
 			$state = $sql->execute(array($user_id, $content, $tid, $_SERVER['REMOTE_ADDR'], $tid));
+			
+			if ($FORUM_ENHAUNCEMENT) {
+				// Subscribe the post posted by this user.
+				subscribeThread($user_id, $tid, $pdo);
+			}
+			
 			fire(200, "OK", array("tid"=>$tid));
 			break;
 		

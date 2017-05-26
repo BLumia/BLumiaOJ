@@ -27,12 +27,13 @@
 // Community forum (Discuss board) Setting
 	$FORUM_ENABLED = false; // Currently not finished. Don't enable it unless you gonna hacking this part.
 	$FORUM_SUBMIT_DELTATIME = 180; // allowed submit frequence. (seconds)
+	$FORUM_ENHAUNCEMENT = false; // Need import extra sql struct into your database.
 	
 // Virtual Judge Setting
 	$VJ_ENABLED = false; // Currently not finished. Don't enable it unless you gonna hacking this part.
 
 // Problem Tag System Setting
-	$PROBLEM_TAG_ENABLED = false;
+	$PROBLEM_TAG_ENABLED = false; // Need import extra sql struct into your database.
 
 // Custom Information Display
 	$FOOTER_POWERED_BY = "Powered by <a class='bl-footer-link' href='https://github.com/BLumia/BLumiaOJ/'>BLumiaOJ</a>";
