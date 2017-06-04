@@ -59,6 +59,8 @@
 	const L_WEEKY_SUBMIT_N_AC	= "最近一周内提交情况";
 	const L_THREAD_HELP	= "可以在回复中使用 BBCode 。更多讨论版使用帮助请参见FAQ页面";
 	const L_RANKLIST_LOCKED = "锁榜时间已到，榜单不再更新，请把握好最后的时间，祝你好运！";
+	const L_CHANGE_AVATAR_HINT = "想更换头像? 请阅读 FAQ ~";
+	const L_NO_UNREAD_HINT = "还没有新的未读消息";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "提交中..";
 	const L_JUDGE_PR = "等待重判";
@@ -140,6 +142,7 @@
 	const L_TOP_1	= "置顶";
 	const L_TOP_2	= "区置顶";
 	const L_TOP_3	= "总置顶";
+	const L_UNREAD_REPLIES = "未读回复";
 	const L_DELETE_THREAD = "删除主题";
 	const L_PROBLEM_DISCUSS	= "问题讨论";
 	const L_GOTO_PROBLEM = "转到问题";

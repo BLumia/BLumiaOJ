@@ -59,6 +59,8 @@
 	const L_WEEKY_SUBMIT_N_AC	= "Weeky Submit and Accept count";
 	const L_THREAD_HELP	= "BBCode can be use when post or reply a thread. See FAQ page for more information.";
 	const L_RANKLIST_LOCKED = "Rank list Locked, time is running out! Good lock!";
+	const L_CHANGE_AVATAR_HINT = "Wanna change your avatar? Read FAQ!";
+	const L_NO_UNREAD_HINT = "No unread replies yet";
 	/************* Judge Status *****************/
 	const L_JUDGE_PD = "Pending..";
 	const L_JUDGE_PR = "Wait for Judge";
@@ -140,6 +142,7 @@
 	const L_TOP_1	= "Sticky";
 	const L_TOP_2	= "Topic Sticky";
 	const L_TOP_3	= "Global Sticky";
+	const L_UNREAD_REPLIES = "Unread replies";
 	const L_DELETE_THREAD = "Delete Thread";
 	const L_PROBLEM_DISCUSS	= "Problem Discussion";
 	const L_GOTO_PROBLEM = "GO TO PROBLEM";

@@ -14,7 +14,7 @@
 		else
 			$user_id = $_GET['uid'];
 		
-		$sql=$pdo->prepare("select * from users where user_id=?");
+		$sql=$pdo->prepare("SELECT * FROM users WHERE user_id=?");
 		$sql->execute(array($user_id));
 		$res=$sql->fetch(PDO::FETCH_ASSOC);
 		//var_dump($res);

@@ -56,9 +56,20 @@
 					<?php } ?>
 					<?php if (isset($_SESSION["user_id"])) { ?>
 					<div class="bs-callout bs-callout-info" id="problemSidebar" style="text-align:center;">
-					  <img src="https://www.gravatar.com/avatar/<?php echo md5($user_email);?>?d=identicon&s=64" class="avatar"  data-toggle="tooltip" data-placement="top" title="Wanna change your avatar? Read FAQ!">
+					  <img src="https://www.gravatar.com/avatar/<?php echo md5($user_email);?>?d=identicon&s=64" class="avatar"  data-toggle="tooltip" data-placement="top" title="<?php echo L_CHANGE_AVATAR_HINT; ?>">
 					  <h4><?php echo $_SESSION['user_id'];?></h4>
 					  <p><?php echo L_NICK.": {$_SESSION['user_name']}";?></p>
+					<?php if ($FORUM_ENHAUNCEMENT) { ?>
+					  <hr/>
+					  <div class="dropdown">
+					  <a id="aNotify" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span id="notifyLinkText">Loading...</span> <span id="notifyCnt" class="badge">0</span>
+					  </a>
+					  <ul id="notifylist" class="dropdown-menu" aria-labelledby="aNotify">
+						<li>You dont have any unread threads.</li>
+					  </ul>
+					  </div>
+					<?php } ?>
 					</div>
 					<?php } ?>
 					<div class="bs-callout bs-callout-info" id="problemSidebar">
@@ -86,6 +97,26 @@
 		<?php require("./pages/components/footer.php");?>
 		
 	<script type="text/javascript">
+	function doNotification(data) {
+<?php if ($FORUM_ENHAUNCEMENT) { ?>
+		var $notifylist = $("#notifylist").empty();
+		if (typeof data === "undefined") {
+			$("#notifyLinkText").text("<?php echo L_NO_UNREAD_HINT; ?>");
+			$("#notifyCnt").hide();
+			$notifylist.append("<li><?php echo L_NO_UNREAD_HINT; ?></li>");
+			return;
+		}
+		$("#notifyLinkText").text("<?php echo L_UNREAD_REPLIES;?>:");
+		$("#notifyCnt").text(data.length);
+		$.each(data, function (index, elem) {
+			var $row = $("<li>");
+			var $link = $("<a>").attr("href", "thread.php?tid="+elem.tid).text(elem.title);
+			$row.append($link);
+			$notifylist.append($row);
+		});
+<?php } ?>
+	}
+	
 	function fillThreadList(data) {
 		var $tableBody = $("#threadList > tbody").empty();
 		if (typeof data === "undefined") {
@@ -160,7 +191,20 @@
 				if (data.status === 200) fillThreadList(data.result);
 			}
 		});
-		$('[data-toggle="tooltip"]').tooltip()
+		$('[data-toggle="tooltip"]').tooltip();
+<?php if ($FORUM_ENHAUNCEMENT) { ?>
+		$.ajax({
+			url: "./api/ajax_discuss.php",
+			method: "POST",
+			data: {
+				"do": "notifylist"
+			},
+			dataType: "json",
+			success: function (data, textStatus, jqXHR) {
+				if (data.status === 200) doNotification(data.result);
+			}
+		});
+<?php } ?>
 	});
 	</script>
 	</body>

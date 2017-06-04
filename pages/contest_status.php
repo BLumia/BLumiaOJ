@@ -5,12 +5,7 @@
 		<title><?php echo L_CONTEST." {$cid} ".L_STATUS." - {$OJ_NAME}";?></title>
 		<style>
 tr > td.result {
-  transition: background-color 0.5s;
   text-align: center;
-}
-tr > td.result:hover {
-  background-color: rgba(255,255,255,0.25)!important;
-  transition: background-color 0s ease 0.4s;
 }
 		</style>
 	</head>	
@@ -29,10 +24,10 @@ tr > td.result:hover {
 				<div class="col-md-9">
 					<form method="get" class="form-inline text-right">
 						<div class="form-group">
-							<input name="pid" value="<?php echo $problem_id;?>" type="text" class="form-control" placeholder="题目编号">
-							<input name="uid" value="<?php echo $user_id;?>" type="text" class="form-control" placeholder="用户名">
+							<input name="pid" value="<?php echo $problem_id;?>" type="text" class="form-control" placeholder="<?php echo L_PROB_ID;?>">
+							<input name="uid" value="<?php echo $user_id;?>" type="text" class="form-control" placeholder="<?php echo L_UID;?>">
 							<select name="language" class="form-control">
-								<option value="-1">==语言==</option>
+								<option value="-1">==<?php echo L_LANG;?>==</option>
 								<?php
 								$lang=(~((int)$langmask))&((1<<($lang_count))-1);
 								for($i=0;$i<$lang_count;$i++){
@@ -42,7 +37,7 @@ tr > td.result:hover {
 								?>
 							</select>
 							<select name="judgeresult" class="form-control">
-								<option value="-1">==结果==</option>
+								<option value="-1">==<?php echo L_RESULT;?>==</option>
 								<?php 
 								$i=0;
 								foreach($JUDGE_RESULT as $row) {
@@ -52,7 +47,7 @@ tr > td.result:hover {
 								?>
 							</select>
 						</div>
-						<button type="submit" class="btn btn-default">找</button>
+						<button type="submit" class="btn btn-default"><?php echo L_FIND;?></button>
 					</form>
 				</div><!-- /.col-md-6 -->
 			</div><!-- /.row -->
@@ -61,19 +56,18 @@ tr > td.result:hover {
 					<table class="table table-striped table-hover" id="tableID">
 						<thead>
 							<tr>
-								<th width="10%">Run ID</th>
-								<th width="14%">User ID</th>
-								<th width="10%">Problem ID</th>
-								<th width="20%" style="text-align: center;">Result</th>
-								<th width="8%">Memory</th>
-								<th width="8%">Time</th>
-								<th width="8%">Compiler</th>
-								<th width="8%">Length</th>
-								<th width="14%">Submit Time</th>
+								<th width="10%"><?php echo L_RUN_ID;?></th>
+								<th width="14%"><?php echo L_UID;?></th>
+								<th width="10%"><?php echo L_PROB_ID;?></th>
+								<th width="20%" style="text-align: center;"><?php echo L_RESULT;?></th>
+								<th width="8%"><?php echo L_MEMORY;?></th>
+								<th width="8%"><?php echo L_TIME_COST;?></th>
+								<th width="8%"><?php echo L_COMPILER;?></th>
+								<th width="8%"><?php echo L_LENGHT;?></th>
+								<th width="14%"><?php echo L_SUBMIT_TIME;?></th>
 							</tr>
 						</thead>
 						<tbody id="oj-statue-list">
-
 						<?php 
 						foreach($statusResult as $row) { 
 							$passRate = "";
