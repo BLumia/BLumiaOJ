@@ -45,13 +45,17 @@
 	
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
+	require_once("../include/common_functions.inc.php");
+	require_once('../include/user_check_functions.php');
 	
 	// Permission check
-	if (!(isset($_SESSION['http_judge']))){
+	if (!havePrivilege("JUDGER")){
 		exit("0"); // Should return "0", used by checklogin. return a zero if don't have the rights to use this api.
 	}
 	
+	// http_judge mode judged doesn't care about this (manual) method, so we can use `fire()`.
 	if (isset($_POST['manual'])) {
+		if(!isset($_POST['sid']) || !isset($_POST['result'])) fire(400, "Missing arguments");
 		$sid = intval($_POST['sid']);
         $result = intval($_POST['result']);
 		if ($result >= 0) {
@@ -66,7 +70,7 @@
 			$sql=$pdo->prepare("INSERT INTO runtimeinfo VALUES(?,?)");
 			$sql->execute(array($sid,$reinfo));
         }
-		echo "<script>history.go(-1);</script>";
+		//echo "<script>history.go(-1);</script>";
 		exit(0); // should return now?
 	}
 	

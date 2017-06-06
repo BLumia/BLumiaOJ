@@ -94,6 +94,7 @@
 	const L_LENGHT	= "长度";
 	const L_TIME_COST	= "耗时";
 	const L_SUBMIT_TIME	= "提交时间";
+	const L_JUDGE_REASON = "重判原因";
 	/************* Mail Page *****************/
 	const L_VIEW	= "查看";
 	const L_SEND	= "发送";

@@ -94,6 +94,7 @@
 	const L_LENGHT	= "Lenght";
 	const L_TIME_COST	= "Time";
 	const L_SUBMIT_TIME	= "Submit Time";
+	const L_JUDGE_REASON = "Judge Reason";
 	/************* Mail Page *****************/
 	const L_VIEW	= "View";
 	const L_SEND	= "Send";
