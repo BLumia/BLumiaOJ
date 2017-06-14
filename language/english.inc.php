@@ -162,6 +162,7 @@
 	const L_LANG	= "Language";
 	const L_NEWS	= "News";
 	const L_CLOSE	= "Close";
+	const L_TOTAL 	= "Total";
 	const L_RESULT	= "Result";
 	const L_DELETE	= "Delete";
 	const L_WARNING = "Warning";

@@ -162,6 +162,7 @@
 	const L_LANG	= "语言";
 	const L_NEWS	= "新闻";
 	const L_CLOSE	= "关闭";
+	const L_TOTAL 	= "总计";
 	const L_RESULT	= "结果";
 	const L_DELETE	= "删除";
 	const L_WARNING = "警告";

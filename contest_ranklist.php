@@ -64,11 +64,6 @@
 		exit(0);
 	}
 	
-	if ($start_time>time()) {
-		$view_errors= "Contest Not Start!";
-		exit(0);
-	}
-	
 	if (!$OJ_LOCKRANK) $OJ_LOCKRANK_PERCENT = 0 ;
 	$lock_time=$end_time-($end_time-$start_time)*$OJ_LOCKRANK_PERCENT;
 	

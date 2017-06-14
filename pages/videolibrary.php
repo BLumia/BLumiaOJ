@@ -12,26 +12,25 @@
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		
-	<h1 class="container">视频讲解 <small>或许你需要一些帮助？</small></h1>
-	<div class="bc-social">
-		<div class="container">
-	  
-        <ul class="bc-social-buttons">
-			<li class="social-qq">
-				<i class="fa fa-qq"></i> 郑州师院15级C语言交流群：<span id="qqgroup">463927243</span>
-			</li>
-			<li class="social-forum">
-				<a class="" href="./discuss.php" target="_blank"><i class="fa fa-comments"></i> 讨论版</a>
-			</li>
-			<?php if ($VideoManager) { ?>
-			<li>
-				<a href="?man=1"><i class="fa fa-cog"></i> 管理视频</a>
-			</li>
-			<?php } ?>
-        </ul>
+		<h1 class="container">视频讲解 <small>或许你需要一些帮助？</small></h1>
+		<div class="bc-social">
+			<div class="container">
+		  
+			<ul class="bc-social-buttons">
+				<li class="social-qq">
+					<i class="fa fa-qq"></i> 郑州师院15级C语言交流群：<span id="qqgroup">463927243</span>
+				</li>
+				<li class="social-forum">
+					<a class="" href="./discuss.php" target="_blank"><i class="fa fa-comments"></i> 讨论版</a>
+				</li>
+				<?php if ($VideoManager) { ?>
+				<li>
+					<a href="?man=1"><i class="fa fa-cog"></i> 管理视频</a>
+				</li>
+				<?php } ?>
+			</ul>
+			</div>
 		</div>
-    </div>
-		
 		
 		<div class="container">
 			<div class="row">

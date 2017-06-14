@@ -49,7 +49,7 @@
 		// pending
 		} else if ($now<$start_time) {
 			$row['content_status'] = "<span class='label label-primary'>".L_Start."</span>&nbsp;<span class='label label-info'>".$row["start_time"]."</span>&nbsp;";
-			$row['content_status'].= "<span class='label label-success'>$L_TotalTime".formatTimeLength($length)."</span>";
+			$row['content_status'].= "<span class='label label-success'>".L_TOTAL.formatTimeLength($length)."</span>";
 		// running
 		} else {
 			$row['content_status'] = "<span class='label label-danger'>".L_Running."</span>&nbsp;";

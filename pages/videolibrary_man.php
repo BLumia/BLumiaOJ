@@ -1,21 +1,30 @@
-
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php require_once('./include/common_head.inc.php'); ?>
+		<title>Video Library</title>
+		<style>
+.panel {
+	margin-bottom: 0px;
+}
+		</style>
+	</head>	
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		
-	<h1 class="container">视频讲解 <small>或许你需要一些帮助？</small></h1>
-	<div class="bc-social">
-		<div class="container">
-	  
-        <ul class="bc-social-buttons">
-			<?php if ($VideoManager) { ?>
-			<li>
-				<a href="?"><i class="fa fa-cog"></i> 退出管理</a>
-			</li>
-			<?php } ?>
-        </ul>
+		<h1 class="container">视频讲解 <small>或许你需要一些帮助？</small></h1>
+		<div class="bc-social">
+			<div class="container">
+		  
+			<ul class="bc-social-buttons">
+				<?php if ($VideoManager) { ?>
+				<li>
+					<a href="?"><i class="fa fa-cog"></i> 退出管理</a>
+				</li>
+				<?php } ?>
+			</ul>
+			</div>
 		</div>
-    </div>
-		
 		
 		<div class="container">
 			<div class="col-md-12">
@@ -40,6 +49,6 @@
 			</div>
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
-		
-		
+
 	</body>
+</html>

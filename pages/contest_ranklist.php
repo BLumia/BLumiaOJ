@@ -13,6 +13,7 @@
 					<?php if(time()<$end_time && time()>$lock_time) { ?>
 						<br/><div class="alert alert-info" role="alert"><i class="fa fa-lock" aria-hidden="true"></i> <?php echo L_RANKLIST_LOCKED;?></div>
 					<?php } ?>
+					<?php if ($start_time>time()) { ?>
 					<table class="table table-striped table-hover" id="tableID">
 						<thead>
 							<tr>
@@ -85,6 +86,7 @@
 						<?php } //topic list end --------------------------------------- ?>
 						</tbody>
 					</table>
+					<?php } ?>
 				</div>
 			</div>
 		</div><!--main wrapper end-->
