@@ -1,4 +1,14 @@
-
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php require_once('./include/common_head.inc.php'); ?>
+		<title>Video Library</title>
+		<style>
+.panel {
+	margin-bottom: 0px;
+}
+		</style>
+	</head>	
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		
@@ -11,7 +21,7 @@
 				<i class="fa fa-qq"></i> 郑州师院15级C语言交流群：<span id="qqgroup">463927243</span>
 			</li>
 			<li class="social-forum">
-				<a class="" href="/discuss/discuss.php" target="_blank"><i class="fa fa-comments"></i> ZZNUOJ讨论版</a>
+				<a class="" href="./discuss.php" target="_blank"><i class="fa fa-comments"></i> 讨论版</a>
 			</li>
 			<?php if ($VideoManager) { ?>
 			<li>
@@ -58,5 +68,5 @@
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
 		
-		
 	</body>
+</html>

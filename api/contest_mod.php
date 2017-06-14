@@ -100,7 +100,7 @@
 		if ($affectedRowCnt > 0) echo "Insert ".$affectedRowCnt." rows to Privilege database for required member of a contest.<br/>";
 	}
 	
-	echo "Task Complete.<br/>"
+	echo "Task Complete.<br/>";
 	echo "<a href='../admin/contest_editor.php?cid={$cid}'>Click HERE</a> to continue edit or <a href='../contest.php?cid={$cid}'>Click HERE</a> to see this contest.";
 	/*
 	echo "<script>window.location.href=\"contest_list.php\";</script>";

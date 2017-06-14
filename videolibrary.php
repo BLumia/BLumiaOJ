@@ -1,17 +1,5 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('./include/common_head.inc.php'); ?>
-		<title>Video Library</title>
-		<style>
-.panel {
-	margin-bottom: 0px;
-}
-		</style>
-	</head>	
-	
-<?php
+<?php 
+	session_start(); 
 	//Vars
 	require_once('./include/setting_oj.inc.php');
 	$VideoManager = (isset($_SESSION['administrator'])||isset( $_SESSION['op_PageModifier'] )) ? true:false;
@@ -47,5 +35,3 @@
 	else
 		require("./pages/videolibrary.php");
 ?>
-	
-</html>
