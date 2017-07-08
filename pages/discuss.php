@@ -14,8 +14,15 @@
 				&nbsp;您的浏览器版本实在是太低了，是时候考虑<a href="http://browsehappy.com/">换一个</a>了。 
 				<del>&times;</del>
 			</div>	
-		</div>		
+		</div>
 		<![endif]-->
+		<?php if ($OJ_LARGE_CONTEST_MODE == true) { ?>
+			<div class="row">
+				<div class="alert alert-warning">
+					&nbsp;Large contest mode enabled, discuss forum is unavaliabled for that. 
+				</div>	
+			</div>
+		<?php } else { ?>
 			<div class="row">
 				<ol class="breadcrumb">
 					<li><a href="discuss.php"><i class="icon-dashboard"></i> <?php echo L_FORUM;?></a></li>
@@ -78,6 +85,7 @@
 					</div>
 				</div>
 			</div>
+		<?php } ?>
 		</div><!--main wrapper end-->
 		<div class="modal fade" tabindex="-1" role="dialog" id="dialogModel">
 		  <div class="modal-dialog modal-sm" role="document">

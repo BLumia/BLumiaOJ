@@ -20,9 +20,9 @@
 	
 	$user_id=$_POST['user_id'];
 	$password=$_POST['password'];
-	if (get_magic_quotes_gpc ()) {
-		$user_id = stripslashes ($user_id);
-		$password = stripslashes ($password);
+	if (get_magic_quotes_gpc()) {
+		$user_id = stripslashes($user_id);
+		$password = stripslashes($password);
 	}
 	
 	$login=check_login($user_id,$password,$pdo);
@@ -50,12 +50,12 @@
 		if (isset($_SESSION['http_judge'])) {
 			exit("1");
 		} else {
+			// this is a hustoj judge core adapter, so if the user who is attempted to login is not a http_judge account, don't allowed login.
 			unset($_SESSION['user_id']);
 			unset($_SESSION['is_operator']);
 			session_destroy();
 			exit("0");
 		}
-		
 
 	} else {
 		exit("403");

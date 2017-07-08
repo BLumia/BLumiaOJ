@@ -7,6 +7,13 @@
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
+		<?php if ($OJ_LARGE_CONTEST_MODE == true) { ?>
+			<div class="row">
+				<div class="alert alert-warning">
+					&nbsp;Large contest mode enabled, private mail is unavaliabled for that. 
+				</div>	
+			</div>
+		<?php } else { ?>
 			<div class="row">
 				<div class="col-lg-12">
 				
@@ -119,6 +126,7 @@
 			
 				</div>
 			</div><!-- /.row, 3 medal -->
+		<?php } ?>
 		</div><!--main wrapper end-->
 		<?php require("./pages/components/footer.php");?>
 	</body>

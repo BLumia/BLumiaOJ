@@ -6,12 +6,14 @@
 	require_once("../include/user_check_functions.php");
 	
 	if(!isset($_SESSION['SessionAuth']) || !isset($_POST['pageauth'])) {
-		echo "认证失败";
-		exit(0);
+		exit("Auth failed");
 	}
 	if($_SESSION['SessionAuth'] != $_POST['pageauth']) {
-		echo $_POST['pageauth']."Auth failed";
-		exit(0);
+		exit("Auth failed");
+	}
+	
+	if($OJ_LARGE_CONTEST_MODE == true && $OJ_LOGIN_FILTER != false) {
+		exit("Register disabled!");
 	}
     
 	$user_id=trim($_POST['username']);
@@ -30,8 +32,7 @@
 	$password=pwGen($user_pwd);
 	
 	if (isUseridExist($user_id,$pdo)) {
-		echo "User Exist!";
-		exit(0);
+		exit("User Exist!");
 	}
 
 	$sql=$pdo->prepare("INSERT INTO `users` 

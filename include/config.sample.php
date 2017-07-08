@@ -23,6 +23,8 @@
 // Contest Setting
 	$OJ_LOCKRANK = false; // Default Lock Ranklist Mod
 	$OJ_LOCKRANK_PERCENT = 0.2; // 0~1. eg. 0.2: a 5 hours contest will lock one hour.
+	$OJ_LARGE_CONTEST_MODE = false; // Enable it will disable discuss forum, private mailbox and enable login filter(see next variable).
+	$OJ_LOGIN_FILTER = "BK_"; // Login filter will only allow administrator, and users who is not administrator but his/her user_id match the given prefix to login. set it to false (boolean, not string) if you wish disable login filter so that anyone registed can login, login filter is only enable if $OJ_LARGE_CONTEST_MODE is true and $OJ_LOGIN_FILTER is not set to false.
 	
 // Community forum (Discuss board) Setting
 	$FORUM_ENABLED = false; // Currently not finished. Don't enable it unless you gonna hacking this part.

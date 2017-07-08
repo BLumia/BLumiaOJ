@@ -6,12 +6,10 @@
 	require_once("../include/user_check_functions.php");
 	
 	if(!isset($_SESSION['SessionAuth']) || !isset($_POST['pageauth'])) {
-		echo "Auth failed";
-		exit(0);
+		exit("Auth failed");
 	}
 	if($_SESSION['SessionAuth'] != $_POST['pageauth']) {
-		echo "Auth failed";
-		exit(0);
+		exit("Auth failed");
 	}
     
 	$user_id=$_POST['username'];
@@ -20,17 +18,6 @@
 		$user_id= stripslashes ( $user_id);
 		$password= stripslashes ( $password);
 	}
-	
-	/* 额。。。。留着吧
-	if($user_id!="admin" &&$user_id!="skay" && substr($user_id,0,2)!="BK") {
-		header("Content-type:text/html;charset=UTF-8");
-		echo "<script language='javascript'>\n";
-		echo "alert('比赛期间非比赛帐号不允许登录!');\n";
-		echo "history.go(-1);\n";
-		echo "</script>";
-		exit(0);
-	}
-	*/
 	
 	$login=check_login($user_id,$password,$pdo);
 	
@@ -55,6 +42,15 @@
 			$_SESSION[$rightStr]=true;
 		}
 		$_SESSION['is_operator'] = isOperator();
+		
+		if ($OJ_LARGE_CONTEST_MODE == true && $OJ_LOGIN_FILTER != false) {
+			if ($_SESSION['is_operator'] != true && strpos($user_id, $OJ_LOGIN_FILTER) !== 0) {
+				unset($_SESSION['user_id']);
+				unset($_SESSION['is_operator']);
+				session_destroy();
+				exit("Large contest mode enabled, only appointed user can login.");
+			}
+		}
 		
 		echo "success";
 		echo "<script language='javascript'>\n";
