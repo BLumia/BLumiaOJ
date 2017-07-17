@@ -39,7 +39,7 @@
 
 // Custom Information Display
 	$FOOTER_POWERED_BY = "Powered by <a class='bl-footer-link' href='https://github.com/BLumia/BLumiaOJ/'>BLumiaOJ</a>";
-	$FOOTER_COPYRIGHT = "Copyright © <a class='bl-footer-link' href='./about.php'>{$OJ_NAME} Maintenance Team</a>";
+	$FOOTER_COPYRIGHT = "Copyright © <a class='bl-footer-link' href='document.php?f=about'>{$OJ_NAME} Maintenance Team</a>";
 
 // Search Engine Optimization
 	$OJ_ENABLE_SEO = true;
