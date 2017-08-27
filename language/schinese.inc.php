@@ -185,4 +185,6 @@
 	const L_MINUTE	= "分";
 	const L_SRV_TIME= "服务器时间";
 	const L_DATE_SCALE= "日期段";
+	/************* Utils Url *************/
+	const L_GRAVATAR_GEN_URL = "https://cn.gravatar.com/avatar/";
 ?>

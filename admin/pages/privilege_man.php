@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php require_once('../include/admin_head.inc.php'); ?>
+	<link rel="stylesheet" type="text/css" href="../sitefiles/css/bootstrap-select.min.css">
+	<script type="text/javascript" src="../sitefiles/js/bootstrap-select.min.js"></script>
+	<title><?php echo LA_PRIVILEGE_MAN." - {$OJ_NAME}";?></title>
+</head>	
 <body>
 	<?php 
 	require('./pages/components/offcanvas.php');
@@ -5,7 +13,7 @@
 	?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1>Privilege Management <small>Control Panel</small></h1>
+			<h1><?php echo LA_PRIVILEGE_MAN;?> <small>Control Panel</small></h1>
 		</div>
 		<p class="lead">
 			您可以从这里开始进行权限的管理。
@@ -35,10 +43,10 @@
 			<table class="table table-striped" method="POST" action="./contest_edit.php">
 				<thead>
 					<tr> 
-						<th>User ID</th>
-						<th>Privilege</th>
-						<th>Status</th>
-						<th>Edit</th>
+						<th><?php echo L_UID;?></th>
+						<th><?php echo L_Privilege;?></th>
+						<th><?php echo L_STATUS;?></th>
+						<th><?php echo L_EDIT;?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -58,7 +66,7 @@
 					echo "<td>".$row['user_id']."</td>";
 					echo "<td>".$row['rightstr']."</td>";
 					echo "<td>{$text_defunct}</td>";
-					echo "<td><a href='../api/privilege_mod.php?uid={$row['user_id']}&privilege={$row['rightstr']}&getKey={$_SESSION['SessionAuth']}'>Delete</a></td>";
+					echo "<td><a href='../api/privilege_mod.php?uid={$row['user_id']}&privilege={$row['rightstr']}&getKey={$_SESSION['SessionAuth']}'>".L_DELETE."</a></td>";
 					echo "</tr>";
 					//var_dump($row);
 				}

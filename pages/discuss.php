@@ -11,7 +11,7 @@
 		<!--[if lt IE 8]>
 		<div class="row">
 			<div class="alert alert-warning">
-				&nbsp;您的浏览器版本实在是太低了，是时候考虑<a href="http://browsehappy.com/">换一个</a>了。 
+				&nbsp;您的浏览器版本实在是太低了，是时候考虑<a href="https://browsehappy.com/">换一个</a>了。 
 				<del>&times;</del>
 			</div>	
 		</div>
@@ -63,7 +63,7 @@
 					<?php } ?>
 					<?php if (isset($_SESSION["user_id"])) { ?>
 					<div class="bs-callout bs-callout-info" id="problemSidebar" style="text-align:center;">
-					  <img src="https://www.gravatar.com/avatar/<?php echo md5($user_email);?>?d=identicon&s=64" class="avatar"  data-toggle="tooltip" data-placement="top" title="<?php echo L_CHANGE_AVATAR_HINT; ?>">
+					  <img src="<?php echo L_GRAVATAR_GEN_URL.md5($user_email);?>?d=identicon&s=64" class="avatar" data-toggle="tooltip" data-placement="top" title="<?php echo L_CHANGE_AVATAR_HINT; ?>" onerror="this.src='./api/gen_identicon.php?size=64&hash=<?php echo md5($user_email);?>'">
 					  <h4><?php echo $_SESSION['user_id'];?></h4>
 					  <p><?php echo L_NICK.": {$_SESSION['user_name']}";?></p>
 					<?php if ($FORUM_ENHAUNCEMENT) { ?>

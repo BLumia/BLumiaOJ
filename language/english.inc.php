@@ -185,4 +185,6 @@
 	const L_MINUTE	= "Minute";
 	const L_SRV_TIME= "Server Time";
 	const L_DATE_SCALE= "Date Scale";
+	/************* Utils Url *************/
+	const L_GRAVATAR_GEN_URL = "https://www.gravatar.com/avatar/";
 ?>

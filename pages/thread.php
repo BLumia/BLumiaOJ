@@ -20,7 +20,7 @@ blockquote {
 		<!--[if lt IE 8]>
 		<div class="row">
 			<div class="alert alert-warning">
-				&nbsp;您的浏览器版本实在是太低了，是时候考虑<a href="http://browsehappy.com/">换一个</a>了。 
+				&nbsp;您的浏览器版本实在是太低了，是时候考虑<a href="https://browsehappy.com/">换一个</a>了。 
 				<del>&times;</del>
 			</div>	
 		</div>		
@@ -39,7 +39,7 @@ blockquote {
 					<form id="postReplyForm" class="form-group">
 						<input type="hidden" class="form-control" name="do" value="postreply">
 						<input type="hidden" class="form-control" id="tidInput" name="tid" value="<?php echo intval($_GET["tid"]);?>">
-						<label for="contentInput">Reply:</label>
+						<label for="contentInput"><?php echo L_REPLY;?>:</label>
 						<textarea class="form-control" id="contentInput" name="content" rows="4"></textarea>
 					</form>
 					<button class="btn btn-primary" id="doReplyBtn" style="margin: .4em 0;"><?php echo L_REPLY;?></button>
@@ -140,12 +140,13 @@ blockquote {
 			var $replyBlock = $("<div>").addClass("media");
 			var $replyLeftBlock = $("<div>").addClass("media-left");
 			var $userContainer = $("<a>").attr('href','userinfo.php?uid='+elem.author_id);
-			var $userImg = $("<img>").attr("src","https://www.gravatar.com/avatar/"+md5(elem.email)+"?d=identicon&s=64").addClass("avatar").error(function() {
+			var $userImg = $("<img>").attr("src","<?php echo L_GRAVATAR_GEN_URL;?>"+md5(elem.email)+"?d=identicon&s=64").addClass("avatar").error(function() {
 				$(this).attr('src',"./api/gen_identicon.php?size=64&hash="+md5(elem.email));
 				$(this).unbind('error');
 			});
-			var $userName = $("<div>").addClass("text-center").text(elem.author_id);
-			$replyLeftBlock.append($userContainer.append($userImg).append($userName));
+			var $userNick = $("<div>").addClass("text-center").text(elem.nick);
+			var $userName = $("<div>").addClass("text-center text-muted").text(elem.author_id);
+			$replyLeftBlock.append($userContainer.append($userImg).append($userNick).append($userName));
 			
 			var postContent = elem.status == 0 ? elem.content : "<div class='alert alert-info'><strong> <?php echo L_INFOLABEL;?> </strong><?php echo L_LOCKED_FOR_EDIT;?></div>";
 			var $replyMainBlock = $("<div>").addClass("media-body").html(postContent);

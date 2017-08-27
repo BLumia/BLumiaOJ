@@ -8,8 +8,7 @@
 	
 	//Privilege Check
 	if (!havePrivilege("PAGE_EDITOR")) {
-		echo "403";
-		exit(403);
+		exit("403");
 	}
 	
 	//Prepares
