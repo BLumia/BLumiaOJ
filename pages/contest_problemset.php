@@ -27,10 +27,10 @@
 						<tr>
 							<th width="5%">AC</th>
 							<th width="5%">ID</th>
-							<th width="40%">Title</th>
-							<th width="20%">Difficulty</th>
-							<th width="16%">Source</th>
-							<th width="14%">AC/Submit</th>
+							<th width="40%"><?php echo L_TITLE;?></th>
+							<th width="20%"><?php echo L_DIFFICUTY;?></th>
+							<th width="16%"><?php echo L_SOURCE;?></th>
+							<th width="14%">AC / <?php echo L_SUBMIT;?></th>
 						</tr>
 					</thead>
 					<tbody>

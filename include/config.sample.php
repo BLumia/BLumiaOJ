@@ -11,7 +11,7 @@
 	
 // Submit Setting
 	$OJ_SUBMIT_DELTATIME = 10; // allowed submit frequence. (seconds)
-	$OJ_LANGMASK = 4080; //1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 4080 for security reason to mask all other language
+	$OJ_LANGMASK = 65520; //1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 65520 for security reason to mask all other language
 	
 // Page Setting
 	$PAGE_ITEMS = 50;// Show how many comments/posts in one pages?
@@ -50,8 +50,7 @@
 /* ********************
 All Supported Enviroments($ENV_CASE, aka. Data Source): 
 	"STD_MYSQL"  	You should setting the following stuff to connect to sql
-	"OPEN_SHIFT" 	Supposed by Red Hat
-	"SAE"			Supposed by Sina App Engine
+	"SAE"			Supposed by Sina App Engine (Untested)
 You should modify the PDO statement in setting_db.inc.php if you are not using mysql.
 ******************** */
 	$ENV_CASE = "STD_MYSQL";//Environment flag, Normally should be "STD_MYSQL"

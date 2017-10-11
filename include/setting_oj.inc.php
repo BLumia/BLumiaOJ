@@ -11,8 +11,6 @@
 	} else {
 		exit("Error: Missing Configure file. Check your <b>OJ_PATH/include/config.php</b>");
 	}
-	
-	$OJ_PROBLEM_DATA = ($ENV_CASE == "OPEN_SHIFT") ? $_ENV['$OPENSHIFT_REPO_DIR'] : $OJ_PROBLEM_DATA;
 
 	require("{$OJ_PATH}/include/setting_db.inc.php");
 	

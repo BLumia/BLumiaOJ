@@ -34,23 +34,28 @@
 				<thead>
 					<tr> 
 						<th>ID</th>
-						<th>Title</th>
-						<th>StartTime</th>
-						<th>EndTime</th>
-						<th>Status</th>
-						<th>Edit</th>
+						<th><?php echo L_TITLE;?></th>
+						<th><?php echo L_START_TIME;?></th>
+						<th><?php echo L_END_TIME;?></th>
+						<th><?php echo L_STATUS;?></th>
+						<th><?php echo L_EDIT;?></th>
 					</tr>
 				</thead>
 				<tbody>
 				<?php
+				$PUBLIC_SPAN_DOM = "<span class='label label-info'>".L_Public."</span>";
+				$PRIVATE_SPAN_DOM = "<span class='label label-primary'>".L_Private."</span>";
+				$AVALIABLE_SPAN_DOM = "<span class='label label-success'>".L_AVALIABLE."</span>";
+				$HIDDEN_SPAN_DOM = "<span class='label label-default'>".L_HIDDEN."</span>";
+				
 				foreach($contestList as $row) {
 					
 					$contest_defunct = $row['defunct'] == "N" ? 3 : 1;
-					$text_defunct = $row['defunct'] == "N" ? "<span class='label label-success'>Avalible</span>" : "<span class='label label-default'>Hidden</span>";
+					$text_defunct = $row['defunct'] == "N" ? $AVALIABLE_SPAN_DOM : $HIDDEN_SPAN_DOM;
 					$url_defunct = "<a href='../api/contest_state.php?cid={$row['contest_id']}&do={$contest_defunct}'>{$text_defunct}</a>"; 
 					
 					$contest_private = $row['private'] == "0" ? 2 : 1;
-					$text_private = $row['private'] == "0" ? "<span class='label label-info'>Public</span>" : "<span class='label label-primary'>Private</span>";
+					$text_private = $row['private'] == "0" ? $PUBLIC_SPAN_DOM : $PRIVATE_SPAN_DOM;
 					$url_private = "<a href='../api/contest_state.php?cid={$row['contest_id']}&do={$contest_private}'>{$text_private}</a>"; 
 					echo "<tr>";
 					echo "<td>".$row['contest_id']."</td>";

@@ -172,6 +172,10 @@
 	const L_REMOVE	= "移除";
 	const L_OTHER	= "其它";
 	const L_SEARCH	= "搜索";
+	const L_HIDDEN	= "已隐藏";
+	const L_NORMAL	= "普通";
+	const L_IMPORTANT = "重要";
+	const L_AVALIABLE = "可用";
 	const L_MANAGEMENT = "管理";
 	const L_SELECT_FILE	= "选择文件";
 	const L_INFOLABEL = "【提示信息】";

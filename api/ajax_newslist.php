@@ -31,7 +31,7 @@
 		
 		if ($newsList[$i]['importance'] != 0) {
 			$titleSBlock = "<h4><b>";
-			$titleEBlock = "<span class='label label-primary'>Important</span></b></h4><hr/> ";
+			$titleEBlock = " <span class='label label-primary'>".L_IMPORTANT."</span></b></h4><hr/> ";
 		} else {
 			$titleSBlock = "<h4>";
 			$titleEBlock = "</h4><hr/> ";

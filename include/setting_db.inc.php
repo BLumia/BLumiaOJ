@@ -8,13 +8,6 @@
 		define('DB_PASS',SAE_MYSQL_PASS);
 		define('DB_NAME',SAE_MYSQL_DB);
 		break;
-	case "OPEN_SHIFT":
-		define('DB_HOST',getenv('OPENSHIFT_MYSQL_DB_HOST'));
-		define('DB_PORT',getenv('OPENSHIFT_MYSQL_DB_PORT')); 
-		define('DB_USER',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
-		define('DB_PASS',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
-		define('DB_NAME',getenv('OPENSHIFT_GEAR_NAME'));
-		break;
 	case "STD_MYSQL":
 		define('DB_HOST',$SQL_DB_HOST);
 		define('DB_PORT',$SQL_DB_PORT); 
@@ -30,7 +23,7 @@
 		$pdo->query("set names utf8;");
 	} 
 	catch(PDOException $e) { 
-		echo "数据库连接异常。请检查数据库是否正确配置。<br/>数据库都配不正确就肯定找不到女票/男票了哦~";
+		echo "Database connect failed. Check the configure file and try again!";
 		//echo $e->getMessage(); 
 		exit(0);
 	}

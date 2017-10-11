@@ -6,20 +6,20 @@
 	require_once("../include/file_functions.php");
     
 	if (!isset($_GET['cid'])) {
-		exit("Not Got an Contest Id");
+		fire(403, "Not Got an Contest Id.");
 	}
 	
 	if (!isset($_GET['do'])) {
-		exit("No Operation");
-	}
-	
-	// m{cid}: contest modifier, c{cid}: contest user.
-	if (!(isset($_SESSION["m$cid"])||havePrivilege("CONTEST_EDITOR"))) {
-		fire(403, "No permission to access this api.");
+		fire(403, "No Operation.");
 	}
 	
 	$contest_do	= intval($_GET['do']);
 	$contest_id	= intval($_GET['cid']);
+	
+	// m{cid}: contest modifier, c{cid}: contest user.
+	if (!(isset($_SESSION["m{$contest_id}"])||havePrivilege("CONTEST_EDITOR"))) {
+		fire(403, "No permission to access this api.");
+	}
 	
 	/*
 	removexss
@@ -55,7 +55,7 @@
 				break;
 		}
 		
-		$sql=$pdo->prepare("UPDATE `contest` set `private`=?,`defunct`=? WHERE `contest_id`=?");
+		$sql=$pdo->prepare("UPDATE `contest` SET `private`=?,`defunct`=? WHERE `contest_id`=?");
 		$sql->execute(array($is_private,$contest_defunct,$contest_id));
 		exit("Contest State Modified Successful");
 		

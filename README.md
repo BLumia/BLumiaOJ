@@ -2,6 +2,8 @@
 
 HUSTOJ Web 重写版本
 
+[English](https://github.com/BLumia/BLumiaOJ/wiki)
+
 ## 请注意
 
 如果想要部署，请仔细阅读下面的 "部署和简要说明" 部分。  
@@ -13,11 +15,11 @@ HUSTOJ Web 完全重写版本。支持 PHP 7 ，更易用的前端交互，新�
 
 ## 预览
 
-如果您需要预览，您可以在[这里（腾讯云位置）](https://oj.blumia.cn/)或者[这里（OpenShift位置,可能较旧）](https://testbed-blumia.rhcloud.com/)看到新评测系统的预览状况。
+如果您需要预览，您可以在[这里（腾讯云位置）](https://oj.blumia.cn/)看到新评测系统的预览状况。
 
 ## 部署和简要说明
 
-当前版本已经具备了 HUSTOJ 原版的大部分功能，但没有完整测试，可能存在部分遗漏问题，故暂不建议部署当前版本，也暂不提供详细安装说明。但如果您希望参与开发或想要体验效果，可以参考下面的一小段帮助。
+当前版本已经具备了 HUSTOJ 原版的大部分功能，但没有完整测试，可能存在部分遗漏问题，故暂不建议部署当前版本。但如果您希望参与开发或想要体验效果，可以参考下面的一小段帮助。
 
 如果您已经部署好了可用的 HUSTOJ ，您可以直接将 HUSTOJ 网页后端所在的路径（通常可能在 `/var/www/html/JudgeOnline` ）下的所有代码文件 __直接替换__ 为本 repo 的所有代码文件。如果您希望保留您原有的 HUSTOJ 安装，您亦可将本 repo 放在其它任意位置。之后，您需要复制本 repo 的 `include` 文件夹内的 `config.sample.php` 为 `config.php` 并根据您原有的 HUSTOJ 配置文件（即 `db_info.inc.php` ）来编辑该配置文件，保存后，如果配置正确，就可以直接使用 BLumiaOJ 了。
 

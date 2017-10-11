@@ -23,22 +23,27 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Title</th>
-						<th>Date</th>
-						<th>Status</th>
-						<th>Edit</th>
+						<th><?php echo L_TITLE;?></th>
+						<th><?php echo L_DATE;?></th>
+						<th><?php echo L_STATUS;?></th>
+						<th><?php echo L_EDIT;?></th>
 					</tr>
 				</thead>
 				<tbody>
 				<?php
+				$AVALIABLE_SPAN_DOM = "<span class='label label-success'>".L_AVALIABLE."</span>";
+				$HIDDEN_SPAN_DOM = "<span class='label label-default'>".L_HIDDEN."</span>";
+				$NORMAL_SPAN_DOM = "<span class='label label-info'>".L_NORMAL."</span>";
+				$IMPORTANT_SPAN_DOM = "<span class='label label-primary'>".L_IMPORTANT."</span>";
+				
 				foreach($newsList as $row) {
 					
 					$news_defunct = $row['defunct'] == "N" ? 3 : 1;
-					$text_defunct = $row['defunct'] == "N" ? "<span class='label label-success'>Avalible</span>" : "<span class='label label-default'>Hidden</span>";
+					$text_defunct = $row['defunct'] == "N" ? $AVALIABLE_SPAN_DOM : $HIDDEN_SPAN_DOM;
 					$url_defunct = "<a href='../api/news_state.php?nid={$row['news_id']}&do={$news_defunct}'>{$text_defunct}</a>"; 
 					
 					$news_importance = $row['importance'] == "0" ? 2 : 1;
-					$text_importance = $row['importance'] == "0" ? "<span class='label label-info'>Normal</span>" : "<span class='label label-primary'>Important</span>";
+					$text_importance = $row['importance'] == "0" ? $NORMAL_SPAN_DOM : $IMPORTANT_SPAN_DOM;
 					$url_importance = "<a href='../api/news_state.php?nid={$row['news_id']}&do={$news_importance}'>{$text_importance}</a>"; 
 					
 					echo "<tr>";

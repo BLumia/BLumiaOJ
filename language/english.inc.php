@@ -172,6 +172,10 @@
 	const L_REMOVE	= "Remove";
 	const L_OTHER	= "Other";
 	const L_SEARCH	= "Search";
+	const L_HIDDEN	= "Hidden";
+	const L_NORMAL	= "Normal";
+	const L_IMPORTANT = "Important";
+	const L_AVALIABLE = "Avaliable";
 	const L_MANAGEMENT = "Management";
 	const L_SELECT_FILE	= "Select file";
 	const L_INFOLABEL = "[INFO]";
