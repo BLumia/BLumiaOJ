@@ -25,7 +25,7 @@
 			</ul>
 		</nav>
 		<ul class="nav nav-pills nav-justified">
-			<li><a href="./news_editor.php"><?php echo LA_CONT_ADD;?></a></li>
+			<li><a href="./contest_add.php"><?php echo LA_CONT_ADD;?></a></li>
 			<li><a href="./contest_manager.php"><?php echo LA_MORE_OPTIONS;?></a></li>
 		</ul>
 		<br/>
