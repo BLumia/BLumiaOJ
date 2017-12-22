@@ -14,6 +14,7 @@
 	const L_USR_PAGE = "User Homepage";
 	const L_RECENTSUB= "Recent Sumbits";
 	const L_CTRLPANEL= "Control Panel";
+	const L_PORB_STAT= "Problem Statistics";
 	const L_LOGOUT	= "Logout";
 	const L_OVERVIEW= "Overview";
 	const L_PREV_PAGE= "Previous Page";
@@ -152,6 +153,7 @@
 	const L_MUST_LOGIN_TO_POST = "You must login to post new thread.";
 	const L_MUST_LOGIN_TO_REPLY = "You must login to reply this thread.";
 	const L_LOCKED_FOR_EDIT = "This reply is locked for edit.";
+	const L_ASK_FOR_RELOAD_PAGE = "Would you like reload this page now?";
 	/************* Misc *****************/
 	const L_OR		= "or";
 	const L_OK		= "Okay";
@@ -165,6 +167,7 @@
 	const L_TOTAL 	= "Total";
 	const L_RESULT	= "Result";
 	const L_DELETE	= "Delete";
+	const L_SUCCESS = "Success";
 	const L_WARNING = "Warning";
 	const L_DOWNLOAD= "Download";
 	const L_UPLOAD	= "Upload";

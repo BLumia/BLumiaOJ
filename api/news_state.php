@@ -2,23 +2,14 @@
 	session_start();
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
+	require_once("../include/common_functions.inc.php");
 	require_once("../include/file_functions.php");
 	require_once("../include/user_check_functions.php");
     
-	if (!havePrivilege("PAGE_EDITOR")){
-		echo "<a href='../loginpage.php'>Please Login First!</a>";
-		exit(1);
-	}
+	if (!havePrivilege("PAGE_EDITOR")) fire(403, "Forbidden");
 	
-	if (!isset($_GET['nid'])) {
-		echo "Not Got an News Id";
-		exit(0);
-	}
-	
-	if (!isset($_GET['do'])) {
-		echo "Not Got an News Id";
-		exit(0);
-	}
+	if (!isset($_GET['nid'])) fire(400, "Missing news id argument");
+	if (!isset($_GET['do'])) fire(400, "Missing action argument");
 	
 	$news_do		= intval($_GET['do']);
 	$news_id		= intval($_GET['nid']);
@@ -60,11 +51,10 @@
 		
 		$sql=$pdo->prepare("UPDATE `news` set `importance`=?,`defunct`=? WHERE `news_id`=?");
 		$sql->execute(array($news_importance,$news_defunct,$news_id));
-		echo "News Modified Successful";
+		fire(200, "success", array("success" => true));
 		
 	} else {
-		echo "News NOT Exist!";
-		exit(0);
+		fire(404, "News not exist");
 	}
 	
 	

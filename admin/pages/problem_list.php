@@ -27,10 +27,10 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Title</th>
-						<th>Date</th>
-						<th>Status</th>
-						<th>Edit</th>
+						<th><?php echo L_TITLE;?></th>
+						<th><?php echo L_DATE;?></th>
+						<th><?php echo L_STATUS;?></th>
+						<th><?php echo L_EDIT;?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,7 +38,7 @@
 				foreach($probList as $row) {
 					
 					$prob_defunct = $row['defunct'] == "N" ? 3 : 1;
-					$text_defunct = $row['defunct'] == "N" ? "<span class='label label-success'>Avalible</span>" : "<span class='label label-default'>Hidden</span>";
+					$text_defunct = $row['defunct'] == "N" ? "<span class='label label-success'>".L_AVALIABLE."</span>" : "<span class='label label-default'>".L_HIDDEN."</span>";
 					$url_defunct = "<a href='../api/prob_state.php?pid={$row['problem_id']}&do={$prob_defunct}'>{$text_defunct}</a>"; 
 					
 					echo "<tr>";

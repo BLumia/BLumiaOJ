@@ -14,6 +14,7 @@
 	const L_USR_PAGE = "个人主页";
 	const L_RECENTSUB= "最近提交";
 	const L_CTRLPANEL= "后台管理";
+	const L_PORB_STAT= "问题统计数据";
 	const L_LOGOUT	= "退出登录";
 	const L_OVERVIEW= "概览";
 	const L_PREV_PAGE= "上一页";
@@ -152,6 +153,7 @@
 	const L_MUST_LOGIN_TO_POST = "您必须登陆以发表主题。";
 	const L_MUST_LOGIN_TO_REPLY = "您必须登陆以发表回复。";
 	const L_LOCKED_FOR_EDIT = "该回复被建议修改，故已锁定。";
+	const L_ASK_FOR_RELOAD_PAGE = "现在要立即刷新页面吗？";
 	/************* Misc *****************/
 	const L_OR		= "或";
 	const L_OK		= "好的";
@@ -165,6 +167,7 @@
 	const L_TOTAL 	= "总计";
 	const L_RESULT	= "结果";
 	const L_DELETE	= "删除";
+	const L_SUCCESS = "成功";
 	const L_WARNING = "警告";
 	const L_DOWNLOAD= "下载";
 	const L_UPLOAD	= "上传";

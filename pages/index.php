@@ -41,7 +41,7 @@
 			contentType:"application/x-www-form-urlencoded; charset=utf-8",
 			success:function(data, textStatus, jqXHR){
 				document.getElementById("news").innerHTML=data;
-				$(".alter").fadeIn();
+				$("#news").fadeIn();
 			},
 			complete:function(jqXHR, textStatus){
 				NProgress.done();

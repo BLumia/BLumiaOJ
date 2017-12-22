@@ -40,11 +40,11 @@
 					
 					$news_defunct = $row['defunct'] == "N" ? 3 : 1;
 					$text_defunct = $row['defunct'] == "N" ? $AVALIABLE_SPAN_DOM : $HIDDEN_SPAN_DOM;
-					$url_defunct = "<a href='../api/news_state.php?nid={$row['news_id']}&do={$news_defunct}'>{$text_defunct}</a>"; 
+					$url_defunct = "<a role='button' onclick='updateNewsState({$row['news_id']}, {$news_defunct})'>{$text_defunct}</a>"; 
 					
 					$news_importance = $row['importance'] == "0" ? 2 : 1;
 					$text_importance = $row['importance'] == "0" ? $NORMAL_SPAN_DOM : $IMPORTANT_SPAN_DOM;
-					$url_importance = "<a href='../api/news_state.php?nid={$row['news_id']}&do={$news_importance}'>{$text_importance}</a>"; 
+					$url_importance = "<a role='button' onclick='updateNewsState({$row['news_id']}, {$news_importance})'>{$text_importance}</a>"; 
 					
 					echo "<tr>";
 					echo "<td>".$row['news_id']."</td>";
@@ -60,5 +60,38 @@
 			</table>
 		</div>
 	</div>
+	<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title"><?php echo L_SUCCESS;?></h4>
+		  </div>
+		  <div class="modal-body">
+			<p><?php echo L_ASK_FOR_RELOAD_PAGE;?></p>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Later</button>
+			<button type="button" class="btn btn-primary" onclick="window.location.reload()">Reload Page</button>
+		  </div>
+		</div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<script>
+	function updateNewsState(newsid, newstype) {
+		$.ajax({
+			url: "../api/news_state.php",
+			method: "GET",
+			data: {
+				"nid": newsid,
+				"do": newstype
+			},
+			dataType: "json",
+			success: function (data, textStatus, jqXHR) {
+				$("#modal").modal("show");
+			}
+		});
+	}
+	</script>
 </body>
 </html>

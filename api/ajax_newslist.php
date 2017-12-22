@@ -1,5 +1,5 @@
 <?php
-	/*  ***UNFINISHED***  */
+	/*  Using this kind of ajax is ugly, we should migrate it to `ajax_newsinfo.php` later  */
 
 	session_start();
 	

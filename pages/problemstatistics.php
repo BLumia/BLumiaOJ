@@ -1,14 +1,20 @@
-
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php require_once('./include/common_head.inc.php'); ?>
+		<script src="./sitefiles/js/highcharts.js"></script>
+		<title><?php echo L_PORB_STAT." - {$OJ_NAME}";?></title>
+	</head>	
 	<body>
 		<?php require("./pages/components/navbar.php");?>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 				
-					<h1><?php echo "Problem ".$problem_id; ?> <small> <?php echo $problemInfo['title'];?></small></h1>
+					<h1><?php echo L_PROBLEM.' '.$problem_id; ?> <small> <?php echo $problemInfo['title'];?></small></h1>
 					<ol class="breadcrumb">
 						<li><a href="problem.php?pid=<?php echo $problem_id;?>"><i class="icon-dashboard"></i> Problem Page</a></li>
-						<li class="active"><i class="icon-file-alt"></i> Problem Statistics</li>
+						<li class="active"><i class="icon-file-alt"></i> <?php echo L_PORB_STAT;?></li>
 					</ol>
 					
 					<div class="row">
@@ -123,3 +129,4 @@
 			});
 		</script>
 	</body>
+</html>
