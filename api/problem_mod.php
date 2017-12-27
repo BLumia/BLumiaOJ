@@ -57,9 +57,6 @@
 			if(strlen($samp_out_data)&&!strlen($samp_in_data)) $samp_in_data="0";
 			if(strlen($samp_in_data)) mkdata($pid,"sample.in",$samp_in_data,$OJ_PROBLEM_DATA);
 			if(strlen($samp_out_data))mkdata($pid,"sample.out",$samp_out_data,$OJ_PROBLEM_DATA);
-			if(strlen($test_out_data)&&!strlen($test_in_data)) $test_in_data="0";
-			if(strlen($test_in_data))mkdata($pid,"test.in",$test_in_data,$OJ_PROBLEM_DATA);
-			if(strlen($test_out_data))mkdata($pid,"test.out",$test_out_data,$OJ_PROBLEM_DATA);
 			
 			echo "[$problem_title] data in $basedir <br/>";
 		}

@@ -61,4 +61,28 @@
 		header('Content-Type: application/json');
 		exit(json_encode(compact("status", "message", "result")));
 	}
+	
+	function defined_int_or_die($val) {
+	/*
+		检查变量是否存在且是否是数值类型。
+		如果均满足则返回对应的 int 值，否则 fire 400 (注意：`fire()`会调用`exit()`)。
+		为了防止过多的 isset 检查而准备，使用时建议配合 @ 使用，即`@defined_int_or_die($someValue)`。
+		
+		@param $val 待检查值
+	*/
+		if (isset($val) && is_numeric($val)) return intval($val);
+		else fire(400, "Missing argument or invalid argument given");
+	}
+	
+	function defined_or_die($val) {
+	/*
+		检查变量是否存在。
+		如果均满足则返回该值，否则 fire 400 (注意：`fire()`会调用`exit()`)。
+		为了防止过多的 isset 检查而准备，使用时建议配合 @ 使用，即`@defined_int_or_die($someValue)`。
+		
+		@param $val 待检查值
+	*/
+		if (isset($val)) return $val;
+		else fire(400, "Missing argument");
+	}
 ?>

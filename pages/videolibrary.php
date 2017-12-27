@@ -18,7 +18,7 @@
 		  
 			<ul class="bc-social-buttons">
 				<li class="social-qq">
-					<i class="fa fa-qq"></i> 郑州师院15级C语言交流群：<span id="qqgroup">463927243</span>
+					<i class="fa fa-qq"></i> QQ群：<span id="qqgroup">XXXXXXXX</span>
 				</li>
 				<li class="social-forum">
 					<a class="" href="./discuss.php" target="_blank"><i class="fa fa-comments"></i> 讨论版</a>
