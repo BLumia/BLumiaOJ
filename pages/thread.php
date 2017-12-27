@@ -166,7 +166,7 @@ blockquote {
 			$('#postReplyForm').serialize(),
 			function(data, status) {
 				$("#dialogTitle").text("Post success!");
-				$("#dialogText").text(<?php echo L_ASK_FOR_RELOAD_PAGE;?>);
+				$("#dialogText").text("<?php echo L_ASK_FOR_RELOAD_PAGE;?>");
 				$("#btnPostSuccess").unbind("click");
 				$("#btnPostSuccess").show();
 				$("#btnPostSuccess").click(function () {
