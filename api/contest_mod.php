@@ -7,9 +7,13 @@
 	require_once("../include/user_check_functions.php");
 	
 	function problem_insert_sql($cid, $problem_arr) {
+		if (count($problem_arr) == 0) return false;
+		$problem_arr = array_values($problem_arr); // reassign index so can be use as 0,1,2,3...
 		$base_sql_str = "INSERT INTO `contest_problem`(`contest_id`,`problem_id`,`num`) VALUES ";
 		$strArr = array();
-		foreach($problem_arr as $oneProblem) array_push($strArr, "('{$cid}','{$oneProblem}',0)");
+		foreach($problem_arr as $idx => $oneProblem) {
+			array_push($strArr, "('{$cid}','{$oneProblem}',{$idx})");
+		}
 		$append_sql_str = implode(', ', $strArr);
 		return $base_sql_str.$append_sql_str;
 	}
@@ -78,17 +82,24 @@
 	$problem_array = array_values(array_filter(explode(",",$problem_list))); 
 	if (count($problem_array) > 0) {
 		foreach($problem_array as $oneKey => $oneProblem) {
+			$oneProblem = $problem_array[$oneKey] = trim($oneProblem); // trim the original value
 			if (!is_numeric($oneProblem)) {
 				unset($problem_array[$oneKey]);
 				continue;
 			}
 		}
 		$problem_list = implode(',', $problem_array); // cleaned problem list string.
-		$affectedRowCnt = $pdo->exec(problem_insert_sql($cid, $problem_array));
-		if ($affectedRowCnt > 0) echo "Insert ".$affectedRowCnt." rows to Problem of Contests database.<br/>";
-		$sql_str="UPDATE `problem` SET defunct='N' WHERE `problem_id` IN ({$problem_list})";
-		$affectedRowCnt = $pdo->exec($sql_str);
-		if ($affectedRowCnt > 0) echo "Update ".$affectedRowCnt." rows to Problems database.<br/>";
+		if ($problem_insert_sql = problem_insert_sql($cid, $problem_array)) {
+			$affectedRowCnt = $pdo->exec($problem_insert_sql);
+			if ($affectedRowCnt > 0) echo "Insert ".$affectedRowCnt." rows to Problem of Contests database.<br/>";
+			$sql_str="UPDATE `problem` SET defunct='N' WHERE `problem_id` IN ({$problem_list})";
+			$affectedRowCnt = $pdo->exec($sql_str);
+			if ($affectedRowCnt > 0) echo "Update ".$affectedRowCnt." rows to Problems database.<br/>";
+		} else {
+			exit("Error: Seems no any problem can be added to the contest.");
+		}
+	} else {
+		exit("Error: Seems you don't provide a problem list.");
 	}
 	
 	$sql_str="DELETE FROM `privilege` WHERE `rightstr`='m$cid'";
