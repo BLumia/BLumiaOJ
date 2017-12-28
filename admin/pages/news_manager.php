@@ -89,6 +89,9 @@
 			dataType: "json",
 			success: function (data, textStatus, jqXHR) {
 				$("#modal").modal("show");
+			},
+			error: function(){
+				alert('Failed.');
 			}
 		});
 	}

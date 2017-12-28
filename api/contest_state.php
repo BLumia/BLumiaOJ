@@ -4,29 +4,15 @@
 	require_once("../include/setting_oj.inc.php");
 	require_once("../include/common_functions.inc.php");
 	require_once("../include/file_functions.php");
-    
-	if (!isset($_GET['cid'])) {
-		fire(403, "Not Got an Contest Id.");
-	}
+	require_once("../include/user_check_functions.php");
 	
-	if (!isset($_GET['do'])) {
-		fire(403, "No Operation.");
-	}
-	
-	$contest_do	= intval($_GET['do']);
-	$contest_id	= intval($_GET['cid']);
+	$contest_do	= @defined_int_or_die($_GET['do']);
+	$contest_id	= @defined_int_or_die($_GET['cid']);
 	
 	// m{cid}: contest modifier, c{cid}: contest user.
 	if (!(isset($_SESSION["m{$contest_id}"])||havePrivilege("CONTEST_EDITOR"))) {
 		fire(403, "No permission to access this api.");
 	}
-	
-	/*
-	removexss
-	if (get_magic_quotes_gpc ()) {
-		$user_id= stripslashes ( $user_id);
-		$password= stripslashes ( $password);
-	}*/
 	
 	/* do check work*/
 	$sql=$pdo->prepare("SELECT * FROM `contest` WHERE `contest_id`=?");
@@ -35,7 +21,6 @@
 	$it_exist = ($affected_rows == 1) ? true : false;
 	
 	if($it_exist) {
-		
 		switch($contest_do) {
 			case 1:
 				$is_private = 0;
@@ -57,10 +42,9 @@
 		
 		$sql=$pdo->prepare("UPDATE `contest` SET `private`=?,`defunct`=? WHERE `contest_id`=?");
 		$sql->execute(array($is_private,$contest_defunct,$contest_id));
-		exit("Contest State Modified Successful");
+		fire(200, "Contest State Modified Successful");
 		
 	} else {
-		exit("Contest NOT Exist!");
+		fire(404, "Contest NOT Exist!");
 	}
-	
 ?>

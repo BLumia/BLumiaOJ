@@ -3,6 +3,7 @@
 	$ON_ADMIN_PAGE="Yap";
 	//Vars
 	require_once('../include/setting_oj.inc.php');
+	require_once('../include/common_functions.inc.php');
 	//Prepares
 	$sql=$pdo->prepare("SELECT max(`contest_id`) as upid, min(`contest_id`) as btid  FROM `contest`");
 	$sql->execute();
@@ -14,16 +15,9 @@
 	$curPage = isset($_GET['p']) ? intval($_GET['p']) : $pageCnt;
 	$pageStart=intval($contestScale['btid'])+$PAGE_ITEMS*intval($curPage-1);
 	$pageEnd=$pageStart+$PAGE_ITEMS;
-	/*
-	for ($i=1;$i<=$cnt;$i++){
-        if ($i>1) echo '&nbsp;';
-        if ($i==$page) echo "<span class=red>$i</span>";
-        else echo "<a href='contest_list.php?page=".$i."'>".$i."</a>";
-	}
-	*/
+
 	if (isset($_GET['keyword'])) {
-		$keyword=$_GET['keyword'];
-		// TODO: 安全处理keyword
+		$keyword= pdo_real_escape_string($_GET['keyword'], $pdo);
 		$sql=$pdo->prepare("select `contest_id`,`title`,`start_time`,`end_time`,`private`,`defunct` FROM `contest` where title like '%$keyword%' ");
 		$sql->execute();
 		$contestList=$sql->fetchAll(PDO::FETCH_ASSOC);

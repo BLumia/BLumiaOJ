@@ -52,11 +52,11 @@
 					
 					$contest_defunct = $row['defunct'] == "N" ? 3 : 1;
 					$text_defunct = $row['defunct'] == "N" ? $AVALIABLE_SPAN_DOM : $HIDDEN_SPAN_DOM;
-					$url_defunct = "<a href='../api/contest_state.php?cid={$row['contest_id']}&do={$contest_defunct}'>{$text_defunct}</a>"; 
+					$url_defunct = "<a role='button' onclick='updateContestState({$row['contest_id']}, {$contest_defunct})'>{$text_defunct}</a>"; 
 					
 					$contest_private = $row['private'] == "0" ? 2 : 1;
 					$text_private = $row['private'] == "0" ? $PUBLIC_SPAN_DOM : $PRIVATE_SPAN_DOM;
-					$url_private = "<a href='../api/contest_state.php?cid={$row['contest_id']}&do={$contest_private}'>{$text_private}</a>"; 
+					$url_private = "<a role='button' onclick='updateContestState({$row['contest_id']}, {$contest_private})'>{$text_private}</a>"; 
 					echo "<tr>";
 					echo "<td>".$row['contest_id']."</td>";
 					echo "<td>".$row['title']."</td>";
@@ -71,5 +71,41 @@
 			</table>
 		</div>
 	</div>
+	<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title"><?php echo L_SUCCESS;?></h4>
+		  </div>
+		  <div class="modal-body">
+			<p><?php echo L_ASK_FOR_RELOAD_PAGE;?></p>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Later</button>
+			<button type="button" class="btn btn-primary" onclick="window.location.reload()">Reload Page</button>
+		  </div>
+		</div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<script>
+	function updateContestState(contestid, contesttype) {
+		$.ajax({
+			url: "../api/contest_state.php",
+			method: "GET",
+			data: {
+				"cid": contestid,
+				"do": contesttype
+			},
+			dataType: "json",
+			success: function (data, textStatus, jqXHR) {
+				$("#modal").modal("show");
+			},
+			error: function(){
+				alert('Failed.');
+			}
+		});
+	}
+	</script>
 </body>
 </html>
