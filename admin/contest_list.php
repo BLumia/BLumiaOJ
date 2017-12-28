@@ -12,7 +12,7 @@
 	//var_dump($contestCnt);
 	$pageCnt = intval($contestCnt/$PAGE_ITEMS)+(($contestCnt%$PAGE_ITEMS)>0?1:0);
 	
-	$curPage = isset($_GET['p']) ? intval($_GET['p']) : $pageCnt;
+	$curPage = isset($_GET['page']) ? intval($_GET['page']) : $pageCnt;
 	$pageStart=intval($contestScale['btid'])+$PAGE_ITEMS*intval($curPage-1);
 	$pageEnd=$pageStart+$PAGE_ITEMS;
 
