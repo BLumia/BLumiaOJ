@@ -10,7 +10,7 @@
 		FROM solution
 		WHERE in_date > DATE_ADD(NOW() , INTERVAL -7 DAY) 
 		GROUP BY submit_time, result
-		ORDER BY in_date"
+		ORDER BY submit_time"
 	);
 	$sql->execute();
 	$weekyResult=$sql->fetchAll(PDO::FETCH_ASSOC);
