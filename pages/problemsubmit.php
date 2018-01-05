@@ -33,7 +33,7 @@
 						<div class="row">
 							<div class="col-md-4 col-sm-12">
 								<div class="input-group">
-									<div class="input-group-addon">Language</div>
+									<div class="input-group-addon"><?php echo L_LANG;?></div>
 									<select class="form-control" id="language" name="language">
 									<?php
 										for($i=0;$i<$lang_count;$i++){
@@ -48,7 +48,7 @@
 
 							</div>
 							<div class="col-md-4 text-right">
-								<button type="submit" class="btn btn-primary btn-block">Submit</button>
+								<button type="submit" class="btn btn-primary btn-block"><?php echo L_SUBMIT;?></button>
 							</div>
 						</div>
 					</div>

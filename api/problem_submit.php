@@ -8,7 +8,6 @@
 	require_once("../include/user_check_functions.php");
 	
 	//比赛和非比赛状态下对应$problem_id数值含义不同，比赛时为比赛对应的题目编号，普通则为题目id
-	//非hustoj兼容版或将不使用这种方式，而对所有题目增加新的全局ID
     
 	$contest_id    =isset($_POST['cid']) ? intval($_POST['cid']) : false;
 	$problem_id    =intval($_POST['pid']);
@@ -24,7 +23,7 @@
 	$submit_src=RemoveUnsafeCode($submit_src);
 	
 	// Last language saved into cookie
-	setcookie('lastlang',$language,time()+360000);
+	setcookie('lastlang', $submit_lang, time()+360000);
 	
 	//check code length
 	$code_len=strlen($submit_src);

@@ -1,17 +1,17 @@
 <?php 
 	session_start(); 
-	// Vars
+
 	require_once('./include/setting_oj.inc.php');
 	require_once('./include/common_const.inc.php');
+	require_once('./include/common_functions.inc.php');
 	require_once('./include/user_check_functions.php');
+	
 	// Prepares
 	if (!isset($_SESSION['user_id'])) {
-		exit("403 Please Login First");
+		exit("403 Please Login First"); 
 	}
-	if (!isset($_GET['pid'])) {
-		exit("403 No Problem ID");
-	}
-	$problem_id = intval($_GET['pid']);
+
+	$problem_id = @defined_int_or_die($_GET['pid']);
 	$contest_id = isset($_GET['cid']) ? intval($_GET['cid']) : false;
 	
 	// Edit code if provide a solution id.
@@ -33,8 +33,17 @@
 	}
 	
 	// Language Mask
-	if(isset($_GET['langmask'])) $langMask=$_GET['langmask'];
-	else $langMask=$OJ_LANGMASK;
+	$langMask = $OJ_LANGMASK;
+	if ($contest_id != false) {
+		$sql = $pdo->prepare("SELECT `langmask` FROM `contest` WHERE `contest_id`=?");
+		$sql->execute(array($contest_id));
+		$contestInfo=$sql->fetch(PDO::FETCH_ASSOC);
+		if ($contestInfo != false) {
+			$langMask = intval($contestInfo["langmask"]);
+		} else {
+			fire(404, "Contest not exist");
+		}
+	}
 	
 	$lang_count=count($LANGUAGE_EXT);
 	$lang=(~((int)$langMask))&((1<<($lang_count))-1);
