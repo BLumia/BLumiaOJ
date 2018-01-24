@@ -1,4 +1,6 @@
 # BLumiaOJ
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FBLumia%2FBLumiaOJ.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FBLumia%2FBLumiaOJ?ref=badge_shield)
+
 
 HUSTOJ Web 重写版本
 
@@ -55,3 +57,7 @@ BLumiaOJ 需要您的 PHP 版本至少在 PHP 5.1 以上（由于使用了 `PDO`
 如果您希望参与开发，欢迎 fork 后修改并提交 Pull Request ，或者，只是汇报问题或提出建议，也欢迎开 Issue ~
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FBLumia%2FBLumiaOJ.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FBLumia%2FBLumiaOJ?ref=badge_large)
