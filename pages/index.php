@@ -1,3 +1,4 @@
+<?php if (!defined("OJ_INITED")) exit(0); ?>
 <!DOCTYPE html>
 <html>
 	<head>

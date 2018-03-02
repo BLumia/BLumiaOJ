@@ -1,4 +1,5 @@
 <?php
+	define("OJ_INITED", "This const marks for we are included the setting_oj.inc.php file.");
 	$OJ_PATH = dirname(dirname(__FILE__));
 	
 	$OJ_IS_SAMPLE_CFG = null;
