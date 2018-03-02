@@ -84,6 +84,7 @@
 	const L_OUTPUT	= "Output";
 	const L_SAMP_INPUT = "Sample Input";
 	const L_SAMP_OUTPUT = "Sample Output";
+	const L_TEST_DATA = "Test Data";
 	const L_HINT	= "Hint";
 	const L_TAG		= "Tag";
 	const L_SOURCE	= "Source";
@@ -159,6 +160,7 @@
 	const L_OK		= "Okay";
 	const L_GO		= "Go";
 	const L_ALL		= "All";
+	const L_HERE	= "HERE";
 	const L_FIND	= "Find";
 	const L_HELP	= "Help";
 	const L_LANG	= "Language";
@@ -180,7 +182,8 @@
 	const L_IMPORTANT = "Important";
 	const L_AVALIABLE = "Avaliable";
 	const L_MANAGEMENT = "Management";
-	const L_SELECT_FILE	= "Select file";
+	const L_SELECT_FILE = "Select file";
+	const L_MORE_OPTIONS = "More Options";
 	const L_INFOLABEL = "[INFO]";
 	/************* Date *****************/
 	const L_DAY		= "Day";

@@ -3,6 +3,7 @@
 	const LA_BKSTAGE_ADMIN		= "Admin";
 	const LA_PROB_EDITOR		= "Problem Editor";
 	const LA_PROB_LIST			= "Problem List";
+	const LA_PROB_ADD			= "Add Problem";
 	const LA_PROB_MAN			= "Problem Management";
 	const LA_DATA_MAN			= "Test Data Management";
 	const LA_CONT_EDITOR		= "Contest Editor";
@@ -42,7 +43,6 @@
 	const LA_PERMISSION_N_LANG	= "Permission and Language";
 	const LA_PROBLIST_HELP		= "Enter Problem ID Here, seperate with a comma punctuation. e.g. 1000,1001";
 	/************* Test Case Editor **************/
-	const LA_TEST_DATA			= "Test Data";
 	const LA_EDIT_DATA			= "Edit Data";
 	const LA_TCE_LEAD			= "Edit problem's test data  here.<br/>If you want to edit a problem, please navigate to 'Problem List' page.";
 	const LA_DELETE_DATA		= "Delete Test Data";
@@ -55,4 +55,6 @@
 	const LA_PROB_MAN_HEAD		= "You can start manage problems and do other operations about problem.<br/>To edit a problem, please go to `Problem List` page.";
 	const LA_ADD_A_PROBLEM		= "Add a problem to problem set";
 	const LA_VIEW_PROB_LIST		= "View list of all problems";
+	const LA_ADD_TEST_LATER_HINT = "You can only add test cases after you add the problem.";
+	const LA_EDIT_TESTCASE_HERE = "Manage the test case of the problem at: ";
 ?>

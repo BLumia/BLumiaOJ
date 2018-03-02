@@ -18,8 +18,8 @@
 			</ul>
 		</nav>
 		<ul class="nav nav-pills nav-justified">
-			<li><a href="./problem_add.php">Add Problem</a></li>
-			<li><a href="./problem_manager.php">More Options</a></li>
+			<li><a href="./problem_add.php"><?php echo LA_PROB_ADD; ?></a></li>
+			<li><a href="./problem_manager.php"><?php echo L_MORE_OPTIONS; ?></a></li>
 		</ul>
 		<br/>
 		<div>
@@ -46,7 +46,7 @@
 					echo "<td><a href='../problem.php?pid={$row['problem_id']}'>{$row['title']}</a></td>";
 					echo "<td>".$row['in_date']."</td>";
 					echo "<td>{$url_defunct}</td>";
-					echo "<td><a href='./problem_editor.php?nid={$row['problem_id']}'>".L_EDIT."</a> | <a href='./problem_data.php?pid={$row['problem_id']}'>".LA_TEST_DATA."</a></td>";
+					echo "<td><a href='./problem_editor.php?nid={$row['problem_id']}'>".L_EDIT."</a> | <a href='./problem_data.php?pid={$row['problem_id']}'>".L_TEST_DATA."</a></td>";
 					echo "</tr>";
 					//var_dump($row);
 				}

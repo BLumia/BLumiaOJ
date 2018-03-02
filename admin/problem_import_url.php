@@ -1,18 +1,15 @@
-<?php session_start(); $ON_ADMIN_PAGE="Yap"; ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('../include/admin_head.inc.php'); ?>
-		<title>Add Problem</title>
-	</head>	
-	
-<?php
+<?php 
+	session_start(); $ON_ADMIN_PAGE="Yap"; 
 	//Vars
 	require_once('../include/setting_oj.inc.php');
 	require_once('../include/simple_html_dom.php');
 	
 	//Prepares
+	$PROB_ID = 0;
+	$PROB_SPJ = 0;
+	
 	if (isset($_GET['hdu_id']) && !empty($_GET['hdu_id'])) {
+		
 		$pid = intval($_GET['hdu_id']);
 		$url = "http://acm.hdu.edu.cn/showproblem.php?pid=".$pid;
 		$baseurl = "http://acm.hdu.edu.cn/";
@@ -48,8 +45,8 @@
 		$element=$element->find('div',0);
 		$PROB_SAMP_OUT =$element->innertext;
 		
-		$PROB_TEST_IN = "";
-		$PROB_TEST_OUT = "";
+		$PROB_HINT = "";
+		
 	} else if (isset($_GET['poj_id']) && !empty($_GET['poj_id'])) {
 		$pid = intval($_GET['poj_id']);
 		$url = "http://poj.org/problem?id=".$pid;
@@ -84,8 +81,7 @@
 		$element=$html->find('pre[class=sio]',1);
 		$PROB_SAMP_OUT=$element->innertext;
 		
-		$PROB_TEST_IN = "";
-		$PROB_TEST_OUT = "";
+		$PROB_HINT = "";
 	} else {
 		echo "未收到参数或参数错误";
 		exit(0);

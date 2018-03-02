@@ -3,6 +3,7 @@
 	const LA_BKSTAGE_ADMIN		= "管理后台";
 	const LA_PROB_EDITOR		= "问题编辑";
 	const LA_PROB_LIST			= "问题列表";
+	const LA_PROB_ADD			= "添加问题";
 	const LA_PROB_MAN			= "管理问题";
 	const LA_DATA_MAN			= "管理数据";
 	const LA_CONT_EDITOR		= "比赛编辑";
@@ -42,7 +43,6 @@
 	const LA_PERMISSION_N_LANG	= "权限和语言";
 	const LA_PROBLIST_HELP		= "在这里输入竞赛要使用的问题编号，编号间使用英文逗号分隔。例如：1000,1001";
 	/************* Test Case Editor **************/
-	const LA_TEST_DATA			= "测试数据";
 	const LA_EDIT_DATA			= "编辑数据";
 	const LA_TCE_LEAD			= "在这里编辑问题的测试数据。<br/>若要对问题进行编辑和其他针对某个问题的操作，请进入“问题列表”。";
 	const LA_DELETE_DATA		= "删除测试数据";
@@ -55,4 +55,6 @@
 	const LA_PROB_MAN_HEAD		= "您可以从这里开始进行问题的导入和管理。<br/>若要对问题进行编辑和其他针对某个问题的操作，请进入“问题列表”。";
 	const LA_ADD_A_PROBLEM		= "添加一个问题";
 	const LA_VIEW_PROB_LIST		= "查看问题列表";
+	const LA_ADD_TEST_LATER_HINT = "在完成添加问题后您才可以添加测试数据。";
+	const LA_EDIT_TESTCASE_HERE = "若要编辑测试数据，请点击：";
 ?>

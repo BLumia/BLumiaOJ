@@ -1,8 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?php require_once('../include/admin_head.inc.php'); ?>
+	<?php 
+		if ($PROB_ID == 0) echo "<title>".LA_PROB_ADD." - {$OJ_NAME}</title>";
+		else echo "<title>".LA_PROB_EDITOR." - {$OJ_NAME}</title>";
+	?>
+</head>	
 <body>
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1><?php echo LA_PROB_EDITOR;?> <small><?php echo LA_PROB_MAN;?></small></h1>
+			<h1><?php if ($PROB_ID == 0) echo LA_PROB_ADD; else echo LA_PROB_EDITOR;?> <small><?php echo LA_PROB_MAN;?></small></h1>
 		</div>
 		<p class="lead">
 			<?php echo $page_helper;?>
@@ -12,11 +21,11 @@
 			<input type="text" class="form-control" name="problem_title" placeholder="Enter Problem Title" value="<?php echo $PROB_TITLE;?>">
 			<div class="row">
 				<div class="col-sm-6">
-					<label>Time Limit:</label>
+					<label><?php echo L_TIME_LIMIT;?>:</label>
 					<input type="text" class="form-control" name="time_limit" placeholder="Time Limit (s)" value="<?php echo $PROB_TIME;?>">
 				</div>
 				<div class="col-sm-6">
-					<label>Memory Limit:</label>
+					<label><?php echo L_MEM_LIMIT;?>:</label>
 					<input type="text" class="form-control" name="memory_limit" placeholder="Memory Limit (MB)" value="<?php echo $PROB_MEMORY;?>">
 				</div>
 			</div>
@@ -39,18 +48,21 @@
 			<p>The Sample Input / Output will display in a problem description, <em>but Test Input / Output will not.</em></p>
 			<div class="row">
 				<div class="col-sm-12">
-					<label>Test Input:</label>
-					<p>Manage the test case of the problem at <a href="./problem_data.php?pid=<?php echo $PROB_ID;?>">HERE</a></p>
+					<label><?php echo L_TEST_DATA;?>:</label>
+					<?php 
+					if ($PROB_ID == 0) echo "<p>".LA_ADD_TEST_LATER_HINT."</p>"; 
+					else echo "<p>".LA_EDIT_TESTCASE_HERE."<a href='./problem_data.php?pid={$PROB_ID}'>".L_HERE."</a></p>";
+					?>
 				</div>
 			</div>
 			<label><?php echo L_HINT;?>:</label>
-			<textarea class="form-control" rows="3" name="problem_hint" placeholder="Leave blank if don't need. You can use html labels in a hint"></textarea>
+			<textarea class="form-control" rows="3" name="problem_hint" placeholder="Leave blank if don't need. You can use html labels in a hint"><?php echo $PROB_HINT;?></textarea>
 			<label>Special Judge:</label>
 			<label class="radio-inline">
-				<input type="radio" name="problem_spj" id="inlineRadio1" value="0" checked> No
+				<input type="radio" name="problem_spj" id="inlineRadio1" value="0" <?php if ($PROB_SPJ == 0) echo "checked"; ?>> No
 			</label>
 			<label class="radio-inline">
-				<input type="radio" name="problem_spj" id="inlineRadio2" value="1"> Yes
+				<input type="radio" name="problem_spj" id="inlineRadio2" value="1" <?php if ($PROB_SPJ == 1) echo "checked"; ?>> Yes
 			</label><br/>
 			<label><?php echo L_SOURCE;?>:</label>
 			<textarea class="form-control" rows="1" name="problem_source" placeholder="Source"></textarea><br/>

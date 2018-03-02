@@ -1,31 +1,22 @@
-<?php session_start(); $ON_ADMIN_PAGE="Yap"; ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php require_once('../include/admin_head.inc.php'); ?>
-		<title>Edit Problem</title>
-	</head>	
-	
-<?php
+<?php 
+	session_start(); $ON_ADMIN_PAGE="Yap";
 	//Vars
 	require_once('../include/setting_oj.inc.php');
 	require_once("../include/user_check_functions.php");
 	
 	//Privilege Check
 	if (!havePrivilege("PROBLEM_EDITOR")) {
-		echo "403";
-		exit(403);
+		exit("403");
 	}
 	
 	//Prepares
 	if (!isset($_GET['nid'])) {
-		echo "no nid founded";
-		exit(0);
+		exit("no nid founded");
 	}
 	
 	$PROB_ID = intval($_GET['nid']);
 	
-	$sql=$pdo->prepare("select * from problem where problem_id = ?");
+	$sql=$pdo->prepare("SELECT * FROM problem WHERE problem_id = ?");
 	$sql->execute(array($PROB_ID));
 	$problemItem=$sql->fetch(PDO::FETCH_ASSOC);
 	//var_dump($problemItem);
@@ -40,8 +31,8 @@
 	$PROB_OUTPUT = $problemItem['output'];
 	$PROB_SAMP_IN = $problemItem['sample_input'];
 	$PROB_SAMP_OUT = $problemItem['sample_output'];
-	$PROB_TEST_IN = "WORKING IN PROGRESS";
-	$PROB_TEST_OUT = "WORKING IN PROGRESS";
+	$PROB_HINT = $problemItem['hint'];
+	$PROB_SPJ = intval($problemItem['spj']);
 	//Page Includes
 	require("./pages/problem_mod.php");
 ?>

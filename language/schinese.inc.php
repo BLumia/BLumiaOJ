@@ -84,6 +84,7 @@
 	const L_OUTPUT	= "输出";
 	const L_SAMP_INPUT = "样例输入";
 	const L_SAMP_OUTPUT = "样例输出";
+	const L_TEST_DATA = "测试数据";
 	const L_HINT	= "提示";
 	const L_TAG		= "标签";
 	const L_SOURCE	= "来源";
@@ -159,6 +160,7 @@
 	const L_OK		= "好的";
 	const L_GO		= "走起";
 	const L_ALL		= "所有";
+	const L_HERE	= "这里";
 	const L_FIND	= "查找";
 	const L_HELP	= "帮助";
 	const L_LANG	= "语言";
@@ -180,7 +182,8 @@
 	const L_IMPORTANT = "重要";
 	const L_AVALIABLE = "可用";
 	const L_MANAGEMENT = "管理";
-	const L_SELECT_FILE	= "选择文件";
+	const L_SELECT_FILE = "选择文件";
+	const L_MORE_OPTIONS = "更多选项";
 	const L_INFOLABEL = "【提示信息】";
 	/************* Date *****************/
 	const L_DAY		= "日";
