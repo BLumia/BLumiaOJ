@@ -20,6 +20,15 @@
 		<?php if (get_magic_quotes_gpc()) { ?>
 		<div class="alert alert-danger" role="alert"><h4><?php echo L_WARNING;?> </h4><?php echo LA_MAGIC_QUOTE_WARN;?></div>
 		<?php } ?>
+		<?php if (!extension_loaded('mbstring')) { ?>
+		<div class="alert alert-danger" role="alert"><h4><?php echo L_WARNING;?> </h4><?php echo LA_MBSTRING_WARN;?></div>
+		<?php } ?>
+		<?php if (!extension_loaded('xml')) { ?>
+		<div class="alert alert-danger" role="alert"><h4><?php echo L_WARNING;?> </h4><?php echo LA_XML_DOM_WARN;?></div>
+		<?php } ?>
+		<?php if (!extension_loaded('gd')) { ?>
+		<div class="alert alert-warning" role="alert"><h4><?php echo L_WARNING;?> </h4><?php echo LA_IMG_GD_WARN;?></div>
+		<?php } ?>
 		<table class="table">
 			<tr><th><?php echo LA_PROPERTY;?></th><th><?php echo LA_STATUS;?></th></tr>
 			<?php if ($OJ_IS_SAMPLE_CFG == true) { ?>

@@ -29,7 +29,10 @@
 	const LA_NO					= "No";
 	const LA_DEFAULT_CFG		= "Using default sample configre file";
 	const LA_DEFAULT_CFG_HELP	= "We recommand you copy <code>config.sample.php</code> as <code>config.php</code> in <code>include</code> folder and modify it to configure this OJ.";
-	const LA_MAGIC_QUOTE_WARN	= "<code>magic_quotes_gpc</code> is now <b>On</b>, that will cause problem when code submit processing, please trun it off by config your <code>php.ini</code> and restart your http server service, or upgrade your PHP package. (<a href='https://secure.php.net/manual/en/security.magicquotes.disabling.php'>See how to do it</a>)";
+	const LA_MAGIC_QUOTE_WARN	= "<code>magic_quotes_gpc</code> is now <b>On</b>, that will cause problem when code submit processing, please trun it off by config your <code>php.ini</code> and restart your http server service, or upgrade your PHP package. (<a href='https://secure.php.net/manual/en/security.magicquotes.disabling.php'>See how to fix it</a>)";
+	const LA_MBSTRING_WARN		= "PHP extension <code>mbstring</code> not installed or enabled, please install and enable it in <code>php.ini</code>. (<a href='https://secure.php.net/manual/en/mbstring.installation.php'>See how to fix it</a>)";
+	const LA_XML_DOM_WARN		= "PHP extension <code>xml</code> is not avaliabled, please install and enable it to fix the problem. (<a href='https://secure.php.net/manual/en/dom.setup.php'>See how to fix it</a>)";
+	const LA_IMG_GD_WARN		= "PHP extension <code>gd</code> is not installed or enabled, it's recommended to install and enable it in <code>php.ini</code> to fix the problem. (<a href='https://secure.php.net/manual/en/image.installation.php'>See how to fix it</a>)";
 	const LA_HACKER_ROCKS		= "You hacked into the server! Congratulations! You rocks!";
 	const LA_SHOW_WA_INFO		= "Show solution Wrong Answer detail";
 	const LA_ENABLED_LANG		= "Allowed languages by default";

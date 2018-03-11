@@ -1,17 +1,17 @@
 <?php
 // OJ Info (sample examples all without "[" and "]")
 	$OJ_NAME = "BLumiaOJ"; // Name of this OJ, e.g. [BLumiaOJ] , [BLOJ]
-	$OJ_HUSTOJ_COMPATIBLE = true; // If you haven't upgrade database to BLumiaOJ, set this to true.
+	$OJ_HUSTOJ_COMPATIBLE = true; // If you haven't upgrade database to BLumiaOJ, set this to [true].
 	$OJ_LANGUAGE = "schinese"; // Check out language folder to know what to fill. if you wanna contribute, see https://github.com/ValveSoftware/source-sdk-2013/blob/master/sp/src/common/language.cpp for the country code string.
 	
 // Data Path Setting
 	$OJ_PROBLEM_DATA = "/home/judge/data"; //Path to problem data floder. e.g. [/home/judge/data], this path will NOT work IF you are running on SAE or OpenShift
-	$OJ_UPLOAD_DATA = "/var/www/html/OnlineJudge/uploads/"; // Any file or image will be upload here. e.g. [/var/www/html/BLumiaOJ/webframe/imguploads/]
+	$OJ_UPLOAD_DATA = "/var/www/html/OnlineJudge/uploads/"; // Any file or image will be upload here. e.g. [/var/www/html/BLumiaOJ/imguploads/]
 	$OJ_WWW_UPLOAD_PATH = "uploads"; // Img can be visit at http://your.site/path/to/folder/ , u should fill [path/to/folder]
 	
 // Submit Setting
 	$OJ_SUBMIT_DELTATIME = 10; // allowed submit frequence. (seconds)
-	$OJ_LANGMASK = 65520; //1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 65520 for security reason to mask all other language
+	$OJ_LANGMASK = 65520; //1mC 2mCPP 4mPascal 8mJava 16mRuby 32mBash 65520 for security reason to mask all other language, see `common_const.inc.php` for more details.
 	
 // Page Setting
 	$PAGE_ITEMS = 50;// Show how many comments/posts in one pages?
@@ -27,7 +27,7 @@
 	$OJ_LOGIN_FILTER = "BK_"; // Login filter will only allow administrator, and users who is not administrator but his/her user_id match the given prefix to login. set it to false (boolean, not string) if you wish disable login filter so that anyone registed can login, login filter is only enable if $OJ_LARGE_CONTEST_MODE is true and $OJ_LOGIN_FILTER is not set to false.
 	
 // Community forum (Discuss board) Setting
-	$FORUM_ENABLED = false; // Currently not finished. Don't enable it unless you gonna hacking this part.
+	$FORUM_ENABLED = false; // Experimental feature, if you need a forum, change it to [true].
 	$FORUM_SUBMIT_DELTATIME = 180; // allowed submit frequence. (seconds)
 	$FORUM_ENHAUNCEMENT = false; // Need import extra sql struct into your database.
 	
