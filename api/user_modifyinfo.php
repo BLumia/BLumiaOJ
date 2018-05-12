@@ -1,27 +1,21 @@
 <?php
 	session_start();
-/*
-	$isSchoolContest=false;
-	if($isSchoolContest)
-	{   header("Content-type:text/html;charset=UTF-8");
-		echo "<script language='javascript'>\n";
-		echo "alert('比赛期间禁止修改信息!');\n";
-			echo "history.go(-1);\n";
-			echo "</script>";
-			exit(0);
-	}
-*/
+
 	$ON_ADMIN_PAGE="Yap";
 	require_once("../include/setting_oj.inc.php");
+	require_once("../include/common_functions.inc.php");
 	require_once("../include/login_functions.php");
 	
 	if(!isset($_SESSION['SessionAuth']) || !isset($_POST['pageauth'])) {
-		echo "认证失败";
-		exit(0);
+		fire(403, "Direct access is forbidden");
 	}
+	
 	if($_SESSION['SessionAuth'] != $_POST['pageauth']) {
-		echo $_POST['pageauth']."Auth failed";
-		exit(0);
+		fire(401, "Session not valid");
+	}
+	
+	if($OJ_LARGE_CONTEST_MODE == true) {
+		fire(403, "Not able to modify information while large contest mode is enabled.");
 	}
     
 	$user_id=$_SESSION['user_id'];
@@ -31,9 +25,10 @@
 	$new_password_ii=$_POST['new_pwd_ii'];
 	$user_school=$_POST['user_school'];
 	$user_email=$_POST['user_email'];
-	if (get_magic_quotes_gpc ()) {
-		$user_id= stripslashes ( $user_id);
-		$password= stripslashes ( $password);
+	
+	if (get_magic_quotes_gpc()) {
+		$user_id = stripslashes($user_id);
+		$password = stripslashes($password);
 	}
 
 	$sql=$pdo->prepare("SELECT `user_id`,`password` FROM `users` WHERE `user_id`=?");
@@ -43,28 +38,26 @@
 	else $pwdCheck_ok = false;
 	$sql->closeCursor();
 	
-	//TODO:检测提交的数据是否符合要求
-	
 	if ($pwdCheck_ok) {
-		if ($new_password != NULL)
-			$password=pwGen($new_password);
-		else
-			$password=pwGen($password);
+		if ($new_password != NULL) {
+			if ($new_password != $new_password_ii) {
+				fire(401, "New password not match.");
+			}
+			$password = pwGen($new_password);
+		} else {
+			$password = pwGen($password);
+		}
+			
 		$sql=$pdo->prepare("UPDATE `users` 
 			SET `password`=?, `nick`=?, `school`=?, `email`=? 
 			WHERE `user_id`=?");
 		$sql->execute(array($password,$user_name,$user_school,$user_email,$user_id));
-		//权限部分未添加
-		echo "success";
-		echo "<script language='javascript'>\n";
-		echo "history.go(-2);\n";
-		echo "</script>";
+		
+		$_SESSION['user_name'] = $user_name;
+		
+		fire(200, L_USERINFO_UPDATED);
 	} else {
-		echo "failed";
-		//echo "<script language='javascript'>\n";
-		//echo "alert('UserName or Password Wrong!');\n";
-		//echo "history.go(-1);\n";
-		//echo "</script>";
+		fire(401, L_INCORRECT_PSW);
 	}
 
 ?>

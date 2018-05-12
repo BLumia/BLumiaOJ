@@ -127,6 +127,8 @@
 	const L_SOLVED		= "已解决";
 	const L_CHALLENGED	= "已挑战";
 	const L_NOT_EDITABLE= "不可修改";
+	const L_INCORRECT_PSW = "密码不正确。";
+	const L_USERINFO_UPDATED = "用户信息已成功更新。";
 	/************* Ranklist ***************/
 	const L_RANK	= "排名";
 	const L_PASSRATE= "通过率";

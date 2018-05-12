@@ -25,7 +25,7 @@
 								<input type="text" value="<?php echo htmlspecialchars($user_id);?>" class="form-control" readonly />
 							</div>
 						</div>
-						<form class="form-horizontal" action="./api/user_modifyinfo.php" method="post">
+						<form id="modifyinfo-form" class="form-horizontal">
 							<div class="control-group">
 								<label class="control-label"><?php echo L_NICK;?></label>
 								<div class="controls">
@@ -88,8 +88,47 @@
 		</div><!-- /.row, 3 medal -->
 	</div><!--main wrapper end-->
 	<?php require("./pages/components/footer.php");?>
+	<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title"><?php echo L_INFOLABEL;?></h4>
+		  </div>
+		  <div class="modal-body">
+			<p id="response-text"></p>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-primary" onclick="window.location.reload()"><?php echo L_OK;?></button>
+		  </div>
+		</div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 <script>
-	$(function () { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); } );
+	$(function () { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation( {
+		preventSubmit: true,
+		submitSuccess: function ($form, event) { 
+			submitForm();
+			event.preventDefault();
+		}
+	}
+	); } );
+	function submitForm() {
+		$.ajax({  
+			url:"./api/user_modifyinfo.php",  
+			type:'POST',  
+			data:$('#modifyinfo-form').serialize(),
+			dataType: "json",
+			success: function (data, textStatus, jqXHR) {
+				$('#response-text').text(data.message);
+				$("#modal").modal("show");
+			},
+			error: function(data) {
+				$('#response-text').text(data.responseJSON.message);
+				$("#modal").modal("show");
+			}
+		});
+	}
 </script>
 </body>
 </html>

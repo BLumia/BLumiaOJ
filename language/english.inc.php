@@ -127,6 +127,8 @@
 	const L_SOLVED		= "Solved";
 	const L_CHALLENGED	= "Challenged";
 	const L_NOT_EDITABLE= "not editable";
+	const L_INCORRECT_PSW = "Incorrect password.";
+	const L_USERINFO_UPDATED = "User information updated successful.";
 	/************* Ranklist ***************/
 	const L_RANK	= "Rank";
 	const L_PASSRATE= "Pass Rate";
