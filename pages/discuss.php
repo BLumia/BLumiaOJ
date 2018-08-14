@@ -197,10 +197,16 @@
 			dataType: "json",
 			success: function (data, textStatus, jqXHR) {
 				if (data.status === 200) fillThreadList(data.result);
+			},
+			error: function (e) {
+				var ret = $.parseJSON(e.responseText);
+				var $tableBody = $("#threadList > tbody").empty();
+				$tableBody.append("<tr><td/><td>" + ret.message + "</td></tr>");
+				return;
 			}
 		});
 		$('[data-toggle="tooltip"]').tooltip();
-<?php if ($FORUM_ENHAUNCEMENT) { ?>
+<?php if ($FORUM_ENHAUNCEMENT && isset($_SESSION['user_id'])) { ?>
 		$.ajax({
 			url: "./api/ajax_discuss.php",
 			method: "POST",

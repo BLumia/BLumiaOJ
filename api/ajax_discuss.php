@@ -78,9 +78,15 @@
 				GROUP BY `topic_id` ORDER BY `top_level` {$lvCondition} DESC, MAX(`reply`.`time`) DESC LIMIT {$PAGE_ITEMS}";
 		
 			$sql=$pdo->prepare($sqlStmt);
-			$sql->execute();
-			$result=$sql->fetchAll(PDO::FETCH_ASSOC);
-			fire(200, "OK", $result);
+			$succ = $sql->execute();
+			if ($succ) {
+				$result = $sql->fetchAll(PDO::FETCH_ASSOC);
+				fire(200, "OK", $result);
+			} else {
+				$result = $sql->errorInfo();
+				error_log("[E01] api/ajax_discuss.php: ".$result[2]);
+				fire(500, "Error when running SQL query");
+			}
 			break;
 
 		case 'replylist':
@@ -137,8 +143,8 @@
 		case 'postthread':
 			if (is_null($user_id)) fire(403, "Please Login First.");
 			if (!isset($_POST['content']) || !isset($_POST['title'])) fire(400, "Missing required parameters.");
-			$title = htmlspecialchars($_POST['title']);
-			$content = RemoveXSS(UBB2Html(htmlspecialchars($_POST['content'])));
+			$title = htmlspecialchars($_POST['title'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE);
+			$content = RemoveXSS(UBB2Html(htmlspecialchars($_POST['content'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE)));
 			if (empty($title) || empty($content)) fire(400, "Title or content can't be empty.");
 			if (isPostFreqTooHigh($user_id,$FORUM_SUBMIT_DELTATIME,$pdo)) fire(403, "You post too fast, take a rest and try again!");
 			$pidStr = is_null($pid) ? 0 : intval($pid);
