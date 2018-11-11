@@ -72,7 +72,7 @@
 							name="eula" 
 							type="checkbox" 
 							required
-						> <?php echo L_AGREE_EULA;?>
+						> <?php echo L_AGREE_TOS;?>
 					</label>
 					<p class="help-block"></p>
 				</div>

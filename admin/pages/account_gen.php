@@ -10,7 +10,7 @@
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1><?php echo LA_ACCOUNT_GEN;?> <small>Control Panel</small></h1>
+			<h1><?php echo LA_ACCOUNT_GEN;?> <small><?php echo LA_USER_MGR;?></small></h1>
 		</div>
 		<p class="lead">
 			您可以使用账号生成器生成账号，以便用于竞赛或其它用途。

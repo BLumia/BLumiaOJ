@@ -113,9 +113,9 @@
 	const L_PSW_AGAIN	= "Repeat Password";
 	const L_SCHOOL		= "School";
 	const L_EMAIL		= "E-mail";
-	const L_AGREE_EULA	= "Accept End-user license agreements";
-	const L_UID_DV_MSG	= "UserID Should be longer than 3 char.";
-	const L_PSW_DV_MSG	= "Password Should be longer than 6 char.";
+	const L_AGREE_TOS	= "Accept Term of Service";
+	const L_UID_DV_MSG	= "UserID should be longer than 3 char.";
+	const L_PSW_DV_MSG	= "Password should be longer than 6 char.";
 	const L_PSW2_DV_MSG	= "Password NOT Matched";
 	/************* User Page ***************/
 	const L_USER_PAGE	= "User Page";

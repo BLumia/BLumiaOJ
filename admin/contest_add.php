@@ -41,7 +41,7 @@
 	$CONT_E_TIME_MI = "00";
 	$CONT_USERLIST = "";
 	$CONT_PASSWORD = "";
-	$CONT_DESC = "Description of this content goes here.<br/>Place a zipped problemset archive download link with password is also a good idea.";
+	$CONT_DESC = "";
 	$CONT_PERMISSION = 0;
 	//Page Includes
 	require("./pages/contest_mod.php");

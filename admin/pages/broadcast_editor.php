@@ -8,7 +8,7 @@
 	<?php require('./pages/components/offcanvas.php');?>
 	<div class="container" id="mainContent">
 		<div class="page-header">
-			<h1><?php echo LA_CAST_MAN;?> <small>Announcement Editor</small></h1>
+			<h1><?php echo LA_CAST_MAN;?> <small><?php echo LA_PAGE_MODIFIER; ?></small></h1>
 		</div>
 		<p class="lead">
 			<?php echo $page_helper;?>

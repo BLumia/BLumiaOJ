@@ -22,8 +22,8 @@
 							<div class="row">
 							<div class="col-sm-12">
 							<ul class="list-group">
-								<li class="list-group-item">Solved: <?php echo "<a href='status.php?judgeresult=4&pid={$problem_id}'>{$problemInfo['accepted']} Solved</a>";?></li>
-								<li class="list-group-item">Challenged: <?php echo "<a href='status.php?pid={$problem_id}'>{$problemInfo['submit']} Submits</a>";?></li>
+								<li class="list-group-item"><?php echo L_SOLVED;?>: <?php echo "<a href='status.php?judgeresult=4&pid={$problem_id}'>{$problemInfo['accepted']} Solved</a>";?></li>
+								<li class="list-group-item"><?php echo L_CHALLENGED;?>: <?php echo "<a href='status.php?pid={$problem_id}'>{$problemInfo['submit']} Submits</a>";?></li>
 								<?php 
 								if (isset($problemSubmits)) {
 									foreach($problemSubmits as $row){

@@ -4,7 +4,7 @@
 
 感谢您使用 BLumiaOJ 。
 
-BLumiaOJ 是一个开源的，完全重写的，HUSTOJ 兼容的在线评测系统。由于 BLumiaOJ 当前并不包含判题端，当前版本的 BLumiaOJ 仅仅包含一个完整功能的网页站点源码。由于我们兼容 HUSTOJ ，所以，如果你之前正在使用 HUSTOJ ，你可以即刻立即尝试 BLumiaOJ —— 把代码放在您的网页服务器目录下，修改配置文件，就轻松愉快的完成辣！
+BLumiaOJ 是一个自由的，开源的，完全重写的，HUSTOJ 兼容的在线评测系统。由于 BLumiaOJ 当前并不包含判题端，当前版本的 BLumiaOJ 仅仅包含一个完整功能的网页站点源码。由于我们兼容 HUSTOJ ，所以，如果你之前正在使用 HUSTOJ ，你可以即刻立即尝试 BLumiaOJ —— 把代码放在您的网页服务器目录下，修改配置文件，就轻松愉快的完成辣！
 
 这里有一些或许有用的信息。
 
@@ -22,7 +22,7 @@ BLumiaOJ 是一个开源的，完全重写的，HUSTOJ 兼容的在线评测系�
  - [Bootstrap 3](https://getbootstrap.com/) 我们使用了 Twitter 公司的 bootstrap 3 来构建前端页面.
  - [jQuery](https://jquery.com/) 我们使用 jQuery 来更方便的直接操作 DOM 以及使用网络异步加载内容.
  - [Code Prettify](https://github.com/google/code-prettify) 我们使用 Google 的 Code Prettify 来进行代码高亮.
- - [Highcharts](https://www.highcharts.com/) 我们使用 Highcharts 来展示图表.
+ - [Highcharts](https://www.highcharts.com/) 我们使用 Highcharts 来展示图表（注意，这是非自由软件）.
  - [FontAwesome](http://fontawesome.io/) 我们使用 FontAwesome 的图标提高用户体验.
  - [NProgress](https://ricostacruz.com/nprogress/) 我们使用 NProgress 来提示用户部分页面的加载情况.
  - [Summernote](http://summernote.org/) 我们使用 Summernote 作为后台的富文本编辑器

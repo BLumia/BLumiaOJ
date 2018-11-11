@@ -86,7 +86,7 @@
 			<div class="row">
 				<div class="col-sm-8">
 					<label><?php echo L_CONTEST_DESC;?>:</label>
-					<textarea class="summernote" name="contest_desc"><?php echo $CONT_DESC;?></textarea>
+					<textarea class="summernote" name="contest_desc" placeholder="Description of this content goes here. Place a zipped problemset archive download link with password is also a good idea."><?php echo $CONT_DESC;?></textarea>
 				</div>
 				<div class="col-sm-4">
 					<label>User List (if Private):</label>

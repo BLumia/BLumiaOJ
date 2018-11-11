@@ -24,13 +24,13 @@
 				</div>
 				<div class="col-md-3 col-sm-3">
 					<div class="panel">
-						<p class="text-info"><b>User Name: </b><code><?php echo $code_author;?></code></p>
-						<p class="text-info"><b>Time: </b><code><?php echo $code_date;?></code></p> 
-						<p class="text-info"><b>Language: </b><code><?php echo $LANGUAGE_NAME[$code_lang];?></code></p>
+						<p class="text-info"><b><?php echo L_UID;?>: </b><code><?php echo $code_author;?></code></p>
+						<p class="text-info"><b><?php echo L_SUBMIT_TIME;?>: </b><code><?php echo $code_date;?></code></p> 
+						<p class="text-info"><b><?php echo L_COMPILER;?>: </b><code><?php echo $LANGUAGE_NAME[$code_lang];?></code></p>
 						
-						<p class="text-info"><b>Judge Result: </b><code><?php echo $code_result;?></code></p>
-						<p class="text-info"><b>Time Cost: </b><code><?php echo $code_time." MS";?></code></p> 
-						<p class="text-info"><b>Memory Cost: </b><code><?php echo $code_memory." KB";?></code></p>
+						<p class="text-info"><b><?php echo L_RESULT;?>: </b><code><?php echo $code_result;?></code></p>
+						<p class="text-info"><b><?php echo L_TIME_COST;?>: </b><code><?php echo $code_time." MS";?></code></p> 
+						<p class="text-info"><b><?php echo L_MEMORY;?>: </b><code><?php echo $code_memory." KB";?></code></p>
 					</div>
 				</div>
 			</div>

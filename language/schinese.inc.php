@@ -113,7 +113,7 @@
 	const L_PSW_AGAIN	= "再次输入密码";
 	const L_SCHOOL		= "学校";
 	const L_EMAIL		= "电子邮箱";
-	const L_AGREE_EULA	= "同意 最终用户许可协议";
+	const L_AGREE_TOS	= "同意 服务条款";
 	const L_UID_DV_MSG	= "用户ID 长度应当超过 3 个字符.";
 	const L_PSW_DV_MSG	= "密码应当至少包括 6 个字符.";
 	const L_PSW2_DV_MSG	= "两次输入的密码不匹配";
